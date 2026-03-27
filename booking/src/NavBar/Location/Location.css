@@ -16,7 +16,10 @@
   width: 70%;
   padding: 25px;
   border-radius: 12px;
+   max-height: 80vh;      /* limit height */
+  overflow-y: auto; 
 }
+
 
 .city-search {
   width: 100%;
@@ -65,8 +68,13 @@
 .other-cities {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 40px;
+  gap: 30px;
   margin-top: 20px;
+}
+.other-cities p {
+  color: #333;        /* ✅ dark text */
+  font-size: 14px;
+  margin: 6px 0;
 }
 
 .other-title {
