@@ -16,34 +16,28 @@ const App = () => {
   const [openLogin, setOpenLogin] = useState(false);
 
   return (
-    <div>
+  <div>
 
-      <Navbar />
+    {/* ✅ ONLY ONE NAVBAR */}
+    <Navbar onLoginClick={() => setOpenLogin(true)} />
 
+    {/* Routes */}
+    <Routes>
+      <Route path='/' element={<Homepage />} />
+      <Route path='/movies' element={<Movies />} />
+      <Route path='/concerts' element={<Concerts />} />
+      <Route path='/comedyshow' element={<ComedyShow />} />
+      <Route path='/sports' element={<Sports />} />
+      <Route path='/adventure' element={<Adventure />} />
+      <Route path='/kids' element={<Kids />} />
+    </Routes>
 
-      {/* Navbar */}
-      <Navbar onLoginClick={() => setOpenLogin(true)} />
+    {/* Login Popup */}
+    {openLogin && (
+      <LoginModal close={() => setOpenLogin(false)} />
+    )}
 
-      {/* Routes */}
-
-      <Navbar />
-
-      <Routes>
-        <Route path='/' element={<Homepage />} />
-        <Route path='/movies' element={<Movies />} />
-        <Route path='/concerts' element={<Concerts />} />
-        <Route path='/comedyshow' element={<ComedyShow />} />
-        <Route path='/sports' element={<Sports />} />
-        <Route path='/adventure' element={<Adventure />} />
-        <Route path='/kids' element={<Kids />} />
-      </Routes>
-
-      {/* Login Popup */}
-      {openLogin && (
-        <LoginModal close={() => setOpenLogin(false)} />
-      )}
-    </div>
+  </div>
   );
 };
-
 export default App;
