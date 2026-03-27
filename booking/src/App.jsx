@@ -17,18 +17,17 @@ const App = () => {
 
   return (
     <div>
-<<<<<<< HEAD
+
       <Navbar />
-=======
-<<<<<<< HEAD
+
+
       {/* Navbar */}
       <Navbar onLoginClick={() => setOpenLogin(true)} />
 
       {/* Routes */}
-=======
+
       <Navbar />
->>>>>>> 77e0be5 (initial changes)
->>>>>>> b79e635
+
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/movies' element={<Movies />} />
