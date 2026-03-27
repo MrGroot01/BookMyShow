@@ -11,21 +11,35 @@ import "swiper/css/pagination";
 const Homepage = () => {
   const banners = [
     {
-      img: "https://images.unsplash.com/photo-1502139214982-d0ad755818d8",
-      title: "First Slide",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPy0QB6iKP7gCAbb95xPdX7sUp1QBoetv-Pw&s?w=1920&q=80",
+      title: "SPORTS EVENTS",
+      desc: "Catch the action live",
     },
     {
-      img: "https://images.unsplash.com/photo-1524985069026-dd778a71c7b4",
-      title: "Second Slide",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrCH89RdspGSW52lVmFjtzXidqWc9X3mQ27A&s?w=1920&q=80",
+      title: "LIVE CONCERTS",
+      desc: "Feel the music",
     },
     {
-      img: "https://images.unsplash.com/photo-1497032205916-ac775f0649ae",
-      title: "Third Slide",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6GjcIgUTfENY8Uqc2B6IQPRJ0Ut6ixqNTyg&s?w=1920&q=10",
+      title: "MOVIE PREMIERES",
+      desc: "Book your tickets now",
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4y84hvL__laAQl6ItYrR0wEGp2QhgZN1H7w&s?w=1920&q=80",
+      title: "Plays ",
+      desc: "Book your tickets now",
+    },
+    {
+      img: "https://modusdirect.com/wp-content/uploads/2024/12/offers.jpg?w=1920&q=80",
+      title: "Offers",
+      desc: "Book your tickets now",
     },
   ];
 
   return (
     <div className="homepage">
+
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         slidesPerView={1}
@@ -36,18 +50,23 @@ const Homepage = () => {
       >
         {banners.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="slide">
+            <div className="hero-slide">
               <img src={item.img} alt="banner" />
 
               {/* Overlay */}
               <div className="overlay"></div>
 
-              {/* Text */}
-              <h1 className="slide-text">{item.title}</h1>
+              {/* CENTER CONTENT */}
+              <div className="hero-content-center">
+                <h1>{item.title}</h1>
+                <p>{item.desc}</p>
+                <button className="book-btn">Book Now</button>
+              </div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
+
     </div>
   );
 };
