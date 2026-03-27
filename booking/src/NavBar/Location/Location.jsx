@@ -120,7 +120,7 @@ const Location = ({ setShowLocation, setLocation }) => {
 {/* OTHER CITIES GRID */}
 {showAllCities && (
   <div className="other-cities">
-
+    other cities
     <div>
       <p>Aalo</p>
       <p>Addanki</p>
