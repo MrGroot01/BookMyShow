@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
+import Navbar from "./NavBar/Navbar";
 
-const App = () => {
+function App() {
   return (
     <div>
-      <h1>hello</h1>
+      <Navbar />
+      <h1 style={{ textAlign: "center" }}> </h1>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
