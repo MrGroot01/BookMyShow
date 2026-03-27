@@ -1,112 +1,58 @@
-// import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-// import "./Navbar.css";
 
-// const Navbar = () => {
-//   const [search, setSearch] = useState("");
-//   const [location, setLocation] = useState("");
-
-//   return (
-//     <nav className="navbar">
-//       {/* Logo */}
-//       <div className="nav-logo">
-//         <Link to="/">MyApp</Link>
-//       </div>
-
-//       {/* Search */}
-//       <div className="nav-search">
-//         <input
-//           type="text"
-//           placeholder="Search movies..."
-//           value={search}
-//           onChange={(e) => setSearch(e.target.value)}
-//         />
-//       </div>
-
-//       {/* Location */}
-//       <div className="nav-location">
-//         <select
-//           value={location}
-//           onChange={(e) => setLocation(e.target.value)}
-//         >
-//           <option value="">Select Location</option>
-//           <option value="Chennai">Chennai</option>
-//           <option value="Bangalore">Bangalore</option>
-//           <option value="Hyderabad">Hyderabad</option>
-//         </select>
-//       </div>
-
-//       {/* Links */}
-//       <div className="nav-links">
-//         <Link to="/movies">Movies</Link>
-//         <Link to="/login">Login</Link>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./Navbar.css";
+import Location from "./Location/Location";
 
 const Navbar = () => {
-  const [search, setSearch] = useState("");
   const [location, setLocation] = useState("Bengaluru");
+  const [showLocation, setShowLocation] = useState(false);
 
   return (
-    <nav className="navbar">
-
-      {/* LEFT SECTION */}
-      <div className="nav-left">
-        {/* Logo */}
-        <div className="nav-logo">
-          <Link to="/" className="logo-text">
+    <>
+      <nav className="navbar">
+        
+        <div className="nav-left">
+          <a href="/" className="logo-text">
             book<span className="logo-highlight">my</span>show
-          </Link>
+          </a>
+
+          <div className="nav-search">
+            <input placeholder="Search for Movies, Events, Plays, Sports and Activities" />
+          </div>
         </div>
 
-        {/* Search */}
-        <div className="nav-search">
-          <input
-            type="text"
-            placeholder="Search............................................"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-      </div>
+        <div className="nav-right">
+          
+          <a href="#" className="movies-link">Movies</a>
 
-      {/* RIGHT SECTION */}
-      <div className="nav-right">
-
-        {/* Movies Link */}
-        <Link to="/movies" className="movies-link">
-          Movies
-        </Link>
-
-        {/* Location */}
-        <div className="nav-location">
-          <select
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
+          {/* CLICK LOCATION */}
+          <div
+            className="nav-location"
+            onClick={() => setShowLocation(true)}
           >
-            <option value="Bengaluru">Bengaluru</option>
-            <option value="Chennai">Chennai</option>
-            <option value="Hyderabad">Hyderabad</option>
-          </select>
-        </div>
+            <select value={location}>
+              <option>Bengaluru</option>
+              <option>Mumbai</option>
+              <option>Delhi</option>
+              <option>Hyderabad</option>
+              <option>Chennai</option>
+              <option>Kolkata</option>
+            </select>
+          </div>
 
-        {/* Login */}
-        <div className="nav-links">
-          <Link to="/login">
-            <button className="login-btn">Sign in</button>
-          </Link>
+          <button className="login-btn">Sign in</button>
         </div>
+      </nav>
 
-      </div>
-    </nav>
+      {/* POPUP */}
+      {showLocation && (
+        <Location
+          setShowLocation={setShowLocation}
+          setLocation={setLocation}
+        />
+      )}
+    </>
   );
 };
 

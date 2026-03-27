@@ -10,7 +10,6 @@ const App = () => {
   return (
     <div>
       <Navbar />
-
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='movies' element={<Movies />} />
