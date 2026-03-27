@@ -1,13 +1,21 @@
-import React from "react";
-import Navbar from "./NavBar/Navbar";
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Navbar from './NavBar/Navbar'
+import Homepage from './Components/HomePage/Homepage'
+import Movies from './Components/Movies/Movies'
+import Login from './NavBar/Login/Login'
 
-function App() {
+const App = () => {
   return (
     <div>
       <Navbar />
-      <h1 style={{ textAlign: "center" }}> </h1>
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+        <Route path='movies' element={<Movies />} />
+        <Route path='login' element={<Login />} />
+      </Routes>
     </div>
-  );
+  )
 }
 
 export default App;
