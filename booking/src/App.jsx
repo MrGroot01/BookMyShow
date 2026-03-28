@@ -19,10 +19,8 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={<Homepage />} />
-<<<<<<< HEAD
         <Route path='movies' element={<Movies />} />
         <Route path='login' element={<Login />} />
-=======
         <Route path='/movies' element={<Movies />} />
         <Route path='/login' element={<Login />} />
         <Route path='/concerts' element={<Concerts/>} />
@@ -30,7 +28,6 @@ const App = () => {
         <Route path='/sports' element={<Sports/>} />
         <Route path='/adventure' element={<Adventure/>} />
         <Route path='/kids' element={<Kids/>} />
->>>>>>> e187545d0a175061e294ad7d92e5d59c86a18758
       </Routes>
 
     </div>
