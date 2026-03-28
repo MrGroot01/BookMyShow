@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import Location from "./Location/Location";
 
@@ -7,6 +8,21 @@ const Navbar = ({ onLoginClick }) => {
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("Bengaluru");
   const [showLocation, setShowLocation] = useState(false);
+  const navigate = useNavigate();
+
+const handleSearch = () => {
+  const value = search.toLowerCase();
+
+  if (value.includes("movie")) {
+    navigate("/movies");
+  } else if (value.includes("event")) {
+    navigate("/events");
+  } else if (value.includes("sport")) {
+    navigate("/sports");
+  } else {
+    alert("No results found");
+  }
+};
 
   return (
     <>
@@ -19,12 +35,18 @@ const Navbar = ({ onLoginClick }) => {
           </Link>
 
           <div className="nav-search">
+            
             <input
-              type="text"
-              placeholder="Search for Movies, Events, Plays..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
+  type="text"
+  placeholder="Search for Movies, Events, Plays..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  onKeyDown={(e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  }}
+/>
           </div>
         </div>
         
