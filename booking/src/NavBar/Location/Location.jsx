@@ -1,25 +1,40 @@
-import React, {useState} from "react"
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Location.css";
 
 const Location = ({ setShowLocation, setLocation }) => {
-    const [showAllCities, setShowAllCities] = useState(true);
-    const navigate = useNavigate(); // ✅ ADD THIS
 
-  // ✅ ADD THIS FUNCTION
+  const [showAllCities, setShowAllCities] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(""); // ✅ SEARCH STATE
+  const navigate = useNavigate();
+
+  // ✅ CURRENT LOCATION (REAL CITY NAME)
   const handleCurrentLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
 
-          setLocation(`Lat: ${lat.toFixed(2)}, Lon: ${lon.toFixed(2)}`);
+        try {
+          const res = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`
+          );
+          const data = await res.json();
+
+          const city =
+            data.address.city ||
+            data.address.town ||
+            data.address.village ||
+            "Your Location";
+
+          setLocation(city);
           setShowLocation(false);
-          navigate("/movies"); // redirect
-        },
-        () => alert("Unable to fetch location")
-      );
+          navigate("/movies");
+
+        } catch (err) {
+          alert("Location fetch failed");
+        }
+      });
     }
   };
   const cities = [
@@ -73,111 +88,117 @@ const Location = ({ setShowLocation, setLocation }) => {
     },
   ];
 
+
+  // ✅ SEARCH FILTER (handles bengalore typo also)
+  const filteredCities = cities.filter((city) =>
+    city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    searchTerm.toLowerCase().includes(city.name.toLowerCase())
+  );
+
   return (
-    <div 
-  className="modal-overlay"
-  onClick={() => setShowLocation(false)}
->
-      <div 
-  className="modal-container"
-  onClick={(e) => e.stopPropagation()}
->
+    <div className="modal-overlay" onClick={() => setShowLocation(false)}>
+
+      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
 
         <h2>Select Location</h2>
 
+        {/* ✅ SEARCH INPUT */}
         <input
           className="city-search"
           placeholder="Search city, area or locality"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
 
-        <p 
-  className="current-location"
-  onClick={handleCurrentLocation}
->
-  📍 Use Current Location
-</p>
+        {/* ✅ CURRENT LOCATION */}
+        <p className="current-location" onClick={handleCurrentLocation}>
+          📍 Use Current Location
+        </p>
 
         <h3>Popular Cities</h3>
 
+        {/* ✅ FILTERED RESULTS */}
         <div className="city-grid">
-          {cities.map((city) => (
+          {filteredCities.map((city) => (
             <div
               key={city.name}
               className="city-card"
               onClick={() => {
                 setLocation(city.name);
                 setShowLocation(false);
+                navigate("/movies");
               }}
             >
               <img src={city.img} alt={city.name} />
               <p>{city.name}</p>
             </div>
           ))}
-        </div>   {/* city-grid ends here */}
-        {/* OTHER CITIES TITLE */}
-{showAllCities && <h3 className="other-title">Other Cities</h3>}
+        </div>
 
-{/* OTHER CITIES GRID */}
-{showAllCities && (
-  <div className="other-cities">
-    <div>
-      <p>Aalo</p>
-      <p>Addanki</p>
-      <p>Agar Malwa</p>
-      <p>Ahmedgarh</p>
-      <p>Akbarpur</p>
-      <p>Alakode</p>
-      <p>Alibaug</p>
-    </div>
+        {/* ✅ OTHER CITIES */}
+        {showAllCities && <h3 className="other-title">Other Cities</h3>}
 
-    <div>
-      <p>Abohar</p>
-      <p>Adilabad</p>
-      <p>Agartala</p>
-      <p>Ahore</p>
-      <p>Akividu</p>
-      <p>Alangudi</p>
-      <p>Aligarh</p>
-    </div>
+        {showAllCities && (
+          <div className="other-cities">
+            <div>
+              <p>Aalo</p>
+              <p>Addanki</p>
+              <p>Agar Malwa</p>
+              <p>Ahmedgarh</p>
+              <p>Akbarpur</p>
+              <p>Alakode</p>
+              <p>Alibaug</p>
+            </div>
 
-    <div>
-      <p>Abu Road</p>
-      <p>Adimali</p>
-      <p>Agiripalli</p>
-      <p>Aizawl</p>
-      <p>Akluj</p>
-      <p>Alangulam</p>
-      <p>Alipurduar</p>
-    </div>
+            <div>
+              <p>Abohar</p>
+              <p>Adilabad</p>
+              <p>Agartala</p>
+              <p>Ahore</p>
+              <p>Akividu</p>
+              <p>Alangudi</p>
+              <p>Aligarh</p>
+            </div>
 
-    <div>
-      <p>Achampet</p>
-      <p>Adipur</p>
-      <p>Agra</p>
-      <p>Ajmer</p>
-      <p>Akola</p>
-      <p>Alappuzha</p>
-      <p>Allagadda</p>
-    </div>
+            <div>
+              <p>Abu Road</p>
+              <p>Adimali</p>
+              <p>Agiripalli</p>
+              <p>Aizawl</p>
+              <p>Akluj</p>
+              <p>Alangulam</p>
+              <p>Alipurduar</p>
+            </div>
 
-    <div>
-      <p>Acharapakkam</p>
-      <p>Adoni</p>
-      <p>Ahilyanagar (Ahmednagar)</p>
-      <p>Akaltara</p>
-      <p>Akot</p>
-      <p>Alathur</p>
-      <p>Almora</p>
-    </div>
+            <div>
+              <p>Achampet</p>
+              <p>Adipur</p>
+              <p>Agra</p>
+              <p>Ajmer</p>
+              <p>Akola</p>
+              <p>Alappuzha</p>
+              <p>Allagadda</p>
+            </div>
 
-  </div>
-)}
-        <p 
-  className="hide-cities"
-  onClick={() => setShowAllCities(!showAllCities)}
->
-  {showAllCities ? "Hide all cities" : "Show all cities"}
-</p>
+            <div>
+              <p>Acharapakkam</p>
+              <p>Adoni</p>
+              <p>Ahilyanagar (Ahmednagar)</p>
+              <p>Akaltara</p>
+              <p>Akot</p>
+              <p>Alathur</p>
+              <p>Almora</p>
+            </div>
+          </div>
+        )}
+
+        {/* ✅ TOGGLE BUTTON */}
+        <p
+          className="hide-cities"
+          onClick={() => setShowAllCities(!showAllCities)}
+        >
+          {showAllCities ? "Hide all cities" : "Show all cities"}
+        </p>
 
       </div>
     </div>
