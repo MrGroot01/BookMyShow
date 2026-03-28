@@ -39,7 +39,7 @@
   text-decoration: none;
 } */
  .logo img {
-  height: 50px;   /* adjust size */
+  height: 40px;   /* adjust size */
   width: auto;
   cursor: pointer;
 }
@@ -122,7 +122,7 @@
   width: 100%;
   background-color: #ffffff;
   border-bottom: 1px solid #eee;
-  padding: 10px 0;
+  padding: 10px 40px;
 }
 /* .sub-link {
   text-decoration: none;
@@ -156,6 +156,11 @@
 .sub-right span {
   margin-right: 20px;
   cursor: pointer;
+}
+.sub-right{
+  margin-left: 20px;
+
+
 }
 
 .sub-left span:hover,

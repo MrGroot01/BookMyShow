@@ -86,16 +86,26 @@ const handleSearch = () => {
           <Link to="/movies" className="sub-link">
             Movies
           </Link>
-          <span>Stream</span>
-          <span>Events</span>
-          <span>Plays</span>
-          <span>Sports</span>
-          <span>Activities</span>
+          <Link to="/concerts" className="sub-link">
+            Concerts
+          </Link>
+          
+          <Link to="/comedyshow" className="sub-link">
+            Comedyshow
+          </Link>
+          <Link to="/sports" className="sub-link">
+            Sports
+          </Link>
+  
         </div>
 
         <div className="sub-right">
-          <span>ListYourShow</span>
-          <span>Corporates</span>
+          <Link to="/adventure" className="sub-link">
+            Adventure
+          </Link>
+          <Link to="/kids" className="sub-link">
+            Kids
+          </Link>
           <span>Offers</span>
           <span>Gift Cards</span>
         </div>
