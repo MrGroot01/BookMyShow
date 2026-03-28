@@ -1,57 +1,64 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import Location from "./Location/Location";
 
 const Navbar = ({ onLoginClick }) => {
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("Bengaluru");
+  const [showLocation, setShowLocation] = useState(false);
 
   return (
-    <nav className="navbar">
+    <>
+      <nav className="navbar">
 
-      <div className="nav-left">
-        <div className="nav-logo">
+        {/* LEFT */}
+        <div className="nav-left">
           <Link to="/" className="logo-text">
             book<span className="logo-highlight">my</span>show
           </Link>
+
+          <div className="nav-search">
+            <input
+              type="text"
+              placeholder="Search for Movies, Events, Plays..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
         </div>
 
-        <div className="nav-search">
-          <input
-            type="text"
-            placeholder="Search..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-      </div>
+        {/* RIGHT */}
+        <div className="nav-right">
 
-      <div className="nav-right">
+          <Link to="/movies" className="movies-link">
+            Movies
+          </Link>
 
-        <Link to="/movies" className="movies-link">
-          Movies
-        </Link>
-
-        <div className="nav-location">
-          <select
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
+          {/* LOCATION CLICK */}
+          <div
+            className="nav-location"
+            onClick={() => setShowLocation(true)}
           >
-            <option>Bengaluru</option>
-            <option>Chennai</option>
-            <option>Hyderabad</option>
-          </select>
-        </div>
+            <span>{location} ⌄</span>
+          </div>
 
-        {/* LOGIN BUTTON */}
-        <div className="nav-links">
+          {/* LOGIN BUTTON */}
           <button className="login-btn" onClick={onLoginClick}>
             Sign in
           </button>
-        </div>
 
-      </div>
-    </nav>
+        </div>
+      </nav>
+
+      {/* LOCATION POPUP */}
+      {showLocation && (
+        <Location
+          setShowLocation={setShowLocation}
+          setLocation={setLocation}
+        />
+      )}
+    </>
   );
 };
 
