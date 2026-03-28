@@ -7,6 +7,12 @@ const Location = ({ setShowLocation, setLocation }) => {
   const [showAllCities, setShowAllCities] = useState(true);
   const [searchTerm, setSearchTerm] = useState(""); // ✅ SEARCH STATE
   const navigate = useNavigate();
+   // ✅ HANDLE CLICK FOR ANY CITY
+  const handleCityClick = (cityName) => {
+    setLocation(cityName);
+    setShowLocation(false);
+    navigate("/movies");
+  };
 
   // ✅ CURRENT LOCATION (REAL CITY NAME)
   const handleCurrentLocation = () => {
@@ -138,6 +144,7 @@ const Location = ({ setShowLocation, setLocation }) => {
         {/* ✅ OTHER CITIES */}
         {showAllCities && <h3 className="other-title">Other Cities</h3>}
 
+
         {showAllCities && (
           <div className="other-cities">
             <div>
@@ -191,6 +198,19 @@ const Location = ({ setShowLocation, setLocation }) => {
             </div>
           </div>
         )}
+        {showAllCities && (
+          <div className="other-cities">
+            {otherCities.map((group, i) => (
+              <div key={i}>
+                {group.map((city) => (
+                  <p key={city} onClick={() => handleCityClick(city)}>
+                    {city}
+                  </p>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* ✅ TOGGLE BUTTON */}
         <p
@@ -206,3 +226,4 @@ const Location = ({ setShowLocation, setLocation }) => {
 };
 
 export default Location;
+
