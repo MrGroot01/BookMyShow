@@ -39,7 +39,7 @@
   text-decoration: none;
 } */
  .logo img {
-  height: 35px;   /* adjust size */
+  height: 50px;   /* adjust size */
   width: auto;
   cursor: pointer;
 }
