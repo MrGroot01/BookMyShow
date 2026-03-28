@@ -31,9 +31,9 @@ const Navbar = ({ onLoginClick }) => {
         {/* RIGHT */}
         <div className="nav-right">
 
-          <Link to="/movies" className="movies-link">
+          {/* <Link to="/movies" className="movies-link">
             Movies
-          </Link>
+          </Link> */}
 
           {/* LOCATION CLICK */}
           <div
@@ -55,7 +55,9 @@ const Navbar = ({ onLoginClick }) => {
       <div className="sub-navbar">
 
         <div className="sub-left">
-          <span>Movies</span>
+          <Link to="/movies" className="sub-link">
+            Movies
+          </Link>
           <span>Stream</span>
           <span>Events</span>
           <span>Plays</span>
