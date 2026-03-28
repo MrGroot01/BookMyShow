@@ -51,6 +51,26 @@ const Navbar = ({ onLoginClick }) => {
         </div>
       </nav>
 
+{/* 🔵 SECOND NAVBAR */}
+      <div className="sub-navbar">
+
+        <div className="sub-left">
+          <span>Movies</span>
+          <span>Stream</span>
+          <span>Events</span>
+          <span>Plays</span>
+          <span>Sports</span>
+          <span>Activities</span>
+        </div>
+
+        <div className="sub-right">
+          <span>ListYourShow</span>
+          <span>Corporates</span>
+          <span>Offers</span>
+          <span>Gift Cards</span>
+        </div>
+
+      </div>
       {/* LOCATION POPUP */}
       {showLocation && (
         <Location

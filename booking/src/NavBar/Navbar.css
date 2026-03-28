@@ -88,3 +88,49 @@
 .login-btn:hover {
   background-color: #d73754;
 }
+
+/* 🔵 SECOND NAVBAR */
+.sub-navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+/* LEFT SIDE */
+.sub-left {
+  display: flex;
+  gap: 20px;
+}
+
+.sub-left span {
+  cursor: pointer;
+  color: #333;
+}
+
+.sub-left span:hover {
+  color: #f84464;
+}
+
+/* RIGHT SIDE */
+.sub-right {
+  display: flex;
+  gap: 20px;
+}
+
+.sub-right span {
+  cursor: pointer;
+  color: #666;
+}
+
+.sub-right span:hover {
+  color: #f84464;
+}
+
+/* MENU ICON */
+.menu-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
