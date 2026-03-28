@@ -31,7 +31,7 @@ const handleSearch = () => {
         {/* LEFT */}
         <div className="nav-left">
           <Link to="/" className="logo-text">
-            book<span className="logo-highlight">my</span>show
+            my<span className="logo-highlight"></span>
           </Link>
 
           <div className="nav-search">
