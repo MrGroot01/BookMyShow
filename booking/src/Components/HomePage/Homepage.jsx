@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const heroSlides = [
   {
-    img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1920&q=80",
+    img: "https://www.stage32.com/sites/stage32.com/files/cake/6386b2c319713.jpg",
     tag: "Now Showing",
     title: ["MOVIES", "& BEYOND"],
     sub: "Your city never sleeps. Discover live events, movies, concerts and plays — all in one place.",
@@ -17,13 +17,13 @@ const heroSlides = [
     sub: "Catch your favourite artists perform live. From indie to Bollywood — find the gig.",
   },
   {
-    img: "https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?w=1920&q=80",
+    img: "https://images.openai.com/static-rsc-4/OkLYX5MhABPoONdBqeypu7qnyWEmG-taystWFXnRwDWuL6CZ627j_kU9KJY2xvbSw9fgC8v3l4jPhEz2ozrQM-w6wi0qXa_CBqrkliinDfWodV56ibUECXhZh1BVNXVJwRrn8fylQnWzrPepxb2cp6r6JIaHArUcjFJ4ZpdQI71KpztISGFu1VSeEWpsXqsV?purpose=fullsize",
     tag: "Top Sports",
     title: ["THRILL OF", "LIVE SPORT"],
     sub: "IPL, chess, basketball and more. Book your courtside experience today.",
   },
   {
-    img: "https://images.unsplash.com/photo-1503095396549-807759245b35?w=1920&q=80",
+    img: "https://images.unsplash.com/photo-1627787073760-20934bf2114e?q=80&w=672&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     tag: "Theatre Plays",
     title: ["STORIES", "ON STAGE"],
     sub: "English, Hindi, Kannada, Tamil — world-class theatre right in your city.",
@@ -449,7 +449,7 @@ const HomePage = () => {
       {/* PLAYS */}
       <FadeUp>
         <section>
-          <SectionHeader title="LATEST" accent="ComedyShow" path="/comedyshow" />
+          <SectionHeader title="LATEST" accent="ComedyShow" path="/comedy" />
           <div className="plays-grid">
             {plays.map((p) => (
               <div key={p.name} className="play-card">
