@@ -30,9 +30,12 @@ const handleSearch = () => {
        <div className="container">
         {/* LEFT */}
         <div className="nav-left">
-          <Link to="/" className="logo-text">
+          {/* <Link to="/" className="logo-text">
             my<span className="logo-highlight"></span>
-          </Link>
+          </Link> */}
+          <a href="/" className="logo">
+  <img src={"https://static.vecteezy.com/system/resources/previews/050/816/799/non_2x/bookmyshow-transparent-icon-free-png.png"} alt="logo" />
+</a>
 
           <div className="nav-search">
             
