@@ -11,7 +11,7 @@ const Navbar = ({ onLoginClick }) => {
   return (
     <>
       <nav className="navbar">
-
+       <div className="container">
         {/* LEFT */}
         <div className="nav-left">
           <Link to="/" className="logo-text">
@@ -27,6 +27,7 @@ const Navbar = ({ onLoginClick }) => {
             />
           </div>
         </div>
+        
 
         {/* RIGHT */}
         <div className="nav-right">
@@ -49,10 +50,12 @@ const Navbar = ({ onLoginClick }) => {
           </button>
 
         </div>
+        </div>
       </nav>
 
 {/* 🔵 SECOND NAVBAR */}
       <div className="sub-navbar">
+        <div className="container">
 
         <div className="sub-left">
           <Link to="/movies" className="sub-link">
@@ -71,7 +74,7 @@ const Navbar = ({ onLoginClick }) => {
           <span>Offers</span>
           <span>Gift Cards</span>
         </div>
-
+</div>
       </div>
       {/* LOCATION POPUP */}
       {showLocation && (
