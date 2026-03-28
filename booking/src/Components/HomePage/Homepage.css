@@ -31,6 +31,8 @@ body {
 /* ── HERO ── */
 .homepage {
   margin-top: 0;
+  
+  
 }
 
 .hero {
@@ -255,6 +257,7 @@ body {
 /* ── SECTIONS ── */
 section {
   padding: 70px 80px;
+  /* margin: 30px 0;  */
 }
 
 .sec-header {
@@ -323,7 +326,17 @@ section {
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
 }
-
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #e63946;
+  color: white;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
 .movie-card {
   position: relative;
   cursor: pointer;
@@ -404,6 +417,157 @@ section {
   transition: transform 0.3s;
 }
 .movie-card:hover .card-hover-btn button { transform: translateY(0); }
+
+/* ===== UPCOMING CAROUSEL WRAPPER ===== */
+.carousel-wrapper {
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+}
+
+.carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 15px 0;
+  align-items: stretch;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+/* ===== LIKE BADGE ===== */
+.like-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  color: #00ff88;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* OPTIONAL HOVER EFFECT */
+.up-card:hover .like-badge {
+  background: #00ff88;
+  color: black;
+}
+/* ===== CARD ===== */
+.up-card {
+  flex: 0 0 200px;
+  height: 300px;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  background: #111;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.up-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== IMAGE ===== */
+.up-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.up-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.95);
+}
+
+/* ===== OVERLAY ===== */
+.up-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: white;
+}
+
+/* TITLE */
+.up-overlay h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* 🎬 RELEASE */
+.up-overlay .release {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 3px;
+}
+
+/* 👍 LIKES (FINAL STYLE) */
+.up-overlay .likes {
+  font-size: 12px;
+  color: #00ff88;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* ALIGN ICON + TEXT */
+.up-overlay p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ===== ARROWS ===== */
+.arrow {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+/* 🔥 ARROW HOVER */
+.arrow:hover {
+  background: #e63946;
+}
+
+/* POSITION */
+.arrow.left {
+  left: -10px;
+}
+
+.arrow.right {
+  right: -10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .up-card {
+    flex: 0 0 140px;
+    height: 220px;
+  }
+
+  .arrow {
+    display: none;
+  }
+}
 
 /* ── EVENT CARDS ── */
 .events-grid {
@@ -766,6 +930,7 @@ footer {
 /* ── FADE UP ANIMATION ── */
 .fade-up {
   opacity: 0;
+   /* margin-bottom: 30px;  */
   transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }

@@ -33,7 +33,12 @@ const heroSlides = [
 const categories = [
   { icon: "🎬", label: "Movies", count: "120+ Now Showing", path: "/movies" },
   { icon: "🎵", label: "Concerts", count: "45+ Events", path: "/concerts" },
-  { icon: "😂", label: "Comedy Shows", count: "185+ Events", path: "/comedyshow" },
+  {
+    icon: "😂",
+    label: "Comedy Shows",
+    count: "185+ Events",
+    path: "/comedyshow",
+  },
   { icon: "🎭", label: "Theatre Plays", count: "70+ Shows", path: "/plays" },
   { icon: "⚽", label: "Sports", count: "30+ Events", path: "/sports" },
   { icon: "🎡", label: "Adventure", count: "275+ Events", path: "/adventure" },
@@ -41,60 +46,117 @@ const categories = [
 ];
 const movies = [
   {
-    img: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&q=80",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFjipISzZjzXAASttdzsb64dz4EliLDSQpBQ&s",
+    cat: "Trending",
     genre: "Action / Thriller",
     name: "Dhurandhar The Revenge",
     rating: "9.5",
     votes: "352K",
   },
   {
-    img: "https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=400&q=80",
+    img: "https://m.media-amazon.com/images/M/MV5BNWNmOWQ0NjUtMzRiZi00MWIxLTg5YTgtYzI1ODYwZWNlMzk5XkEyXkFqcGc@._V1_.jpg",
+    cat: "Trending",
     genre: "Drama / Family",
     name: "Love Mocktail 3",
     rating: "9.3",
     votes: "7.9K",
   },
   {
-    img: "https://images.unsplash.com/photo-1615462820839-85a3faef3083?w=400&q=80",
+    img: "https://champaca.in/cdn/shop/products/81Ck2nTaH2L_1024x1024@2x.jpg?v=1679641791",
+    cat: "Trending",
     genre: "Sci-Fi / Adventure",
     name: "Project Hail Mary",
     rating: "9.0",
     votes: "5.4K",
   },
   {
-    img: "https://images.unsplash.com/photo-1560109947-543149eceb16?w=400&q=80",
+    img: "https://m.media-amazon.com/images/M/MV5BNDZmZTlmNDAtZGM4MS00MmVkLWEzMjEtMmNlOWI0ZjIzYzlhXkEyXkFqcGc@._V1_.jpg",
     genre: "Comedy / Romantic",
     name: "Youth",
     rating: "8.9",
     votes: "16.3K",
   },
   {
-    img: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=400&q=80",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZPN7lusU5PuSkVOh34KS_kMriE5hbdePaNg&s",
     genre: "Comedy / Drama",
     name: "Happy Raj",
     rating: "9.4",
     votes: "790",
   },
   {
-    img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&q=80",
+    img: "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/prathichaya-et00491497-1773643630.jpg",
     genre: "Drama / Biopic",
-    name: "Ustaad Bhagat ",
+    name: "Prathichaya",
     rating: "8.7",
     votes: "2.1K",
   },
-   {
-    img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&q=80",
+  {
+    img: "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/ustaad-bhagat-singh-et00339939-1771925113.jpg",
     genre: "Drama / Biopic",
     name: "Ustaad Bhagat Singh",
     rating: "8.7",
     votes: "2.1K",
   },
-   {
-    img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&q=80",
+  {
+    img: "https://upload.wikimedia.org/wikipedia/en/6/6c/Hoppers_film_poster.jpg",
     genre: "Drama / Biopic",
-    name: "Ustaad ",
+    name: "Hoppers ",
     rating: "8.7",
     votes: "2.1K",
+  },
+];
+
+const upcomingMovies = [
+  {
+    img: "https://cdn.district.in/movies-assets/images/cinema/Toxic-postger-889bd080-ed1e-11f0-b69f-07304f113f86.jpg",
+    name: "Toxic ",
+    release: "Comming Soon",
+    likes: "526K+",
+  },
+  {
+    img: "https://m.media-amazon.com/images/M/MV5BNzMxMDdiYzAtNGM0Ni00ZWQxLWI0ZTUtMzdkMjBkMzExYWZmXkEyXkFqcGc@._V1_.jpg",
+    name: "Spirit",
+    release: "Comming Soon",
+    likes: "400K+",
+  },
+
+  {
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3mZ_rszxkWmGfHfL4M6B1cptJOcYgSdiVZg&s",
+    name: "Salaar 2",
+    release: "Comming Soon",
+    likes: "450K+",
+  },
+
+  {
+    img: "https://cdn.district.in/movies-assets/images/cinema/Peddi-d7366cb0-0b9b-11f0-a701-97473cbbbc80.jpg",
+    name: "Peddi",
+    release: "Comming Soon",
+    likes: "300K+",
+  },
+  {
+    img: "https://d2lnbwhcsmj8tp.cloudfront.net/ianslive_watermark/202508083475498.jpeg",
+    name: "Paradise",
+    release: "Coming Soon",
+    likes: "350K+",
+  },
+
+  {
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaYHzQ49bDw3R9N0MBs3G4-QT0KgMIf8GjYg&s",
+    name: "Chiranjeevi Hanuman: The Eternal",
+    release: "Comming Soon",
+    likes: "205K+",
+  },
+  {
+    img: "https://m.media-amazon.com/images/M/MV5BZTAwOWIwYTgtNWU3Yi00MTc1LWIxNmQtMTEwZjU4YjAyODhhXkEyXkFqcGc@._V1_.jpg",
+    name: "Dacoit",
+    release: "Comming Soon",
+    likes: "250K+",
+  },
+  {
+    img: "https://filmfare.wwmindia.com/content/2025/jun/chiranjeevi-in-vishwambhara-poster.jpg",
+    name: "Vishwambhara",
+    release: "Comming Soon",
+    likes: "300K+",
   },
 ];
 
@@ -119,6 +181,13 @@ const events = [
     cat: "COMEDY",
     name: "Kanan Gill Live — Not This Again",
     venue: "Good Shepherd Auditorium",
+  },
+  {
+    img: "https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=600&q=80",
+    date: "29 MAR · SUN",
+    cat: "CLUB",
+    name: "Marsh Live — All Night Long",
+    venue: "Sunburn Union, Bengaluru",
   },
   {
     img: "https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=600&q=80",
@@ -225,8 +294,6 @@ const activities = [
 
 // ── Reusable Components ──
 
-
-
 const SectionHeader = ({ title, accent, path, link = true }) => (
   <div className="sec-header">
     <div className="sec-title">
@@ -241,22 +308,37 @@ const SectionHeader = ({ title, accent, path, link = true }) => (
   </div>
 );
 
-const MovieCard = ({ img, genre, name, rating, votes }) => (
+const MovieCard = ({ img, genre, name, rating, votes, cat }) => (
   <div className="movie-card">
     <img src={img} alt={name} />
+
+    {/* 🔥 TRENDING BADGE */}
+    {cat === "Trending" && <div className="badge">🔥 Trending</div>}
+
     <div className="card-overlay">
       <div className="card-genre">{genre}</div>
       <div className="card-name">{name}</div>
       <div className="card-rating">
-        ★ {rating} <span>{votes} votes</span>
+        ⭐ {rating} <span>{votes} votes</span>
       </div>
-    </div>
-    <div className="card-hover-btn">
-      <button>Book Tickets</button>
     </div>
   </div>
 );
+const UpcomingCard = ({ img, name, release, likes }) => (
+  <div className="up-card">
+    <img src={img} alt={name} />
+     
+    <div className="up-overlay">
+      <h3>{name}</h3>
 
+      {/* 🎬 Release */}
+      <p className="release">🎬 {release}</p>
+
+      {/* 👍 Likes BELOW */}
+      <p className="likes">👍 {likes} Likes</p>
+    </div>
+  </div>
+);
 const EventCard = ({ img, date, cat, name, venue }) => (
   <div className="event-card">
     <div className="event-img">
@@ -297,6 +379,14 @@ const FadeUp = ({ children, className = "" }) => {
 
 // ── MAIN COMPONENT ──
 const HomePage = () => {
+  const scrollRef = useRef();
+  const scroll = (dir) => {
+    if (dir === "left") {
+      scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    } else {
+      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
   const [current, setCurrent] = useState(0);
   const navigate = useNavigate();
   useEffect(() => {
@@ -407,10 +497,36 @@ const HomePage = () => {
         </section>
       </FadeUp>
 
+      {/*Upcoming  */}
+      <FadeUp>
+        <section>
+          <SectionHeader title="UPCOMING" accent="MOVIES" path="/movies" />
+
+          <div className="carousel-wrapper">
+            <button className="arrow left" onClick={() => scroll("left")}>
+              ‹
+            </button>
+
+            <div className="carousel" ref={scrollRef}>
+              {upcomingMovies.map((m, i) => (
+                <UpcomingCard key={i} {...m} />
+              ))}
+            </div>
+
+            <button className="arrow right" onClick={() => scroll("right")}>
+              ›
+            </button>
+          </div>
+        </section>
+      </FadeUp>
       {/* EVENTS */}
       <FadeUp>
         <section>
-          <SectionHeader title="HOT EVENTS IN" accent="BENGALURU" path="/concerts" />
+          <SectionHeader
+            title="HOT EVENTS IN"
+            accent="BENGALURU"
+            path="/concerts"
+          />
           <div className="events-grid">
             {events.map((e) => (
               <EventCard key={e.name} {...e} />
@@ -468,7 +584,7 @@ const HomePage = () => {
       {/* SPORTS */}
       <FadeUp>
         <section>
-          <SectionHeader title="TOP" accent="SPORTS EVENTS"path="/sports" />
+          <SectionHeader title="TOP" accent="SPORTS EVENTS" path="/sports" />
           <div className="sports-grid">
             {sports.map((s) => (
               <div key={s.name} className="sport-card">
@@ -487,7 +603,11 @@ const HomePage = () => {
       {/* ACTIVITIES */}
       <FadeUp>
         <section>
-          <SectionHeader title="EXPLORE" accent="ACTIVITIES" path="/adventure" />
+          <SectionHeader
+            title="EXPLORE"
+            accent="ACTIVITIES"
+            path="/adventure"
+          />
           <div className="act-grid">
             {activities.map((a) => (
               <div key={a.name} className="act-card">
