@@ -1,8 +1,15 @@
-/* RESET */
-body {
+/* RESET + BACKGROUND FIX */
+html, body, #root {
+  height: 100%;
   margin: 0;
+  padding: 0;
+  background: transparent !important;
+}
+
+body {
   font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+  min-height: 100vh;
 }
 
 /* OVERLAY */
@@ -37,7 +44,7 @@ body {
   animation: floatIn 0.5s ease;
 }
 
-/* FLOAT ANIMATION */
+/* ANIMATION */
 @keyframes floatIn {
   from {
     transform: translateY(80px) scale(0.85);
@@ -57,6 +64,11 @@ body {
   font-size: 28px;
   cursor: pointer;
   color: #fff;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
 }
 
 /* TITLE */
@@ -73,32 +85,53 @@ body {
   margin-bottom: 30px;
 }
 
-/* INPUT BOX */
+/* INPUT BOX (GLASS) */
 .input-box {
   display: flex;
   align-items: center;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.08);
   border-radius: 12px;
   padding: 15px;
   margin: 15px 0;
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
 }
 
-.input-box span {
-  font-size: 18px;
-  color: #fff;
-}
-
+/* INPUT FIELD */
 .input-box input {
   border: none;
   outline: none;
   flex: 1;
   margin-left: 12px;
   font-size: 17px;
-  background: transparent;
+
+  background: transparent !important;
   color: #fff;
+  caret-color: #ff4b2b;
 }
 
-/* BUTTON (GRADIENT GLOW) */
+/* PLACEHOLDER */
+.input-box input::placeholder {
+  color: #ccc;
+}
+
+/* REMOVE WHITE AUTOFILL */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* INPUT FOCUS EFFECT */
+.input-box:focus-within {
+  border: 1px solid #ff4b2b;
+  box-shadow: 0 0 12px rgba(255, 75, 75, 0.6);
+}
+
+/* BUTTON */
 .continue-btn {
   width: 100%;
   padding: 16px;
@@ -113,7 +146,6 @@ body {
   color: white;
 
   box-shadow: 0 0 15px rgba(255, 75, 75, 0.7);
-
   transition: 0.3s;
 }
 
@@ -134,10 +166,20 @@ body {
 
   background: rgba(255,255,255,0.1);
   color: white;
+  transition: 0.3s;
 }
 
 .social-btn:hover {
+  transform: translateY(-3px);
   background: rgba(255,255,255,0.2);
+}
+
+/* GOOGLE ALIGN */
+.google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 /* DIVIDER */
@@ -187,6 +229,8 @@ body {
 .terms span {
   color: #ff4b2b;
 }
+
+/* FORGOT */
 .forgot {
   text-align: right;
   font-size: 14px;
@@ -200,16 +244,17 @@ body {
   text-decoration: underline;
 }
 
-/* Eye icon */
+/* EYE ICON */
 .eye {
   cursor: pointer;
   margin-left: 10px;
   font-size: 18px;
+  color: #fff;
 }
 
-/* Error message */
+/* ERROR */
 .error {
-  color: red;
+  color: #ff4b2b;
   font-size: 14px;
   margin-bottom: 10px;
 }
