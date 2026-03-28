@@ -5,6 +5,12 @@ import Homepage from './Components/HomePage/Homepage'
 import Navbar from './NavBar/Navbar'
 import Movies from './Components/Movies/Movies'
 import Login from './NavBar/Login/Login'
+import Concerts from './Components/Concerts/Concerts'
+import ComedyShow from './Components/ComedyShow/ComedyShow'
+import Sports from './Components/Sports/Sports'
+import Adventure from './Components/Adventure/Adventure'
+import Kids from './Components/Kids/Kids'
+
 
 const App = () => {
   return (
@@ -13,8 +19,18 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={<Homepage />} />
+<<<<<<< HEAD
         <Route path='movies' element={<Movies />} />
         <Route path='login' element={<Login />} />
+=======
+        <Route path='/movies' element={<Movies />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/concerts' element={<Concerts/>} />
+        <Route path='/comedyshow' element={<ComedyShow/>} />
+        <Route path='/sports' element={<Sports/>} />
+        <Route path='/adventure' element={<Adventure/>} />
+        <Route path='/kids' element={<Kids/>} />
+>>>>>>> e187545d0a175061e294ad7d92e5d59c86a18758
       </Routes>
 
     </div>
