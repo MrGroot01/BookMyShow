@@ -75,7 +75,6 @@ export default function ComedyShow() {
       <div className="content">
         <h2 className="heading">Comedy Shows In Bengaluru</h2>
 
-        {/* CATEGORY PILLS */}
         <div className="pills">
           <span className="active">Stand up Comedy</span>
           <span>Open Mic Comedy</span>
@@ -85,7 +84,7 @@ export default function ComedyShow() {
           <span>Sketch</span>
         </div>
 
-        {/* CARDS */}
+        {/* GRID */}
         <div className="grid">
           {shows.map((show) => (
             <div
@@ -98,12 +97,14 @@ export default function ComedyShow() {
                 <div className="date">{show.date}</div>
               </div>
 
+              {/* ✅ UPDATED CLEAN CONTENT */}
               <div className="card-content">
                 <h3>{show.title}</h3>
                 <p className="venue">{show.venue}</p>
                 <p className="category">{show.category}</p>
                 <p className="price">{show.price}</p>
               </div>
+
             </div>
           ))}
         </div>

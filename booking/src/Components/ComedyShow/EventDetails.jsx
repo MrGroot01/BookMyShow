@@ -26,22 +26,27 @@ export default function EventDetails() {
   return (
     <div className="event-wrapper">
 
-      {/* HEADER ROW */}
-      <div className="header-row">
-        <h1 className="title">{event.title}</h1>
+      {/* ✅ TITLE (TOP) */}
+      <h1 className="title">{event.title}</h1>
 
-        <div className="interest-box">
-          <span className="likes">👍 732 are interested</span>
-          <button>I’m Interested</button>
-        </div>
-      </div>
-
-      {/* TOP SECTION */}
+      {/* ✅ MAIN SECTION */}
       <div className="top-section">
 
         {/* LEFT IMAGE */}
         <div className="left">
           <img src={event.image} alt="" />
+
+          {/* TAGS */}
+          <div className="tags">
+            <span>Stand up Comedy</span>
+            <span>Comedy Shows</span>
+          </div>
+
+          {/* ✅ INTEREST (MOVED BELOW IMAGE) */}
+          <div className="interest">
+            <span>👍 732 are interested</span>
+            <button>I’m Interested</button>
+          </div>
         </div>
 
         {/* RIGHT CARD */}
@@ -67,14 +72,8 @@ export default function EventDetails() {
             <button>Book Now</button>
           </div>
         </div>
-      </div>
 
-      {/* TAGS */}
-      <div className="tags">
-        <span>Stand up Comedy</span>
-        <span>Comedy Shows</span>
       </div>
-
     </div>
   );
 }
