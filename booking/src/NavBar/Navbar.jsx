@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FaFilm,
   FaMusic,
@@ -7,7 +7,7 @@ import {
   FaHiking,
   FaChild,
 }from "react-icons/fa";
-import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
