@@ -1,30 +1,42 @@
-/* NAVBAR BACKGROUND */
+/* RESET */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
+/* BODY BACKGROUND */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+  min-height: 100vh;
+}
+
+/* COMMON CONTAINER */
 .container {
   width: 100%;
-  max-width: 1200px;   /* controls center width */
-  margin: 0 auto;      /* centers content */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-/* .navbar {
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  width: 100%;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* FLEX INSIDE NAVBAR */
+.navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
-  background-color: #f5f5f5;   
-  border-bottom: 1px solid #e0e0e0;
-  font-family: Arial, sans-serif;
-} */
- .navbar {
-  width: 100%;
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 10px 0;
+  box-sizing: border-box;
 }
 
-/* LEFT SECTION */
+/* LEFT */
 .nav-left {
   display: flex;
   align-items: center;
@@ -32,56 +44,26 @@
 }
 
 /* LOGO */
-/* .logo-text {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  text-decoration: none;
-} */
- .logo img {
-  height: 40px;   /* adjust size */
-  width: auto;
+.logo img {
+  height: 40px;
   cursor: pointer;
 }
 
-.logo-highlight {
-  background-color: #f84464;
-  color: white;
-  padding: 2px 6px;
-  border-radius: 3px;
-}
-
-/* SEARCH BAR */
+/* SEARCH */
 .nav-search input {
   width: 550px;
   padding: 10px 15px;
   border-radius: 6px;
   border: 1px solid #ddd;
   outline: none;
-  background-color: white;
   font-size: 14px;
 }
 
-.nav-search input::placeholder {
-  color: #888;
-}
-
-/* RIGHT SECTION */
+/* RIGHT */
 .nav-right {
   display: flex;
   align-items: center;
   gap: 25px;
-}
-
-/* MOVIES LINK */
-.movies-link {
-  text-decoration: none;
-  color: #333;
-  font-size: 14px;
-}
-
-.movies-link:hover {
-  color: #f84464;
 }
 
 /* LOCATION */
@@ -89,19 +71,17 @@
   border: none;
   background: transparent;
   font-size: 14px;
-  color: #333;
   cursor: pointer;
   outline: none;
 }
 
-/* SIGN IN BUTTON */
+/* BUTTON */
 .login-btn {
   background-color: #f84464;
   color: white;
   border: none;
   padding: 6px 16px;
   border-radius: 4px;
-  font-size: 14px;
   cursor: pointer;
 }
 
@@ -109,99 +89,176 @@
   background-color: #d73754;
 }
 
-/* 🔵 SECOND NAVBAR */
-/* .sub-navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 40px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #eee;
-  font-size: 14px;
-} */
- .sub-navbar {
+/* ================= SECOND NAVBAR ================= */
+
+.sub-navbar {
   width: 100%;
   background-color: #ffffff;
   border-bottom: 1px solid #eee;
-  padding: 10px 40px;
-}
-.sub-link{
-  cursor: pointer;
-  color: #333;
-  transition: 0.3s;
-}
-.sub-link:hover {
-  color: #f84464;
-  transform: scale(1.2);
-}
-/* .sub-link {
-  text-decoration: none;
-  color: #333;
-  cursor: pointer;
-} */
- .sub-link {
-  text-decoration: none;
-  color: #333;
-  margin-right: 20px;
 }
 
-/* .sub-link:hover {
-  color: #f84464;
+/* 🔥 MAIN FIX */
+.sub-navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 50px;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
+/* LEFT SIDE */
 .sub-left {
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
-
-.sub-left span {
-  cursor: pointer;
-  color: #333;
-} */
- .sub-link:hover {
-  color: #f84464;
-}
-
-.sub-left span,
-.sub-right span {
-  margin-right: 20px;
-  cursor: pointer;
-}
-.sub-right{
-  margin-left: 20px;
-
-
-}
-
-.sub-left span:hover,
-.sub-right span:hover {
-  color: #f84464;
-}
-
-/* .sub-left span:hover {
-  color: #f84464;
-} */
 
 /* RIGHT SIDE */
-/* .sub-right {
+.sub-right {
   display: flex;
-  gap: 20px;
+  gap: 25px;
+  align-items: center;
 }
 
+/* LINKS (ICONS) */
+.sub-link {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.sub-link:hover {
+  color: #f84464;
+  transform: scale(1.15);
+}
+
+/* RIGHT TEXT */
 .sub-right span {
   cursor: pointer;
-  color: #666;
+  color: #333;
+  font-size: 14px;
+  transition: 0.3s;
 }
 
 .sub-right span:hover {
   color: #f84464;
 }
 
-
+/* MENU ICON */
 .menu-icon {
   font-size: 20px;
   cursor: pointer;
-} */
- .menu-icon {
-  font-size: 20px;
+}
+
+/* ================= MODAL ================= */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 20, 0.6);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 500px;
+  padding: 50px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  animation: floatIn 0.5s ease;
+}
+
+/* ANIMATION */
+@keyframes floatIn {
+  from {
+    transform: translateY(80px) scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* CLOSE */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 28px;
   cursor: pointer;
+  color: #fff;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* TITLE */
+.title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+/* INPUT */
+.input-box {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  margin-left: 12px;
+  font-size: 17px;
+  background: transparent;
+  color: #fff;
+}
+
+/* BUTTON */
+.continue-btn {
+  width: 100%;
+  padding: 16px;
+  margin-top: 20px;
+  border-radius: 12px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+  color: white;
+}
+
+.continue-btn:hover {
+  transform: scale(1.05);
 }
