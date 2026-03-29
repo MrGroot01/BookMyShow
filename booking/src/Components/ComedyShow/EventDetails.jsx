@@ -26,8 +26,15 @@ export default function EventDetails() {
   return (
     <div className="event-wrapper">
 
-      {/* TITLE */}
-      <h1 className="title">{event.title}</h1>
+      {/* HEADER ROW */}
+      <div className="header-row">
+        <h1 className="title">{event.title}</h1>
+
+        <div className="interest-box">
+          <span className="likes">👍 732 are interested</span>
+          <button>I’m Interested</button>
+        </div>
+      </div>
 
       {/* TOP SECTION */}
       <div className="top-section">
@@ -39,7 +46,6 @@ export default function EventDetails() {
 
         {/* RIGHT CARD */}
         <div className="right-card">
-
           <p>📅 {event.date}</p>
           <p>⏰ {event.time}</p>
           <p>⏳ {event.duration}</p>
@@ -60,7 +66,6 @@ export default function EventDetails() {
 
             <button>Book Now</button>
           </div>
-
         </div>
       </div>
 
@@ -68,21 +73,6 @@ export default function EventDetails() {
       <div className="tags">
         <span>Stand up Comedy</span>
         <span>Comedy Shows</span>
-      </div>
-
-      {/* INTEREST */}
-      <div className="interest">
-        👍 732 are interested
-        <button>I’m Interested</button>
-      </div>
-
-      {/* ABOUT */}
-      <div className="about">
-        <h2>About The Event</h2>
-        <p>
-          You love dark and dirty jokes? Then this is the show for you.
-          Featuring some of the meanest comedians in town.
-        </p>
       </div>
 
     </div>
