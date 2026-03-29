@@ -1,0 +1,49 @@
+.event-page {
+  padding: 30px 50px;
+}
+
+/* IMAGE */
+.banner {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* MAIN */
+.event-main {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* LEFT */
+.left {
+  width: 65%;
+}
+
+.tags span {
+  margin-right: 10px;
+  background: #eee;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+/* RIGHT */
+.right {
+  width: 30%;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.right button {
+  width: 100%;
+  padding: 12px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+}
