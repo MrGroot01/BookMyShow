@@ -67,25 +67,27 @@ export default function ComedyShow() {
             <input type="checkbox" /> Date Range
           </label>
         </div>
-<div className="filter-item">
-  <span>Language</span>
-  <span className="clear">Clear</span>
-</div>
 
-<div className="filter-item">
-  <span>Categories</span>
-  <span className="clear">Clear</span>
-</div>
+        <div className="filter-item">
+          <span>Language</span>
+          <span className="clear">Clear</span>
+        </div>
 
-<div className="filter-item">
-  <span>More Filters</span>
-  <span className="clear">Clear</span>
-</div>
+        <div className="filter-item">
+          <span>Categories</span>
+          <span className="clear">Clear</span>
+        </div>
 
-<div className="filter-item">
-  <span>Price</span>
-  <span className="clear">Clear</span>
-</div>
+        <div className="filter-item">
+          <span>More Filters</span>
+          <span className="clear">Clear</span>
+        </div>
+
+        <div className="filter-item">
+          <span>Price</span>
+          <span className="clear">Clear</span>
+        </div>
+
         <button className="browse-btn">Browse by Venues</button>
       </div>
 
@@ -102,7 +104,6 @@ export default function ComedyShow() {
           <span>Sketch</span>
         </div>
 
-        {/* GRID */}
         <div className="grid">
           {shows.map((show) => (
             <div
@@ -115,18 +116,17 @@ export default function ComedyShow() {
                 <div className="date">{show.date}</div>
               </div>
 
-              {/* ✅ UPDATED CLEAN CONTENT */}
               <div className="card-content">
                 <h3>{show.title}</h3>
                 <p className="venue">{show.venue}</p>
                 <p className="category">{show.category}</p>
                 <p className="price">{show.price}</p>
               </div>
-
             </div>
           ))}
         </div>
       </div>
+
     </div>
   );
 }

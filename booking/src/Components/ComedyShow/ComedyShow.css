@@ -10,12 +10,11 @@ body {
   padding: 30px 60px;
 }
 
-/* LEFT FILTER */
+/* FILTERS */
 .filters {
   width: 260px;
 }
 
-/* EACH FILTER BOX */
 .filter-box {
   background: white;
   padding: 18px;
@@ -23,7 +22,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* COLLAPSE STYLE BOXES */
 .filter-item {
   background: white;
   padding: 15px;
@@ -31,10 +29,8 @@ body {
   margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-/* HEADER */
 .filter-header {
   display: flex;
   justify-content: space-between;
@@ -47,17 +43,14 @@ body {
   font-size: 14px;
 }
 
-/* BUTTONS */
 .buttons button {
   margin: 5px;
   padding: 8px 14px;
   border: 1px solid #ddd;
   background: white;
   border-radius: 6px;
-  cursor: pointer;
 }
 
-/* BROWSE BUTTON */
 .browse-btn {
   width: 100%;
   padding: 12px;
@@ -65,10 +58,9 @@ body {
   color: #f84464;
   background: white;
   border-radius: 6px;
-  cursor: pointer;
 }
 
-/* RIGHT CONTENT */
+/* CONTENT */
 .content {
   flex: 1;
 }
@@ -90,7 +82,6 @@ body {
   padding: 8px 16px;
   border-radius: 20px;
   border: 1px solid #ddd;
-  font-size: 14px;
 }
 
 .pills .active {
@@ -106,17 +97,18 @@ body {
   gap: 30px;
 }
 
-/* CARD - REMOVE WHITE BOX */
+/* CARD */
 .card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
   cursor: pointer;
-  background: transparent;   /* ✅ IMPORTANT */
 }
 
-/* REMOVE ANY WHITE BACKGROUND */
+/* REMOVE ALL WHITE BOX */
 .card-content {
-  margin-top: 10px;
-  background: transparent;   /* ✅ IMPORTANT */
-  padding: 0;                /* ✅ REMOVE BOX FEEL */
+  background: transparent !important;
+  padding: 0 !important;
 }
 
 /* IMAGE */
@@ -139,7 +131,6 @@ body {
   background: black;
   color: white;
   padding: 8px;
-  font-size: 14px;
   border-radius: 0 0 12px 12px;
 }
 
@@ -151,17 +142,16 @@ body {
 }
 
 .venue {
-  font-size: 14px;
   color: #666;
+  font-size: 14px;
 }
 
 .category {
-  font-size: 14px;
   color: #888;
+  font-size: 14px;
 }
 
 .price {
-  font-size: 15px;
   font-weight: 600;
   margin-top: 5px;
 }
