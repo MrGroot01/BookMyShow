@@ -124,6 +124,15 @@
   border-bottom: 1px solid #eee;
   padding: 10px 40px;
 }
+.sub-link{
+  cursor: pointer;
+  color: #333;
+  transition: 0.3s;
+}
+.sub-link:hover {
+  color: #f84464;
+  transform: scale(1.2);
+}
 /* .sub-link {
   text-decoration: none;
   color: #333;

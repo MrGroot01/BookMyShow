@@ -1,8 +1,18 @@
+import React from "react";
+import {
+  FaFilm,
+  FaMusic,
+  FaLaughBeam,
+  FaFutbol,
+  FaHiking,
+  FaChild,
+}from "react-icons/fa";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import Location from "./Location/Location";
+
 
 const Navbar = ({ onLoginClick }) => {
   const [search, setSearch] = useState("");
@@ -84,27 +94,27 @@ const handleSearch = () => {
 
         <div className="sub-left">
           <Link to="/movies" className="sub-link">
-            Movies
+            <FaFilm size={20}/>
           </Link>
           <Link to="/concerts" className="sub-link">
-            Concerts
+            <FaMusic size={20}/>
           </Link>
           
           <Link to="/comedyshow" className="sub-link">
-            Comedyshow
+            <FaLaughBeam size={20}/>
           </Link>
           <Link to="/sports" className="sub-link">
-            Sports
+            <FaFutbol size={20}/>
           </Link>
   
         </div>
 
         <div className="sub-right">
           <Link to="/adventure" className="sub-link">
-            Adventure
+            <FaHiking size={20}/>
           </Link>
           <Link to="/kids" className="sub-link">
-            Kids
+            <FaChild size={20}/>
           </Link>
           <span>Offers</span>
           <span>Gift Cards</span>
