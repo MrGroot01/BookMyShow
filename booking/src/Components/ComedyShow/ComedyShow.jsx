@@ -5,7 +5,7 @@ import "./ComedyShow.css";
 const shows = [
   {
     id: 1,
-    title: "Drunk & Unhinged",
+    title: "Drunk & Unhinged: The Weekend Late-night Show",
     venue: "Just BLR Comedy Club: Bengaluru",
     category: "Stand up Comedy",
     price: "₹199",
@@ -14,8 +14,8 @@ const shows = [
   },
   {
     id: 2,
-    title: "Dhandho ft Munawar",
-    venue: "MLR Convention Centre",
+    title: "Dhandho ft Munawar Faruqui",
+    venue: "Venue To Be Announced",
     category: "Stand up Comedy",
     price: "₹799 onwards",
     date: "Sat, 18 Apr",
@@ -23,20 +23,20 @@ const shows = [
   },
   {
     id: 3,
-    title: "Kal Ki Chinta Nahi Karta",
+    title: "Kal Ki Chinta Nahi Karta ft. Ravi Gupta",
     venue: "MLR Convention Centre",
     category: "Stand up Comedy",
     price: "₹799 onwards",
-    date: "Sat, 11 Apr",
+    date: "Sat, 11 Apr onwards",
     image: "https://in.bmscdn.com/events/moviecard/ET00354321.jpg",
   },
   {
     id: 4,
-    title: "Inventions by Biswa",
+    title: "Inventions by Biswa Kalyan Rath",
     venue: "Viveka Auditorium",
     category: "Stand up Comedy",
     price: "₹999 onwards",
-    date: "Fri, 22 May",
+    date: "Fri, 22 May onwards",
     image: "https://in.bmscdn.com/events/moviecard/ET00354321.jpg",
   },
 ];
@@ -45,7 +45,8 @@ export default function ComedyShow() {
   const navigate = useNavigate();
 
   return (
-    <div className="container">
+    <div className="main-container">
+
       {/* LEFT FILTER */}
       <div className="filters">
         <h2>Filters</h2>
@@ -55,25 +56,36 @@ export default function ComedyShow() {
             <span>Date</span>
             <span className="clear">Clear</span>
           </div>
+
           <div className="buttons">
             <button>Today</button>
             <button>Tomorrow</button>
             <button>This Weekend</button>
           </div>
+
+          <label>
+            <input type="checkbox" /> Date Range
+          </label>
         </div>
+
+        <button className="browse-btn">Browse by Venues</button>
       </div>
 
       {/* RIGHT CONTENT */}
       <div className="content">
-        <h2>Comedy Shows In Bengaluru</h2>
+        <h2 className="heading">Comedy Shows In Bengaluru</h2>
 
+        {/* CATEGORY PILLS */}
         <div className="pills">
           <span className="active">Stand up Comedy</span>
-          <span>Open Mic</span>
-          <span>Improv</span>
+          <span>Open Mic Comedy</span>
+          <span>Improv Comedy</span>
+          <span>Surprise Act</span>
           <span>Roast</span>
+          <span>Sketch</span>
         </div>
 
+        {/* CARDS */}
         <div className="grid">
           {shows.map((show) => (
             <div
@@ -88,8 +100,8 @@ export default function ComedyShow() {
 
               <div className="card-content">
                 <h3>{show.title}</h3>
-                <p>{show.venue}</p>
-                <p>{show.category}</p>
+                <p className="venue">{show.venue}</p>
+                <p className="category">{show.category}</p>
                 <p className="price">{show.price}</p>
               </div>
             </div>
