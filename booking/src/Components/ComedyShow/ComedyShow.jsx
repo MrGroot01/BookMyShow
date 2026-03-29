@@ -9,7 +9,7 @@ const shows = [
     category: "Stand up Comedy",
     price: "₹149 onwards",
     date: "Sun, 29 Mar",
-    image: "https://images.unsplash.com/photo-1607083206968-13611e3d76db?w=400"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFd2wizuFy-gMaPCJpTZanEN07Fj6kiW7H2A&s"
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const shows = [
     category: "Stand up Comedy",
     price: "₹199",
     date: "Sat, 4 Apr",
-    image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=400"
+    image: "https://assets-in.bmscdn.com/nmcms/mobile/media-mobile-kannada-all-stars-sanjay-nagar-2026-3-19-t-22-15-42.jpg"
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const shows = [
     category: "Improv Comedy",
     price: "₹499",
     date: "Sun, 29 Mar onwards",
-    image: "https://images.unsplash.com/photo-1515169067868-5387ec356754?w=400"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWOxIrxM5KoCDN_97-MSvA5W3Q34_fKJJEFA&s"
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const shows = [
     category: "Stand up Comedy",
     price: "₹399 onwards",
     date: "Sat, 11 Apr onwards",
-    image: "https://images.unsplash.com/photo-1527224538127-2104bb71c51b?w=400"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRARI9fQZ5YQlgcmFri7fIvyUeoZI-Gmw5uTw&s"
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const shows = [
     category: "Stand up Comedy",
     price: "₹199",
     date: "Fri, 5 Apr",
-    image: "https://images.unsplash.com/photo-1521335629791-ce4aec67dd53?w=400"
+    image: "https://cdn.colorstv.com/wp-content/uploads/2019/04/comedy-nights-live_1555156032.jpg"
   },
   {
     id: 6,
@@ -54,7 +54,7 @@ const shows = [
     category: "Open Mic",
     price: "₹99",
     date: "Sat, 6 Apr",
-    image: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=400"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROY6jTd7_O-LEmbCJJV9HepOd6ZcR3kFt56Q&s"
   },
   {
     id: 7,
@@ -63,7 +63,7 @@ const shows = [
     category: "Stand up Comedy",
     price: "₹199",
     date: "Sun, 7 Apr",
-    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400"
+    image: "https://m.media-amazon.com/images/M/MV5BYzgwZGYwNGItYmNiMC00ZmI0LTk5YTctZjc3YmM5MDRiMzk1XkEyXkFqcGc@._V1_QL75_UY281_CR0,0,190,281_.jpg"
   },
   {
     id: 8,
@@ -72,7 +72,7 @@ const shows = [
     category: "Stand up Comedy",
     price: "₹249",
     date: "Sat, 13 Apr",
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400"
+    image: "https://www.eventbrite.com/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F906597773%252F53925857000%252F1%252Foriginal.20241126-081350%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D600%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.00410984848485%26fp-y%3D0.00378358214649%26s%3D499d46734853cfaff8c5a76577abd4e8&w=940&q=75"
   }
 ];
 
