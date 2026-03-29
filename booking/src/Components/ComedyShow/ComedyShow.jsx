@@ -166,14 +166,14 @@ const showsData = [
 ];
 
 // 👉 generate more shows (20 total)
-const extraShows = Array.from({ length: 16 }, (_, i) => ({
-  id: i + 5,
-  title: `Comedy Night ${i + 1}`,
-  venue: "Bangalore Club",
-  category: "Stand up Comedy",
-  price: "₹199 onwards",
-  image: `https://source.unsplash.com/300x400/?comedy,show&sig=${i}`
-}));
+// const extraShows = Array.from({ length: 16 }, (_, i) => ({
+//   id: i + 5,
+//   title: `Comedy Night ${i + 1}`,
+//   venue: "Bangalore Club",
+//   category: "Stand up Comedy",
+//   price: "₹199 onwards",
+//   image: `https://source.unsplash.com/300x400/?comedy,show&sig=${i}`
+// }));
 
 const allShows = [...showsData, ...extraShows];
 
