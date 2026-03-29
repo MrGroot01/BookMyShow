@@ -67,7 +67,25 @@ export default function ComedyShow() {
             <input type="checkbox" /> Date Range
           </label>
         </div>
+<div className="filter-item">
+  <span>Language</span>
+  <span className="clear">Clear</span>
+</div>
 
+<div className="filter-item">
+  <span>Categories</span>
+  <span className="clear">Clear</span>
+</div>
+
+<div className="filter-item">
+  <span>More Filters</span>
+  <span className="clear">Clear</span>
+</div>
+
+<div className="filter-item">
+  <span>Price</span>
+  <span className="clear">Clear</span>
+</div>
         <button className="browse-btn">Browse by Venues</button>
       </div>
 
