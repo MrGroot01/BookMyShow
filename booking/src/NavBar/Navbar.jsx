@@ -116,8 +116,7 @@ const handleSearch = () => {
           <Link to="/kids" className="sub-link">
             <FaChild size={20}/>
           </Link>
-          <span>Offers</span>
-          <span>Gift Cards</span>
+          
         </div>
 </div>
       </div>
