@@ -1,47 +1,55 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import "./EventDetails.css";
+import { useParams } from "react-router-dom";
 import shows from "../../data/ShowsData";
+import "./EventDetails.css";
 
 export default function EventDetails() {
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const event = shows.find((e) => e.id === Number(id));
 
-  // ✅ Safety check
-  if (!event) {
-    return (
-      <div style={{ padding: "40px" }}>
-        <h2>Event not found</h2>
-        <button onClick={() => navigate("/comedyshow")}>
-          Go Back
-        </button>
-      </div>
-    );
-  }
+  if (!event) return <h2>Event not found</h2>;
 
   return (
-    <div className="details">
-      <h1 className="heading">{event.title}</h1>
+    <div className="details-page">
 
-      <div className="details-container">
-        <img
-          src={event.image}
-          alt={event.title}
-          onError={(e) =>
-            (e.target.src = "https://via.placeholder.com/300")
-          }
-        />
+      <h1 className="title">{event.title}</h1>
 
-        <div className="info">
-          <p><strong>📅 Date:</strong> {event.date}</p>
-          <p><strong>⏰ Time:</strong> {event.time}</p>
-          <p><strong>💰 Price:</strong> {event.price}</p>
+      <div className="details-layout">
 
-          <button className="book-btn">Book Tickets</button>
+        {/* LEFT IMAGE */}
+        <div className="left">
+          <img src={event.image} alt="" />
         </div>
+
+        {/* RIGHT INFO */}
+        <div className="right">
+
+          <div className="info-box">
+            <p>📅 {event.date}</p>
+            <p>⏰ {event.time}</p>
+            <p>⌛ 1 hour 20 minutes</p>
+            <p>👥 Age Limit - 16yrs +</p>
+            <p>🗣️ {event.language || "English"}</p>
+            <p>🎭 {event.category}</p>
+            <p>📍 {event.venue}</p>
+
+            <div className="price-box">
+              <h3>{event.price}</h3>
+              <button>Book Now</button>
+            </div>
+          </div>
+
+        </div>
+
       </div>
+
+      {/* TAGS */}
+      <div className="tags">
+        <span>Stand up Comedy</span>
+        <span>Comedy Shows</span>
+      </div>
+
     </div>
   );
 }
