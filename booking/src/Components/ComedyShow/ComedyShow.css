@@ -1,24 +1,23 @@
-/* MAIN CONTAINER */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #ffffff; /* ✅ FIX */
+}
+
+/* MAIN */
 .main-container {
   display: flex;
-  gap: 30px;
-  padding: 20px 40px;
-  background: #f5f5f5;
+  gap: 40px;
+  padding: 30px 60px;
 }
 
-/* FILTERS (LEFT SIDE) */
+/* FILTERS */
 .filters {
-  width: 250px;
+  width: 260px;
 }
 
-.filters h2 {
-  margin-bottom: 15px;
-}
-
-/* FILTER BOX */
 .filter-box {
-  background: #fff;
-  padding: 15px;
+  background: white;
+  padding: 18px;
   border-radius: 10px;
   margin-bottom: 15px;
 }
@@ -27,74 +26,50 @@
   display: flex;
   justify-content: space-between;
   font-weight: 600;
-  margin-bottom: 10px;
 }
 
-.clear {
-  color: #f84464;
-  font-size: 13px;
-  cursor: pointer;
-}
-
-/* BUTTONS */
 .buttons button {
-  margin: 5px 5px 5px 0;
-  padding: 6px 12px;
+  margin: 5px;
+  padding: 8px 14px;
   border: 1px solid #ddd;
-  background: #fff;
+  background: white;
   border-radius: 6px;
-  cursor: pointer;
-  transition: 0.2s;
 }
 
-.buttons button:hover {
-  border-color: #f84464;
-  color: #f84464;
-}
-
-/* BROWSE BUTTON */
 .browse-btn {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #f84464;
   color: #f84464;
-  background: #fff;
+  background: white;
   border-radius: 6px;
-  cursor: pointer;
-  transition: 0.2s;
 }
 
-.browse-btn:hover {
-  background: #f84464;
-  color: white;
-}
-
-/* RIGHT CONTENT */
+/* CONTENT */
 .content {
   flex: 1;
 }
 
 .heading {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  color: #111; /* ✅ FIX */
 }
 
 /* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 30px;
 }
 
 /* CARD */
 .card {
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.03);
+  background: transparent !important; /* ✅ FIX */
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* IMAGE */
@@ -104,47 +79,43 @@
 
 .image-box img {
   width: 100%;
-  height: 260px;
+  height: 320px; /* ✅ poster size */
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
+  display: block;
 }
 
-/* DATE TAG */
+/* DATE BAR */
 .date {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: black;
   color: white;
-  padding: 6px;
-  font-size: 12px;
-  text-align: center;
-  border-radius: 0 0 10px 10px;
+  padding: 8px;
+  border-radius: 0 0 12px 12px;
 }
 
-/* CARD TEXT */
+/* TEXT */
 .card-content {
-  padding: 10px 5px;
+  padding: 8px 2px;
 }
 
 .card-content h3 {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
-  margin-bottom: 5px;
 }
 
 .venue {
   color: #666;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .category {
   color: #888;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .price {
   font-weight: 600;
-  margin-top: 5px;
-  font-size: 14px;
 }
