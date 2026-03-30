@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ComedyShow.css";
 import shows from "../../data/ShowsData";
 
 export default function ComedyShow() {
+  
   const navigate = useNavigate();
+const [activeCategory, setActiveCategory] = useState("Stand up Comedy");
 
+const filteredShows =
+  activeCategory === "All"
+    ? shows
+    : shows.filter(
+        (show) =>
+          show.category &&
+          show.category.trim() === activeCategory
+      );
   return (
     <div className="main-container">
 
