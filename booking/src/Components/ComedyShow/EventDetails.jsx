@@ -1,37 +1,31 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import "./EventDetails.css";
-
-const shows = [
-  {
-    id: 1,
-    title: "Dhandho ft Munawar Faruqui",
-    image: "https://in.bmscdn.com/events/moviecard/ET00312345.jpg",
-    date: "Sat 18 Apr",
-    time: "6:00 PM",
-    price: "₹999 onwards"
-  }
-];
+import shows from "../../data/showsData"; // adjust if path different
 
 export default function EventDetails() {
   const { id } = useParams();
-  const event = shows.find((e) => e.id === Number(id));
+
+  const event = shows?.find((e) => e.id === Number(id));
+
+  // ✅ SAFETY CHECK (prevents blank screen crash)
+  if (!event) {
+    return <h2 style={{ padding: "20px" }}>Event not found</h2>;
+  }
 
   return (
-    <div className="details">
-      {/* TITLE ABOVE IMAGE */}
-      <h1 className="heading">{event.title}</h1>
+    <div style={{ padding: "20px" }}>
+      <h1>{event.title}</h1>
 
-      <div className="details-container">
-        <img src={event.image} alt={event.title} />
+      <img
+        src={event.image}
+        alt={event.title}
+        style={{ width: "70%", borderRadius: "10px" }}
+      />
 
-        <div className="info">
-          <p>📅 {event.date}</p>
-          <p>⏰ {event.time}</p>
-          <p>💰 {event.price}</p>
-
-          <button className="book-btn">Book Tickets</button>
-        </div>
+      <div>
+        <p>📅 {event.date}</p>
+        <p>⏰ {event.time}</p>
+        <p>💰 {event.price}</p>
       </div>
     </div>
   );
