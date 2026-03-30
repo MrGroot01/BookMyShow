@@ -37,6 +37,16 @@ export default function ComedyShow() {
       <div className="content">
         <h2 className="heading">Comedy Shows In Bengaluru</h2>
 
+        {/* ✅ PILLS */}
+        <div className="pills">
+          <span className="active">Stand up Comedy</span>
+          <span>Open Mic Comedy</span>
+          <span>Improv Comedy</span>
+          <span>Surprise Act</span>
+          <span>Roast</span>
+          <span>Sketch</span>
+        </div>
+
         <div className="grid">
           {shows.map((show) => (
             <div
@@ -45,7 +55,21 @@ export default function ComedyShow() {
               onClick={() => navigate(`/event/${show.id}`)}
             >
               <div className="image-box">
-                <img src={show.image} alt={show.title} />
+
+                {/* ✅ PROMOTED BADGE */}
+                {show.id === 1 && (
+                  <div className="promoted">PROMOTED</div>
+                )}
+
+                {/* ✅ IMAGE FIX (VERY IMPORTANT) */}
+                <img
+                  src={show.image}
+                  alt={show.title}
+                  onError={(e) =>
+                    (e.target.src = "https://picsum.photos/400/600")
+                  }
+                />
+
                 <div className="date">{show.date}</div>
               </div>
 

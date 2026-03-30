@@ -119,3 +119,76 @@ body {
 .price {
   font-weight: 600;
 }
+/* ===== CATEGORY PILLS ===== */
+.pills {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.pills span {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.pills .active {
+  background: #f84464;
+  color: white;
+  border: none;
+}
+
+/* ===== PROMOTED BADGE ===== */
+.promoted {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #f84464;
+  color: white;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* ===== FIX TEXT LOOK ===== */
+.card-content h3 {
+  font-weight: 700;
+  color: #111;
+}
+
+.venue {
+  color: #666;
+}
+
+.category {
+  color: #888;
+}
+
+.price {
+  font-weight: 700;
+  color: #111;
+}
+/* 🔥 REMOVE ALL CARD WRAPPER BACKGROUNDS */
+.grid > div {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* REMOVE ANY DEFAULT CARD STYLING */
+.card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ENSURE IMAGE IS CLEAN */
+.image-box {
+  background: none !important;
+}
+
+/* REMOVE ANY EXTRA BOX EFFECT */
+.card-content {
+  background: transparent !important;
+}
