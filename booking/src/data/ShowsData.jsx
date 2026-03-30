@@ -2,7 +2,7 @@ const shows = [
   {
     id: 1,
     title: "Dhandho ft Munawar Faruqui",
-    image: "https://picsum.photos/400/600?random=1",
+    image: "https://www.chennaitop10.com/wp-content/uploads/2025/01/media-desktop-dhando-ft-munawar-faruqui-0-2024-12-22-t-15-1-26.jpg",
     date: "Sat, 18 Apr",
     venue: "Venue To Be Announced",
     category: "Stand up Comedy",
@@ -13,7 +13,7 @@ const shows = [
   {
     id: 2,
     title: "Open Mic Night Bengaluru",
-    image: "https://picsum.photos/400/600?random=2",
+    image: "https://cdn2.allevents.in/thumbs/thumb6628f8b7c3a15.jpg",
     date: "Sun, 19 Apr",
     venue: "Indiranagar Social",
     category: "Open Mic Comedy",
@@ -22,7 +22,7 @@ const shows = [
   {
     id: 3,
     title: "Laugh Factory Open Mic",
-    image: "https://picsum.photos/400/600?random=3",
+    image: "https://tse3.mm.bing.net/th/id/OIP.ukvfFbxhn6Ysn3B1WHhQmAHaEd?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Fri, 25 Apr",
     venue: "Koramangala",
     category: "Open Mic Comedy",
@@ -33,7 +33,7 @@ const shows = [
   {
     id: 4,
     title: "Improv Comedy Jam",
-    image: "https://picsum.photos/400/600?random=4",
+    image: "https://tse1.mm.bing.net/th/id/OIP.M9FPzU3FY4UVRHV8pMepRgHaLH?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Sat, 20 Apr",
     venue: "HSR Layout",
     category: "Improv Comedy",
@@ -42,7 +42,7 @@ const shows = [
   {
     id: 5,
     title: "Spontaneous Improv Night",
-    image: "https://picsum.photos/400/600?random=5",
+    image: "https://tse1.explicit.bing.net/th/id/OIP.ngNwtSeR-GsEpAFn2Q9nLAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Sun, 21 Apr",
     venue: "Church Street",
     category: "Improv Comedy",
@@ -53,7 +53,7 @@ const shows = [
   {
     id: 6,
     title: "Roast Battle Bengaluru",
-    image: "https://picsum.photos/400/600?random=6",
+    image: "https://tse2.mm.bing.net/th/id/OIP.CA_rBJhAGQ1Oo4LiR_Z9BAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Fri, 22 Apr",
     venue: "JP Nagar",
     category: "Roast",
@@ -62,7 +62,7 @@ const shows = [
   {
     id: 7,
     title: "Comedy Roast Night",
-    image: "https://picsum.photos/400/600?random=7",
+    image: "https://i.pinimg.com/originals/e7/79/0e/e7790eb59a5ff6ab1e015e0e21b3255e.jpg",
     date: "Sat, 23 Apr",
     venue: "Whitefield",
     category: "Roast",
@@ -73,7 +73,7 @@ const shows = [
   {
     id: 8,
     title: "Sketch Comedy Live",
-    image: "https://picsum.photos/400/600?random=8",
+    image: "https://tse2.mm.bing.net/th/id/OIP.3_ztxDr4ZsMhiyh6Dpr3sQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Sun, 24 Apr",
     venue: "MG Road",
     category: "Sketch",
@@ -82,7 +82,7 @@ const shows = [
   {
     id: 9,
     title: "Funny Sketch Acts",
-    image: "https://picsum.photos/400/600?random=9",
+    image: "https://tse1.explicit.bing.net/th/id/OIP.RaEry0EM2Vw18VzdLcyvuwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Mon, 25 Apr",
     venue: "BTM Layout",
     category: "Sketch",
@@ -93,7 +93,7 @@ const shows = [
   {
     id: 10,
     title: "Secret Comedy Show",
-    image: "https://picsum.photos/400/600?random=10",
+    image: "https://tse1.mm.bing.net/th/id/OIP.LvJfrFqMO2qU9lPRn-jD2gAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Tue, 26 Apr",
     venue: "Undisclosed Location",
     category: "Surprise Act",
@@ -102,7 +102,7 @@ const shows = [
   {
     id: 11,
     title: "Mystery Standup Night",
-    image: "https://picsum.photos/400/600?random=11",
+    image: "https://tse4.mm.bing.net/th/id/OIP.yuf3op70_2dCuMfzUPOehgHaJs?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Wed, 27 Apr",
     venue: "Indiranagar",
     category: "Surprise Act",
@@ -113,7 +113,7 @@ const shows = [
   {
     id: 12,
     title: "Standup Special ft Local Artists",
-    image: "https://picsum.photos/400/600?random=12",
+    image: "https://i.ytimg.com/vi/4SAQKoXcf98/maxresdefault.jpg",
     date: "Thu, 28 Apr",
     venue: "Koramangala",
     category: "Stand up Comedy",
@@ -122,7 +122,7 @@ const shows = [
   {
     id: 13,
     title: "Comedy Night Deluxe",
-    image: "https://picsum.photos/400/600?random=13",
+    image: "https://tse4.mm.bing.net/th/id/OIP.ikCyOQlvzUjpib0YL6hprQHaEM?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Fri, 29 Apr",
     venue: "HSR Layout",
     category: "Stand up Comedy",
@@ -133,7 +133,7 @@ const shows = [
   {
     id: 14,
     title: "Weekend Laugh Show",
-    image: "https://picsum.photos/400/600?random=14",
+    image: "https://tse3.mm.bing.net/th/id/OIP.HGsRm3lbpqcC4Fqc2f-CSQHaFj?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Sat, 30 Apr",
     venue: "Electronic City",
     category: "Stand up Comedy",
@@ -142,7 +142,7 @@ const shows = [
   {
     id: 15,
     title: "Corporate Comedy Night",
-    image: "https://picsum.photos/400/600?random=15",
+    image: "https://tse3.mm.bing.net/th/id/OIP.WKhpV-VBrjJbLNg34gATJwHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Sun, 1 May",
     venue: "Whitefield",
     category: "Stand up Comedy",
@@ -152,7 +152,7 @@ const shows = [
   {
     id: 16,
     title: "Ultimate Improv Show",
-    image: "https://picsum.photos/400/600?random=16",
+    image: "https://tse1.explicit.bing.net/th/id/OIP.X87vmgcf6KCcj03vtxZcBQHaJQ?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Mon, 2 May",
     venue: "Indiranagar",
     category: "Improv Comedy",
@@ -161,7 +161,7 @@ const shows = [
   {
     id: 17,
     title: "Roast Night Extreme",
-    image: "https://picsum.photos/400/600?random=17",
+    image: "https://i.ytimg.com/vi/dfPUu7MPDPY/maxresdefault.jpg",
     date: "Tue, 3 May",
     venue: "BTM Layout",
     category: "Roast",
@@ -170,7 +170,7 @@ const shows = [
   {
     id: 18,
     title: "Sketch Comedy Club",
-    image: "https://picsum.photos/400/600?random=18",
+    image: "https://i.ytimg.com/vi/aeV6oP2I6vQ/hqdefault.jpg",
     date: "Wed, 4 May",
     venue: "MG Road",
     category: "Sketch",
@@ -179,7 +179,7 @@ const shows = [
   {
     id: 19,
     title: "Open Mic Madness",
-    image: "https://picsum.photos/400/600?random=19",
+    image: "https://assets-in.bmscdn.com/discovery-catalog/events/et00367661-vzhfvfjzdf-landscape.jpg",
     date: "Thu, 5 May",
     venue: "Koramangala",
     category: "Open Mic Comedy",
@@ -188,7 +188,7 @@ const shows = [
   {
     id: 20,
     title: "Secret Surprise Show",
-    image: "https://picsum.photos/400/600?random=20",
+    image: "https://images.filmibeat.com/kn/img/2023/12/shweta-srivatsav-sihi-kahi-chandru-super-mom-display-1701610830.jpg",
     date: "Fri, 6 May",
     venue: "Unknown",
     category: "Surprise Act",
@@ -198,7 +198,7 @@ const shows = [
   {
     id: 21,
     title: "Laugh Riot Live",
-    image: "https://picsum.photos/400/600?random=21",
+    image: "https://static.toiimg.com/thumb/msid-64795723,width-1070,height-580,imgsize-52833,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg",
     date: "Sat, 7 May",
     venue: "HSR Layout",
     category: "Stand up Comedy",
@@ -207,7 +207,7 @@ const shows = [
   {
     id: 22,
     title: "Comedy Blast Night",
-    image: "https://picsum.photos/400/600?random=22",
+    image: "https://indiantvinfo.com/media/2024/04/Comedy-Khiladigalu-Premier-League.jpg",
     date: "Sun, 8 May",
     venue: "Indiranagar",
     category: "Stand up Comedy",
@@ -216,7 +216,7 @@ const shows = [
   {
     id: 23,
     title: "Ultimate Roast Arena",
-    image: "https://picsum.photos/400/600?random=23",
+    image: "https://i.ytimg.com/vi/_UiIryIN7Tk/maxresdefault.jpg",
     date: "Mon, 9 May",
     venue: "Whitefield",
     category: "Roast",
@@ -225,7 +225,7 @@ const shows = [
   {
     id: 24,
     title: "Improvisation Live Show",
-    image: "https://picsum.photos/400/600?random=24",
+    image: "https://c8.alamy.com/comp/PPDT3G/show-of-the-middle-school-project-impro-macht-schule-improvisation-in-schools-in-the-einstein-kultur-in-haidhausen-following-an-improvisation-show-the-students-show-their-skills-to-the-improvisation-coach-PPDT3G.jpg",
     date: "Tue, 10 May",
     venue: "BTM Layout",
     category: "Improv Comedy",
@@ -234,7 +234,7 @@ const shows = [
   {
     id: 25,
     title: "Sketch Comedy Festival",
-    image: "https://picsum.photos/400/600?random=25",
+    image: "https://tse2.mm.bing.net/th/id/OIP.ZjhEXQrYqcZx1POqexZw_QHaD0?rs=1&pid=ImgDetMain&o=7&rm=3",
     date: "Wed, 11 May",
     venue: "MG Road",
     category: "Sketch",
