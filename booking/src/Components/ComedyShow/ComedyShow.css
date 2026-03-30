@@ -14,6 +14,23 @@ body {
 .filters {
   width: 260px;
 }
+/* FILTER ITEMS (like your image) */
+.filter-item {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* CLEAR TEXT */
+.clear {
+  color: #f84464;
+  font-size: 13px;
+}
 
 .filter-box {
   background: white;

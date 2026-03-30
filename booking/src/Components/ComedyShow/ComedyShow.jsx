@@ -11,27 +11,52 @@ export default function ComedyShow() {
 
       {/* LEFT FILTER */}
       <div className="filters">
-        <h2>Filters</h2>
+  <h2>Filters</h2>
 
-        <div className="filter-box">
-          <div className="filter-header">
-            <span>Date</span>
-            <span className="clear">Clear</span>
-          </div>
+  {/* DATE */}
+  <div className="filter-box">
+    <div className="filter-header">
+      <span>Date</span>
+      <span className="clear">Clear</span>
+    </div>
 
-          <div className="buttons">
-            <button>Today</button>
-            <button>Tomorrow</button>
-            <button>This Weekend</button>
-          </div>
+    <div className="buttons">
+      <button>Today</button>
+      <button>Tomorrow</button>
+      <button>This Weekend</button>
+    </div>
 
-          <label>
-            <input type="checkbox" /> Date Range
-          </label>
-        </div>
+    <label>
+      <input type="checkbox" /> Date Range
+    </label>
+  </div>
 
-        <button className="browse-btn">Browse by Venues</button>
-      </div>
+  {/* LANGUAGE */}
+  <div className="filter-item">
+    <span>Language</span>
+    <span className="clear">Clear</span>
+  </div>
+
+  {/* CATEGORIES */}
+  <div className="filter-item">
+    <span>Categories</span>
+    <span className="clear">Clear</span>
+  </div>
+
+  {/* MORE FILTERS */}
+  <div className="filter-item">
+    <span>More Filters</span>
+    <span className="clear">Clear</span>
+  </div>
+
+  {/* PRICE */}
+  <div className="filter-item">
+    <span>Price</span>
+    <span className="clear">Clear</span>
+  </div>
+
+  <button className="browse-btn">Browse by Venues</button>
+</div>
 
       {/* RIGHT CONTENT */}
       <div className="content">
