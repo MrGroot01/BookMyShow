@@ -59,56 +59,69 @@ export default function ComedyShow() {
 </div>
 
       {/* RIGHT CONTENT */}
-      <div className="content">
+       <div className="content">
         <h2 className="heading">Comedy Shows In Bengaluru</h2>
 
-        {/* ✅ PILLS */}
+        {/* ✅ PILLS WITH CLICK */}
         <div className="pills">
-          <span className="active">Stand up Comedy</span>
-          <span>Open Mic Comedy</span>
-          <span>Improv Comedy</span>
-          <span>Surprise Act</span>
-          <span>Roast</span>
-          <span>Sketch</span>
-        </div>
-
-        <div className="grid">
-          {shows.map((show) => (
-            <div
-              key={show.id}
-              className="card"
-              onClick={() => navigate(`/event/${show.id}`)}
+          {[
+            "Stand up Comedy",
+            "Open Mic Comedy",
+            "Improv Comedy",
+            "Surprise Act",
+            "Roast",
+            "Sketch",
+          ].map((cat) => (
+            <span
+              key={cat}
+              className={activeCategory === cat ? "active" : ""}
+              onClick={() => setActiveCategory(cat)}
             >
-              <div className="image-box">
-
-                {/* ✅ PROMOTED BADGE */}
-                {show.id === 1 && (
-                  <div className="promoted">PROMOTED</div>
-                )}
-
-                {/* ✅ IMAGE FIX (VERY IMPORTANT) */}
-                <img
-                  src={show.image}
-                  alt={show.title}
-                  onError={(e) =>
-                    (e.target.src = "https://picsum.photos/400/600")
-                  }
-                />
-
-                <div className="date">{show.date}</div>
-              </div>
-
-              <div className="card-content">
-                <h3>{show.title}</h3>
-                <p className="venue">{show.venue}</p>
-                <p className="category">{show.category}</p>
-                <p className="price">{show.price}</p>
-              </div>
-            </div>
+              {cat}
+            </span>
           ))}
         </div>
-      </div>
 
+        {/* ✅ FILTERED CARDS */}
+        <div className="grid">
+          {filteredShows.length > 0 ? (
+            filteredShows.map((show) => (
+              <div
+                key={show.id}
+                className="card"
+                onClick={() => navigate(`/event/${show.id}`)}
+              >
+                <div className="image-box">
+
+                  {/* PROMOTED */}
+                  {show.id === 1 && (
+                    <div className="promoted">PROMOTED</div>
+                  )}
+
+                  <img
+                    src={show.image}
+                    alt={show.title}
+                    onError={(e) =>
+                      (e.target.src = "https://picsum.photos/400/600")
+                    }
+                  />
+
+                  <div className="date">{show.date}</div>
+                </div>
+
+                <div className="card-content">
+                  <h3>{show.title}</h3>
+                  <p className="venue">{show.venue}</p>
+                  <p className="category">{show.category}</p>
+                  <p className="price">{show.price}</p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <h3>No shows found</h3>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

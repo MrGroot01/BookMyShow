@@ -209,3 +209,13 @@ body {
 .card-content {
   background: transparent !important;
 }
+/* make pills clickable */
+.pills span {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pills span:hover {
+  border-color: #f84464;
+  color: #f84464;
+}
