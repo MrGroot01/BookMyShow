@@ -5,74 +5,33 @@ import "./EventDetails.css";
 const shows = [
   {
     id: 1,
-    title: "Drunk & Unhinged: The Weekend Late-night Show",
-    image:
-      "https://in.bmscdn.com/events/moviecard/ET00312345.jpg",
-    date: "Sun 29 Mar 2026",
-    time: "10:00 PM",
-    duration: "1 hour 15 minutes",
-    age: "18yrs +",
-    language: "English, Hindi",
-    category: "Comedy",
-    venue: "Just BLR Comedy Club: Bengaluru",
-    price: "₹199",
-  },
+    title: "Dhandho ft Munawar Faruqui",
+    image: "https://in.bmscdn.com/events/moviecard/ET00312345.jpg",
+    date: "Sat 18 Apr",
+    time: "6:00 PM",
+    price: "₹999 onwards"
+  }
 ];
 
 export default function EventDetails() {
   const { id } = useParams();
-  const event = shows.find((e) => e.id === parseInt(id));
+  const event = shows.find((e) => e.id === Number(id));
 
   return (
-    <div className="event-wrapper">
+    <div className="details">
+      {/* TITLE ABOVE IMAGE */}
+      <h1 className="heading">{event.title}</h1>
 
-      {/* ✅ TITLE (TOP) */}
-      <h1 className="title">{event.title}</h1>
+      <div className="details-container">
+        <img src={event.image} alt={event.title} />
 
-      {/* ✅ MAIN SECTION */}
-      <div className="top-section">
-
-        {/* LEFT IMAGE */}
-        <div className="left">
-          <img src={event.image} alt="" />
-
-          {/* TAGS */}
-          <div className="tags">
-            <span>Stand up Comedy</span>
-            <span>Comedy Shows</span>
-          </div>
-
-          {/* ✅ INTEREST (MOVED BELOW IMAGE) */}
-          <div className="interest">
-            <span>👍 732 are interested</span>
-            <button>I’m Interested</button>
-          </div>
-        </div>
-
-        {/* RIGHT CARD */}
-        <div className="right-card">
+        <div className="info">
           <p>📅 {event.date}</p>
           <p>⏰ {event.time}</p>
-          <p>⏳ {event.duration}</p>
-          <p>👤 Age Limit - {event.age}</p>
-          <p>🌐 {event.language}</p>
-          <p>🎭 {event.category}</p>
-          <p>📍 {event.venue}</p>
+          <p>💰 {event.price}</p>
 
-          <div className="note">
-            Bookings are filling fast for Bengaluru
-          </div>
-
-          <div className="price-row">
-            <div>
-              <h2>{event.price}</h2>
-              <span className="fast">Filling Fast</span>
-            </div>
-
-            <button>Book Now</button>
-          </div>
+          <button className="book-btn">Book Tickets</button>
         </div>
-
       </div>
     </div>
   );
