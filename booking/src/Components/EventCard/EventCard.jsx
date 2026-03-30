@@ -55,7 +55,7 @@ const events = [
   {
     id: 3,
     title: "Tempo Tantrums - Kenny Sebastian (Comedy...)",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80",
+    image: "https://assets-in.bmscdn.com/discovery-catalog/events/et00312345.jpg",
     posterBg: "#cfe8ff",
     date: "Sat, 25 Apr onwards",
     fullDate: "Sat 25 Apr 2026 onwards",

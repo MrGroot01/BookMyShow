@@ -232,3 +232,40 @@ button { cursor: pointer; font-family: inherit; }
     width: 100%;
   }
 }
+/* ===== FORCE REMOVE CARD BOX ===== */
+
+/* remove ANY parent background */
+.cards-grid > div,
+.cards-grid > * {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* force card to be clean */
+.event-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== FIX IMAGE (VERY IMPORTANT) ===== */
+
+.card-img-wrap {
+  height: 320px !important;
+  background: none !important; /* remove grey */
+}
+
+.card-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  display: block;
+}
+
+/* ensure no container clipping */
+.event-card,
+.card-img-wrap {
+  overflow: visible !important;
+}
