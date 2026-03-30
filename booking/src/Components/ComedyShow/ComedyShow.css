@@ -1,34 +1,26 @@
-body {
-  font-family: "Poppins", sans-serif;
+/* MAIN CONTAINER */
+.main-container {
+  display: flex;
+  gap: 30px;
+  padding: 20px 40px;
   background: #f5f5f5;
 }
 
-/* MAIN */
-.main-container {
-  display: flex;
-  gap: 40px;
-  padding: 30px 60px;
-}
-
-/* FILTERS */
+/* FILTERS (LEFT SIDE) */
 .filters {
-  width: 260px;
+  width: 250px;
 }
 
-.filter-box {
-  background: white;
-  padding: 18px;
-  border-radius: 10px;
+.filters h2 {
   margin-bottom: 15px;
 }
 
-.filter-item {
-  background: white;
+/* FILTER BOX */
+.filter-box {
+  background: #fff;
   padding: 15px;
   border-radius: 10px;
-  margin-bottom: 12px;
-  display: flex;
-  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .filter-header {
@@ -39,76 +31,70 @@ body {
 }
 
 .clear {
-  color: red;
-  font-size: 14px;
+  color: #f84464;
+  font-size: 13px;
+  cursor: pointer;
 }
 
+/* BUTTONS */
 .buttons button {
-  margin: 5px;
-  padding: 8px 14px;
+  margin: 5px 5px 5px 0;
+  padding: 6px 12px;
   border: 1px solid #ddd;
-  background: white;
+  background: #fff;
   border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
+.buttons button:hover {
+  border-color: #f84464;
+  color: #f84464;
+}
+
+/* BROWSE BUTTON */
 .browse-btn {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border: 1px solid #f84464;
   color: #f84464;
-  background: white;
+  background: #fff;
   border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-/* CONTENT */
+.browse-btn:hover {
+  background: #f84464;
+  color: white;
+}
+
+/* RIGHT CONTENT */
 .content {
   flex: 1;
 }
 
 .heading {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 600;
-  margin-bottom: 15px;
-}
-
-/* PILLS */
-.pills {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 25px;
-}
-
-.pills span {
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
-}
-
-.pills .active {
-  background: #f84464;
-  color: white;
-  border: none;
+  margin-bottom: 20px;
 }
 
 /* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 20px;
 }
 
 /* CARD */
 .card {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/* REMOVE ALL WHITE BOX */
-.card-content {
-  background: transparent !important;
-  padding: 0 !important;
+.card:hover {
+  transform: scale(1.03);
 }
 
 /* IMAGE */
@@ -118,40 +104,47 @@ body {
 
 .image-box img {
   width: 100%;
-  height: 320px;
+  height: 260px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
-/* DATE */
+/* DATE TAG */
 .date {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: black;
+  background: rgba(0, 0, 0, 0.8);
   color: white;
-  padding: 8px;
-  border-radius: 0 0 12px 12px;
+  padding: 6px;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
 }
 
-/* TEXT */
+/* CARD TEXT */
+.card-content {
+  padding: 10px 5px;
+}
+
 .card-content h3 {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
   margin-bottom: 5px;
 }
 
 .venue {
   color: #666;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .category {
   color: #888;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .price {
   font-weight: 600;
   margin-top: 5px;
+  font-size: 14px;
 }

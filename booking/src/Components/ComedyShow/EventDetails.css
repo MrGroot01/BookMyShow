@@ -1,35 +1,62 @@
+/* MAIN */
 .details {
-  padding: 20px;
+  padding: 30px 40px;
+  background: #f5f5f5;
+  min-height: 100vh;
 }
 
+/* TITLE */
 .heading {
-  font-size: 32px;
-  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 25px;
 }
 
+/* LAYOUT */
 .details-container {
   display: flex;
-  gap: 20px;
+  gap: 40px;
+  align-items: flex-start;
 }
 
+/* IMAGE */
 .details-container img {
-  width: 70%;
+  width: 320px;
+  height: 420px;
+  object-fit: cover;
   border-radius: 12px;
 }
 
+/* INFO BOX */
 .info {
-  width: 30%;
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 10px;
+  flex: 1;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+/* TEXT */
+.info p {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+/* BUTTON */
 .book-btn {
-  background: red;
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  background: #f84464;
   color: white;
   border: none;
-  padding: 10px;
-  margin-top: 10px;
-  width: 100%;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.book-btn:hover {
+  background: #d73754;
+  transform: scale(1.02);
 }

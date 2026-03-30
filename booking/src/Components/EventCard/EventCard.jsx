@@ -5,9 +5,21 @@ import "./EventCard.css";
 export default function EventCard({ show }) {
   const navigate = useNavigate();
 
+  // ✅ Safety check (prevents crash)
+  if (!show) return null;
+
   return (
-    <div className="card" onClick={() => navigate(`/event/${show.id}`)}>
-      <img src={show.image} alt={show.title} />
+    <div
+      className="event-card"
+      onClick={() => navigate(`/event/${show.id}`)}
+    >
+      <img
+        src={show.image}
+        alt={show.title}
+        onError={(e) =>
+          (e.target.src = "https://via.placeholder.com/300")
+        }
+      />
 
       <h3 className="title">{show.title}</h3>
 
@@ -18,10 +30,15 @@ export default function EventCard({ show }) {
         </div>
 
         <div className="interest">
-          👍 391 are interested
+          👍 391 interested
         </div>
 
-        <button className="btn">I'm Interested</button>
+        <button
+          className="btn"
+          onClick={(e) => e.stopPropagation()} // ✅ prevents navigation on button click
+        >
+          I'm Interested
+        </button>
       </div>
     </div>
   );
