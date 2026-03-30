@@ -1,52 +1,44 @@
 const shows = [
   {
     id: 1,
-    title: "Dhandho ft Munawar Faruqui",
-    image: "https://via.placeholder.com/800x400",
-    date: "Sat 18 Apr",
+    title: "Drunk & Unhinged: The Weekend Late-night Show",
+    venue: "Just BLR Comedy Club: Bengaluru",
+    category: "Stand up Comedy",
+    price: "₹199",
+    date: "Sun, 29 Mar",
     time: "6:00 PM",
-    price: "₹999 onwards"
+    image: "https://via.placeholder.com/300",
   },
   {
     id: 2,
-    title: "Standup Comedy Night",
-    image: "https://via.placeholder.com/800x400",
-    date: "Sun 20 Apr",
-    time: "7:30 PM",
-    price: "₹499 onwards"
+    title: "Dhandho ft Munawar Faruqui",
+    venue: "Venue To Be Announced",
+    category: "Stand up Comedy",
+    price: "₹799 onwards",
+    date: "Sat, 18 Apr",
+    time: "7:00 PM",
+    image: "https://via.placeholder.com/300",
   },
   {
     id: 3,
-    title: "Improv Comedy Show",
-    image: "https://via.placeholder.com/800x400",
-    date: "Mon 22 Apr",
+    title: "Kal Ki Chinta Nahi Karta ft. Ravi Gupta",
+    venue: "MLR Convention Centre",
+    category: "Stand up Comedy",
+    price: "₹799 onwards",
+    date: "Sat, 11 Apr",
     time: "8:00 PM",
-    price: "₹399 onwards"
+    image: "https://via.placeholder.com/300",
   },
   {
     id: 4,
-    title: "Roast Battle Live",
-    image: "https://via.placeholder.com/800x400",
-    date: "Tue 23 Apr",
+    title: "Inventions by Biswa Kalyan Rath",
+    venue: "Viveka Auditorium",
+    category: "Stand up Comedy",
+    price: "₹999 onwards",
+    date: "Fri, 22 May",
     time: "6:30 PM",
-    price: "₹599 onwards"
+    image: "https://via.placeholder.com/300",
   },
-  {
-    id: 5,
-    title: "Open Mic Comedy",
-    image: "https://via.placeholder.com/800x400",
-    date: "Wed 24 Apr",
-    time: "5:00 PM",
-    price: "₹199 onwards"
-  },
-  {
-    id: 6,
-    title: "Comedy Festival Special",
-    image: "https://via.placeholder.com/800x400",
-    date: "Fri 26 Apr",
-    time: "9:00 PM",
-    price: "₹1299 onwards"
-  }
 ];
 
 export default shows;

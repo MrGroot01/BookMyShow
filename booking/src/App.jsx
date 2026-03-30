@@ -99,7 +99,6 @@ import Kids from "./Components/Kids/Kids";
 
 import LoginModal from "./NavBar/Login/Login";
 
-/* 🔥 Scroll to top when route changes */
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -124,18 +123,13 @@ const App = () => {
         <Route path="/movies" element={<Movies />} />
         <Route path="/concerts" element={<Concerts />} />
         <Route path="/comedyshow" element={<ComedyShow />} />
-
-        {/* ✅ Event Details Page */}
         <Route path="/event/:id" element={<EventDetails />} />
-
         <Route path="/sports" element={<Sports />} />
         <Route path="/adventure" element={<Adventure />} />
         <Route path="/kids" element={<Kids />} />
       </Routes>
 
-      {openLogin && (
-        <LoginModal close={() => setOpenLogin(false)} />
-      )}
+      {openLogin && <LoginModal close={() => setOpenLogin(false)} />}
     </BrowserRouter>
   );
 };
