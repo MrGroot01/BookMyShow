@@ -16,7 +16,7 @@ const FEATURED = [
     year: 2024,
     description:
       "In the dystopian future of Kali Yuga, a fierce warrior is destined to protect the last hope of humanity against an immortal tyrant.",
-    poster: "https://image.tmdb.org/t/p/w500/ie7A7pDhOQjqRZVgc3HqFNHoYfR.jpg",
+    poster: "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p26939389_p_v13_ab.jpg",
     bg: "linear-gradient(135deg,#06000f 0%,#150040 55%,#0d1545 100%)",
     accent: "#a855f7",
     accentRgb: "168,85,247",
@@ -34,7 +34,7 @@ const FEATURED = [
     year: 2024,
     description:
       "Pushpa Raj returns more powerful than ever, ready to crush anyone who dares stand between him and his empire.",
-    poster: "https://image.tmdb.org/t/p/w500/eBNUFn6kVCvFtNqkGqSfk2cSRMU.jpg",
+    poster: "https://m.media-amazon.com/images/M/MV5BZjllNTdiM2QtYjQ0Ni00ZGM1LWFlYmUtNWY0YjMzYWIxOTYxXkEyXkFqcGc@._V1_.jpg",
     bg: "linear-gradient(135deg,#150400 0%,#3d1200 55%,#1a0800 100%)",
     accent: "#f97316",
     accentRgb: "249,115,22",
@@ -52,7 +52,7 @@ const FEATURED = [
     year: 2024,
     description:
       "The legend of Stree continues as Chanderi faces a new supernatural threat far more terrifying than anything before.",
-    poster: "https://image.tmdb.org/t/p/w500/oLxWocqmS8tNBVAB4KATJMGV3PL.jpg",
+    poster: "https://st1.bollywoodlife.com/wp-content/uploads/2024/08/Stree-2-2.png",
     bg: "linear-gradient(135deg,#001505 0%,#002a12 55%,#001a0a 100%)",
     accent: "#22c55e",
     accentRgb: "34,197,94",
@@ -77,8 +77,6 @@ const FEATURED = [
     trailer: "https://www.youtube.com/embed/uYPbbksJxIg",
   },
 ];
-
-
 
 const ALL_MOVIES = [
   {
@@ -424,9 +422,9 @@ const Movies = () => {
   const [search, setSearch] = useState("");
   const [revealed, setRevealed] = useState(new Set());
   const [trailerUrl, setTrailerUrl] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const gridRef = useRef(null);
 
-  /* ── Anti-glitch: wait for first paint ── */
   useEffect(() => {
     const raf = requestAnimationFrame(() =>
       setTimeout(() => setLoaded(true), 50),
@@ -434,36 +432,14 @@ const Movies = () => {
     return () => cancelAnimationFrame(raf);
   }, []);
 
-  /* ── Bootstrap via CDN (no npm needed) ── */
+  // Auto-advance hero slider
   useEffect(() => {
-    if (!document.getElementById("mv-bs-css")) {
-      const link = Object.assign(document.createElement("link"), {
-        id: "mv-bs-css",
-        rel: "stylesheet",
-        href: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",
-      });
-      document.head.appendChild(link);
-    }
-
-    const js = Object.assign(document.createElement("script"), {
-      src: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js",
-      async: true,
-    });
-    js.onload = () => {
-      const el = document.getElementById("heroCarousel");
-      if (el && window.bootstrap) {
-        new window.bootstrap.Carousel(el, {
-          interval: 5200,
-          ride: "carousel",
-          pause: "hover",
-        });
-      }
-    };
-    document.body.appendChild(js);
-    return () => document.body.contains(js) && document.body.removeChild(js);
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % FEATURED.length);
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
 
-  /* ── IntersectionObserver: staggered reveal ── */
   useEffect(() => {
     if (!gridRef.current) return;
     const io = new IntersectionObserver(
@@ -487,191 +463,234 @@ const Movies = () => {
       m.title.toLowerCase().includes(search.toLowerCase()),
   );
 
+  const currentMovie = FEATURED[currentSlide];
+
   return (
     <div className={`mvp ${loaded ? "mvp--ready" : ""}`}>
       {/* ════════════════════════════════════
-          BOOTSTRAP HERO CAROUSEL
+          MODERN HERO SECTION
       ════════════════════════════════════ */}
-      <div
-        id="heroCarousel"
-        className="carousel slide mvp-carousel"
-        data-bs-ride="carousel"
-      >
-        <div className="carousel-indicators mvp-dots">
+      <div className="hero-modern">
+        <div className="hero-bg" style={{ background: currentMovie.bg }}>
+          <div className="hero-gradient" />
+          <div className="hero-noise" />
+        </div>
+
+        <div className="hero-content">
+          <div className="hero-text">
+            <div className="hero-badges">
+              {currentMovie.genres.map((g) => (
+                <span
+                  key={g}
+                  className="hero-badge"
+                  style={{
+                    background: `${currentMovie.accent}15`,
+                    color: currentMovie.accent,
+                    borderColor: `${currentMovie.accent}40`,
+                  }}
+                >
+                  {g}
+                </span>
+              ))}
+            </div>
+
+            <h1 className="hero-title">{currentMovie.title}</h1>
+            <p className="hero-tagline">{currentMovie.tagline}</p>
+            <p className="hero-desc">{currentMovie.description}</p>
+
+            <div className="hero-stats">
+              <div className="stat">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="stat-icon">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                <span className="stat-val">{currentMovie.rating}</span>
+                <span className="stat-label">({currentMovie.votes} votes)</span>
+              </div>
+              <div className="stat-divider" />
+              <div className="stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="stat-icon">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                <span className="stat-val">{currentMovie.duration}</span>
+              </div>
+              <div className="stat-divider" />
+              <div className="stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="stat-icon">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                <span className="stat-val">{currentMovie.language}</span>
+              </div>
+            </div>
+
+            <div className="hero-actions">
+              <button
+                className="btn-primary"
+                style={{ background: currentMovie.accent }}
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="btn-icon">
+                  <path d="M9 1v2h6V1h2v2h4a2 2 0 012 2v14a2 2 0 01-2 2H3a2 2 0 01-2-2V5a2 2 0 012-2h4V1h2z" />
+                </svg>
+                Book Tickets
+              </button>
+              <button
+                className="btn-secondary"
+                onClick={() => setTrailerUrl(currentMovie.trailer)}
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="btn-icon">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                Watch Trailer
+              </button>
+              <button className="btn-icon-only">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div className="hero-poster">
+            <div
+              className="poster-glow"
+              style={{
+                background: `radial-gradient(circle at center, ${currentMovie.accent}40 0%, transparent 70%)`,
+              }}
+            />
+            <div className="poster-frame">
+              <Poster
+                src={currentMovie.poster}
+                alt={currentMovie.title}
+                color={currentMovie.bg}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="hero-indicators">
           {FEATURED.map((_, i) => (
             <button
               key={i}
-              type="button"
-              data-bs-target="#heroCarousel"
-              data-bs-slide-to={i}
-              aria-label={`Slide ${i + 1}`}
-              className={i === 0 ? "active" : ""}
+              className={`indicator ${i === currentSlide ? "active" : ""}`}
+              onClick={() => setCurrentSlide(i)}
+              style={{
+                background:
+                  i === currentSlide ? currentMovie.accent : "transparent",
+              }}
             />
           ))}
         </div>
-
-        <div className="carousel-inner">
-          {FEATURED.map((m, i) => (
-            <div
-              key={m.id}
-              className={`carousel-item ${i === 0 ? "active" : ""}`}
-            >
-              <div className="mvp-slide" style={{ background: m.bg }}>
-                <div className="mvp-slide-noise" />
-                <div className="mvp-slide-body">
-                  <div className="mvp-slide-text">
-                    <div className="mvp-genres">
-                      {m.genres.map((g) => (
-                        <span
-                          key={g}
-                          className="mvp-gpill"
-                          style={{
-                            border: `1px solid ${m.accent}`,
-                            color: m.accent,
-                          }}
-                        >
-                          {g}
-                        </span>
-                      ))}
-                    </div>
-                    <h1 className="mvp-slide-title">{m.title}</h1>
-                    <p className="mvp-slide-tag">{m.tagline}</p>
-                    <p className="mvp-slide-desc">{m.description}</p>
-                    <div className="mvp-slide-meta">
-                      <span style={{ color: m.accent }}>
-                        ★ {m.rating} <small>({m.votes})</small>
-                      </span>
-                      <span className="mvp-sep" />
-                      <span>{m.duration}</span>
-                      <span className="mvp-sep" />
-                      <span>{m.language}</span>
-                    </div>
-                    <div className="mvp-slide-ctas">
-                      <button
-                        className="mvp-btn-book"
-                        style={{ background: m.accent }}
-                      >
-                        🎟 Book Tickets
-                      </button>
-                      <button
-                        className="mvp-btn-ghost"
-                        onClick={() => setTrailerUrl(m.trailer)}
-                      >
-                        ▶ Trailer
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="mvp-slide-poster">
-                    <div
-                      className="mvp-poster-glow"
-                      style={{
-                        background: `radial-gradient(ellipse,rgba(${m.accentRgb},.4) 0%,transparent 70%)`,
-                      }}
-                    />
-                    <Poster src={m.poster} alt={m.title} color={m.bg} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <button
-          className="carousel-control-prev mvp-ctrl"
-          type="button"
-          data-bs-target="#heroCarousel"
-          data-bs-slide="prev"
-        >
-          <span className="mvp-arrow">&#8249;</span>
-        </button>
-        <button
-          className="carousel-control-next mvp-ctrl mvp-ctrl--r"
-          type="button"
-          data-bs-target="#heroCarousel"
-          data-bs-slide="next"
-        >
-          <span className="mvp-arrow">&#8250;</span>
-        </button>
       </div>
 
       {/* ════════════════════════════════════
-          STICKY FILTER BAR
+          MODERN FILTER BAR
       ════════════════════════════════════ */}
-      <div className="mvp-bar">
-        <div className="mvp-bar-inner">
-          <div className="mvp-search-box">
+      <div className="filter-bar">
+        <div className="filter-container">
+          <div className="search-wrapper">
             <svg
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2.2"
-              className="mvp-search-ico"
+              strokeWidth="2"
+              className="search-icon"
             >
               <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              <path d="m21 21-4.35-4.35" />
             </svg>
             <input
-              className="mvp-search"
               type="text"
-              placeholder="Search movies…"
+              className="search-input"
+              placeholder="Search for movies..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
+            {search && (
+              <button className="clear-btn" onClick={() => setSearch("")}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            )}
           </div>
 
-          <div className="mvp-pills-row">
-            <span className="mvp-label">Lang</span>
-            {LANGUAGES.map((l) => (
-              <button
-                key={l}
-                onClick={() => setActiveLang(l)}
-                className={`mvp-pill ${activeLang === l ? "mvp-pill--on" : ""}`}
-              >
-                {l}
-              </button>
-            ))}
+          <div className="filter-group">
+            <span className="filter-label">Languages</span>
+            <div className="filter-chips">
+              {LANGUAGES.map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setActiveLang(l)}
+                  className={`chip ${activeLang === l ? "active" : ""}`}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="mvp-pills-row">
-            <span className="mvp-label">Genre</span>
-            {GENRES.map((g) => (
-              <button
-                key={g}
-                onClick={() => setActiveGenre(g)}
-                className={`mvp-pill ${activeGenre === g ? "mvp-pill--on" : ""}`}
-              >
-                {g}
-              </button>
-            ))}
+          <div className="filter-group">
+            <span className="filter-label">Genres</span>
+            <div className="filter-chips">
+              {GENRES.map((g) => (
+                <button
+                  key={g}
+                  onClick={() => setActiveGenre(g)}
+                  className={`chip ${activeGenre === g ? "active" : ""}`}
+                >
+                  {g}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       {/* ════════════════════════════════════
-          TRENDING HORIZONTAL SCROLL
+          TRENDING SECTION
       ════════════════════════════════════ */}
-      <section className="mvp-sec">
-        <div className="mvp-sec-head">
-          <h2 className="mvp-sec-title">
-            <span className="mvp-fire">🔥</span> Trending Now
-          </h2>
-          <span className="mvp-count">{ALL_MOVIES.length} movies</span>
+      <section className="section">
+        <div className="section-header">
+          <div className="section-title-wrapper">
+            <h2 className="section-title">Trending Now</h2>
+            <span className="trend-indicator">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7.5 11L12 6.5 16.5 11M12 18V7" />
+              </svg>
+            </span>
+          </div>
+          <span className="section-count">{ALL_MOVIES.length} movies</span>
         </div>
-        <div className="mvp-hscroll">
+
+        <div className="scroll-container">
           {ALL_MOVIES.slice(0, 10).map((m) => (
-            <div key={m.id} className="mvp-tc">
-              <div className="mvp-tc-img">
+            <div key={m.id} className="trending-card">
+              <div className="trending-poster">
                 <Poster src={m.poster} alt={m.title} color={m.color} />
-                {m.badge && <span className="mvp-badge">{m.badge}</span>}
-                <div className="mvp-hover-ov">
-                  <button className="mvp-mini-book">Book</button>
+                {m.badge && <span className="trending-badge">{m.badge}</span>}
+                <div className="trending-overlay">
+                  <button className="quick-book">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9 1v2h6V1h2v2h4a2 2 0 012 2v14a2 2 0 01-2 2H3a2 2 0 01-2-2V5a2 2 0 012-2h4V1h2z" />
+                    </svg>
+                    Book Now
+                  </button>
                 </div>
               </div>
-              <p className="mvp-tc-name">{m.title}</p>
-              <p className="mvp-tc-meta">
-                ★ {m.rating} · {m.lang}
-              </p>
+              <div className="trending-info">
+                <h3 className="trending-title">{m.title}</h3>
+                <div className="trending-meta">
+                  <span className="rating">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                    {m.rating}
+                  </span>
+                  <span className="meta-dot">•</span>
+                  <span>{m.lang}</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -680,55 +699,75 @@ const Movies = () => {
       {/* ════════════════════════════════════
           NOW SHOWING GRID
       ════════════════════════════════════ */}
-      <section className="mvp-sec">
-        <div className="mvp-sec-head">
-          <h2 className="mvp-sec-title">Now Showing</h2>
-          <span className="mvp-count">{filtered.length} results</span>
+      <section className="section">
+        <div className="section-header">
+          <h2 className="section-title">Now Showing</h2>
+          <span className="section-count">{filtered.length} results</span>
         </div>
 
         {filtered.length === 0 ? (
-          <div className="mvp-empty">
-            <div className="mvp-empty-ico">🎬</div>
-            <p>No movies match your filters</p>
+          <div className="empty-state">
+            <div className="empty-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <rect x="2" y="7" width="20" height="15" rx="2" />
+                <polyline points="2 7 12 13 22 7" />
+              </svg>
+            </div>
+            <h3>No movies found</h3>
+            <p>Try adjusting your filters or search query</p>
             <button
+              className="reset-btn"
               onClick={() => {
                 setActiveLang("All");
                 setActiveGenre("All");
                 setSearch("");
               }}
             >
-              Clear Filters
+              Clear All Filters
             </button>
           </div>
         ) : (
-          <div className="mvp-grid" ref={gridRef}>
+          <div className="movie-grid" ref={gridRef}>
             {filtered.map((m, i) => (
               <div
                 key={m.id}
                 data-cid={String(m.id)}
-                className={`mvp-card ${revealed.has(String(m.id)) ? "mvp-card--in" : ""}`}
-                style={{ transitionDelay: `${(i % 8) * 0.055}s` }}
+                className={`movie-card ${revealed.has(String(m.id)) ? "revealed" : ""}`}
+                style={{ transitionDelay: `${(i % 12) * 0.04}s` }}
               >
-                <div className="mvp-card-img">
+                <div className="movie-poster">
                   <Poster src={m.poster} alt={m.title} color={m.color} />
-                  {m.badge && <span className="mvp-badge">{m.badge}</span>}
-                  <div className="mvp-hover-ov mvp-hover-ov--lg">
-                    <button className="mvp-book-full">🎟 Book Tickets</button>
+                  {m.badge && <span className="movie-badge">{m.badge}</span>}
+                  <div className="movie-overlay">
+                    <button className="overlay-btn">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 1v2h6V1h2v2h4a2 2 0 012 2v14a2 2 0 01-2 2H3a2 2 0 01-2-2V5a2 2 0 012-2h4V1h2z" />
+                      </svg>
+                      Book Tickets
+                    </button>
                   </div>
                 </div>
-                <div className="mvp-card-body">
-                  <div className="mvp-card-rating">
-                    <span className="mvp-star">★</span>
-                    <span className="mvp-rval">{m.rating}</span>
-                    <span className="mvp-rvotes">{m.votes}</span>
+
+                <div className="movie-info">
+                  <div className="movie-rating">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                    <span>{m.rating}</span>
+                    <span className="votes">({m.votes})</span>
                   </div>
-                  <h3 className="mvp-card-title">{m.title}</h3>
-                  <p className="mvp-card-info">
-                    {m.lang} · {m.dur}
-                  </p>
-                  <div className="mvp-tags">
+
+                  <h3 className="movie-title">{m.title}</h3>
+
+                  <div className="movie-details">
+                    <span>{m.lang}</span>
+                    <span className="meta-dot">•</span>
+                    <span>{m.dur}</span>
+                  </div>
+
+                  <div className="movie-genres">
                     {m.genres.map((g) => (
-                      <span key={g} className="mvp-tag">
+                      <span key={g} className="genre-tag">
                         {g}
                       </span>
                     ))}
@@ -743,51 +782,72 @@ const Movies = () => {
       {/* ════════════════════════════════════
           COMING SOON
       ════════════════════════════════════ */}
-      <section className="mvp-sec mvp-sec--soon">
-        <div className="mvp-sec-head">
-          <h2 className="mvp-sec-title">
-            <span className="mvp-pulse-dot" /> Coming Soon
-          </h2>
+      <section className="section section-coming">
+        <div className="section-header">
+          <div className="section-title-wrapper">
+            <h2 className="section-title">Coming Soon</h2>
+            <div className="pulse-dot" />
+          </div>
         </div>
-        <div className="mvp-hscroll">
+
+        <div className="scroll-container">
           {COMING_SOON.map((m) => (
-            <div key={m.id} className="mvp-tc mvp-tc--soon">
-              <div className="mvp-tc-img">
+            <div key={m.id} className="coming-card">
+              <div className="coming-poster">
                 <Poster src={m.poster} alt={m.title} color={m.color} />
-                <div className="mvp-soon-veil" />
-                <div className="mvp-soon-date">{m.releaseDate}</div>
-                <div className="mvp-hover-ov">
-                  <button className="mvp-mini-book mvp-mini-book--notify">
-                    🔔 Notify
+                <div className="coming-veil" />
+                <div className="release-date">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                  {m.releaseDate}
+                </div>
+                <div className="coming-overlay">
+                  <button className="notify-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                      <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                    </svg>
+                    Notify Me
                   </button>
                 </div>
               </div>
-              <p className="mvp-tc-name">{m.title}</p>
-              <p className="mvp-tc-meta">{m.genres.join(" · ")}</p>
+              <div className="coming-info">
+                <h3 className="coming-title">{m.title}</h3>
+                <p className="coming-genres">{m.genres.join(" • ")}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <div style={{ height: 72 }} />
-
+      {/* ════════════════════════════════════
+          MODERN TRAILER MODAL
+      ════════════════════════════════════ */}
       {trailerUrl && (
-  <div className="trailer-modal" onClick={() => setTrailerUrl(null)}>
-    <div className="trailer-content" onClick={(e) => e.stopPropagation()}>
-      <button className="trailer-close" onClick={() => setTrailerUrl(null)}>✖</button>
-      <iframe
-        width="100%"
-        height="400"
-        src={trailerUrl}
-        title="Trailer"
-        frameBorder="0"
-        allowFullScreen
-      ></iframe>
-    </div>
-  </div>
-)}
-
-
+        <div className="modal-backdrop" onClick={() => setTrailerUrl(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setTrailerUrl(null)}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <div className="modal-video">
+              <iframe
+                src={trailerUrl}
+                title="Movie Trailer"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
