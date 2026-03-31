@@ -20,7 +20,7 @@ export default function EventDetails() {
       {/* TITLE + SHARE */}
       <div className="header">
         <h1>{show.title}</h1>
-        <div className="share-icon">🔗</div>
+        <div className="share-icon"></div>
       </div>
 
       <div className="event-container">
@@ -132,32 +132,62 @@ export default function EventDetails() {
 
       {/* ✅ POPUPS (ADDED) */}
 
-      {showMTicket && (
-        <div className="popup-overlay">
-          <div className="popup">
-            <button className="close" onClick={() => setShowMTicket(false)}>✖</button>
-            <h2>How to use the M-ticket for Live Events</h2>
-            <p>Login → Orders → Show QR code at entry</p>
-          </div>
-        </div>
-      )}
+     {showMTicket && (
+  <div className="popup-overlay">
+    <div className="popup large">
 
-      {showTerms && (
-        <div className="popup-overlay">
-          <div className="popup">
-            <button className="close" onClick={() => setShowTerms(false)}>✖</button>
-            <h2>Terms & Conditions</h2>
-            <ol>
-              <li>Tickets cannot be refunded</li>
-              <li>Internet fee may apply</li>
-              <li>Arrive early</li>
-              <li>Follow rules</li>
-              <li>No resale allowed</li>
-              <li>Rights reserved</li>
-            </ol>
-          </div>
+      <span className="close" onClick={() => setShowMTicket(false)}>✖</span>
+
+      <h2 className="popup-title">
+        How to use the M-ticket for Live Events
+      </h2>
+
+      <div className="steps">
+
+        <div className="step">
+          <div className="step-number">1</div>
+          <p>Log in to BookMyShow from app or mobile browser.</p>
+          <img src="https://in.bmscdn.com/m-ticket/assets/step1.png" alt="step1"/>
         </div>
-      )}
+
+        <div className="step">
+          <div className="step-number">2</div>
+          <p>In your profile section, click on your orders.</p>
+          <img src="https://in.bmscdn.com/m-ticket/assets/step2.png" alt="step2"/>
+        </div>
+
+        <div className="step">
+          <div className="step-number">3</div>
+          <p>Select your ticket and show the QR code at the event entry.</p>
+          <img src="https://in.bmscdn.com/m-ticket/assets/step3.png" alt="step3"/>
+        </div>
+
+      </div>
+    </div>
+  </div>
+)}
+{showTerms && (
+  <div className="popup-overlay">
+    <div className="popup">
+
+      <span className="close" onClick={() => setShowTerms(false)}>✖</span>
+
+      <h2>Terms & Conditions</h2>
+
+      <ol>
+        <li>Tickets once booked cannot be exchanged or refunded</li>
+        <li>An Internet handling fee per ticket may be levied. Please check the total amount before payment</li>
+        <li>We recommend that you arrive at-least 30 minutes prior at the venue for a seamless entry</li>
+        <li>It is mandatory to wear masks at all times and follow social distancing norms</li>
+        <li>Please do not purchase tickets if you feel sick</li>
+        <li>Unlawful resale (or attempted unlawful resale) of a ticket would lead to seizure or cancellation of that ticket without refund or other compensation</li>
+        <li>Rights of admission reserved</li>
+        <li>These terms and conditions are subject to change from time to time at the discretion of the organizer</li>
+      </ol>
+
+    </div>
+  </div>
+)}
 
     </div>
   );

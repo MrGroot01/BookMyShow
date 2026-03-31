@@ -255,3 +255,43 @@
   margin-bottom: 10px;
   line-height: 1.6;
 }
+/* BIG POPUP */
+.popup.large {
+  width: 85%;
+  max-width: 1100px;
+}
+
+/* TITLE */
+.popup-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* STEPS LAYOUT */
+.steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.step {
+  text-align: center;
+  width: 33%;
+}
+
+.step img {
+  width: 180px;
+  margin-top: 15px;
+  border-radius: 12px;
+}
+
+/* STEP NUMBER */
+.step-number {
+  background: #f84464;
+  color: white;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
