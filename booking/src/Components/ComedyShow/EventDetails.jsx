@@ -1,8 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "./EventDetails.css";
-
-// ✅ IMPORT DATA
 import shows from "../../data/ShowsData";
 
 export default function EventDetails() {
@@ -14,10 +12,10 @@ export default function EventDetails() {
 
   return (
     <div className="event-container">
-      
+
       {/* LEFT SIDE */}
       <div className="event-left">
-        
+
         <img src={show.image} alt={show.title} className="main-image" />
 
         <div className="tags">
@@ -32,22 +30,38 @@ export default function EventDetails() {
 
         <div className="about">
           <h2>About The Event</h2>
-          <p>{show.title} is one of the best live comedy experiences in Bengaluru.</p>
+          <p>
+            Join us for an evening of laughter, socializing, and connections.
+          </p>
           <p><b>Venue:</b> {show.venue}</p>
           <p><b>Date:</b> {show.date}</p>
         </div>
+
       </div>
 
-      {/* RIGHT SIDE */}
+      {/* RIGHT SIDE (UPDATED EXACT UI) */}
       <div className="event-right">
         <div className="booking-box">
-          <p>📅 {show.date}</p>
-          <p>📍 {show.venue}</p>
-          <p>🎭 {show.category}</p>
 
-          <h3>{show.price}</h3>
+          <div className="info-row">📅 <span>{show.date}</span></div>
+          <div className="info-row">⏰ <span>5:00 PM</span></div>
+          <div className="info-row">⏳ <span>1 Hour</span></div>
+          <div className="info-row">👤 <span>Age Limit - 18yrs +</span></div>
+          <div className="info-row">🌐 <span>English, Hindi, Kannada</span></div>
+          <div className="info-row">🎭 <span>{show.category}</span></div>
+          <div className="info-row">📍 <span>{show.venue}</span></div>
 
-          <button className="book-btn">Book Now</button>
+          <hr />
+
+          <div className="price-section">
+            <div>
+              <h3>{show.price}</h3>
+              <p className="available">Available</p>
+            </div>
+
+            <button className="book-btn">Book Now</button>
+          </div>
+
         </div>
       </div>
 

@@ -1,3 +1,4 @@
+/* MAIN LAYOUT */
 .event-container {
   display: flex;
   gap: 30px;
@@ -9,6 +10,7 @@
   width: 70%;
 }
 
+/* IMAGE */
 .main-image {
   width: 100%;
   border-radius: 12px;
@@ -37,8 +39,8 @@
 
 .interest button {
   padding: 6px 12px;
-  border: 1px solid red;
-  color: red;
+  border: 1px solid #f84464;
+  color: #f84464;
   background: transparent;
   border-radius: 6px;
   cursor: pointer;
@@ -57,23 +59,66 @@
   width: 30%;
 }
 
-/* STICKY POSITION */
+/* BOOKING BOX */
 .booking-box {
   position: sticky;
   top: 20px;
-  border: 1px solid #ddd;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 16px;
   padding: 20px;
-  border-radius: 10px;
-  background: white;
 }
 
+/* INFO ROW */
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  margin-bottom: 14px;
+  color: #333;
+}
+
+/* LINE */
+.booking-box hr {
+  margin: 15px 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+/* PRICE SECTION */
+.price-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* PRICE */
+.price-section h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* AVAILABLE */
+.available {
+  color: green;
+  font-size: 13px;
+  margin: 2px 0 0;
+}
+
+/* BUTTON */
 .book-btn {
-  width: 100%;
-  padding: 10px;
-  background: red;
+  background: #f84464;
   color: white;
   border: none;
-  border-radius: 8px;
-  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
   cursor: pointer;
+}
+
+/* HOVER */
+.book-btn:hover {
+  background: #e03350;
 }
