@@ -24,7 +24,7 @@ const Navbar = ({ onLoginClick }) => {
     if (value.includes("movie")) {
       navigate("/movies");
     } else if (value.includes("comedy") || value.includes("event")) {
-      navigate("/comedyshow"); // ✅ FIXED
+      navigate("/comedyshow");
     } else if (value.includes("sport")) {
       navigate("/sports");
     } else {
@@ -37,10 +37,7 @@ const Navbar = ({ onLoginClick }) => {
       <nav className="navbar">
         <div className="container">
 
-          {/* LEFT */}
           <div className="nav-left">
-
-            {/* ✅ FIXED (Link instead of <a>) */}
             <Link to="/" className="logo">
               <img
                 src="https://static.vecteezy.com/system/resources/previews/050/816/799/non_2x/bookmyshow-transparent-icon-free-png.png"
@@ -63,10 +60,7 @@ const Navbar = ({ onLoginClick }) => {
             </div>
           </div>
 
-          {/* RIGHT */}
           <div className="nav-right">
-
-            {/* LOCATION */}
             <div
               className="nav-location"
               onClick={() => setShowLocation(true)}
@@ -74,11 +68,9 @@ const Navbar = ({ onLoginClick }) => {
               <span>{location} ⌄</span>
             </div>
 
-            {/* LOGIN */}
             <button className="login-btn" onClick={onLoginClick}>
               Sign in
             </button>
-
           </div>
         </div>
       </nav>
@@ -88,37 +80,46 @@ const Navbar = ({ onLoginClick }) => {
         <div className="container">
 
           <div className="sub-left">
+
             <Link to="/movies" className="sub-link">
               <FaFilm size={20} />
+              <span className="tooltip">Movies</span>
             </Link>
 
             <Link to="/concerts" className="sub-link">
               <FaMusic size={20} />
+              <span className="tooltip">Concerts</span>
             </Link>
 
             <Link to="/comedyshow" className="sub-link">
               <FaLaughBeam size={20} />
+              <span className="tooltip">Comedy</span>
             </Link>
 
             <Link to="/sports" className="sub-link">
               <FaFutbol size={20} />
+              <span className="tooltip">Sports</span>
             </Link>
+
           </div>
 
           <div className="sub-right">
+
             <Link to="/adventure" className="sub-link">
               <FaHiking size={20} />
+              <span className="tooltip">Adventure</span>
             </Link>
 
             <Link to="/kids" className="sub-link">
               <FaChild size={20} />
+              <span className="tooltip">Kids</span>
             </Link>
+
           </div>
 
         </div>
       </div>
 
-      {/* LOCATION POPUP */}
       {showLocation && (
         <Location
           setShowLocation={setShowLocation}

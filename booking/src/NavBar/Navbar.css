@@ -81,3 +81,29 @@
   color: #f84464;
   transform: scale(1.2);
 }
+/* TOOLTIP STYLE */
+.sub-link {
+  position: relative;
+}
+
+/* HIDDEN TEXT */
+.tooltip {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+/* SHOW ON HOVER */
+.sub-link:hover .tooltip {
+  opacity: 1;
+}
