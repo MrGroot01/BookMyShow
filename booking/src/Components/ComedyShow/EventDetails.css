@@ -52,6 +52,17 @@
   border-radius: 6px;
   margin-right: 10px;
 }
+/* FIX OVERLAP */
+.tags {
+  margin-top: 15px;   /* ✅ pushes tags below image */
+  display: flex;
+  gap: 10px;
+}
+
+/* OPTIONAL (better spacing) */
+.main-image {
+  margin-bottom: 10px;  /* ✅ extra space below image */
+}
 
 /* ===== INTEREST ===== */
 .interest {
