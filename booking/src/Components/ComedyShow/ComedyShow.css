@@ -243,3 +243,24 @@ body {
 .carousel img.active {
   opacity: 1;
 }
+/* ===== FULL WIDTH TOP CAROUSEL ===== */
+.top-carousel {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.top-carousel img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.top-carousel img.active {
+  opacity: 1;
+}
