@@ -28,18 +28,56 @@ export default function EventDetails() {
           <button>I’m Interested</button>
         </div>
 
+        {/* ✅ ONLY ABOUT SECTION */}
         <div className="about">
           <h2>About The Event</h2>
+
           <p>
-            Join us for an evening of laughter, socializing, and connections.
+            Join us for an evening of laughter, socializing, and potential connections at our unique
+            comedy matchmaking event, <b>Match Me Please!</b> Whether you're looking for love or just
+            want to have a great time, our host will charm the crowd with hilarious crowd play and
+            interactive games designed to bring out the best in everyone.
           </p>
-          <p><b>Venue:</b> {show.venue}</p>
-          <p><b>Date:</b> {show.date}</p>
+
+          <p><b>Event Highlights:</b></p>
+
+          <p>
+            <b>Comedy & Crowd Play:</b> Our talented host will entertain and engage the audience
+            with witty observations and playful interactions.
+          </p>
+
+          <p>
+            <b>Matchmaking Fun:</b> Singles will have the chance to meet potential matches in a
+            relaxed and humorous atmosphere.
+          </p>
+
+          <p>
+            <b>Socializing Opportunities:</b> Enjoy dedicated socializing time between sets to
+            mingle and get to know others.
+          </p>
+
+          <p>
+            <b>Dress to Impress:</b> Come dressed to impress, as our event creates the perfect
+            backdrop for making a memorable first impression.
+          </p>
+
+          <p>
+            <b>Laughs & Connections:</b> Laugh along with the crowd and see if you can find that
+            special someone who shares your sense of humor.
+          </p>
+
+          <p>
+            Whether you're hoping to find love or just want to enjoy a fun time, <b>Match Me Please!</b>
+            promises to be an evening full of laughter, camaraderie, and maybe even a spark of romance.
+            Get ready to mingle, laugh, and potentially meet your match!
+          </p>
+
+          <p className="read-less">Read Less</p>
         </div>
 
       </div>
 
-      {/* RIGHT SIDE (UPDATED EXACT UI) */}
+      {/* RIGHT SIDE */}
       <div className="event-right">
         <div className="booking-box">
 
