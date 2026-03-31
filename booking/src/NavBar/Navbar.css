@@ -1,90 +1,83 @@
-/* NAVBAR BACKGROUND */
+/* NAVBAR */
 .navbar {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
-  background-color: #f5f5f5;   /* ✅ light grey like image */
-  border-bottom: 1px solid #e0e0e0;
-  font-family: Arial, sans-serif;
 }
 
-/* LEFT SECTION */
+/* LEFT */
 .nav-left {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-/* LOGO */
-.logo-text {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  text-decoration: none;
+.logo img {
+  height: 40px;
+  cursor: pointer;
 }
 
-.logo-highlight {
-  background-color: #f84464;
-  color: white;
-  padding: 2px 6px;
-  border-radius: 3px;
-}
-
-/* SEARCH BAR */
+/* SEARCH */
 .nav-search input {
-  width: 550px;
-  padding: 10px 15px;
+  width: 350px;
+  padding: 8px 12px;
   border-radius: 6px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   outline: none;
-  background-color: white;
-  font-size: 14px;
 }
 
-.nav-search input::placeholder {
-  color: #888;
-}
-
-/* RIGHT SECTION */
+/* RIGHT */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
 }
 
-/* MOVIES LINK */
-.movies-link {
-  text-decoration: none;
-  color: #333;
-  font-size: 14px;
-}
-
-.movies-link:hover {
-  color: #f84464;
-}
-
-/* LOCATION */
-.nav-location select {
-  border: none;
-  background: transparent;
-  font-size: 14px;
-  color: #333;
+.nav-location {
   cursor: pointer;
-  outline: none;
 }
 
-/* SIGN IN BUTTON */
+/* BUTTON */
 .login-btn {
-  background-color: #f84464;
+  background: #f84464;
   color: white;
   border: none;
-  padding: 6px 16px;
-  border-radius: 4px;
-  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.login-btn:hover {
-  background-color: #d73754;
+/* SUB NAV */
+.sub-navbar {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.sub-navbar .container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+
+.sub-left,
+.sub-right {
+  display: flex;
+  gap: 20px;
+}
+
+.sub-link {
+  color: #333;
+  transition: 0.2s;
+}
+
+.sub-link:hover {
+  color: #f84464;
+  transform: scale(1.2);
 }

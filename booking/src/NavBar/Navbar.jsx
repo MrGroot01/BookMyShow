@@ -1,112 +1,131 @@
-// import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-// import "./Navbar.css";
-
-// const Navbar = () => {
-//   const [search, setSearch] = useState("");
-//   const [location, setLocation] = useState("");
-
-//   return (
-//     <nav className="navbar">
-//       {/* Logo */}
-//       <div className="nav-logo">
-//         <Link to="/">MyApp</Link>
-//       </div>
-
-//       {/* Search */}
-//       <div className="nav-search">
-//         <input
-//           type="text"
-//           placeholder="Search movies..."
-//           value={search}
-//           onChange={(e) => setSearch(e.target.value)}
-//         />
-//       </div>
-
-//       {/* Location */}
-//       <div className="nav-location">
-//         <select
-//           value={location}
-//           onChange={(e) => setLocation(e.target.value)}
-//         >
-//           <option value="">Select Location</option>
-//           <option value="Chennai">Chennai</option>
-//           <option value="Bangalore">Bangalore</option>
-//           <option value="Hyderabad">Hyderabad</option>
-//         </select>
-//       </div>
-
-//       {/* Links */}
-//       <div className="nav-links">
-//         <Link to="/movies">Movies</Link>
-//         <Link to="/login">Login</Link>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.css";
+import {
+  FaFilm,
+  FaMusic,
+  FaLaughBeam,
+  FaFutbol,
+  FaHiking,
+  FaChild,
+} from "react-icons/fa";
 
-const Navbar = () => {
+import { Link, useNavigate } from "react-router-dom";
+import "./Navbar.css";
+import Location from "./Location/Location";
+
+const Navbar = ({ onLoginClick }) => {
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("Bengaluru");
+  const [showLocation, setShowLocation] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    const value = search.toLowerCase();
+
+    if (value.includes("movie")) {
+      navigate("/movies");
+    } else if (value.includes("comedy") || value.includes("event")) {
+      navigate("/comedyshow"); // ✅ FIXED
+    } else if (value.includes("sport")) {
+      navigate("/sports");
+    } else {
+      alert("No results found");
+    }
+  };
 
   return (
-    <nav className="navbar">
+    <>
+      <nav className="navbar">
+        <div className="container">
 
-      {/* LEFT SECTION */}
-      <div className="nav-left">
-        {/* Logo */}
-        <div className="nav-logo">
-          <Link to="/" className="logo-text">
-            book<span className="logo-highlight">my</span>show
-          </Link>
+          {/* LEFT */}
+          <div className="nav-left">
+
+            {/* ✅ FIXED (Link instead of <a>) */}
+            <Link to="/" className="logo">
+              <img
+                src="https://static.vecteezy.com/system/resources/previews/050/816/799/non_2x/bookmyshow-transparent-icon-free-png.png"
+                alt="logo"
+              />
+            </Link>
+
+            <div className="nav-search">
+              <input
+                type="text"
+                placeholder="Search for Movies, Events, Plays..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleSearch();
+                  }
+                }}
+              />
+            </div>
+          </div>
+
+          {/* RIGHT */}
+          <div className="nav-right">
+
+            {/* LOCATION */}
+            <div
+              className="nav-location"
+              onClick={() => setShowLocation(true)}
+            >
+              <span>{location} ⌄</span>
+            </div>
+
+            {/* LOGIN */}
+            <button className="login-btn" onClick={onLoginClick}>
+              Sign in
+            </button>
+
+          </div>
         </div>
+      </nav>
 
-        {/* Search */}
-        <div className="nav-search">
-          <input
-            type="text"
-            placeholder="Search............................................"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+      {/* SECOND NAVBAR */}
+      <div className="sub-navbar">
+        <div className="container">
+
+          <div className="sub-left">
+            <Link to="/movies" className="sub-link">
+              <FaFilm size={20} />
+            </Link>
+
+            <Link to="/concerts" className="sub-link">
+              <FaMusic size={20} />
+            </Link>
+
+            <Link to="/comedyshow" className="sub-link">
+              <FaLaughBeam size={20} />
+            </Link>
+
+            <Link to="/sports" className="sub-link">
+              <FaFutbol size={20} />
+            </Link>
+          </div>
+
+          <div className="sub-right">
+            <Link to="/adventure" className="sub-link">
+              <FaHiking size={20} />
+            </Link>
+
+            <Link to="/kids" className="sub-link">
+              <FaChild size={20} />
+            </Link>
+          </div>
+
         </div>
       </div>
 
-      {/* RIGHT SECTION */}
-      <div className="nav-right">
-
-        {/* Movies Link */}
-        <Link to="/movies" className="movies-link">
-          Movies
-        </Link>
-
-        {/* Location */}
-        <div className="nav-location">
-          <select
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-          >
-            <option value="Bengaluru">Bengaluru</option>
-            <option value="Chennai">Chennai</option>
-            <option value="Hyderabad">Hyderabad</option>
-          </select>
-        </div>
-
-        {/* Login */}
-        <div className="nav-links">
-          <Link to="/login">
-            <button className="login-btn">Sign in</button>
-          </Link>
-        </div>
-
-      </div>
-    </nav>
+      {/* LOCATION POPUP */}
+      {showLocation && (
+        <Location
+          setShowLocation={setShowLocation}
+          setLocation={setLocation}
+        />
+      )}
+    </>
   );
 };
 

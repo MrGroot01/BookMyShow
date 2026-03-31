@@ -16,7 +16,12 @@ const FEATURED = [
     year: 2024,
     description:
       "In the dystopian future of Kali Yuga, a fierce warrior is destined to protect the last hope of humanity against an immortal tyrant.",
+<<<<<<< HEAD
     poster: "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p26939389_p_v13_ab.jpg",
+=======
+    formats: ["2D", "3D", "IMAX 3D", "4DX"],
+    poster: "https://image.tmdb.org/t/p/w500/ie7A7pDhOQjqRZVgc3HqFNHoYfR.jpg",
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
     bg: "linear-gradient(135deg,#06000f 0%,#150040 55%,#0d1545 100%)",
     accent: "#a855f7",
     accentRgb: "168,85,247",
@@ -70,6 +75,7 @@ const FEATURED = [
     year: 2023,
     description:
       "The story of J. Robert Oppenheimer's role in the development of the atomic bomb that changed the course of history.",
+    formats: ["2D", "IMAX 70mm"],
     poster: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
     bg: "linear-gradient(135deg,#0f0800 0%,#2a1500 55%,#1a0e00 100%)",
     accent: "#f59e0b",
@@ -126,6 +132,7 @@ const ALL_MOVIES = [
     rating: 8.9,
     votes: "610K",
     dur: "3h",
+    formats: ["2D", "IMAX 70mm"],
     badge: "Oscar Winner",
     year: 2023,
     poster: "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
@@ -230,6 +237,7 @@ const ALL_MOVIES = [
     rating: 8.5,
     votes: "400K",
     dur: "2h 46m",
+    formats: ["2D", "IMAX 3D", "4DX"],
     badge: "Must Watch",
     year: 2024,
     poster: "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
@@ -345,7 +353,9 @@ const COMING_SOON = [
   {
     id: "cs1",
     title: "Mufasa",
-    genres: ["Animation"],
+    genres: ["Animation", "Adventure"],
+    formats: ["2D", "3D", "IMAX 3D", "4DX"],
+    lang: "English, Hindi, Telugu",
     releaseDate: "Apr 2025",
     poster: "https://image.tmdb.org/t/p/w500/lurEK87kukWNaHd0zYnsi3yzJrs.jpg",
     color: "#2a1500",
@@ -369,7 +379,9 @@ const COMING_SOON = [
   {
     id: "cs4",
     title: "Mission Impossible 8",
-    genres: ["Action"],
+    genres: ["Action", "Thriller"],
+    formats: ["2D", "IMAX", "4DX"],
+    lang: "English, Hindi, Tamil",
     releaseDate: "Jul 2025",
     poster: "https://image.tmdb.org/t/p/w500/z53D0a9P7YMnMKGYxFoB9CoeRwZ.jpg",
     color: "#0a1500",
@@ -425,6 +437,26 @@ const Movies = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const gridRef = useRef(null);
 
+<<<<<<< HEAD
+=======
+  /* ── New Features State ── */
+  const [watchlist, setWatchlist] = useState(new Set());
+  const [sortBy, setSortBy] = useState("Default");
+  const [showWatchlistOnly, setShowWatchlistOnly] = useState(false);
+  const [quickViewMovie, setQuickViewMovie] = useState(null);
+
+  const toggleWatchlist = (e, id) => {
+    e.stopPropagation();
+    setWatchlist((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  /* ── Anti-glitch: wait for first paint ── */
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
   useEffect(() => {
     const raf = requestAnimationFrame(() =>
       setTimeout(() => setLoaded(true), 50),
@@ -434,10 +466,38 @@ const Movies = () => {
 
   // Auto-advance hero slider
   useEffect(() => {
+<<<<<<< HEAD
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % FEATURED.length);
     }, 5000);
     return () => clearInterval(interval);
+=======
+    if (!document.getElementById("mv-bs-css")) {
+      const link = Object.assign(document.createElement("link"), {
+        id: "mv-bs-css",
+        rel: "stylesheet",
+        href: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",
+      });
+      document.head.appendChild(link);
+    }
+
+    const js = Object.assign(document.createElement("script"), {
+      src: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js",
+      async: true,
+    });
+    js.onload = () => {
+      const el = document.getElementById("heroCarousel");
+      if (el && window.bootstrap) {
+        new window.bootstrap.Carousel(el, {
+          interval: 4000,
+          ride: "carousel",
+          pause: "hover",
+        });
+      }
+    };
+    document.body.appendChild(js);
+    return () => document.body.contains(js) && document.body.removeChild(js);
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
   }, []);
 
   useEffect(() => {
@@ -456,20 +516,30 @@ const Movies = () => {
     return () => io.disconnect();
   }, [activeLang, activeGenre, search]);
 
-  const filtered = ALL_MOVIES.filter(
+  let filtered = ALL_MOVIES.filter(
     (m) =>
       (activeLang === "All" || m.lang === activeLang) &&
       (activeGenre === "All" || m.genres.includes(activeGenre)) &&
-      m.title.toLowerCase().includes(search.toLowerCase()),
+      m.title.toLowerCase().includes(search.toLowerCase()) &&
+      (!showWatchlistOnly || watchlist.has(m.id))
   );
 
+<<<<<<< HEAD
   const currentMovie = FEATURED[currentSlide];
+=======
+  if (sortBy === "Rating") {
+    filtered.sort((a, b) => b.rating - a.rating);
+  } else if (sortBy === "Title") {
+    filtered.sort((a, b) => a.title.localeCompare(b.title));
+  }
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
 
   return (
     <div className={`mvp ${loaded ? "mvp--ready" : ""}`}>
       {/* ════════════════════════════════════
           MODERN HERO SECTION
       ════════════════════════════════════ */}
+<<<<<<< HEAD
       <div className="hero-modern">
         <div className="hero-bg" style={{ background: currentMovie.bg }}>
           <div className="hero-gradient" />
@@ -568,6 +638,15 @@ const Movies = () => {
         </div>
 
         <div className="hero-indicators">
+=======
+      <div
+        id="heroCarousel"
+        className="carousel slide mvp-carousel"
+        data-bs-ride="carousel"
+        data-bs-interval="4000"
+      >
+        <div className="carousel-indicators mvp-dots">
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
           {FEATURED.map((_, i) => (
             <button
               key={i}
@@ -580,6 +659,110 @@ const Movies = () => {
             />
           ))}
         </div>
+<<<<<<< HEAD
+=======
+
+        <div className="carousel-inner">
+          {FEATURED.map((m, i) => (
+            <div
+              key={m.id}
+              className={`carousel-item ${i === 0 ? "active" : ""}`}
+            >
+              <div className="mvp-slide" style={{ background: m.bg }}>
+                <div className="mvp-slide-noise" />
+                <div className="mvp-slide-body">
+                  <div className="mvp-slide-text">
+                    <div className="mvp-genres">
+                      {m.genres.map((g) => (
+                        <span
+                          key={g}
+                          className="mvp-gpill"
+                          style={{
+                            border: `1px solid ${m.accent}`,
+                            color: m.accent,
+                          }}
+                        >
+                          {g}
+                        </span>
+                      ))}
+                    </div>
+                    <h1 className="mvp-slide-title">{m.title}</h1>
+                    <p className="mvp-slide-tag">{m.tagline}</p>
+                    <p className="mvp-slide-desc">{m.description}</p>
+                    <div className="mvp-slide-meta" style={{ marginBottom: m.formats ? '16px' : '40px' }}>
+                      <span style={{ color: m.accent }}>
+                        ★ {m.rating} <small>({m.votes})</small>
+                      </span>
+                      <span className="mvp-sep" />
+                      <span>{m.duration}</span>
+                      <span className="mvp-sep" />
+                      <span>{m.language}</span>
+                    </div>
+                    {m.formats && (
+                      <div className="mvp-formats" style={{ display: 'flex', gap: '8px', marginBottom: '40px' }}>
+                        {m.formats.map((f) => (
+                          <span
+                            key={f}
+                            className="mvp-gpill"
+                            style={{
+                              border: '1px solid rgba(255,255,255,0.3)',
+                              color: '#fff',
+                              background: 'rgba(255,255,255,0.08)'
+                            }}
+                          >
+                            {f}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    <div className="mvp-slide-ctas">
+                      <button
+                        className="mvp-btn-book"
+                        style={{ background: m.accent }}
+                      >
+                        🎟 Book Tickets
+                      </button>
+                      <button
+                        className="mvp-btn-ghost"
+                        onClick={() => setTrailerUrl(m.trailer)}
+                      >
+                        ▶ Trailer
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="mvp-slide-poster">
+                    <div
+                      className="mvp-poster-glow"
+                      style={{
+                        background: `radial-gradient(ellipse,rgba(${m.accentRgb},.4) 0%,transparent 70%)`,
+                      }}
+                    />
+                    <Poster src={m.poster} alt={m.title} color={m.bg} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button
+          className="carousel-control-prev mvp-ctrl"
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide="prev"
+        >
+          <span className="mvp-arrow">&#8249;</span>
+        </button>
+        <button
+          className="carousel-control-next mvp-ctrl mvp-ctrl--r"
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide="next"
+        >
+          <span className="mvp-arrow">&#8250;</span>
+        </button>
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
       </div>
 
       {/* ════════════════════════════════════
@@ -615,34 +798,80 @@ const Movies = () => {
             )}
           </div>
 
+<<<<<<< HEAD
           <div className="filter-group">
             <span className="filter-label">Languages</span>
             <div className="filter-chips">
+=======
+          <div className="mvp-filters">
+            <div className="mvp-pills-row">
+              <span className="mvp-label">Lang</span>
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
               {LANGUAGES.map((l) => (
                 <button
                   key={l}
                   onClick={() => setActiveLang(l)}
+<<<<<<< HEAD
                   className={`chip ${activeLang === l ? "active" : ""}`}
+=======
+                  className={`mvp-pill ${activeLang === l ? "mvp-pill--on" : ""}`}
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
                 >
                   {l}
                 </button>
               ))}
             </div>
+<<<<<<< HEAD
           </div>
 
           <div className="filter-group">
             <span className="filter-label">Genres</span>
             <div className="filter-chips">
+=======
+
+            <div className="mvp-pills-row">
+              <span className="mvp-label">Genre</span>
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
               {GENRES.map((g) => (
                 <button
                   key={g}
                   onClick={() => setActiveGenre(g)}
+<<<<<<< HEAD
                   className={`chip ${activeGenre === g ? "active" : ""}`}
+=======
+                  className={`mvp-pill ${activeGenre === g ? "mvp-pill--on" : ""}`}
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
                 >
                   {g}
                 </button>
               ))}
             </div>
+<<<<<<< HEAD
+=======
+
+            <div className="mvp-pills-row">
+              <span className="mvp-label">Sort</span>
+              {["Default", "Rating", "Title"].map((s) => (
+                <button
+                  key={s}
+                  onClick={() => setSortBy(s)}
+                  className={`mvp-pill ${sortBy === s ? "mvp-pill--on" : ""}`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+
+            <div className="mvp-pills-row">
+              <span className="mvp-label">Watchlist</span>
+              <button
+                onClick={() => setShowWatchlistOnly(!showWatchlistOnly)}
+                className={`mvp-pill mvp-pill--heart ${showWatchlistOnly ? "mvp-pill--on" : ""}`}
+              >
+                ♥ My Favorites
+              </button>
+            </div>
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
           </div>
         </div>
       </div>
@@ -665,6 +894,7 @@ const Movies = () => {
 
         <div className="scroll-container">
           {ALL_MOVIES.slice(0, 10).map((m) => (
+<<<<<<< HEAD
             <div key={m.id} className="trending-card">
               <div className="trending-poster">
                 <Poster src={m.poster} alt={m.title} color={m.color} />
@@ -689,6 +919,20 @@ const Movies = () => {
                   </span>
                   <span className="meta-dot">•</span>
                   <span>{m.lang}</span>
+=======
+            <div key={m.id} className="mvp-tc" onClick={() => setQuickViewMovie(m)}>
+              <div className="mvp-tc-img">
+                <Poster src={m.poster} alt={m.title} color={m.color} />
+                {m.badge && <span className="mvp-badge">{m.badge}</span>}
+                <button 
+                  className={`mvp-btn-heart ${watchlist.has(m.id) ? "active" : ""}`}
+                  onClick={(e) => toggleWatchlist(e, m.id)}
+                >
+                  {watchlist.has(m.id) ? "♥" : "♡"}
+                </button>
+                <div className="mvp-hover-ov">
+                  <button className="mvp-mini-book" onClick={(e) => { e.stopPropagation(); setQuickViewMovie(m); }}>Book Now</button>
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
                 </div>
               </div>
             </div>
@@ -732,11 +976,18 @@ const Movies = () => {
               <div
                 key={m.id}
                 data-cid={String(m.id)}
+<<<<<<< HEAD
                 className={`movie-card ${revealed.has(String(m.id)) ? "revealed" : ""}`}
                 style={{ transitionDelay: `${(i % 12) * 0.04}s` }}
+=======
+                className={`mvp-card ${revealed.has(String(m.id)) ? "mvp-card--in" : ""}`}
+                style={{ transitionDelay: `${(i % 8) * 0.055}s` }}
+                onClick={() => setQuickViewMovie(m)}
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
               >
                 <div className="movie-poster">
                   <Poster src={m.poster} alt={m.title} color={m.color} />
+<<<<<<< HEAD
                   {m.badge && <span className="movie-badge">{m.badge}</span>}
                   <div className="movie-overlay">
                     <button className="overlay-btn">
@@ -745,6 +996,17 @@ const Movies = () => {
                       </svg>
                       Book Tickets
                     </button>
+=======
+                  {m.badge && <span className="mvp-badge">{m.badge}</span>}
+                  <button 
+                    className={`mvp-btn-heart ${watchlist.has(m.id) ? "active" : ""}`}
+                    onClick={(e) => toggleWatchlist(e, m.id)}
+                  >
+                    {watchlist.has(m.id) ? "♥" : "♡"}
+                  </button>
+                  <div className="mvp-hover-ov mvp-hover-ov--lg">
+                    <button className="mvp-book-full" onClick={(e) => { e.stopPropagation(); setQuickViewMovie(m); }}>🎟 Book Now</button>
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
                   </div>
                 </div>
 
@@ -756,6 +1018,7 @@ const Movies = () => {
                     <span>{m.rating}</span>
                     <span className="votes">({m.votes})</span>
                   </div>
+<<<<<<< HEAD
 
                   <h3 className="movie-title">{m.title}</h3>
 
@@ -766,6 +1029,18 @@ const Movies = () => {
                   </div>
 
                   <div className="movie-genres">
+=======
+                  <h3 className="mvp-card-title">{m.title}</h3>
+                  <p className="mvp-card-info">
+                    {m.lang} · {m.dur}
+                  </p>
+                  <div className="mvp-tags">
+                    {(m.formats || ["2D"]).map((f) => (
+                      <span key={f} className="mvp-tag mvp-tag--fmt">
+                        {f}
+                      </span>
+                    ))}
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
                     {m.genres.map((g) => (
                       <span key={g} className="genre-tag">
                         {g}
@@ -815,10 +1090,18 @@ const Movies = () => {
                   </button>
                 </div>
               </div>
+<<<<<<< HEAD
               <div className="coming-info">
                 <h3 className="coming-title">{m.title}</h3>
                 <p className="coming-genres">{m.genres.join(" • ")}</p>
               </div>
+=======
+              <p className="mvp-tc-name">{m.title}</p>
+              <div className="mvp-tc-meta" style={{ marginTop: "4px" }}>
+                <span>{(m.formats || ["2D"]).join(", ")}</span> • <span>{m.lang || "English"}</span>
+              </div>
+              <p className="mvp-tc-meta" style={{ marginTop: "2px" }}>{m.genres.join(" · ")}</p>
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
             </div>
           ))}
         </div>
@@ -828,6 +1111,7 @@ const Movies = () => {
           MODERN TRAILER MODAL
       ════════════════════════════════════ */}
       {trailerUrl && (
+<<<<<<< HEAD
         <div className="modal-backdrop" onClick={() => setTrailerUrl(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={() => setTrailerUrl(null)}>
@@ -844,6 +1128,74 @@ const Movies = () => {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
+=======
+        <div className="trailer-modal" onClick={() => setTrailerUrl(null)}>
+          <div className="trailer-content" onClick={(e) => e.stopPropagation()}>
+            <button className="trailer-close" onClick={() => setTrailerUrl(null)}>✖</button>
+            <iframe
+              width="100%"
+              height="400"
+              src={trailerUrl}
+              title="Trailer"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      )}
+
+      {quickViewMovie && (
+        <div className="trailer-modal qv-overlay" onClick={() => setQuickViewMovie(null)}>
+          <div className="trailer-content qv-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="trailer-close" onClick={() => setQuickViewMovie(null)}>✖</button>
+            <div className="qv-body">
+              <div className="qv-poster">
+                <Poster src={quickViewMovie.poster} alt={quickViewMovie.title} color={quickViewMovie.color} />
+              </div>
+              <div className="qv-info">
+                <h2>{quickViewMovie.title}</h2>
+                <div className="qv-meta">
+                  {quickViewMovie.rating && <><span className="qv-rating">★ {quickViewMovie.rating}</span><span className="mvp-sep"></span></>}
+                  {quickViewMovie.lang && <><span>{quickViewMovie.lang}</span><span className="mvp-sep"></span></>}
+                  <span>{quickViewMovie.dur || quickViewMovie.releaseDate}</span>
+                </div>
+                <div className="mvp-tags" style={{ marginBottom: "20px" }}>
+                  {(quickViewMovie.formats || ["2D"]).map((f) => (
+                    <span key={f} className="mvp-tag mvp-tag--fmt">
+                      {f}
+                    </span>
+                  ))}
+                  {quickViewMovie.genres.map((g) => (
+                    <span key={g} className="mvp-tag">
+                      {g}
+                    </span>
+                  ))}
+                </div>
+                <p className="qv-desc">
+                  {quickViewMovie.description || "Get ready for an epic cinematic journey with stunning visuals and an unforgettable storyline. Secure your tickets now and experience the magic on the big screen."}
+                </p>
+                <div className="qv-actions mt-4">
+                  <button className="mvp-book-full">🎟 Book Tickets</button>
+                  <button 
+                    className="mvp-btn-ghost" 
+                    onClick={() => {
+                      setQuickViewMovie(null);
+                      setTrailerUrl(quickViewMovie.trailer || "https://www.youtube.com/embed/dQw4w9WgXcQ");
+                    }}
+                  >
+                    ▶ Trailer
+                  </button>
+                  <button 
+                    className={`mvp-btn-ghost ${watchlist.has(quickViewMovie.id) ? 'active-heart' : ''}`}
+                    onClick={(e) => toggleWatchlist(e, quickViewMovie.id)}
+                    style={{ padding: "16px", borderRadius: "50%", width: "52px", color: watchlist.has(quickViewMovie.id) ? "var(--primary)" : "var(--text-main)" }}
+                  >
+                    {watchlist.has(quickViewMovie.id) ? "♥" : "♡"}
+                  </button>
+                </div>
+              </div>
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
             </div>
           </div>
         </div>

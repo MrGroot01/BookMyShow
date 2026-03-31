@@ -69,7 +69,7 @@ body {
   object-fit: cover;
   object-position: center;
   display: block;
-  filter: brightness(0.45) saturate(1.2);
+  filter: brightness(1) saturate(1.2);
   animation: heroZoom 8s ease-in-out infinite;
 }
 
@@ -83,10 +83,9 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to bottom,
-    transparent 25%,
-    rgba(10, 10, 15, 0.55) 58%,
-    var(--bg) 100%
+    transparent 50%,
+    rgba(0,0,0,0.3) 80%,
+    rgba(0,0,0,0.5) 100%
   );
   z-index: 1;
 }
@@ -786,4 +785,68 @@ footer {
   .footer-brand { grid-column: 1 / -1; }
   .search-bar select,
   .search-divider { display: none; }
+}
+/* ===== FIX FOR BLANK SCREEN (DO NOT MODIFY ABOVE CODE) ===== */
+
+/* Prevent hero from covering full screen */
+.hero {
+  height: auto !important;
+  min-height: 400px !important;
+}
+
+/* Ensure homepage content is visible */
+.homepage {
+  display: block !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Ensure sections are not hidden */
+section {
+  position: relative !important;
+  z-index: 2 !important;
+}
+/* ===== FINAL FORCE FIX ===== */
+
+/* Fix hero content visibility */
+.hero {
+  display: block !important;
+  align-items: unset !important;
+}
+
+/* Make hero content visible at top */
+.hero-content {
+  position: relative !important;
+  top: 0 !important;
+}
+
+/* Ensure slides don't block UI */
+.hero-slides {
+  z-index: 0 !important;
+}
+
+/* Bring content above everything */
+.hero-content,
+.search-wrap,
+section {
+  position: relative !important;
+  z-index: 5 !important;
+}
+/* ===== ABSOLUTE FINAL FIX ===== */
+
+/* completely disable overlay blocking */
+.hero-slides,
+.hero-slide {
+  pointer-events: none !important;
+}
+
+/* ensure hero doesn't block interactions */
+.hero {
+  overflow: visible !important;
+}
+
+/* force all content visible */
+.homepage * {
+  visibility: visible !important;
+  opacity: 1 !important;
 }

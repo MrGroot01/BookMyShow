@@ -1,22 +1,22 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 
-import Homepage from './Components/HomePage/Homepage'
-import Navbar from './NavBar/Navbar'
-import Movies from './Components/Movies/Movies'
-import Login from './NavBar/Login/Login'
-import Concerts from './Components/Concerts/Concerts'
-import ComedyShow from './Components/ComedyShow/ComedyShow'
-import Sports from './Components/Sports/Sports'
-import Adventure from './Components/Adventure/Adventure'
-import Kids from './Components/Kids/Kids'
+import Navbar from "./NavBar/Navbar";
+import Homepage from "./Components/HomePage/Homepage";
+import Movies from "./Components/Movies/Movies";
+import Concerts from "./Components/Concerts/Concerts";
+import ComedyShow from "./Components/ComedyShow/ComedyShow";
+import EventDetails from "./Components/ComedyShow/EventDetails";
+import Sports from "./Components/Sports/Sports";
+import Adventure from "./Components/Adventure/Adventure";
+import Kids from "./Components/Kids/Kids";
 
+import LoginModal from "./NavBar/Login/Login";
 
-const App = () => {
-  return (
-    <div>
-      <Navbar />
+function ScrollToTop() {
+  const { pathname } = useLocation();
 
+<<<<<<< HEAD
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='movies' element={<Movies />} />
@@ -29,9 +29,38 @@ const App = () => {
         <Route path='/adventure' element={<Adventure/>} />
         <Route path='/kids' element={<Kids/>} />
       </Routes>
+=======
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+>>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
 
-    </div>
-  )
+  return null;
 }
+
+const App = () => {
+  const [openLogin, setOpenLogin] = useState(false);
+
+  return (
+    <>
+      <ScrollToTop />
+
+      <Navbar onLoginClick={() => setOpenLogin(true)} />
+
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/concerts" element={<Concerts />} />
+        <Route path="/comedyshow" element={<ComedyShow />} />
+        <Route path="/event/:id" element={<EventDetails />} />
+        <Route path="/sports" element={<Sports />} />
+        <Route path="/adventure" element={<Adventure />} />
+        <Route path="/kids" element={<Kids />} />
+      </Routes>
+
+      {openLogin && <LoginModal close={() => setOpenLogin(false)} />}
+    </>
+  );
+};
 
 export default App;
