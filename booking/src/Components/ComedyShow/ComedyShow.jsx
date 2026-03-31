@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // ✅ ADDED useEffect
 import { useNavigate } from "react-router-dom";
 import "./ComedyShow.css";
 import shows from "../../data/ShowsData";
@@ -6,73 +6,92 @@ import shows from "../../data/ShowsData";
 export default function ComedyShow() {
   
   const navigate = useNavigate();
-const [activeCategory, setActiveCategory] = useState("Stand up Comedy");
+  const [activeCategory, setActiveCategory] = useState("Stand up Comedy");
 
-const filteredShows =
-  activeCategory === "All"
-    ? shows
-    : shows.filter(
-        (show) =>
-          show.category &&
-          show.category.trim() === activeCategory
-      );
+  // ✅ ADDED CAROUSEL STATE
+  const [index, setIndex] = useState(0);
+
+  // ✅ ADDED AUTO SLIDE
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % 5);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const filteredShows =
+    activeCategory === "All"
+      ? shows
+      : shows.filter(
+          (show) =>
+            show.category &&
+            show.category.trim() === activeCategory
+        );
+
   return (
     <div className="main-container">
 
+      {/* ✅ ADDED CAROUSEL */}
+      <div className="carousel">
+        {shows.slice(0, 5).map((show, i) => (
+          <img
+            key={show.id}
+            src={show.image}
+            alt={show.title}
+            className={i === index ? "active" : ""}
+          />
+        ))}
+      </div>
+
       {/* LEFT FILTER */}
       <div className="filters">
-  <h2>Filters</h2>
+        <h2>Filters</h2>
 
-  {/* DATE */}
-  <div className="filter-box">
-    <div className="filter-header">
-      <span>Date</span>
-      <span className="clear">Clear</span>
-    </div>
+        <div className="filter-box">
+          <div className="filter-header">
+            <span>Date</span>
+            <span className="clear">Clear</span>
+          </div>
 
-    <div className="buttons">
-      <button>Today</button>
-      <button>Tomorrow</button>
-      <button>This Weekend</button>
-    </div>
+          <div className="buttons">
+            <button>Today</button>
+            <button>Tomorrow</button>
+            <button>This Weekend</button>
+          </div>
 
-    <label>
-      <input type="checkbox" /> Date Range
-    </label>
-  </div>
+          <label>
+            <input type="checkbox" /> Date Range
+          </label>
+        </div>
 
-  {/* LANGUAGE */}
-  <div className="filter-item">
-    <span>Language</span>
-    <span className="clear">Clear</span>
-  </div>
+        <div className="filter-item">
+          <span>Language</span>
+          <span className="clear">Clear</span>
+        </div>
 
-  {/* CATEGORIES */}
-  <div className="filter-item">
-    <span>Categories</span>
-    <span className="clear">Clear</span>
-  </div>
+        <div className="filter-item">
+          <span>Categories</span>
+          <span className="clear">Clear</span>
+        </div>
 
-  {/* MORE FILTERS */}
-  <div className="filter-item">
-    <span>More Filters</span>
-    <span className="clear">Clear</span>
-  </div>
+        <div className="filter-item">
+          <span>More Filters</span>
+          <span className="clear">Clear</span>
+        </div>
 
-  {/* PRICE */}
-  <div className="filter-item">
-    <span>Price</span>
-    <span className="clear">Clear</span>
-  </div>
+        <div className="filter-item">
+          <span>Price</span>
+          <span className="clear">Clear</span>
+        </div>
 
-  <button className="browse-btn">Browse by Venues</button>
-</div>
+        <button className="browse-btn">Browse by Venues</button>
+      </div>
 
       {/* RIGHT CONTENT */}
-       <div className="content">
+      <div className="content">
         <h2 className="heading">Comedy Shows In Bengaluru</h2>
 
-        {/* ✅ PILLS WITH CLICK */}
         <div className="pills">
           {[
             "Stand up Comedy",
@@ -92,7 +111,6 @@ const filteredShows =
           ))}
         </div>
 
-        {/* ✅ FILTERED CARDS */}
         <div className="grid">
           {filteredShows.length > 0 ? (
             filteredShows.map((show) => (
@@ -103,7 +121,6 @@ const filteredShows =
               >
                 <div className="image-box">
 
-                  {/* PROMOTED */}
                   {show.id === 1 && (
                     <div className="promoted">PROMOTED</div>
                   )}
