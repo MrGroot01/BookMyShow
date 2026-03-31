@@ -68,6 +68,7 @@ export default function ComedyShow() {
       <div className="content">
         <h2 className="heading">Comedy Shows In Bengaluru</h2>
 
+        {/* CATEGORY PILLS */}
         <div className="pills">
           {[
             "Stand up Comedy",
@@ -87,6 +88,7 @@ export default function ComedyShow() {
           ))}
         </div>
 
+        {/* CARDS */}
         <div className="grid">
           {filteredShows.length > 0 ? (
             filteredShows.map((show) => (
@@ -97,6 +99,7 @@ export default function ComedyShow() {
               >
                 <div className="image-box">
 
+                  {/* PROMOTED */}
                   {show.id === 1 && (
                     <div className="promoted">PROMOTED</div>
                   )}
@@ -113,10 +116,10 @@ export default function ComedyShow() {
                 </div>
 
                 <div className="card-content">
-                  <h3>{show.title}</h3>
-                  <p className="venue">{show.venue}</p>
-                  <p className="category">{show.category}</p>
-                  <p className="price">{show.price}</p>
+                  <h3>{show.title || "Comedy Show"}</h3>
+                  <p className="venue">{show.venue || "Bengaluru"}</p>
+                  <p className="category">{show.category || "Stand up Comedy"}</p>
+                  <p className="price">{show.price || "₹199 onwards"}</p>
                 </div>
               </div>
             ))

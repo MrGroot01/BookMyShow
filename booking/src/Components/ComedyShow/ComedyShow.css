@@ -185,3 +185,31 @@ body {
   font-weight: 700;
   color: #111;
 }
+/* CARD HOVER EFFECT */
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* IMAGE HOVER ZOOM */
+.image-box img {
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+/* SMOOTH BUTTON FEEL */
+.buttons button:hover {
+  border-color: #f84464;
+  color: #f84464;
+}
+
+/* FILTER HOVER */
+.filter-item:hover {
+  background: #f9f9f9;
+}
