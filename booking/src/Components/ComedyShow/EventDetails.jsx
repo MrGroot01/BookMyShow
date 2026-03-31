@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";  // ✅ UPDATED (added useState)
 import { useParams } from "react-router-dom";
 import "./EventDetails.css";
 import shows from "../../data/ShowsData";
@@ -7,6 +7,10 @@ export default function EventDetails() {
   const { id } = useParams();
 
   const show = shows.find((s) => s.id === parseInt(id));
+
+  // ✅ ADDED STATES
+  const [showMTicket, setShowMTicket] = useState(false);
+  const [showTerms, setShowTerms] = useState(false);
 
   if (!show) return <h2>Event not found</h2>;
 
@@ -61,6 +65,41 @@ export default function EventDetails() {
             </p>
           </div>
 
+          {/* ✅ ===== ADDED START ===== */}
+
+          {/* ARTISTS */}
+          <div className="artists">
+            <h2>Artists</h2>
+
+            <div className="artist-card">
+              <img
+                src="https://in.bmscdn.com/artist-images/website/poster/large/munawar-faruqui-1054159-24-03-2020-12-29-33.jpg"
+                alt="artist"
+              />
+              <h4>Munawar Faruqui</h4>
+              <p>Actor</p>
+            </div>
+          </div>
+
+          {/* M-TICKET */}
+          <div className="mticket">
+            <h2>M-Ticket</h2>
+
+            <div className="mticket-box">
+              <span>📱 Contactless Ticketing & Fast-track Entry with M-ticket.</span>
+              <span className="learn" onClick={() => setShowMTicket(true)}>
+                Learn How
+              </span>
+            </div>
+          </div>
+
+          {/* TERMS */}
+          <div className="terms" onClick={() => setShowTerms(true)}>
+            <h2>Terms & Conditions ›</h2>
+          </div>
+
+          {/* ✅ ===== ADDED END ===== */}
+
         </div>
 
         {/* RIGHT SIDE */}
@@ -90,6 +129,36 @@ export default function EventDetails() {
         </div>
 
       </div>
+
+      {/* ✅ POPUPS (ADDED) */}
+
+      {showMTicket && (
+        <div className="popup-overlay">
+          <div className="popup">
+            <button className="close" onClick={() => setShowMTicket(false)}>✖</button>
+            <h2>How to use the M-ticket for Live Events</h2>
+            <p>Login → Orders → Show QR code at entry</p>
+          </div>
+        </div>
+      )}
+
+      {showTerms && (
+        <div className="popup-overlay">
+          <div className="popup">
+            <button className="close" onClick={() => setShowTerms(false)}>✖</button>
+            <h2>Terms & Conditions</h2>
+            <ol>
+              <li>Tickets cannot be refunded</li>
+              <li>Internet fee may apply</li>
+              <li>Arrive early</li>
+              <li>Follow rules</li>
+              <li>No resale allowed</li>
+              <li>Rights reserved</li>
+            </ol>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
