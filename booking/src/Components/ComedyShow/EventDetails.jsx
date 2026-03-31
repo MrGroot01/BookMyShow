@@ -147,19 +147,19 @@ export default function EventDetails() {
         <div className="step">
           <div className="step-number">1</div>
           <p>Log in to BookMyShow from app or mobile browser.</p>
-          <img src="https://in.bmscdn.com/m-ticket/assets/step1.png" alt="step1"/>
+          <img src="https://s3.envato.com/files/491745873/screen-shots/02_preview2.jpg" alt="step1"/>
         </div>
 
         <div className="step">
           <div className="step-number">2</div>
           <p>In your profile section, click on your orders.</p>
-          <img src="https://in.bmscdn.com/m-ticket/assets/step2.png" alt="step2"/>
+          <img src="https://i.pinimg.com/originals/9d/e0/7a/9de07a0c59c2ff1954e76f3622e8edb3.jpg" alt="step2"/>
         </div>
 
         <div className="step">
           <div className="step-number">3</div>
           <p>Select your ticket and show the QR code at the event entry.</p>
-          <img src="https://in.bmscdn.com/m-ticket/assets/step3.png" alt="step3"/>
+          <img src="https://cdn.qrstuff.com/resources/images/img-src/use-case-base/eb-simplified-ticketing-process.png" alt="step3"/>
         </div>
 
       </div>
