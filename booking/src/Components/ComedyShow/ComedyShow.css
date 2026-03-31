@@ -1,6 +1,6 @@
 body {
   font-family: "Poppins", sans-serif;
-  background: #ffffff; /* ✅ FIX */
+  background: #ffffff;
 }
 
 /* MAIN */
@@ -8,13 +8,15 @@ body {
   display: flex;
   gap: 40px;
   padding: 30px 60px;
+  align-items: flex-start; /* safe layout */
 }
 
 /* FILTERS */
 .filters {
   width: 260px;
 }
-/* FILTER ITEMS (like your image) */
+
+/* FILTER ITEMS */
 .filter-item {
   background: white;
   padding: 15px;
@@ -26,12 +28,13 @@ body {
   cursor: pointer;
 }
 
-/* CLEAR TEXT */
+/* CLEAR */
 .clear {
   color: #f84464;
   font-size: 13px;
 }
 
+/* DATE BOX */
 .filter-box {
   background: white;
   padding: 18px;
@@ -51,8 +54,10 @@ body {
   border: 1px solid #ddd;
   background: white;
   border-radius: 6px;
+  cursor: pointer;
 }
 
+/* BROWSE BUTTON */
 .browse-btn {
   width: 100%;
   padding: 12px;
@@ -60,6 +65,7 @@ body {
   color: #f84464;
   background: white;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 /* CONTENT */
@@ -67,11 +73,39 @@ body {
   flex: 1;
 }
 
+/* HEADING */
 .heading {
   font-size: 26px;
   font-weight: 600;
   margin-bottom: 15px;
-  color: #111; /* ✅ FIX */
+  color: #111;
+}
+
+/* CATEGORY PILLS */
+.pills {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.pills span {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pills span:hover {
+  border-color: #f84464;
+  color: #f84464;
+}
+
+.pills .active {
+  background: #f84464;
+  color: white;
+  border: none;
 }
 
 /* GRID */
@@ -84,7 +118,7 @@ body {
 /* CARD */
 .card {
   cursor: pointer;
-  background: transparent !important; /* ✅ FIX */
+  background: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
@@ -96,7 +130,7 @@ body {
 
 .image-box img {
   width: 100%;
-  height: 320px; /* ✅ poster size */
+  height: 320px;
   object-fit: cover;
   border-radius: 12px;
   display: block;
@@ -113,50 +147,7 @@ body {
   border-radius: 0 0 12px 12px;
 }
 
-/* TEXT */
-.card-content {
-  padding: 8px 2px;
-}
-
-.card-content h3 {
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.venue {
-  color: #666;
-  font-size: 14px;
-}
-
-.category {
-  color: #888;
-  font-size: 14px;
-}
-
-.price {
-  font-weight: 600;
-}
-/* ===== CATEGORY PILLS ===== */
-.pills {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 25px;
-}
-
-.pills span {
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-}
-
-.pills .active {
-  background: #f84464;
-  color: white;
-  border: none;
-}
-
-/* ===== PROMOTED BADGE ===== */
+/* PROMOTED */
 .promoted {
   position: absolute;
   top: 10px;
@@ -168,117 +159,29 @@ body {
   border-radius: 4px;
 }
 
-/* ===== FIX TEXT LOOK ===== */
+/* TEXT */
+.card-content {
+  padding: 8px 2px;
+  background: transparent !important;
+}
+
 .card-content h3 {
+  font-size: 17px;
   font-weight: 700;
   color: #111;
 }
 
 .venue {
   color: #666;
+  font-size: 14px;
 }
 
 .category {
   color: #888;
+  font-size: 14px;
 }
 
 .price {
   font-weight: 700;
   color: #111;
-}
-/* 🔥 REMOVE ALL CARD WRAPPER BACKGROUNDS */
-.grid > div {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* REMOVE ANY DEFAULT CARD STYLING */
-.card {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* ENSURE IMAGE IS CLEAN */
-.image-box {
-  background: none !important;
-}
-
-/* REMOVE ANY EXTRA BOX EFFECT */
-.card-content {
-  background: transparent !important;
-}
-/* make pills clickable */
-.pills span {
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.pills span:hover {
-  border-color: #f84464;
-  color: #f84464;
-}
-/* ===== TOP CAROUSEL ===== */
-.carousel {
-  width: 100%;
-  height: 260px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
-
-/* CAROUSEL IMAGES */
-.carousel img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-/* ACTIVE IMAGE */
-.carousel img.active {
-  opacity: 1;
-}
-/* ===== COMEDY PAGE ONLY CAROUSEL ===== */
-.comedy-carousel {
-  width: 100%;
-  height: 400px;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-/* ===== FIXED HEIGHT CAROUSEL ===== */
-.comedy-carousel {
-  width: 100vw;
-  height: 400px;
-  min-height: 400px; /* ✅ VERY IMPORTANT */
-  position: relative;
-  overflow: hidden;
-
-  margin-left: calc(-50vw + 50%);
-  margin-bottom: 30px;
-
-  display: block;
-}
-
-/* IMAGES */
-.comedy-carousel img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-/* ACTIVE IMAGE */
-.comedy-carousel img.active {
-  opacity: 1;
 }
