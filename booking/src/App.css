@@ -1,0 +1,23 @@
+/* MAIN APP WRAPPER */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* MAIN CONTENT AREA */
+.app-content {
+  flex: 1;
+  width: 100%;
+}
+
+/* PREVENT OVERFLOW ISSUES */
+body {
+  overflow-x: hidden;
+}
+
+/* OPTIONAL: SMOOTH TRANSITIONS */
+.app-content {
+  transition: all 0.3s ease;
+}

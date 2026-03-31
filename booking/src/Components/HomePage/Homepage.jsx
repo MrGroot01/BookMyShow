@@ -565,7 +565,7 @@ const HomePage = () => {
       {/* PLAYS */}
       <FadeUp>
         <section>
-          <SectionHeader title="LATEST" accent="ComedyShow" path="/comedy" />
+          <SectionHeader title="LATEST" accent="ComedyShow" path="/comedyshow" />
           <div className="plays-grid">
             {plays.map((p) => (
               <div key={p.name} className="play-card">
@@ -584,7 +584,7 @@ const HomePage = () => {
       {/* SPORTS */}
       <FadeUp>
         <section>
-          <SectionHeader title="TOP" accent="SPORTS EVENTS" path="/sports" />
+          <SectionHeader title="TOP" accent="SPORTS EVENTS"path="/sports" />
           <div className="sports-grid">
             {sports.map((s) => (
               <div key={s.name} className="sport-card">

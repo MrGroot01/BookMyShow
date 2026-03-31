@@ -1,0 +1,53 @@
+.details {
+  padding: 30px 60px;
+  background: #fff;
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.details-container {
+  display: flex;
+  gap: 30px;
+}
+
+/* LEFT */
+.left {
+  flex: 2;
+}
+
+.left img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* RIGHT */
+.right {
+  flex: 1;
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.right p {
+  margin-bottom: 10px;
+}
+
+/* PRICE */
+.price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.book-btn {
+  width: 100%;
+  padding: 12px;
+  background: #f84464;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
