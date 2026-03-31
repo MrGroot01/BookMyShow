@@ -296,12 +296,14 @@
   font-weight: bold;
 }
 /* STEP IMAGE FIX */
+/* SHOW FULL IMAGE PROPERLY */
 .step img {
-  width: 200px;        /* same width */
-  height: 350px;       /* same height */
-  object-fit: cover;   /* crop properly */
+  width: 200px;
+  height: 350px;
+  object-fit: contain;   /* ✅ IMPORTANT FIX */
   border-radius: 12px;
   margin-top: 15px;
+  background: #f5f5f5;   /* optional */
 }
 
 /* STEP CONTAINER */
