@@ -86,10 +86,10 @@
   position: relative;
 }
 
-/* HIDDEN TEXT */
+/* TOOLTIP */
 .tooltip {
   position: absolute;
-  bottom: -28px;
+  top: -30px; /* ✅ move above */
   left: 50%;
   transform: translateX(-50%);
   background: black;
