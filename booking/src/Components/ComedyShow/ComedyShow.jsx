@@ -31,7 +31,7 @@ export default function ComedyShow() {
   return (
     <>
       {/* ✅ FULL WIDTH TOP CAROUSEL */}
-      <div className="top-carousel comedy-carousel">
+      <div className="comedy-carousel">
         {shows.slice(0, 5).map((show, i) => (
           <img
             key={show.id}
