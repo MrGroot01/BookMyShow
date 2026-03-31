@@ -171,13 +171,13 @@ export default function EventDetails() {
               <div className="step">
                 <div className="step-number">2</div>
                 <p>In your profile section, click on your orders.</p>
-                <img src="https://i.pinimg.com/originals/9d/e0/7a/9de07a0c59c2ff1954e76f3622e8edb3.jpg" />
+                <img src="https://m.media-amazon.com/images/G/31/smartcommerce/blog/smartbiz/Click-on-order-details.png" />
               </div>
 
               <div className="step">
                 <div className="step-number">3</div>
                 <p>Select your ticket and show the QR code at the event entry.</p>
-                <img src="https://cdn.qrstuff.com/resources/images/img-src/use-case-base/eb-simplified-ticketing-process.png" />
+                <img src="https://is2-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/5f/8b/dc/5f8bdc84-a4d3-a306-06c8-6bbb3109a7a9/3b7990d9-31e8-4ea3-b68a-b6e13c366c2a_Frame_17779.png/750x750bb.jpeg" />
               </div>
             </div>
           </div>
