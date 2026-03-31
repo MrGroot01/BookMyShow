@@ -1,7 +1,33 @@
+/* PAGE SPACING */
+.page-wrapper {
+  padding: 20px 60px; /* ✅ equal left-right spacing */
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.share-icon {
+  font-size: 20px;
+  cursor: pointer;
+  background: #eee;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+/* MAIN LAYOUT */
 .event-container {
   display: flex;
   gap: 30px;
-  padding: 30px;
 }
 
 /* LEFT */
@@ -36,10 +62,10 @@
 }
 
 .interest button {
-  padding: 6px 12px;
   border: 1px solid #f84464;
   color: #f84464;
   background: transparent;
+  padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
 }
@@ -51,21 +77,6 @@
   padding: 20px;
   border-radius: 10px;
   line-height: 1.7;
-  color: #333;
-}
-
-.about h2 {
-  margin-bottom: 15px;
-}
-
-.about p {
-  margin-bottom: 10px;
-}
-
-.read-less {
-  color: red;
-  cursor: pointer;
-  font-weight: 500;
 }
 
 /* RIGHT */
@@ -77,7 +88,7 @@
   position: sticky;
   top: 20px;
   background: #fff;
-  border: 1px solid #dcdcdc;
+  border: 1px solid #ddd;
   border-radius: 16px;
   padding: 20px;
 }
@@ -86,7 +97,6 @@
   display: flex;
   gap: 10px;
   margin-bottom: 14px;
-  font-size: 15px;
 }
 
 .booking-box hr {
@@ -95,6 +105,7 @@
   border-top: 1px solid #eee;
 }
 
+/* PRICE */
 .price-section {
   display: flex;
   justify-content: space-between;
@@ -106,10 +117,11 @@
 }
 
 .available {
-  color: green;
+  color: orange;
   font-size: 13px;
 }
 
+/* BUTTON */
 .book-btn {
   background: #f84464;
   color: white;
