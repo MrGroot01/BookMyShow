@@ -2,13 +2,15 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import "./EventDetails.css";
 
-
+// ✅ IMPORT DATA
+import shows from "../../data/ShowsData";
 
 export default function EventDetails() {
   const { id } = useParams();
+
   const show = shows.find((s) => s.id === parseInt(id));
 
-  if (!show) return <h2>Event not found</h2>;
+  if (!show) return <h2 style={{ color: "white" }}>Event not found</h2>;
 
   return (
     <div className="event-container">
@@ -16,12 +18,10 @@ export default function EventDetails() {
       {/* LEFT SIDE */}
       <div className="event-left">
         
-        {/* IMAGE */}
         <img src={show.image} alt={show.title} className="main-image" />
 
-        {/* TAGS + INTEREST */}
         <div className="tags">
-          <span>Open Mic Comedy</span>
+          <span>{show.category}</span>
           <span>Comedy Shows</span>
         </div>
 
@@ -30,32 +30,20 @@ export default function EventDetails() {
           <button>I’m Interested</button>
         </div>
 
-        {/* ABOUT EVENT */}
         <div className="about">
           <h2>About The Event</h2>
-          <p>
-            Join us for an evening of laughter, socializing, and potential connections 
-            at our unique comedy matchmaking event, <b>Match Me Please!</b>
-          </p>
-
-          <p><b>Comedy & Crowd Play:</b> Engage with witty interactions.</p>
-          <p><b>Matchmaking Fun:</b> Meet potential matches.</p>
-          <p><b>Socializing Opportunities:</b> Mingle with others.</p>
-          <p><b>Dress to Impress:</b> Make a great impression.</p>
-          <p><b>Laughs & Connections:</b> Enjoy and connect.</p>
+          <p>{show.title} is one of the best live comedy experiences in Bengaluru.</p>
+          <p><b>Venue:</b> {show.venue}</p>
+          <p><b>Date:</b> {show.date}</p>
         </div>
       </div>
 
-      {/* RIGHT SIDE (STICKY) */}
+      {/* RIGHT SIDE */}
       <div className="event-right">
         <div className="booking-box">
-          <p>📅 Sat 4 Apr 2026 - Sat 2 May 2026</p>
-          <p>⏰ 5:00 PM</p>
-          <p>⏳ 1 Hour</p>
-          <p>👤 Age Limit - 18yrs+</p>
-          <p>🌐 Languages: English, Hindi, Kannada</p>
-          <p>🎭 Comedy</p>
-          <p>📍 Bengaluru</p>
+          <p>📅 {show.date}</p>
+          <p>📍 {show.venue}</p>
+          <p>🎭 {show.category}</p>
 
           <h3>{show.price}</h3>
 
