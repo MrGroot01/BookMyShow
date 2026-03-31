@@ -10,13 +10,12 @@ import EventDetails from "./Components/ComedyShow/EventDetails";
 import Sports from "./Components/Sports/Sports";
 import Adventure from "./Components/Adventure/Adventure";
 import Kids from "./Components/Kids/Kids";
+import Login from "./NavBar/Login/Login"
 
 import LoginModal from "./NavBar/Login/Login";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-
-<<<<<<< HEAD
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='movies' element={<Movies />} />
@@ -29,11 +28,11 @@ function ScrollToTop() {
         <Route path='/adventure' element={<Adventure/>} />
         <Route path='/kids' element={<Kids/>} />
       </Routes>
-=======
+      
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
->>>>>>> 53d4c75e1f10ee757779f5c5cba74245cfaace02
+
 
   return null;
 }
