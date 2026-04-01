@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Kids.css";
 
 const events = [
@@ -37,32 +38,33 @@ const events = [
 ];
 
 export default function KidsPage() {
+  const navigate = useNavigate();
   const [slide, setSlide] = useState(0);
 
   const images = [
-    "https://in.bmscdn.com/promotions/cms/creatives/1708350332006_web.jpg",
-    "https://in.bmscdn.com/promotions/cms/creatives/1708350332007_web.jpg",
-    "https://in.bmscdn.com/promotions/cms/creatives/1708350332008_web.jpg",
+    "https://images.unsplash.com/photo-1608889175123-8ee362201f81",
+    "https://images.unsplash.com/photo-1596462502278-27bfdc403348",
+    "https://images.unsplash.com/photo-1588072432836-e10032774350",
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setSlide((prev) => (prev + 1) % images.length);
-    }, 3000);
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="page">
 
-      {/* 🔥 TOP SLIDER */}
+      {/* ✅ SLIDER */}
       <div className="slider">
-        <img src={images[slide]} className="slide-img" alt="banner" />
+        <img src={images[slide]} alt="banner" />
       </div>
 
       <div className="main">
 
-        {/* LEFT FILTER */}
+        {/* LEFT */}
         <div className="filters">
           <h2>Filters</h2>
 
@@ -78,7 +80,7 @@ export default function KidsPage() {
               <button>This Weekend</button>
             </div>
 
-            <label>
+            <label className="checkbox">
               <input type="checkbox" /> Date Range
             </label>
           </div>
@@ -90,9 +92,8 @@ export default function KidsPage() {
           <button className="browse">Browse by Venues</button>
         </div>
 
-        {/* RIGHT CONTENT */}
+        {/* RIGHT */}
         <div className="content">
-
           <h2>Kids In Bengaluru</h2>
 
           <div className="chips">
@@ -103,12 +104,17 @@ export default function KidsPage() {
             <span>Competition</span>
           </div>
 
-          {/* CARDS */}
           <div className="cards">
             {events.map((item) => (
-              <div key={item.id} className="card">
-                <img src={item.image} alt="" />
-                <div className="date">Thu, 2 Apr onwards</div>
+              <div
+                key={item.id}
+                className="card"
+                onClick={() => navigate(`/event/${item.id}`)}
+              >
+                <div className="img-box">
+                  <img src={item.image} alt="" />
+                  <div className="date">Thu, 2 Apr onwards</div>
+                </div>
 
                 <h3>{item.title}</h3>
                 <p>{item.place}</p>
@@ -117,7 +123,6 @@ export default function KidsPage() {
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </div>
