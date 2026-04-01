@@ -152,11 +152,7 @@ const [openCity, setOpenCity] = useState(null);
               </div>
 <button
   className="book-btn"
- onClick={() => {
-  setStep(1);        // start from venue
-  setOpenCity(null); // reset dropdown
-  setShowBooking(true);
-}}
+  onClick={() => navigate(`/booking/${show.id}`)}
 >
   Book Now
 </button>
@@ -241,9 +237,11 @@ const [openCity, setOpenCity] = useState(null);
       </div>
 
       {/* STEPS */}
-      <span className={step === 1 ? "active" : ""}>1 Venue</span>
-<span className={step === 2 ? "active" : ""}>2 Ticket</span>
-<span>3 Review & Pay</span>
+      <div className="steps booking-steps">
+        <span className="active">1 Ticket</span>
+        <span>2 Registration</span>
+        <span>3 Review & Pay</span>
+      </div>
 
       {/* INFO */}
       <div className="event-info">
