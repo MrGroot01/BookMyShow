@@ -135,88 +135,123 @@ const Navbar = ({ onLoginClick }) => {
 
       {/* ✅ ADDED SEARCH PAGE (NEW) */}
       {showSearchPage && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "#f5f5f5",
-            zIndex: 9999,
-            padding: "20px",
-          }}
+  <div
+    style={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      background: "rgba(0,0,0,0.4)",
+      zIndex: 9999,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "flex-start",
+      paddingTop: "80px",
+    }}
+  >
+    {/* CENTER BOX */}
+    <div
+      style={{
+        width: "600px",
+        background: "#fff",
+        borderRadius: "12px",
+        padding: "20px",
+      }}
+    >
+      {/* TOP SEARCH */}
+      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+        <span
+          onClick={() => setShowSearchPage(false)}
+          style={{ cursor: "pointer" }}
         >
-          {/* TOP */}
-          <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-            <span onClick={() => setShowSearchPage(false)}>←</span>
+          ←
+        </span>
 
-            <input
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-              placeholder="Search for Movies, Events, Plays..."
+        <input
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          placeholder="Search for Movies, Events, Plays..."
+          style={{
+            flex: 1,
+            padding: "10px",
+            borderRadius: "20px",
+            border: "1px solid #ccc",
+          }}
+        />
+      </div>
+
+      {/* CATEGORY BUTTONS */}
+      <div
+        style={{
+          display: "flex",
+          gap: "10px",
+          marginTop: "15px",
+          flexWrap: "wrap",
+        }}
+      >
+        {["Movies", "Music", "Events", "Plays", "Sports", "Activities"].map(
+          (cat) => (
+            <button
+              key={cat}
+              onClick={() => setSearchText(cat.toLowerCase())}
               style={{
-                flex: 1,
-                padding: "10px",
-                borderRadius: "10px",
-                border: "1px solid #ccc",
-              }}
-            />
-          </div>
-
-          {/* CATEGORIES */}
-          <div
-            style={{
-              display: "flex",
-              gap: "10px",
-              marginTop: "15px",
-              flexWrap: "wrap",
-            }}
-          >
-            {["Movies", "Music", "Events", "Plays", "Sports", "Activities"].map(
-              (cat) => (
-                <button
-                  key={cat}
-                  style={{
-                    padding: "8px 12px",
-                    borderRadius: "20px",
-                    border: "1px solid #ccc",
-                    background: "#fff",
-                  }}
-                >
-                  {cat}
-                </button>
-              )
-            )}
-          </div>
-
-          {/* TRENDING */}
-          <h4 style={{ marginTop: "20px" }}>TRENDING SEARCHES</h4>
-
-          {[
-            "Project Hail Mary",
-            "Dhurandhar The Revenge",
-            "Youth",
-            "Race Gurram",
-            "Love Mocktail 3",
-          ].map((item, i) => (
-            <div
-              key={i}
-              style={{
-                padding: "15px",
-                background: "#fff",
-                marginTop: "10px",
-                borderRadius: "10px",
-                display: "flex",
-                justifyContent: "space-between",
+                padding: "8px 14px",
+                borderRadius: "20px",
+                border: "1px solid #ddd",
+                background:
+                  searchText === cat.toLowerCase() ? "#ff4d4d" : "#fff",
+                color:
+                  searchText === cat.toLowerCase() ? "#fff" : "#333",
+                cursor: "pointer",
               }}
             >
-              <span>{item}</span>
-              <span>🎬</span>
-            </div>
-          ))}
-        </div>
-      )}
+              {cat}
+            </button>
+          )
+        )}
+      </div>
+
+      {/* TRENDING */}
+      <h4 style={{ marginTop: "20px", color: "#ff4d4d" }}>
+        TRENDING SEARCHES
+      </h4>
+
+      {[
+        "Project Hail Mary",
+        "Dhurandhar The Revenge",
+        "Youth",
+        "Race Gurram",
+        "Love Mocktail 3",
+        "BTS World Tour",
+      ]
+        .filter((item) =>
+          item.toLowerCase().includes(searchText.toLowerCase())
+        )
+        .map((item, i) => (
+          <div
+            key={i}
+            onClick={() => {
+              setSearch(item);
+              setShowSearchPage(false);
+            }}
+            style={{
+              padding: "12px",
+              marginTop: "10px",
+              borderRadius: "8px",
+              background: "#f5f5f5",
+              display: "flex",
+              justifyContent: "space-between",
+              cursor: "pointer",
+            }}
+          >
+            <span>{item}</span>
+            <span>🎬</span>
+          </div>
+        ))}
+    </div>
+  </div>
+)}
     </>
   );
 };
