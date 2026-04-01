@@ -5,11 +5,14 @@
   border-bottom: 1px solid #ddd;
 }
 
+/* 🔥 CONTAINER FIX (IMPORTANT) */
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 /* LEFT */
@@ -17,6 +20,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap; /* ✅ prevents breaking */
 }
 
 .logo img {
@@ -38,6 +42,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap; /* ✅ prevents overflow */
 }
 
 .nav-location {
@@ -64,32 +69,32 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 40px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .sub-left,
 .sub-right {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap; /* ✅ prevents breaking */
 }
 
 .sub-link {
   color: #333;
   transition: 0.2s;
+  position: relative;
 }
 
 .sub-link:hover {
   color: #f84464;
   transform: scale(1.2);
 }
-/* TOOLTIP STYLE */
-.sub-link {
-  position: relative;
-}
 
 /* TOOLTIP */
 .tooltip {
   position: absolute;
-  top: -30px; /* ✅ move above */
+  top: -30px;
   left: 50%;
   transform: translateX(-50%);
   background: black;
@@ -106,4 +111,35 @@
 /* SHOW ON HOVER */
 .sub-link:hover .tooltip {
   opacity: 1;
+}
+
+/* 🔥🔥 RESPONSIVE FIX (OPTION 2) */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px 15px;
+  }
+
+  .nav-search input {
+    width: 200px;
+  }
+
+  .sub-navbar .container {
+    padding: 10px 15px;
+  }
+
+  .sub-left,
+  .sub-right {
+    gap: 10px;
+  }
+}
+
+/* 🔥🔥 FORCE DESKTOP VIEW SUPPORT (OPTION 1) */
+body {
+  min-width: 1024px;
+  overflow-x: auto;
+}
+
+/* GLOBAL FIX */
+* {
+  box-sizing: border-box;
 }

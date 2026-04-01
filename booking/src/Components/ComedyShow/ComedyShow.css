@@ -1,215 +1,79 @@
-body {
-  font-family: "Poppins", sans-serif;
-  background: #ffffff;
+/* 🔥🔥 ADDITIONS START HERE (DO NOT REMOVE YOUR CODE ABOVE) */
+
+/* Prevent overflow issues */
+* {
+  box-sizing: border-box;
 }
 
-/* MAIN */
+/* Ensure container fits screen */
 .main-container {
-  display: flex;
-  gap: 40px;
-  padding: 30px 60px;
-  align-items: flex-start; /* safe layout */
+  max-width: 1400px;
+  margin: auto;
 }
 
-/* FILTERS */
-.filters {
-  width: 260px;
+/* 🔥 GRID RESPONSIVE FIX (VERY IMPORTANT) */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* FILTER ITEMS */
-.filter-item {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 12px;
-  display: flex;
-  justify-content: space-between;
-  font-weight: 500;
-  cursor: pointer;
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* CLEAR */
-.clear {
-  color: #f84464;
-  font-size: 13px;
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
-/* DATE BOX */
-.filter-box {
-  background: white;
-  padding: 18px;
-  border-radius: 10px;
-  margin-bottom: 15px;
+/* 🔥 MAIN LAYOUT FIX */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .filters {
+    width: 100%;
+  }
+
+  .content {
+    width: 100%;
+  }
 }
 
-.filter-header {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 600;
+/* 🔥 IMAGE HEIGHT FIX (MOBILE) */
+@media (max-width: 768px) {
+  .image-box img {
+    height: 250px;
+  }
 }
 
-.buttons button {
-  margin: 5px;
-  padding: 8px 14px;
-  border: 1px solid #ddd;
-  background: white;
-  border-radius: 6px;
-  cursor: pointer;
+@media (max-width: 480px) {
+  .image-box img {
+    height: 220px;
+  }
 }
 
-/* BROWSE BUTTON */
-.browse-btn {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #f84464;
-  color: #f84464;
-  background: white;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-/* CONTENT */
-.content {
-  flex: 1;
-}
-
-/* HEADING */
-.heading {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #111;
-}
-
-/* CATEGORY PILLS */
+/* 🔥 PILLS WRAP FIX */
 .pills {
+  flex-wrap: wrap;
+}
+
+/* 🔥 BUTTON WRAP */
+.buttons {
   display: flex;
-  gap: 10px;
-  margin-bottom: 25px;
+  flex-wrap: wrap;
 }
 
-.pills span {
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.pills span:hover {
-  border-color: #f84464;
-  color: #f84464;
-}
-
-.pills .active {
-  background: #f84464;
-  color: white;
-  border: none;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-}
-
-/* CARD */
-.card {
-  cursor: pointer;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* IMAGE */
-.image-box {
-  position: relative;
-}
-
-.image-box img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-}
-
-/* DATE BAR */
-.date {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: black;
-  color: white;
-  padding: 8px;
-  border-radius: 0 0 12px 12px;
-}
-
-/* PROMOTED */
-.promoted {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #f84464;
-  color: white;
-  font-size: 10px;
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
-/* TEXT */
-.card-content {
-  padding: 8px 2px;
-  background: transparent !important;
-}
-
-.card-content h3 {
-  font-size: 17px;
-  font-weight: 700;
-  color: #111;
-}
-
-.venue {
-  color: #666;
-  font-size: 14px;
-}
-
-.category {
-  color: #888;
-  font-size: 14px;
-}
-
-.price {
-  font-weight: 700;
-  color: #111;
-}
-/* CARD HOVER EFFECT */
-.card {
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-/* IMAGE HOVER ZOOM */
-.image-box img {
-  transition: transform 0.3s ease;
-}
-
-.card:hover img {
-  transform: scale(1.08);
-}
-
-/* SMOOTH BUTTON FEEL */
-.buttons button:hover {
-  border-color: #f84464;
-  color: #f84464;
-}
-
-/* FILTER HOVER */
-.filter-item:hover {
-  background: #f9f9f9;
+/* 🔥 FORCE DESKTOP VIEW SUPPORT (OPTION 1) */
+body {
+  min-width: 1024px;
+  overflow-x: auto;
 }
