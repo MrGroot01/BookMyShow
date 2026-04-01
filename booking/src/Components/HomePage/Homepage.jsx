@@ -4,12 +4,7 @@ import "./HomePage.css";
 import { useNavigate } from "react-router-dom";
 
 const heroSlides = [
-  {
-    img: "https://www.stage32.com/sites/stage32.com/files/cake/6386b2c319713.jpg",
-    tag: "Now Showing",
-    title: ["MOVIES", "& BEYOND"],
-    sub: "Your city never sleeps. Discover live events, movies, concerts and plays — all in one place.",
-  },
+  
   {
     img: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&q=80",
     tag: "Live Concert",
@@ -584,7 +579,10 @@ const HomePage = () => {
       {/* SPORTS */}
       <FadeUp>
         <section>
-          <SectionHeader title="TOP" accent="SPORTS EVENTS"path="/sports" />
+
+
+          {/* <SectionHeader title="TOP" accent="SPORTS EVENTS"path="/sports" /> */}
+          <SectionHeader title="TOP" accent="SPORTS EVENTS" path="/sports" />
           <div className="sports-grid">
             {sports.map((s) => (
               <div key={s.name} className="sport-card">
