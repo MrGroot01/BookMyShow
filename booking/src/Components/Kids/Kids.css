@@ -1,0 +1,127 @@
+.container {
+  font-family: Arial;
+  padding: 20px;
+}
+
+/* NAVBAR */
+.navbar {
+  margin-bottom: 20px;
+}
+
+.navbar button {
+  padding: 10px 20px;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+}
+
+/* FILTER */
+.filters {
+  width: 20%;
+  background: #f5f5f5;
+  padding: 15px;
+}
+
+.filters button {
+  display: block;
+  margin: 10px 0;
+}
+
+/* CARDS */
+.cards {
+  width: 80%;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 220px;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card-info {
+  padding: 10px 0;
+}
+
+/* DETAILS PAGE */
+.details {
+  margin-top: 20px;
+}
+
+/* TOP SECTION */
+.top-section {
+  display: flex;
+  gap: 20px;
+}
+
+.main-img {
+  width: 70%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.booking-box {
+  width: 30%;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.book-btn {
+  width: 100%;
+  padding: 10px;
+  background: red;
+  color: white;
+  border: none;
+  margin-top: 10px;
+}
+
+/* TAGS */
+.tags span {
+  background: #333;
+  color: white;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+/* INFO SECTION */
+.info-section {
+  margin-top: 30px;
+  width: 70%;
+}
+
+.box {
+  background: #f2e9e4;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+/* GALLERY */
+.gallery {
+  display: flex;
+  gap: 10px;
+}
+
+.gallery img {
+  width: 120px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
