@@ -8,7 +8,7 @@ const events = [
     image: "https://in.bmscdn.com/events/moviecard/ET00312345.jpg",
     place: "Parsec - Jayanagar",
     category: "Education",
-    price: "₹250",
+    price: "₹225 onwards",
     about:
       "ParSEC is a one-of-a-kind science centre located in Jayanagar...",
   },
@@ -18,26 +18,36 @@ const events = [
     image: "https://in.bmscdn.com/events/moviecard/ET00345678.jpg",
     place: "St. John's Auditorium",
     category: "Entertainment",
-    price: "₹350",
+    price: "₹350 onwards",
     about: "Enjoy live circus performances with family.",
+  },
+  {
+    id: 3,
+    title: "Jumbo Circus",
+    image: "https://in.bmscdn.com/events/moviecard/ET00378901.jpg",
+    place: "Jumbo Circus",
+    category: "Entertainment",
+    price: "₹350 onwards",
+    about: "Fun circus activities.",
   },
 ];
 
 export default function KidsPage() {
   const [selected, setSelected] = useState(null);
   const [slide, setSlide] = useState(0);
+  const [activeCategory, setActiveCategory] = useState("All");
 
   const images = [
-    "https://assets-in.bmscdn.com/promotions/cms/creatives/1686033612345_web.jpg",
-    "https://assets-in.bmscdn.com/promotions/cms/creatives/1686033612346_web.jpg",
-    "https://assets-in.bmscdn.com/promotions/cms/creatives/1686033612347_web.jpg",
+    "https://images.unsplash.com/photo-1608889175250-c7b0f2c3e9b3",
+    "https://images.unsplash.com/photo-1588072432836-e10032774350",
+    "https://images.unsplash.com/photo-1596464716127-f2a82984de30",
   ];
 
-  // ✅ AUTO SLIDER
+  // AUTO SLIDER
   useEffect(() => {
     const interval = setInterval(() => {
       setSlide((prev) => (prev + 1) % images.length);
-    }, 3000); // every 3 sec
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -47,16 +57,26 @@ export default function KidsPage() {
       {/* ================= LIST PAGE ================= */}
       {!selected && (
         <>
-          {/* 🔥 AUTO SLIDER */}
+          {/* 🔥 SLIDER */}
           <div className="slider">
-            <img src={images[slide]} alt="banner" />
+            {images.map((img, index) => (
+              <div
+                key={index}
+                className={index === slide ? "slide active" : "slide"}
+              >
+                <img src={img} />
+                <div className="overlay">
+                  <h1>Kids Events</h1>
+                  <p>Discover fun activities</p>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="main">
 
-            {/* 🔥 LEFT FILTERS (FULL STRUCTURE) */}
+            {/* LEFT FILTER */}
             <div className="filters">
-
               <h2>Filters</h2>
 
               <div className="filter-card">
@@ -71,65 +91,59 @@ export default function KidsPage() {
                   <button>This Weekend</button>
                 </div>
 
-                <label className="checkbox">
-                  <input type="checkbox" />
-                  Date Range
+                <label>
+                  <input type="checkbox" /> Date Range
                 </label>
               </div>
 
-              <div className="filter-card">
-                <div className="filter-header">
-                  <span>Categories</span>
-                  <span className="clear">Clear</span>
-                </div>
-              </div>
-
-              <div className="filter-card">
-                <div className="filter-header">
-                  <span>More Filters</span>
-                  <span className="clear">Clear</span>
-                </div>
-              </div>
-
-              <div className="filter-card">
-                <div className="filter-header">
-                  <span>Price</span>
-                  <span className="clear">Clear</span>
-                </div>
-              </div>
+              <div className="filter-card">Categories</div>
+              <div className="filter-card">More Filters</div>
+              <div className="filter-card">Price</div>
 
               <button className="browse">Browse by Venues</button>
             </div>
 
-            {/* 🔥 RIGHT SIDE */}
+            {/* RIGHT CONTENT */}
             <div className="content">
 
               <h2>Kids In Bengaluru</h2>
 
+              {/* CATEGORY FILTER */}
               <div className="chips">
-                <span>Entertainment</span>
-                <span>Hobby Classes</span>
-                <span>Summer Camps</span>
-                <span>Education</span>
-                <span>Competition</span>
+                {["All","Entertainment","Education"].map((cat) => (
+                  <span
+                    key={cat}
+                    className={activeCategory === cat ? "active-chip" : ""}
+                    onClick={() => setActiveCategory(cat)}
+                  >
+                    {cat}
+                  </span>
+                ))}
               </div>
 
+              {/* CARDS */}
               <div className="cards">
-                {events.map((item) => (
-                  <div
-                    key={item.id}
-                    className="card"
-                    onClick={() => setSelected(item)}
-                  >
-                    <img src={item.image} />
-                    <div className="date">Thu, 2 Apr onwards</div>
+                {events
+                  .filter((e) =>
+                    activeCategory === "All"
+                      ? true
+                      : e.category === activeCategory
+                  )
+                  .map((item) => (
+                    <div
+                      key={item.id}
+                      className="card"
+                      onClick={() => setSelected(item)}
+                    >
+                      <img src={item.image} />
+                      <div className="date">Thu, 2 Apr onwards</div>
 
-                    <h3>{item.title}</h3>
-                    <p>{item.place}</p>
-                    <p>{item.category}</p>
-                    <p>{item.price}</p>
-                  </div>
-                ))}
+                      <h3>{item.title}</h3>
+                      <p>{item.place}</p>
+                      <p>{item.category}</p>
+                      <p>{item.price}</p>
+                    </div>
+                  ))}
               </div>
 
             </div>
@@ -165,29 +179,25 @@ export default function KidsPage() {
             <span>Kids</span>
           </div>
 
-          {/* 🔥 LEFT FULL DETAILS */}
           <div className="info">
-
             <h2>About The Event</h2>
             <p>{selected.about}</p>
 
             <h2>You Should Know</h2>
             <div className="info-box">
-              Parsec Jayanagar is closed on November 23rd and 24th.
+              Closed on specific holidays.
             </div>
 
             <h2>M-Ticket</h2>
             <div className="info-box">
-              Contactless Ticketing & Fast-track Entry
+              Fast-track entry available.
             </div>
 
             <h2>Gallery</h2>
             <div className="gallery">
               <img src={selected.image} />
               <img src={selected.image} />
-              <img src={selected.image} />
             </div>
-
           </div>
 
           <button className="back" onClick={() => setSelected(null)}>
