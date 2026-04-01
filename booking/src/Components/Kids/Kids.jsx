@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./KidsPage.css";
+import "./Kids.css";
 
 const events = [
   {
