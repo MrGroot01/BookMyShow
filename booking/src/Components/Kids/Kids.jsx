@@ -58,20 +58,16 @@ export default function KidsPage() {
       {!selected && (
         <>
           {/* 🔥 SLIDER */}
-          <div className="slider">
-            {images.map((img, index) => (
-              <div
-                key={index}
-                className={index === slide ? "slide active" : "slide"}
-              >
-                <img src={img} />
-                <div className="overlay">
-                  <h1>Kids Events</h1>
-                  <p>Discover fun activities</p>
-                </div>
-              </div>
-            ))}
-          </div>
+         <div className="slider">
+  {images.map((img, index) => (
+    <img
+      key={index}
+      src={img}
+      className={`slide-img ${index === slide ? "active" : ""}`}
+      alt="banner"
+    />
+  ))}
+</div>
 
           <div className="main">
 
