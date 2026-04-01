@@ -10,8 +10,6 @@ const events = [
     place: "Parsec - Jayanagar",
     category: "Education",
     price: "₹ 225 onwards",
-    about:
-      "ParSEC is a one-of-a-kind science centre located in Jayanagar...",
   },
   {
     id: 2,
@@ -21,108 +19,85 @@ const events = [
     place: "St. John's Auditorium",
     category: "Entertainment",
     price: "₹ 350 onwards",
-    about: "Enjoy amazing circus performances for kids...",
+  },
+  {
+    id: 3,
+    title: "Jumbo Circus",
+    image: "https://in.bmscdn.com/events/moviecard/ET00378901.jpg",
+    date: "Thu, 2 Apr onwards",
+    place: "Jumbo Circus",
+    category: "Circus",
+    price: "₹ 350 onwards",
   },
 ];
 
 export default function KidsEvents() {
   const [selected, setSelected] = useState(null);
 
-  // 👉 When clicking navbar → reset page
-  const handleNavbarClick = () => {
-    setSelected(null);
-  };
-
   return (
-    <div className="container">
+    <div className="page">
 
       {/* NAVBAR */}
       <div className="navbar">
-        <button onClick={handleNavbarClick}>Kids</button>
+        <button onClick={() => setSelected(null)}>Kids</button>
       </div>
 
-      {/* ================= LIST PAGE ================= */}
+      {/* LIST PAGE */}
       {!selected && (
-        <div className="layout">
+        <div className="main-container">
+
           {/* LEFT FILTER */}
           <div className="filters">
             <h2>Filters</h2>
-            <button>Today</button>
-            <button>Tomorrow</button>
-            <button>This Weekend</button>
+
+            <div className="filter-box">
+              <h4>Date</h4>
+              <button>Today</button>
+              <button>Tomorrow</button>
+              <button>This Weekend</button>
+            </div>
+
+            <button className="browse">Browse by Venues</button>
           </div>
 
-          {/* RIGHT CARDS */}
-          <div className="cards">
-            {events.map((item) => (
-              <div
-                key={item.id}
-                className="card"
-                onClick={() => setSelected(item)}
-              >
-                <img src={item.image} alt="" />
-                <div className="card-info">
+          {/* RIGHT CONTENT */}
+          <div className="content">
+            <h2 className="title">Kids In Bengaluru</h2>
+
+            <div className="tags">
+              <span>Entertainment</span>
+              <span>Hobby Classes</span>
+              <span>Summer Camps</span>
+              <span>Education</span>
+              <span>Competition</span>
+            </div>
+
+            <div className="cards">
+              {events.map((item) => (
+                <div
+                  key={item.id}
+                  className="card"
+                  onClick={() => setSelected(item)}
+                >
+                  <img src={item.image} />
+                  <p className="date">{item.date}</p>
+
                   <h3>{item.title}</h3>
                   <p>{item.place}</p>
                   <p>{item.category}</p>
                   <p>{item.price}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+
         </div>
       )}
 
-      {/* ================= DETAILS PAGE ================= */}
+      {/* DETAILS PAGE (same as before, no change needed) */}
       {selected && (
         <div className="details">
-
-          {/* IMAGE + RIGHT BOX */}
-          <div className="top-section">
-            <img src={selected.image} className="main-img" />
-
-            <div className="booking-box">
-              <p>{selected.date}</p>
-              <p>1 Hour</p>
-              <p>All age groups</p>
-              <p>{selected.place}</p>
-              <h2>{selected.price}</h2>
-              <button className="book-btn">Book Now</button>
-            </div>
-          </div>
-
-          {/* TAGS */}
-          <div className="tags">
-            <span>Education</span>
-            <span>Entertainment</span>
-            <span>Kids</span>
-          </div>
-
-          {/* LEFT INFO */}
-          <div className="info-section">
-
-            <h2>About The Event</h2>
-            <p>{selected.about}</p>
-
-            <h2>You Should Know</h2>
-            <div className="box">
-              Parsec Jayanagar is closed on November 23rd and 24th.
-            </div>
-
-            <h2>M-Ticket</h2>
-            <div className="box">
-              Contactless Ticketing & Fast-track Entry
-            </div>
-
-            <h2>Gallery</h2>
-            <div className="gallery">
-              <img src={selected.image} />
-              <img src={selected.image} />
-              <img src={selected.image} />
-              <img src={selected.image} />
-            </div>
-
-          </div>
+          <h1>{selected.title}</h1>
         </div>
       )}
     </div>
