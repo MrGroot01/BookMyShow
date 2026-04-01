@@ -2,11 +2,10 @@
   background: #f5f5f5;
 }
 
-/* 🔥 SLIDER */
+/* SLIDER */
 .slider {
   width: 1200px;
-  margin: 20px auto;
-  position: relative;
+  margin: auto;
 }
 
 .slider img {
@@ -15,29 +14,10 @@
   border-radius: 10px;
 }
 
-.slider button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: black;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.slider button:first-child {
-  left: 10px;
-}
-
-.slider button:last-child {
-  right: 10px;
-}
-
 /* MAIN */
 .main {
   width: 1200px;
-  margin: auto;
+  margin: 20px auto;
   display: flex;
   gap: 30px;
 }
@@ -47,11 +27,30 @@
   width: 260px;
 }
 
-.box {
+.filter-card {
   background: white;
   padding: 15px;
   border-radius: 10px;
   margin-bottom: 15px;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clear {
+  color: red;
+  cursor: pointer;
+}
+
+.btn-group button {
+  margin: 5px;
+}
+
+.checkbox {
+  display: block;
+  margin-top: 10px;
 }
 
 .browse {
@@ -94,9 +93,8 @@
   background: black;
   color: white;
   padding: 5px;
-  position: relative;
-  top: -30px;
-  left: 10px;
+  margin-top: -30px;
+  margin-left: 10px;
   width: fit-content;
 }
 
@@ -115,7 +113,6 @@
   width: 70%;
   height: 400px;
   border-radius: 10px;
-  object-fit: cover;
 }
 
 .book-box {
@@ -131,19 +128,15 @@
   color: white;
   padding: 10px;
   border: none;
-  margin-top: 10px;
 }
 
-/* TAGS */
 .tags span {
   background: #333;
   color: white;
   padding: 5px 10px;
   margin-right: 10px;
-  border-radius: 5px;
 }
 
-/* INFO */
 .info {
   margin-top: 20px;
 }
@@ -163,5 +156,8 @@
 .gallery img {
   width: 120px;
   height: 100px;
-  border-radius: 10px;
+}
+
+.back {
+  margin-top: 20px;
 }

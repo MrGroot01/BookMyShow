@@ -1,23 +1,21 @@
-import React, { useState } from "react";
-import "./Kids.css";
+import React, { useState, useEffect } from "react";
+import "./KidsPage.css";
 
 const events = [
   {
     id: 1,
     title: "Parsec-Jayanagar by Param",
     image: "https://in.bmscdn.com/events/moviecard/ET00312345.jpg",
-    date: "Thu, 2 Apr onwards",
     place: "Parsec - Jayanagar",
     category: "Education",
     price: "₹250",
     about:
-      "ParSEC is a one-of-a-kind science centre located in Jayanagar. Interactive science exhibits for kids.",
+      "ParSEC is a one-of-a-kind science centre located in Jayanagar...",
   },
   {
     id: 2,
     title: "Rambo Circus - Bengaluru",
     image: "https://in.bmscdn.com/events/moviecard/ET00345678.jpg",
-    date: "Fri, 24 Apr onwards",
     place: "St. John's Auditorium",
     category: "Entertainment",
     price: "₹350",
@@ -29,56 +27,83 @@ export default function KidsPage() {
   const [selected, setSelected] = useState(null);
   const [slide, setSlide] = useState(0);
 
-  const sliderImages = [
+  const images = [
     "https://assets-in.bmscdn.com/promotions/cms/creatives/1686033612345_web.jpg",
     "https://assets-in.bmscdn.com/promotions/cms/creatives/1686033612346_web.jpg",
     "https://assets-in.bmscdn.com/promotions/cms/creatives/1686033612347_web.jpg",
   ];
 
-  const nextSlide = () => {
-    setSlide((prev) => (prev + 1) % sliderImages.length);
-  };
-
-  const prevSlide = () => {
-    setSlide((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
-  };
+  // ✅ AUTO SLIDER
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSlide((prev) => (prev + 1) % images.length);
+    }, 3000); // every 3 sec
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="page">
 
-      {/* ================= NAVBAR CLICK PAGE ================= */}
+      {/* ================= LIST PAGE ================= */}
       {!selected && (
         <>
-          {/* 🔥 TOP SLIDER */}
+          {/* 🔥 AUTO SLIDER */}
           <div className="slider">
-            <button onClick={prevSlide}>‹</button>
-            <img src={sliderImages[slide]} />
-            <button onClick={nextSlide}>›</button>
+            <img src={images[slide]} alt="banner" />
           </div>
 
-          {/* 🔥 MAIN CONTENT */}
           <div className="main">
 
-            {/* LEFT FILTER */}
+            {/* 🔥 LEFT FILTERS (FULL STRUCTURE) */}
             <div className="filters">
+
               <h2>Filters</h2>
 
-              <div className="box">
-                <h4>Date</h4>
-                <button>Today</button>
-                <button>Tomorrow</button>
-                <button>This Weekend</button>
+              <div className="filter-card">
+                <div className="filter-header">
+                  <span>Date</span>
+                  <span className="clear">Clear</span>
+                </div>
+
+                <div className="btn-group">
+                  <button>Today</button>
+                  <button>Tomorrow</button>
+                  <button>This Weekend</button>
+                </div>
+
+                <label className="checkbox">
+                  <input type="checkbox" />
+                  Date Range
+                </label>
               </div>
 
-              <div className="box"><h4>Categories</h4></div>
-              <div className="box"><h4>More Filters</h4></div>
-              <div className="box"><h4>Price</h4></div>
+              <div className="filter-card">
+                <div className="filter-header">
+                  <span>Categories</span>
+                  <span className="clear">Clear</span>
+                </div>
+              </div>
+
+              <div className="filter-card">
+                <div className="filter-header">
+                  <span>More Filters</span>
+                  <span className="clear">Clear</span>
+                </div>
+              </div>
+
+              <div className="filter-card">
+                <div className="filter-header">
+                  <span>Price</span>
+                  <span className="clear">Clear</span>
+                </div>
+              </div>
 
               <button className="browse">Browse by Venues</button>
             </div>
 
-            {/* RIGHT SIDE */}
+            {/* 🔥 RIGHT SIDE */}
             <div className="content">
+
               <h2>Kids In Bengaluru</h2>
 
               <div className="chips">
@@ -97,7 +122,7 @@ export default function KidsPage() {
                     onClick={() => setSelected(item)}
                   >
                     <img src={item.image} />
-                    <p className="date">{item.date}</p>
+                    <div className="date">Thu, 2 Apr onwards</div>
 
                     <h3>{item.title}</h3>
                     <p>{item.place}</p>
@@ -106,6 +131,7 @@ export default function KidsPage() {
                   </div>
                 ))}
               </div>
+
             </div>
           </div>
         </>
@@ -119,10 +145,8 @@ export default function KidsPage() {
 
           <div className="top">
 
-            {/* IMAGE */}
             <img src={selected.image} className="big-img" />
 
-            {/* RIGHT BOOK BOX */}
             <div className="book-box">
               <p>Thu 2 Apr 2026 - Sun 12 Apr 2026</p>
               <p>1 Hour</p>
@@ -132,16 +156,16 @@ export default function KidsPage() {
               <h2>{selected.price}</h2>
               <button>Book Now</button>
             </div>
+
           </div>
 
-          {/* TAGS */}
           <div className="tags">
             <span>Education</span>
             <span>Entertainment</span>
             <span>Kids</span>
           </div>
 
-          {/* LEFT DETAILS */}
+          {/* 🔥 LEFT FULL DETAILS */}
           <div className="info">
 
             <h2>About The Event</h2>
@@ -165,6 +189,10 @@ export default function KidsPage() {
             </div>
 
           </div>
+
+          <button className="back" onClick={() => setSelected(null)}>
+            ← Back
+          </button>
         </div>
       )}
     </div>
