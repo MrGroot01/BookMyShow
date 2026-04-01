@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import "./HomePage.css";
+import "./Homepage.css";
 import { useNavigate } from "react-router-dom";
 
 const heroSlides = [
