@@ -190,7 +190,7 @@ const Navbar = ({ onLoginClick }) => {
           flexWrap: "wrap",
         }}
       >
-        {["Movies", "Music", "Events", "Plays", "Sports", "Activities"].map(
+        {["Movies", "Music", "ComedyShow", "Sports", "Adventure", "Kids"].map(
           (cat) => (
             <button
               key={cat}
