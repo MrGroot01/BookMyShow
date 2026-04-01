@@ -31,7 +31,83 @@ const Navbar = ({ onLoginClick }) => {
       alert("No results found");
     }
   };
+if (showSearchPage) {
+  const trending = [
+    "Project Hail Mary",
+    "Dhurandhar The Revenge",
+    "Youth",
+    "Race Gurram",
+    "Love Mocktail 3",
+    "BTS World Tour",
+    "Awarapan 2"
+  ];
 
+  const categories = ["Movies", "Music", "Events", "Plays", "Sports", "Activities"];
+
+  const filtered = trending.filter((item) =>
+    item.toLowerCase().includes(searchText.toLowerCase())
+  );
+
+  return (
+    <div style={{ padding: "20px", background: "#f5f5f5", minHeight: "100vh" }}>
+
+      {/* TOP BAR */}
+      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+        <span onClick={() => setShowSearchPage(false)}>←</span>
+
+        <input
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          placeholder="Search for Movies, Events, Plays..."
+          style={{
+            flex: 1,
+            padding: "10px",
+            borderRadius: "10px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+
+      {/* CATEGORY BUTTONS */}
+      <div style={{ display: "flex", gap: "10px", marginTop: "15px", flexWrap: "wrap" }}>
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            style={{
+              padding: "8px 12px",
+              borderRadius: "20px",
+              border: "1px solid #ccc",
+              background: "#fff"
+            }}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* TRENDING */}
+      <h4 style={{ marginTop: "20px" }}>TRENDING SEARCHES</h4>
+
+      {(searchText ? filtered : trending).map((item, i) => (
+        <div
+          key={i}
+          style={{
+            padding: "15px",
+            background: "#fff",
+            marginTop: "10px",
+            borderRadius: "10px",
+            display: "flex",
+            justifyContent: "space-between"
+          }}
+        >
+          <span>{item}</span>
+          <span>🎬</span>
+        </div>
+      ))}
+
+    </div>
+  );
+}
   return (
     <>
       <nav className="navbar">
@@ -51,9 +127,11 @@ const Navbar = ({ onLoginClick }) => {
                 placeholder="Search for Movies, Events, Plays..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
+                onFocus={() => setShowSearchPage(true)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     handleSearch();
+                    
                   }
                 }}
               />
