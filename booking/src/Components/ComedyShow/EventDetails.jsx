@@ -152,7 +152,11 @@ const [openCity, setOpenCity] = useState(null);
               </div>
 <button
   className="book-btn"
-  onClick={() => navigate(`/booking/${show.id}`)}
+ onClick={() => {
+  setStep(1);        // start from venue
+  setOpenCity(null); // reset dropdown
+  setShowBooking(true);
+}}
 >
   Book Now
 </button>
@@ -167,17 +171,7 @@ const [openCity, setOpenCity] = useState(null);
       {showMTicket && (
         <div className="popup-overlay">
           <div className="popup large">
-            <span className="close" 
-  onClick={() => {
-    if (step === 1) {
-      setShowBooking(false); // go back to main page
-    } else {
-      setStep(1); // go back to venue step
-    }
-  }}
->
-  ←
-</span>
+            <span className="close" onClick={() => setShowMTicket(false)}>✖</span>
 
             <h2 className="popup-title">How to use the M-ticket for Live Events</h2>
 
