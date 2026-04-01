@@ -150,14 +150,13 @@ const [openCity, setOpenCity] = useState(null);
                 <h3>{show.price}</h3>
                 <p className="available">Filling Fast</p>
               </div>
-
-              <button
+<button
   className="book-btn"
-  onClick={() => {
-    setStep(1);        // ✅ start from venue
-    setOpenCity(null); // ✅ reset dropdown
-    setShowBooking(true);
-  }}
+ onClick={() => {
+  setStep(1);        // start from venue
+  setOpenCity(null); // reset dropdown
+  setShowBooking(true);
+}}
 >
   Book Now
 </button>
@@ -172,7 +171,17 @@ const [openCity, setOpenCity] = useState(null);
       {showMTicket && (
         <div className="popup-overlay">
           <div className="popup large">
-            <span className="close" onClick={() => setShowMTicket(false)}>✖</span>
+            <span className="close" 
+  onClick={() => {
+    if (step === 1) {
+      setShowBooking(false); // go back to main page
+    } else {
+      setStep(1); // go back to venue step
+    }
+  }}
+>
+  ←
+</span>
 
             <h2 className="popup-title">How to use the M-ticket for Live Events</h2>
 
@@ -232,11 +241,9 @@ const [openCity, setOpenCity] = useState(null);
       </div>
 
       {/* STEPS */}
-      <div className="steps booking-steps">
-        <span className="active">1 Ticket</span>
-        <span>2 Registration</span>
-        <span>3 Review & Pay</span>
-      </div>
+      <span className={step === 1 ? "active" : ""}>1 Venue</span>
+<span className={step === 2 ? "active" : ""}>2 Ticket</span>
+<span>3 Review & Pay</span>
 
       {/* INFO */}
       <div className="event-info">
