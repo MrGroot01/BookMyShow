@@ -73,7 +73,36 @@
 }
 
 /* 🔥 FORCE DESKTOP VIEW SUPPORT (OPTION 1) */
-body {
-  min-width: 1024px;
-  overflow-x: auto;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .filters {
+    width: 100%;
+  }
 }

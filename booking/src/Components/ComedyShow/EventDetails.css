@@ -432,7 +432,3 @@
 }
 
 /* 🔥 FORCE DESKTOP VIEW SUPPORT (OPTION 1) */
-body {
-  min-width: 1024px;
-  overflow-x: auto;
-}
