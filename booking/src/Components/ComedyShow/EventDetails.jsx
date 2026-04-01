@@ -4,8 +4,6 @@ import "./EventDetails.css";
 import shows from "../../data/ShowsData";
 
 export default function EventDetails() {
-  const [step, setStep] = useState(1);
-const [openCity, setOpenCity] = useState(null);
   const [showBooking, setShowBooking] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -24,9 +22,6 @@ const [openCity, setOpenCity] = useState(null);
   const scrollRight = () => {
     scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
   };
-  const toggleCity = (city) => {
-  setOpenCity(openCity === city ? null : city);
-};
 
   if (!show) return <h2>Event not found</h2>;
 
@@ -150,14 +145,8 @@ const [openCity, setOpenCity] = useState(null);
                 <h3>{show.price}</h3>
                 <p className="available">Filling Fast</p>
               </div>
-<button
-  className="book-btn"
- onClick={() => {
-  setStep(1);        // start from venue
-  setOpenCity(null); // reset dropdown
-  setShowBooking(true);
-}}
->
+
+              <button className="book-btn" onClick={() => setShowBooking(true)}>
   Book Now
 </button>
             </div>
@@ -244,73 +233,55 @@ const [openCity, setOpenCity] = useState(null);
       </div>
 
       {/* SELECT */}
-      {/* STEP SWITCH */}
+      <h3>Select Tickets</h3>
+      <p className="limit">You can add up to 10 tickets only</p>
 
-{/* VENUE STEP */}
-{step === 1 && (
-  <div>
-    <h3>Select Venue</h3>
-
-    {["Bengaluru", "Hyderabad", "Mumbai", "Kolkata"].map((city) => (
-      <div key={city} style={{ marginBottom: "15px" }}>
-        <div
-          style={{
-            background: "#f3f3f3",
-            padding: "15px",
-            borderRadius: "10px",
-            display: "flex",
-            justifyContent: "space-between",
-            cursor: "pointer",
-          }}
-          onClick={() => toggleCity(city)}
-        >
-          <span>{city}</span>
-          <span>{openCity === city ? "▲" : "▼"}</span>
+      {/* TICKET LIST */}
+      <div className="ticket-box">
+        <div>
+          <h4>SILVER TICKETS</h4>
+          <p>₹999 | <span className="fast">Fast Filling</span></p>
         </div>
-
-        {openCity === city && city === "Kolkata" && (
-          <div
-            style={{
-              background: "white",
-              padding: "15px",
-              borderRadius: "10px",
-              marginTop: "10px",
-              boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-            }}
-          >
-            <h4>The Satire Club: Kolkata</h4>
-            <p>
-              12 Apr 2026
-              <span style={{ color: "red", marginLeft: "5px" }}>
-                Fast Filling
-              </span>
-            </p>
-
-            <button onClick={() => setStep(2)}>Select</button>
-          </div>
-        )}
+        <button>Add</button>
       </div>
-    ))}
-  </div>
-)}
 
-{/* TICKET STEP */}
-{step === 2 && (
-  <div>
-    <h3>Select Tickets</h3>
+      <div className="ticket-box">
+        <div>
+          <h4>GOLD TICKETS</h4>
+          <p>₹1,499</p>
+        </div>
+        <button>Add</button>
+      </div>
 
-    <div className="ticket-box">
-      <h4>SILVER TICKETS</h4>
-      <button>Add</button>
+      <div className="ticket-box">
+        <div>
+          <h4>PLATINUM TICKETS</h4>
+          <p>₹1,999</p>
+        </div>
+        <button>Add</button>
+      </div>
+
+      <div className="ticket-box">
+        <div>
+          <h4>DIAMOND TICKETS</h4>
+          <p>₹2,499 | <span className="fast">Fast Filling</span></p>
+        </div>
+        <button>Add</button>
+      </div>
+
+      <div className="ticket-box disabled">
+        <div>
+          <h4>BRONZE TICKETS</h4>
+          <p>₹799 | <span className="sold">Sold out</span></p>
+        </div>
+      </div>
+
+      {/* FOOTER */}
+      <button className="login-btn">Login To Book</button>
+
     </div>
-
-    <button onClick={() => setStep(1)}>← Back</button>
   </div>
-  
 )}
-  </div>
-
     </div>
-)}
-</div>
-  )}
+  );
+}
