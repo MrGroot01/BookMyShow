@@ -175,11 +175,11 @@ const Navbar = ({ onLoginClick }) => {
             </Link>
             <Link to="/cupons" className="sub-link">
             <FaCalendarAlt size={20} />
-            <span className="tooltip">cupon</span>
+            <span className="tooltip">Cupon</span>
             </Link>
             <Link to="/events" className="sub-link">
             <FaTicketAlt size={20} />
-            <span className="tooltip">cupon</span>
+            <span className="tooltip">Events</span>
             </Link>
 
           </div>
