@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ComedyShow.css";
 import shows from "../../data/ShowsData";
@@ -12,6 +12,35 @@ export default function ComedyShow() {
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
   };
+  // 🔥 SLIDER DATA
+const slides = [
+  {
+    image: "https://images.unsplash.com/photo-1527224538127-2104bb71c51b",
+    title: "Standup Night",
+    subtitle: "Laugh Out Loud",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91",
+    title: "Comedy Festival",
+    subtitle: "Best Comedians Live",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1515169067868-5387ec356754",
+    title: "Open Mic Nights",
+    subtitle: "Fresh Talent & Fun",
+  }
+];
+
+const [currentSlide, setCurrentSlide] = useState(0);
+
+// 🔥 AUTO SLIDE
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, []);
 
   const filteredShows =
     activeCategory === "All"
@@ -23,6 +52,23 @@ export default function ComedyShow() {
         );
 
   return (
+      <>
+    {/* 🔥 SLIDER */}
+    <div className="slider">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`slide ${index === currentSlide ? "active" : ""}`}
+          style={{ backgroundImage: `url(${slide.image})` }}
+        >
+          <div className="overlay">
+            <h1>{slide.title}</h1>
+            <p>{slide.subtitle}</p>
+          </div>
+        </div>
+      ))}
+    
+    </div>
     <div className="main-container">
 
       {/* LEFT FILTER */}
@@ -209,5 +255,6 @@ export default function ComedyShow() {
         </div>
       </div>
     </div>
+    </>
   );
 }
