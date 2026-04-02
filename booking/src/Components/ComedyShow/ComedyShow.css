@@ -242,3 +242,13 @@ body {
 .filter-header p {
   color: #000 !important;
 }
+.browse-btn {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #f84464;
+  color: #f84464 !important;
+  background: #fff !important;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}

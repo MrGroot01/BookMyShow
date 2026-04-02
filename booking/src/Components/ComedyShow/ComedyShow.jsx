@@ -53,12 +53,14 @@ export default function ComedyShow() {
         {/* LANGUAGE */}
         <div className="filter-box">
           <div
-            className="filter-header"
-            onClick={() => toggleSection("language")}
-          >
-            <span>Language</span>
-            <span className="clear">Clear</span>
-          </div>
+  className="filter-header"
+  onClick={() => toggleSection("language")}
+>
+  <span className="title">
+    {openSection === "language" ? "⌃" : "⌄"} Language
+  </span>
+  <span className="clear">Clear</span>
+</div>
 
           {openSection === "language" && (
             <div className="buttons">
@@ -77,12 +79,14 @@ export default function ComedyShow() {
         {/* CATEGORIES */}
         <div className="filter-box">
           <div
-            className="filter-header"
-            onClick={() => toggleSection("category")}
-          >
-            <span>Categories</span>
-            <span className="clear">Clear</span>
-          </div>
+  className="filter-header"
+  onClick={() => toggleSection("language")}
+>
+  <span className="title">
+    {openSection === "categories" ? "⌃" : "⌄"} Categories
+  </span>
+  <span className="clear">Clear</span>
+</div>
 
           {openSection === "category" && (
             <div className="buttons">
@@ -99,12 +103,14 @@ export default function ComedyShow() {
         {/* MORE FILTERS */}
         <div className="filter-box">
           <div
-            className="filter-header"
-            onClick={() => toggleSection("more")}
-          >
-            <span>More Filters</span>
-            <span className="clear">Clear</span>
-          </div>
+  className="filter-header"
+  onClick={() => toggleSection("language")}
+>
+  <span className="title">
+    {openSection === "more filters" ? "⌃" : "⌄"} More Filters
+  </span>
+  <span className="clear">Clear</span>
+</div>
 
           {openSection === "more" && (
             <div className="buttons">
@@ -120,12 +126,14 @@ export default function ComedyShow() {
         {/* PRICE */}
         <div className="filter-box">
           <div
-            className="filter-header"
-            onClick={() => toggleSection("price")}
-          >
-            <span>Price</span>
-            <span className="clear">Clear</span>
-          </div>
+  className="filter-header"
+  onClick={() => toggleSection("language")}
+>
+  <span className="title">
+    {openSection === "price" ? "⌃" : "⌄"} Price
+  </span>
+  <span className="clear">Clear</span>
+</div>
 
           {openSection === "price" && (
             <div className="buttons">
