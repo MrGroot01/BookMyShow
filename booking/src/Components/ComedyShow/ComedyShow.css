@@ -317,6 +317,11 @@ body {
 .slider {
   margin-top: 10px;   /* optional spacing */
 }
+/* 🔥 ADD THIS ONLY */
+.slider {
+  margin-left: 60px;
+  margin-right: 60px;
+}
 /* 🔥 SLIDES */
 .slide {
   width: 100%;
