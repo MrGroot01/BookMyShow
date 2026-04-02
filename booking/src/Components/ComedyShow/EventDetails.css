@@ -444,4 +444,10 @@
   color: #000 !important;
   opacity: 1 !important;
 }
+/* 🔥 Fix category buttons */
+.tags span,
+.category-btn,
+button {
+  color: #fff !important;
+}
 /* 🔥 FORCE DESKTOP VIEW SUPPORT (OPTION 1) */
