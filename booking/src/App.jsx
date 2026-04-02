@@ -10,8 +10,8 @@ import EventDetails from "./Components/ComedyShow/EventDetails";
 import Sports from "./Components/Sports/Sports";
 import Adventure from "./Components/Adventure/Adventure";
 import Kids from "./Components/Kids/Kids";
-import Cupons from "/Components/Cupons/Cupons";
-import Events from "/Components/Events/Events";
+import Cupons from "./Components/Cupons/Cupons";
+import Events from "./Components/Events/Events";
 
 // ✅ Only ONE import for login modal
 import LoginModal from "./NavBar/Login/Login";
