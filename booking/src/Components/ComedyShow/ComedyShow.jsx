@@ -29,6 +29,18 @@ export default function ComedyShow() {
       title: "Open Mic Nights",
       subtitle: "Fresh Talent & Fun",
     },
+
+    /* ✅ ADDED MORE SLIDES */
+    {
+      image: "https://images.unsplash.com/photo-1497032205916-ac775f0649ae",
+      title: "Live Laugh Show",
+      subtitle: "Ultimate Comedy",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
+      title: "Standup Stars",
+      subtitle: "Top Performers",
+    },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,6 +52,17 @@ export default function ComedyShow() {
     return () => clearInterval(interval);
   }, []);
 
+  /* ✅ ADDED MANUAL CONTROLS */
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) =>
+      prev === 0 ? slides.length - 1 : prev - 1
+    );
+  };
+
   const filteredShows =
     activeCategory === "All"
       ? shows
@@ -49,8 +72,14 @@ export default function ComedyShow() {
 
   return (
     <>
-      {/* ✅ SLIDER — fixed height, nothing leaks outside */}
       <div className="slider-wrapper">
+
+        {/* ✅ LEFT ARROW */}
+        <div className="arrow left" onClick={prevSlide}>❮</div>
+
+        {/* ✅ RIGHT ARROW */}
+        <div className="arrow right" onClick={nextSlide}>❯</div>
+
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -60,9 +89,27 @@ export default function ComedyShow() {
             <div className="slide-overlay">
               <h1>{slide.title}</h1>
               <p>{slide.subtitle}</p>
+
+              {/* ✅ ADDED BOTTOM LEFT CONTENT */}
+              <div className="bottom-content">
+                <div className="rating">
+                  ⭐ 8.7 <span>(75K)</span> • 2h 30m • Kannada
+                </div>
+
+                <div className="tags">
+                  <span>2D</span>
+                  <span>IMAX</span>
+                  <span>4DX</span>
+                </div>
+
+                <button className="book-btn">
+                  🎟 Book Tickets
+                </button>
+              </div>
             </div>
           </div>
         ))}
+
         <div className="slider-dots">
           {slides.map((_, index) => (
             <span
@@ -73,6 +120,8 @@ export default function ComedyShow() {
           ))}
         </div>
       </div>
+
+      {/* EXISTING CODE — UNCHANGED BELOW */}
 
       {/* EXISTING CODE — UNCHANGED */}
       <div className="main-container">

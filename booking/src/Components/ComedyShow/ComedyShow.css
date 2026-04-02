@@ -343,3 +343,88 @@ body {
 .filter-header .title {
   color: #000 !important;
 }
+/* ============================================
+   ✅ NEW ADDITIONS (DO NOT MODIFY OLD CODE)
+   ============================================ */
+
+/* ✅ Fix image visibility (override cover safely) */
+.slide {
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  background-color: #000;
+}
+
+/* ✅ Bottom-left content (like your 2nd image) */
+.bottom-content {
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
+}
+
+.rating {
+  color: #00e6b8;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.rating span {
+  color: #aaa;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tags span {
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #aaa;
+  color: #fff;
+  font-size: 13px;
+}
+
+.book-btn {
+  background: #fff;
+  color: #000;
+  padding: 14px 28px;
+  border-radius: 30px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.book-btn:hover {
+  background: #f84464;
+  color: #fff;
+}
+
+/* ✅ Arrow buttons */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 14px;
+  cursor: pointer;
+  z-index: 20;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.arrow.left {
+  left: 15px;
+}
+
+.arrow.right {
+  right: 15px;
+}
+
+.arrow:hover {
+  background: #f84464;
+}
