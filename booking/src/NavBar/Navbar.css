@@ -1,35 +1,103 @@
-/* NAVBAR */
+/* MAIN NAVBAR */
 .navbar {
-  background: linear-gradient(90deg, #232526, #414345);
+  background: #0b0f1a;
+  padding: 10px 0;
+  border-bottom: 1px solid #1f2937;
 }
 
-/* SUB NAVBAR */
-.sub-navbar {
-  background: #ffffff;
+.container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* LOCATION TEXT */
+/* LEFT SECTION */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* LOGO */
+.logo img {
+  width: 40px;
+}
+
+/* SEARCH */
+.nav-search input {
+  width: 400px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* RIGHT SECTION */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .nav-location {
-  color: #ffffff;
+  cursor: pointer;
+  color: #fff;
 }
 
-/* LOGIN BUTTON */
 .login-btn {
-  background-color: #ff4d4d;
-  color: #ffffff;
+  background: #ff2c55;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+/* SECOND NAVBAR */
+.sub-navbar {
+  background: #121826;
+  padding: 10px 0;
+}
+
+.sub-left,
+.sub-right {
+  display: flex;
+  gap: 25px;
 }
 
 /* ICON LINKS */
 .sub-link {
-  color: #333333;
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* TOOLTIP (THIS MATCHES YOUR REQUIREMENT) */
+.tooltip {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  opacity: 0;
+  transition: 0.3s;
+  color: #ff2c55;
+  white-space: nowrap;
 }
 
 /* HOVER EFFECT */
-.sub-link:hover {
-  color: #ff4d4d;
+.sub-link:hover .tooltip {
+  opacity: 1;
 }
 
-/* TOOLTIP */
-.tooltip {
-  color: #ff4d4d;
+.sub-link:hover {
+  color: #ff2c55;
+}
+
+/* SEARCH POPUP FIX */
+input::placeholder {
+  color: #999;
 }
