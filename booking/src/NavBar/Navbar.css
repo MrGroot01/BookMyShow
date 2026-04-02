@@ -43,7 +43,7 @@
 
 .nav-location {
   cursor: pointer;
-  color: #1d1c1c;
+  color: white;
 }
 
 .login-btn {
@@ -51,7 +51,7 @@
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
-  color: rgb(21, 12, 12);
+  color: white;
   cursor: pointer;
 }
 
