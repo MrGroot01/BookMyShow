@@ -10,6 +10,8 @@ import EventDetails from "./Components/ComedyShow/EventDetails";
 import Sports from "./Components/Sports/Sports";
 import Adventure from "./Components/Adventure/Adventure";
 import Kids from "./Components/Kids/Kids";
+import Cupons from "/Components/Cupons/Cupons";
+import Events from "/Components/Events/Events";
 
 // ✅ Only ONE import for login modal
 import LoginModal from "./NavBar/Login/Login";
@@ -42,6 +44,8 @@ const App = () => {
         <Route path="/sports" element={<Sports />} />
         <Route path="/adventure" element={<Adventure />} />
         <Route path="/kids" element={<Kids />} />
+        <Route path="/Cupons" element={<Cupons />} />
+        <Route path="/Events" element={<Events />} />
       </Routes>
 
       {/* ✅ Login Popup */}
