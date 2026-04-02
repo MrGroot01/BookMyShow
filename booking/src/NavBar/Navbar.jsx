@@ -36,6 +36,40 @@ const Navbar = ({ onLoginClick }) => {
       alert("No results found");
     }
   };
+  const categoryData = {
+  movies: [
+    "Project Hail Mary",
+    "Dhurandhar The Revenge",
+    "Youth",
+    "Race Gurram",
+    "Love Mocktail 3",
+  ],
+  music: [
+    "BTS World Tour",
+    "Arijit Live Concert",
+    "DJ Night",
+  ],
+  comedy: [
+    "Standup Special",
+    "Kapil Live Show",
+    "Comedy Nights",
+  ],
+  sports: [
+    "IPL Match",
+    "Football League",
+    "Cricket Finals",
+  ],
+  adventure: [
+    "Trekking Event",
+    "Sky Diving",
+    "River Rafting",
+  ],
+  kids: [
+    "Magic Show",
+    "Cartoon Fest",
+    "Drawing Competition",
+  ],
+};
 
   return (
     <>
@@ -214,41 +248,43 @@ const Navbar = ({ onLoginClick }) => {
 
       {/* TRENDING */}
       <h4 style={{ marginTop: "20px", color: "#ff4d4d" }}>
-        TRENDING SEARCHES
-      </h4>
+  TRENDING SEARCHES
+</h4>
 
-      {[
-        "Project Hail Mary",
-        "Dhurandhar The Revenge",
-        "Youth",
-        "Race Gurram",
-        "Love Mocktail 3",
-        "BTS World Tour",
-      ]
-        .filter((item) =>
-          item.toLowerCase().includes(searchText.toLowerCase())
-        )
-        .map((item, i) => (
-          <div
-            key={i}
-            onClick={() => {
-              setSearch(item);
-              setShowSearchPage(false);
-            }}
-            style={{
-              padding: "12px",
-              marginTop: "10px",
-              borderRadius: "8px",
-              background: "#f5f5f5",
-              display: "flex",
-              justifyContent: "space-between",
-              cursor: "pointer",
-            }}
-          >
-            <span>{item}</span>
-            <span>🎬</span>
-          </div>
-        ))}
+{(
+  categoryData[searchText.toLowerCase()] || [
+    "Project Hail Mary",
+    "Dhurandhar The Revenge",
+    "Youth",
+    "Race Gurram",
+    "Love Mocktail 3",
+    "BTS World Tour",
+  ]
+)
+  .filter((item) =>
+    item.toLowerCase().includes(searchText.toLowerCase())
+  )
+  .map((item, i) => (
+    <div
+      key={i}
+      onClick={() => {
+        setSearch(item);
+        setShowSearchPage(false);
+      }}
+      style={{
+        padding: "12px",
+        marginTop: "10px",
+        borderRadius: "8px",
+        background: "#f5f5f5",
+        display: "flex",
+        justifyContent: "space-between",
+        cursor: "pointer",
+      }}
+    >
+      <span>{item}</span>
+      <span>🎬</span>
+    </div>
+  ))}
     </div>
   </div>
 )}
