@@ -361,3 +361,21 @@ body {
   font-size: 16px;
   margin-top: 10px;
 }
+/* 🔥 FINAL FIX - SLIDER ONLY AT TOP (ADD ONLY) */
+
+/* Match same width as main content */
+.slider {
+  width: calc(100% - 120px);   /* same as 60px + 60px padding */
+  margin: 20px auto 0 auto;    /* center it */
+  display: block;
+}
+
+/* Ensure slider height is fixed */
+.slide {
+  max-height: 250px;
+}
+
+/* Ensure overlay does not expand */
+.overlay {
+  max-height: 250px;
+}
