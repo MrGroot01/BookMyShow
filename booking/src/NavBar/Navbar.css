@@ -27,6 +27,7 @@
 
 /* SEARCH */
 .nav-search input {
+  color: black;
   width: 400px;
   padding: 10px 15px;
   border-radius: 8px;
