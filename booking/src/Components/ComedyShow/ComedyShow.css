@@ -213,3 +213,32 @@ body {
 .filter-item:hover {
   background: #f9f9f9;
 }
+/* 🔥 FIX FILTER TEXT VISIBILITY */
+.filters,
+.filter-box,
+.filter-item,
+.filter-header {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+/* Fix buttons text */
+.buttons button {
+  color: #000 !important;
+}
+
+/* Fix checkbox text */
+.filters label {
+  color: #000 !important;
+}
+
+/* Fix faded text issue */
+.filters * {
+  opacity: 1 !important;
+}
+
+/* Fix headings like Date, Language */
+.filter-header span,
+.filter-header p {
+  color: #000 !important;
+}
