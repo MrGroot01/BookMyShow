@@ -13,7 +13,6 @@ export default function ComedyShow() {
     setOpenSection(openSection === section ? null : section);
   };
 
-  // 🔥 SLIDER DATA
   const slides = [
     {
       image: "https://images.unsplash.com/photo-1527224538127-2104bb71c51b",
@@ -29,17 +28,15 @@ export default function ComedyShow() {
       image: "https://images.unsplash.com/photo-1515169067868-5387ec356754",
       title: "Open Mic Nights",
       subtitle: "Fresh Talent & Fun",
-    }
+    },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // 🔥 AUTO SLIDE
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 3000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -47,46 +44,39 @@ export default function ComedyShow() {
     activeCategory === "All"
       ? shows
       : shows.filter(
-          (show) =>
-            show.category &&
-            show.category.trim() === activeCategory
+          (show) => show.category && show.category.trim() === activeCategory
         );
 
   return (
     <>
-      {/* 🔥 SLIDER WRAPPER */}
+      {/* ✅ SLIDER — fixed height, nothing leaks outside */}
       <div className="slider-wrapper">
-        <div className="slider">
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className={`slide ${index === currentSlide ? "active" : ""}`}
-              style={{ backgroundImage: `url(${slide.image})` }}
-            >
-              <div className="overlay">
-                <h1>{slide.title}</h1>
-                <p>{slide.subtitle}</p>
-              </div>
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`slide ${index === currentSlide ? "active" : ""}`}
+            style={{ backgroundImage: `url(${slide.image})` }}
+          >
+            <div className="slide-overlay">
+              <h1>{slide.title}</h1>
+              <p>{slide.subtitle}</p>
             </div>
-          ))}
-
-          {/* Dot indicators */}
-          <div className="slider-dots">
-            {slides.map((_, index) => (
-              <span
-                key={index}
-                className={`dot ${index === currentSlide ? "active-dot" : ""}`}
-                onClick={() => setCurrentSlide(index)}
-              />
-            ))}
           </div>
+        ))}
+        <div className="slider-dots">
+          {slides.map((_, index) => (
+            <span
+              key={index}
+              className={`dot ${index === currentSlide ? "active-dot" : ""}`}
+              onClick={() => setCurrentSlide(index)}
+            />
+          ))}
         </div>
       </div>
 
-      {/* EXISTING CODE (UNCHANGED) */}
+      {/* EXISTING CODE — UNCHANGED */}
       <div className="main-container">
 
-        {/* LEFT FILTER */}
         <div className="filters">
           <h2>Filters</h2>
 
@@ -95,30 +85,23 @@ export default function ComedyShow() {
               <span>Date</span>
               <span className="clear">Clear</span>
             </div>
-
             <div className="buttons">
               <button>Today</button>
               <button>Tomorrow</button>
               <button>This Weekend</button>
             </div>
-
             <label>
               <input type="checkbox" /> Date Range
             </label>
           </div>
 
-          {/* LANGUAGE */}
           <div className="filter-box">
-            <div
-              className="filter-header"
-              onClick={() => toggleSection("language")}
-            >
+            <div className="filter-header" onClick={() => toggleSection("language")}>
               <span className="title">
                 {openSection === "language" ? "⌃" : "⌄"} Language
               </span>
               <span className="clear">Clear</span>
             </div>
-
             {openSection === "language" && (
               <div className="buttons">
                 <button>English</button>
@@ -133,18 +116,13 @@ export default function ComedyShow() {
             )}
           </div>
 
-          {/* CATEGORIES */}
           <div className="filter-box">
-            <div
-              className="filter-header"
-              onClick={() => toggleSection("category")}
-            >
+            <div className="filter-header" onClick={() => toggleSection("category")}>
               <span className="title">
                 {openSection === "category" ? "⌃" : "⌄"} Categories
               </span>
               <span className="clear">Clear</span>
             </div>
-
             {openSection === "category" && (
               <div className="buttons">
                 <button>Stand up Comedy</button>
@@ -157,18 +135,13 @@ export default function ComedyShow() {
             )}
           </div>
 
-          {/* MORE FILTERS */}
           <div className="filter-box">
-            <div
-              className="filter-header"
-              onClick={() => toggleSection("more")}
-            >
+            <div className="filter-header" onClick={() => toggleSection("more")}>
               <span className="title">
                 {openSection === "more" ? "⌃" : "⌄"} More Filters
               </span>
               <span className="clear">Clear</span>
             </div>
-
             {openSection === "more" && (
               <div className="buttons">
                 <button>Outdoor Events</button>
@@ -180,18 +153,13 @@ export default function ComedyShow() {
             )}
           </div>
 
-          {/* PRICE */}
           <div className="filter-box">
-            <div
-              className="filter-header"
-              onClick={() => toggleSection("price")}
-            >
+            <div className="filter-header" onClick={() => toggleSection("price")}>
               <span className="title">
                 {openSection === "price" ? "⌃" : "⌄"} Price
               </span>
               <span className="clear">Clear</span>
             </div>
-
             {openSection === "price" && (
               <div className="buttons">
                 <button>Free</button>
@@ -204,7 +172,6 @@ export default function ComedyShow() {
           <button className="browse-btn">Browse by Venues</button>
         </div>
 
-        {/* RIGHT CONTENT */}
         <div className="content">
           <h2 className="heading">Comedy Shows In Bengaluru</h2>
 
@@ -236,10 +203,7 @@ export default function ComedyShow() {
                   onClick={() => navigate(`/event/${show.id}`)}
                 >
                   <div className="image-box">
-                    {show.id === 1 && (
-                      <div className="promoted">PROMOTED</div>
-                    )}
-
+                    {show.id === 1 && <div className="promoted">PROMOTED</div>}
                     <img
                       src={show.image}
                       alt={show.title}
@@ -247,10 +211,8 @@ export default function ComedyShow() {
                         (e.target.src = "https://picsum.photos/400/600")
                       }
                     />
-
                     <div className="date">{show.date}</div>
                   </div>
-
                   <div className="card-content">
                     <h3>{show.title || "Comedy Show"}</h3>
                     <p className="venue">{show.venue || "Bengaluru"}</p>
