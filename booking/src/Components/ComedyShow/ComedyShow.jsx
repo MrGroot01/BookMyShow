@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ComedyShow.css";
 import shows from "../../data/ShowsData";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation, Autoplay } from "swiper/modules";
+
 
 export default function ComedyShow() {
   
@@ -23,55 +20,6 @@ export default function ComedyShow() {
 
   return (
     <div className="main-container">
-      {/* 🔥 TOP SLIDER (ADDED) */}
-<div style={{ width: "100%", padding: "20px 0" }}>
-  <Swiper
-    modules={[Navigation, Autoplay]}
-    navigation
-    autoplay={{ delay: 3000 }}
-    loop={true}
-    style={{ width: "90%", margin: "auto" }}
-  >
-    <SwiperSlide>
-      <img
-        src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
-        alt=""
-        style={{
-          width: "100%",
-          height: "300px",
-          objectFit: "cover",
-          borderRadius: "15px",
-        }}
-      />
-    </SwiperSlide>
-
-    <SwiperSlide>
-      <img
-        src="https://images.unsplash.com/photo-1515169067868-5387ec356754"
-        alt=""
-        style={{
-          width: "100%",
-          height: "300px",
-          objectFit: "cover",
-          borderRadius: "15px",
-        }}
-      />
-    </SwiperSlide>
-
-    <SwiperSlide>
-      <img
-        src="https://images.unsplash.com/photo-1526947425960-945c6e72858f"
-        alt=""
-        style={{
-          width: "100%",
-          height: "300px",
-          objectFit: "cover",
-          borderRadius: "15px",
-        }}
-      />
-    </SwiperSlide>
-  </Swiper>
-</div>
 
       {/* LEFT FILTER */}
       <div className="filters">

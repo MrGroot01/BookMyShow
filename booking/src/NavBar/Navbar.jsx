@@ -6,6 +6,8 @@ import {
   FaFutbol,
   FaHiking,
   FaChild,
+  FaCalendarAlt,   // ✅ Events icon
+  FaTicketAlt 
 } from "react-icons/fa";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -170,6 +172,14 @@ const Navbar = ({ onLoginClick }) => {
             <Link to="/kids" className="sub-link">
               <FaChild size={20} />
               <span className="tooltip">Kids</span>
+            </Link>
+            <Link to="/cupons" className="sub-link">
+            <FaCalendarAlt size={20} />
+            <span className="tooltip">cupon</span>
+            </Link>
+            <Link to="/events" className="sub-link">
+            <FaTicketAlt size={20} />
+            <span className="tooltip">cupon</span>
             </Link>
 
           </div>
