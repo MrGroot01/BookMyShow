@@ -217,6 +217,7 @@ const Movies = () => {
   const [sortBy,            setSortBy]            = useState("Default");
   const [showWatchlistOnly, setShowWatchlistOnly] = useState(false);
   const [quickViewMovie,    setQuickViewMovie]    = useState(null);
+  const [legalModal,        setLegalModal]        = useState(null); // "terms" | "privacy" | "refund" | null
 
   /* ── PURE REACT CAROUSEL STATE ── */
   const [index, setIndex] = useState(0);
@@ -265,15 +266,15 @@ const Movies = () => {
 
   /* close modals on Escape + lock body scroll */
   useEffect(() => {
-    const onKey = e => { if (e.key === "Escape") { setTrailerUrl(null); setQuickViewMovie(null); } };
+    const onKey = e => { if (e.key === "Escape") { setTrailerUrl(null); setQuickViewMovie(null); setLegalModal(null); } };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = trailerUrl || quickViewMovie ? "hidden" : "";
+    document.body.style.overflow = trailerUrl || quickViewMovie || legalModal ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [trailerUrl, quickViewMovie]);
+  }, [trailerUrl, quickViewMovie, legalModal]);
 
   /* filtered + sorted movies */
   let filtered = ALL_MOVIES.filter(m =>
@@ -586,6 +587,142 @@ const Movies = () => {
 
       <div style={{ height: 72 }} />
 
+      {/* ══════════════════ FOOTER ══════════════════ */}
+      <footer style={{
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        background: "rgba(2,2,4,0.8)",
+        backdropFilter: "blur(20px)",
+        padding: "48px 40px 32px",
+        marginTop: "20px",
+      }}>
+        <div style={{ maxWidth: "1440px", margin: "0 auto" }}>
+
+          {/* Top row: brand + links */}
+          <div style={{
+            display: "flex", alignItems: "flex-start",
+            justifyContent: "space-between", flexWrap: "wrap", gap: "40px",
+            marginBottom: "48px",
+          }}>
+
+            {/* Brand block */}
+            <div style={{ maxWidth: "320px" }}>
+              <div style={{
+                fontSize: "1.8rem", fontWeight: 900, letterSpacing: "-0.03em",
+                fontFamily: "var(--font-core)", marginBottom: "12px",
+                background: "linear-gradient(to right, #fff, #888)",
+                WebkitBackgroundClip: "text", backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}>
+                🎬 FLICKOVA
+              </div>
+              <p style={{
+                fontSize: "0.9rem", lineHeight: 1.7, color: "rgba(255,255,255,0.4)",
+                fontFamily: "var(--font-core)",
+              }}>
+                Your ultimate destination for booking movie tickets across all formats — 2D, 3D, IMAX, 4DX and more. Discover, watch, and experience cinema like never before.
+              </p>
+              <div style={{ display: "flex", gap: "12px", marginTop: "20px" }}>
+                {["🎞", "📱", "💬", "📧"].map((icon, i) => (
+                  <button key={i} style={{
+                    width: "38px", height: "38px", borderRadius: "50%",
+                    background: "rgba(255,255,255,0.05)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    color: "#fff", fontSize: "1rem", cursor: "pointer",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    transition: "all 0.3s ease",
+                  }}
+                    onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.05)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
+                  >{icon}</button>
+                ))}
+              </div>
+            </div>
+
+            {/* Links columns */}
+            <div style={{ display: "flex", gap: "60px", flexWrap: "wrap" }}>
+              {[
+                {
+                  heading: "Explore",
+                  links: ["Now Showing", "Coming Soon", "Trending", "Top Rated", "Languages"],
+                },
+                {
+                  heading: "Formats",
+                  links: ["2D", "3D", "IMAX", "4DX", "IMAX 3D"],
+                },
+                {
+                  heading: "Company",
+                  links: ["About Us", "Careers", "Press", "Partners", "Contact"],
+                },
+              ].map(col => (
+                <div key={col.heading}>
+                  <p style={{
+                    fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.12em",
+                    textTransform: "uppercase", color: "rgba(255,255,255,0.3)",
+                    marginBottom: "16px", fontFamily: "var(--font-core)",
+                  }}>{col.heading}</p>
+                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px" }}>
+                    {col.links.map(link => (
+                      <li key={link}>
+                        <button style={{
+                          background: "none", border: "none", color: "rgba(255,255,255,0.55)",
+                          fontSize: "0.88rem", cursor: "pointer", padding: 0,
+                          fontFamily: "var(--font-core)", fontWeight: 500,
+                          transition: "color 0.2s ease",
+                        }}
+                          onMouseEnter={e => { e.currentTarget.style.color = "#fff"; }}
+                          onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.55)"; }}
+                        >{link}</button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "24px" }}>
+            <div style={{
+              display: "flex", alignItems: "center",
+              justifyContent: "space-between", flexWrap: "wrap", gap: "16px",
+            }}>
+              {/* Copyright */}
+              <p style={{
+                fontSize: "0.82rem", color: "rgba(255,255,255,0.3)",
+                fontFamily: "var(--font-core)",
+              }}>
+                © {new Date().getFullYear()} Flickova. All rights reserved. Designed &amp; built with ♥ in India.
+              </p>
+
+              {/* Legal links */}
+              <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
+                {[
+                  { label: "Terms & Conditions", key: "terms" },
+                  { label: "Privacy Policy", key: "privacy" },
+                  { label: "Refund Policy", key: "refund" },
+                ].map(item => (
+                  <button
+                    key={item.key}
+                    onClick={() => setLegalModal(item.key)}
+                    style={{
+                      background: "none", border: "none",
+                      color: "rgba(255,255,255,0.35)", fontSize: "0.82rem",
+                      cursor: "pointer", fontFamily: "var(--font-core)",
+                      transition: "color 0.2s ease", padding: 0,
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.color = "#fff"; }}
+                    onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.35)"; }}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </footer>
+
       {/* ══════════════════ TRAILER MODAL ══════════════════ */}
       {trailerUrl && (
         <div className="trailer-modal" onClick={() => setTrailerUrl(null)}>
@@ -644,6 +781,147 @@ const Movies = () => {
           </div>
         </div>
       )}
+
+      {/* ══════════════════ LEGAL MODAL ══════════════════ */}
+      {legalModal && (() => {
+        const LEGAL_CONTENT = {
+          terms: {
+            title: "Terms & Conditions",
+            sections: [
+              { heading: "1. Acceptance of Terms", body: "By accessing or using Flickova ('the Platform'), you agree to be bound by these Terms and Conditions. If you do not agree to all the terms and conditions herein, do not use the Platform. Flickova reserves the right to update these terms at any time without prior notice." },
+              { heading: "2. Ticket Booking & Payment", body: "All ticket bookings are subject to availability. Payment must be completed at the time of booking. Flickova uses secure third-party payment gateways. We do not store your card details. Prices are inclusive of all applicable taxes unless stated otherwise. Convenience fees may apply." },
+              { heading: "3. Cancellation & Refund Policy", body: "Cancellations made more than 2 hours before the show time are eligible for a refund minus the convenience fee. No refunds will be issued for cancellations made within 2 hours of show time. Refunds are processed within 5–7 business days to the original payment method." },
+              { heading: "4. User Responsibilities", body: "You must be at least 18 years old to create an account and make bookings. You are responsible for maintaining the confidentiality of your account credentials. You agree not to use the Platform for any unlawful purpose or in any way that could damage, disable, or impair the Platform." },
+              { heading: "5. Intellectual Property", body: "All content on this Platform, including but not limited to text, graphics, logos, and software, is the property of Flickova and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without express written permission." },
+              { heading: "6. Limitation of Liability", body: "Flickova shall not be liable for any indirect, incidental, special, or consequential damages arising out of or related to your use of the Platform. Our maximum liability shall not exceed the amount paid by you for the specific booking giving rise to the claim." },
+              { heading: "7. Governing Law", body: "These Terms shall be governed by and construed in accordance with the laws of India. Any disputes arising hereunder shall be subject to the exclusive jurisdiction of the courts located in Bengaluru, Karnataka, India." },
+              { heading: "8. Contact Us", body: "If you have any questions about these Terms, please contact us at legal@flickova.in or write to us at Flickova Technologies Pvt. Ltd., Bengaluru, Karnataka, India — 560001." },
+            ],
+          },
+          privacy: {
+            title: "Privacy Policy",
+            sections: [
+              { heading: "1. Information We Collect", body: "We collect information you provide directly to us, such as your name, email address, phone number, and payment information when you create an account or make a booking. We also collect usage data, device information, and cookies to improve your experience." },
+              { heading: "2. How We Use Your Information", body: "Your information is used to process bookings, send confirmation emails and SMS, personalise your experience, improve our services, send promotional offers (with your consent), and comply with legal obligations." },
+              { heading: "3. Data Sharing", body: "We do not sell your personal data. We may share data with trusted partners such as payment processors, cinemas, and analytics providers solely for the purpose of providing our services. All third parties are contractually obligated to protect your data." },
+              { heading: "4. Data Retention", body: "We retain your personal data for as long as your account is active or as needed to provide services. You may request deletion of your data at any time by contacting privacy@flickova.in." },
+              { heading: "5. Cookies", body: "We use cookies and similar tracking technologies to enhance your experience. You can control cookie settings through your browser. Disabling cookies may affect some features of the Platform." },
+              { heading: "6. Your Rights", body: "You have the right to access, correct, or delete your personal data. You may also opt out of marketing communications at any time. To exercise these rights, contact us at privacy@flickova.in." },
+            ],
+          },
+          refund: {
+            title: "Refund Policy",
+            sections: [
+              { heading: "1. Eligibility for Refund", body: "Refunds are applicable only on bookings cancelled more than 2 hours before the scheduled show time. Tickets for shows that have already commenced are non-refundable under any circumstance." },
+              { heading: "2. Non-Refundable Fees", body: "Convenience fees, internet handling charges, and any promotional discount amounts are non-refundable. The refund will be processed for the base ticket price only." },
+              { heading: "3. Refund Processing Time", body: "Approved refunds are processed within 5–7 business days. The amount will be credited to the original payment method. Bank processing times may vary and are outside our control." },
+              { heading: "4. Show Cancellation by Cinema", body: "In the event of a show being cancelled by the cinema, a full refund including the convenience fee will be issued automatically within 48 hours. No action is required from your end." },
+              { heading: "5. Technical Payment Failures", body: "If your payment was deducted but the booking was not confirmed, the amount will be automatically reversed within 3–5 business days. If the issue persists, contact support@flickova.in with your transaction ID." },
+              { heading: "6. How to Request a Refund", body: "Go to My Bookings → Select the booking → Click 'Cancel & Refund'. Alternatively, contact our support team at support@flickova.in or call our helpline. Refund requests must be submitted before the show time." },
+            ],
+          },
+        };
+
+        const content = LEGAL_CONTENT[legalModal];
+        return (
+          <div className="trailer-modal" onClick={() => setLegalModal(null)} style={{ alignItems: "flex-end" }}>
+            <div
+              onClick={e => e.stopPropagation()}
+              style={{
+                background: "rgba(8,8,14,0.95)",
+                backdropFilter: "blur(40px) saturate(200%)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: "28px 28px 0 0",
+                width: "100%",
+                maxWidth: "860px",
+                margin: "0 auto",
+                maxHeight: "82vh",
+                display: "flex",
+                flexDirection: "column",
+                boxShadow: "0 -20px 60px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.1)",
+              }}
+            >
+              {/* Modal header */}
+              <div style={{
+                padding: "28px 36px 20px",
+                borderBottom: "1px solid rgba(255,255,255,0.08)",
+                display: "flex", alignItems: "center", justifyContent: "space-between",
+                flexShrink: 0,
+              }}>
+                <div>
+                  <p style={{
+                    fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.15em",
+                    textTransform: "uppercase", color: "rgba(255,255,255,0.35)",
+                    fontFamily: "var(--font-core)", marginBottom: "6px",
+                  }}>Flickova Legal</p>
+                  <h2 style={{
+                    fontSize: "1.8rem", fontWeight: 900, letterSpacing: "-0.02em",
+                    fontFamily: "var(--font-core)", color: "#fff",
+                  }}>{content.title}</h2>
+                </div>
+                <button className="trailer-close" onClick={() => setLegalModal(null)}>✕</button>
+              </div>
+
+              {/* Tab switcher */}
+              <div style={{ padding: "16px 36px 0", display: "flex", gap: "8px", flexShrink: 0 }}>
+                {[
+                  { key: "terms",   label: "Terms & Conditions" },
+                  { key: "privacy", label: "Privacy Policy" },
+                  { key: "refund",  label: "Refund Policy" },
+                ].map(tab => (
+                  <button
+                    key={tab.key}
+                    onClick={() => setLegalModal(tab.key)}
+                    style={{
+                      padding: "8px 18px", borderRadius: "100px",
+                      border: legalModal === tab.key ? "none" : "1px solid rgba(255,255,255,0.12)",
+                      background: legalModal === tab.key ? "#fff" : "transparent",
+                      color: legalModal === tab.key ? "#000" : "rgba(255,255,255,0.5)",
+                      fontFamily: "var(--font-core)", fontSize: "0.82rem",
+                      fontWeight: 700, cursor: "pointer", transition: "all 0.25s ease",
+                    }}
+                  >{tab.label}</button>
+                ))}
+              </div>
+
+              {/* Scrollable content */}
+              <div style={{
+                overflowY: "auto", padding: "28px 36px 40px",
+                scrollbarWidth: "thin",
+                scrollbarColor: "rgba(255,255,255,0.1) transparent",
+              }}>
+                {content.sections.map((sec, i) => (
+                  <div key={i} style={{ marginBottom: "28px" }}>
+                    <h3 style={{
+                      fontSize: "0.95rem", fontWeight: 700, color: "#fff",
+                      fontFamily: "var(--font-core)", marginBottom: "10px",
+                    }}>{sec.heading}</h3>
+                    <p style={{
+                      fontSize: "0.9rem", lineHeight: 1.75,
+                      color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-core)",
+                    }}>{sec.body}</p>
+                  </div>
+                ))}
+
+                {/* Footer row */}
+                <div style={{
+                  marginTop: "32px", paddingTop: "24px",
+                  borderTop: "1px solid rgba(255,255,255,0.07)",
+                  display: "flex", justifyContent: "space-between",
+                  alignItems: "center", flexWrap: "wrap", gap: "12px",
+                }}>
+                  <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-core)" }}>
+                    Last updated: April 2025 &nbsp;·&nbsp; Effective immediately
+                  </p>
+                  <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.25)", fontFamily: "var(--font-core)" }}>
+                    © {new Date().getFullYear()} Flickova Technologies Pvt. Ltd.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
 
     </div>
   );
