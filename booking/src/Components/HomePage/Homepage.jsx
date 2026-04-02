@@ -4,7 +4,6 @@ import "./Homepage.css";
 import { useNavigate } from "react-router-dom";
 
 const heroSlides = [
-  
   {
     img: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&q=80",
     tag: "Live Concert",
@@ -173,12 +172,19 @@ const events = [
   {
     img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80",
     date: "24 APR · FRI",
-    cat: "COMEDY",
+    cat: "restaurants ",
     name: "Kanan Gill Live — Not This Again",
     venue: "Good Shepherd Auditorium",
   },
   {
-    img: "https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=600&q=80",
+    img: "https://www.bangaloreclub.com/img/facilities/bars.jpg",
+    date: "29 MAR · SUN",
+    cat: "CLUB",
+    name: "Marsh Live — All Night Long",
+    venue: "Sunburn Union, Bengaluru",
+  },
+  {
+    img: "https://www.namasteindiatrip.com/blog/wp-content/uploads/2022/03/NoLimmits-Lounge-and-Club.jpg",
     date: "29 MAR · SUN",
     cat: "CLUB",
     name: "Marsh Live — All Night Long",
@@ -194,96 +200,182 @@ const events = [
 ];
 
 const premieres = [
+   {
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOZ16m0QbVwWhEsFZ1g7MGEQTb6jjp-OzRBg&s",
+    name: "ramayana release ",
+    lang: "Hindi",
+    video: "https://www.youtube.com/embed/YleIZgpTF6w?autoplay=1",
+  },
+  
   {
-    img: "https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=400&q=80",
-    name: "Halves",
-    lang: "Hinglish",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhxk9GTHZHsI3Cb3ELlsOlEXXBejeM_RuO9Q&s",
+    name: "Toxic premium trailer",
+    lang: "Kannada",
+    video: "https://www.youtube.com/embed/aF08WVSvCok",
   },
   {
-    img: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&q=80",
-    name: "C'mon C'mon",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSNf6ADxd9-KTXNp-k1rhyxdAfikji5E6URQ&s",
+    name: "love mocktail 3",
+    lang: "Kannada",
+    video: "https://www.youtube.com/embed/Xie9bskmX34?autoplay=1",
+  },
+  {
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHtLU_H-6-SDye-T_wEf4WLbfHWOOJQ69Nhg&s",
+    name: "Peddi premium trailer",
+    lang: "Telugu",
+    video: "https://www.youtube.com/embed/hwVPb2j5v6A?autoplay=1",
+  },
+  {
+    img: "https://i.ytimg.com/vi/NkZFnpDhdCk/maxresdefault.jpg",
+    name: "Paradise premium trailer",
+    lang: "Telugu",
+    video: "https://www.youtube.com/embed/NkZFnpDhdCk?autoplay=1",
+  },
+  {
+    img: "https://m.media-amazon.com/images/S/pv-target-images/c9e38512e885c9ccf27d3133e13766ba72c668deaf5a9b8f592dd0b5df57c4c8.jpg",
+    name: "spider man premium trailer",
     lang: "English",
+    video: "https://www.youtube.com/embed/aBlsrtxuwss?autoplay=1",
   },
   {
-    img: "https://images.unsplash.com/photo-1615462820839-85a3faef3083?w=400&q=80",
-    name: "Kangaroo",
+    img: "https://i.ytimg.com/vi/nwf6Izfajxc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDLFYtVVLTDDitgQ0JMWIYQ4F-r5A",
+    name: "avatar 3  primum trailer",
     lang: "English",
+    video: "https://www.youtube.com/embed/nb_fFj_0rq8?autoplay=1",
   },
   {
-    img: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&q=80",
-    name: "Sari Agidum",
-    lang: "Tamil",
+    img: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202603/dhurandhar-2-185721408-16x9.jpg?VersionId=lFgQh1SeRCL9sO1RIvmMd8vNN5yazUu9&size=690:388",
+    name: "dhurandhar the revenge",
+    lang: "Hindi",
+    video: "https://www.youtube.com/embed/CN0lNff-zm0?autoplay=1",
   },
+ 
 ];
 
 const plays = [
   {
-    img: "https://images.unsplash.com/photo-1503095396549-807759245b35?w=500&q=80",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD9GaYK9q21aMP3JxmoaUTItaf-MQ4iFCgLw&s",
     name: "Amrita Sher-Gill",
-    lang: "English",
-    date: "28 Mar onwards",
+    lang: "Kannada",
+    date: "28 April onwards",
   },
   {
-    img: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=500&q=80",
-    name: "Apne Ghar Jaisa",
-    lang: "Hindi",
-    date: "29 Mar",
+    img: "https://in.bmscdn.com/events/moviecard/ET00492198.jpg",
+    name: "Gangavathi Pranesh ",
+    lang: "Kannada",
+    date: "29 May onwards",
   },
   {
-    img: "https://images.unsplash.com/photo-1509281373149-e957c6296406?w=500&q=80",
-    name: "Jab Shahar Hamara Sota Hai",
-    lang: "Hindi",
+    img: "https://assets-in.bmscdn.com/nmcms/mobile/media-mobile-moor-jana-kannada-crowdwork-show--2025-11-11-t-13-45-37.jpg",
+    name: "Sudha Baraguru",
+    lang: "Kannada",
     date: "23 May onwards",
   },
   {
-    img: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500&q=80",
-    name: "Paaka Kranthi",
+    img: "https://assets-in.bmscdn.com/discovery-catalog/events/et00307718-eqjphustfp-landscape.jpg",
+    name: "Karthik Pattar",
     lang: "Kannada",
-    date: "12 Apr",
+    date: "12 Apr onwards",
+  },
+  {
+    img: "https://i.ytimg.com/vi/X0ligk4IjA4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB5zWkBjy7YNatSxsn06F86vGcDRw",
+    name: "Sonu Venugopal ",
+    lang: "Kannada",
+    date: "15 Apr onwards",
+  },
+  {
+    img: "https://i.ytimg.com/vi/-i_va5cZ_Go/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDz_5Sz8xb9VNVvbtoUw6Z9J5jpqQ",
+    name: "Pavan Venugopal",
+    lang: "Kannada",
+    date: "24 Apr onwards",
+  },
+  {
+    img: "https://assets-in.bmscdn.com/nmcms/mobile/media-mobile-masth-maja-madi-kannada-standup-comedy-live-2025-9-30-t-8-43-11.jpg",
+    name: "Sudarshan Rangaprasad ",
+    lang: "Kannada",
+    date: "12 Apr onwards",
   },
 ];
 
 const sports = [
   {
-    img: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&q=80",
+    img: "https://c.ndtvimg.com/2022-05/b4b1tdu8_narendra-modi-stadium-ipl-2022_625x300_29_May_22.jpeg?im=FeatureCrop,algorithm=dnn,width=1200,height=675",
     name: "Gujarat Titans — IPL Registrations",
     date: "Fri, 17 Apr",
     venue: "Narendra Modi Stadium, Ahmedabad",
   },
   {
-    img: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=600&q=80",
-    name: "Chess Circle",
+    img: "https://sportsboardindia.com/wp-content/uploads/2025/08/Largest-Football-Stadium-In-India-edited.jpeg",
+    name: "football ",
     date: "Sun, 29 Mar",
-    venue: "Waaw Cafe, Bengaluru",
+    venue: "Salt Lake,bengalore",
   },
   {
-    img: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80",
-    name: "Get Active: 75-Min Basketball",
-    date: "Mon, 30 Mar onwards",
-    venue: "MN Krishna Rao Park, Bengaluru",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfS_IhRcJNK8pN-Cenix7LTR2uBwyXmF8cuw&s",
+    name: "IPL Rcb",
+    date: "Mon, 30 april onwards",
+    venue: "M chinnaswamy stadium, Bengaluru",
+  },
+  {
+    img: "https://thebridge.in/wp-content/uploads/2020/09/Salt-Lake-stadium-in-Kolkata-Source-Zee-News.jpg",
+    name: "FootBall",
+    date: "Mon, 30 April onwards",
+    venue: "MN Krishna Rao , Bengaluru",
+  },
+  {
+    img: "https://m.media-amazon.com/images/I/61QyNfP1LjL._AC_UF1000,1000_QL80_.jpg",
+    name: "Chess Board",
+    date: "Mon, 20 April onwards",
+    venue: "krishan , Bengaluru",
+  },
+  {
+    img: "https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_sm/f_auto/primary/kfsyzuaoipfhm4qonqci",
+    name: "Badminton Ground",
+    date: "Mon, 19 April onwards",
+    venue: "Platform, Bengaluru",
   },
 ];
 
-const activities = [
+const Adventure = [
   {
-    img: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=500&q=80",
-    name: "Nehru Planetarium Shows",
-    date: "28 Mar onwards",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQcm6Ip8UrOi3o9ERKukZgnA9Q_fH84UelCA&s",
+    name: "dadali place karnataka",
+    date: "28 April onwards",
   },
   {
-    img: "https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=500&q=80",
-    name: "Harry Potter Trivia Night",
-    date: "28 Mar",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT6WQZzG1VTOUPZcXots-P-tUuPiL8FelQbw&s",
+    name: "kumara parvatha",
+    date: "20 April onwards",
   },
   {
-    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&q=80",
+    img: "https://d26dp53kz39178.cloudfront.net/media/uploads/Location_Based_Travel_Guide_Images/Jetski_result-1762885935030.webp",
     name: "Gokarna Beach Trek",
-    date: "Fri, 3 Apr onwards",
+    date: "Fri, 14 Apr onwards",
   },
   {
-    img: "https://images.unsplash.com/photo-1585016495481-91f5f19744e2?w=500&q=80",
-    name: "Bhutan Trip from Bengaluru",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS22FeKFqvzIW_OZW8-MrRFZhZt0uU9Mm1R6A&s",
+    name: "Sakleshpur",
     date: "Tue, 12 May",
+  },
+  {
+    img: "https://www.a2ztrip.com/images/packages/1761302568_Karnataka%2015.jpg",
+    name: "murdeshwar,Temple",
+    date: "Tue, 21 may onwards",
+  },
+  {
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShqRkWrk2QvUhGLcDz5wWp4hWMGqEd1zje-A&s",
+    name: "mysore safari",
+    date: "Tue, 20 April",
+  },
+  {
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRXMA8XVLisp2DhGNMys5cisVSIje6smhxw&s",
+    name: "patla sakleshpur",
+    date: "Tue, 24 April",
+  },
+  {
+    img: "https://media1.thrillophilia.com/filestore/hs178da3y5a3tr8vxr0tjx2fhig5_Downpic.cc-image431526921.jpg",
+    name: "zipline in sakleshpur",
+    date: "Tue, 10 May",
   },
 ];
 
@@ -322,7 +414,7 @@ const MovieCard = ({ img, genre, name, rating, votes, cat }) => (
 const UpcomingCard = ({ img, name, release, likes }) => (
   <div className="up-card">
     <img src={img} alt={name} />
-     
+
     <div className="up-overlay">
       <h3>{name}</h3>
 
@@ -374,6 +466,7 @@ const FadeUp = ({ children, className = "" }) => {
 
 // ── MAIN COMPONENT ──
 const HomePage = () => {
+  const [videoUrl, setVideoUrl] = useState(null);
   const scrollRef = useRef();
   const scroll = (dir) => {
     if (dir === "left") {
@@ -536,21 +629,30 @@ const HomePage = () => {
           <div className="premiere-header">
             <div className="play-icon">▶</div>
             <div>
-              <div className="premiere-label">PREMIERE</div>
+              <div className="premiere-label">TRAILERS</div>
               <div className="premiere-sub">
-                Watch brand-new movies at home, every Friday
+                Experience upcoming blockbusters before they hit the big screen
               </div>
             </div>
           </div>
+
           <div className="premiere-cards">
             {premieres.map((p) => (
-              <div key={p.name} className="premiere-card">
+              <div
+                key={p.name}
+                className="premiere-card"
+                onClick={() => setVideoUrl(p.video)} // ✅ FIX HERE
+              >
                 <img src={p.img} alt={p.name} />
+
                 <div className="premiere-badge">
                   <div className="p-tag">PREMIERE</div>
                   <div className="p-name">{p.name}</div>
                   <div className="p-lang">{p.lang}</div>
                 </div>
+
+                {/* ▶ PLAY BUTTON */}
+                <div className="play-btn">▶</div>
               </div>
             ))}
           </div>
@@ -560,7 +662,11 @@ const HomePage = () => {
       {/* PLAYS */}
       <FadeUp>
         <section>
-          <SectionHeader title="LATEST" accent="ComedyShow" path="/comedyshow" />
+          <SectionHeader
+            title="LATEST"
+            accent="ComedyShow"
+            path="/comedyshow"
+          />
           <div className="plays-grid">
             {plays.map((p) => (
               <div key={p.name} className="play-card">
@@ -579,8 +685,6 @@ const HomePage = () => {
       {/* SPORTS */}
       <FadeUp>
         <section>
-
-
           {/* <SectionHeader title="TOP" accent="SPORTS EVENTS"path="/sports" /> */}
           <SectionHeader title="TOP" accent="SPORTS EVENTS" path="/sports" />
           <div className="sports-grid">
@@ -603,11 +707,11 @@ const HomePage = () => {
         <section>
           <SectionHeader
             title="EXPLORE"
-            accent="ACTIVITIES"
+            accent="ADVENTURE "
             path="/adventure"
           />
           <div className="act-grid">
-            {activities.map((a) => (
+            {Adventure.map((a) => (
               <div key={a.name} className="act-card">
                 <img src={a.img} alt={a.name} />
                 <div className="act-label">
@@ -619,7 +723,29 @@ const HomePage = () => {
           </div>
         </section>
       </FadeUp>
+      {/* 🎬 VIDEO MODAL */}
+     {videoUrl && (
+  <div className="video-modal" onClick={() => setVideoUrl(null)}>
+    <div
+      className="video-container"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <iframe
+        width="100%"
+        height="500"
+        src={videoUrl}
+        title="Trailer"
+        frameBorder="0"
+        allow="autoplay; encrypted-media"
+        allowFullScreen
+      ></iframe>
 
+      <span className="close-btn" onClick={() => setVideoUrl(null)}>
+        ✖
+      </span>
+    </div>
+  </div>
+)}
       {/* FOOTER */}
       <footer>
         <div className="footer-top">
@@ -683,6 +809,7 @@ const HomePage = () => {
             </div>
           ))}
         </div>
+
         <div className="footer-bottom">
           <span>© 2026 ShowTime. All rights reserved.</span>
           <span>Made with ❤️ for entertainment lovers</span>
