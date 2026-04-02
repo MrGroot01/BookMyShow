@@ -40,6 +40,7 @@ const App = () => {
       <Navbar onLoginClick={() => setOpenLogin(true)} />
 
       <Routes>
+        
         <Route path="/" element={<Homepage />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/concerts" element={<Concerts />} />
