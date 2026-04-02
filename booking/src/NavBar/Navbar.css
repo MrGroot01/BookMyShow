@@ -1,6 +1,6 @@
 
 .navbar {
-  background: rgb(178, 178, 105);
+  background: #0F2027;
   padding: 10px 0;
   border-bottom: 1px solid #cbcc85;
 }
@@ -57,7 +57,7 @@
 
 /* SECOND NAVBAR */
 .sub-navbar {
-  background: #9da5b8;
+  background: #8E2DE2;
   padding: 10px 0;
 }
 
