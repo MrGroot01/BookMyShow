@@ -214,34 +214,57 @@ body {
   background: #f9f9f9;
 }
 /* 🔥 FIX FILTER TEXT VISIBILITY */
-.filters,
-.filter-box,
-.filter-item,
-.filter-header {
-  color: #000 !important;
-  opacity: 1 !important;
+/* 🔥 FIX FILTER TEXT VISIBILITY */
+.filters {
+  color: #000;
 }
 
-/* Fix buttons text */
+/* 🔥 FIX HEADER PROPERLY */
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* 🔥 FIX TITLE (MAIN ISSUE FIXED HERE) */
+.filter-header .title {
+  font-size: 16px !important;   /* ✅ NORMAL SIZE */
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;          /* ✅ PREVENT BREAK */
+}
+
+/* 🔥 FIX ARROW SIZE */
+.filter-header .title {
+  font-size: 16px;
+}
+
+/* 🔥 CLEAR BUTTON */
+.clear {
+  color: #f84464 !important;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* 🔥 BUTTON TEXT */
 .buttons button {
   color: #000 !important;
 }
 
-/* Fix checkbox text */
+/* 🔥 CHECKBOX TEXT */
 .filters label {
   color: #000 !important;
 }
 
-/* Fix faded text issue */
+/* 🔥 REMOVE GLOBAL OPACITY EFFECT */
 .filters * {
   opacity: 1 !important;
 }
 
-/* Fix headings like Date, Language */
-.filter-header span,
-.filter-header p {
-  color: #000 !important;
-}
+/* 🔥 FIX BROWSE BUTTON */
 .browse-btn {
   width: 100%;
   padding: 12px;
@@ -251,4 +274,10 @@ body {
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
+}
+
+/* 🔥 OPTIONAL: HOVER */
+.browse-btn:hover {
+  background: #f84464;
+  color: #fff !important;
 }
