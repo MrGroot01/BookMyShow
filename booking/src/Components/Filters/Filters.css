@@ -1,52 +1,63 @@
-/* FILTER CONTAINER */
+/* 🔥🔥 ADDITIONS START HERE (DO NOT REMOVE YOUR CODE ABOVE) */
+
+/* Prevent layout breaking */
 .filters {
-  width: 250px;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
-/* BOX */
+/* Make filter boxes flexible */
 .filter-box {
-  background: #ffffff;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  width: 100%;
 }
 
-/* HEADER */
-.filter-header {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* CLEAR */
-.clear {
-  color: #f84464;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-/* ITEMS */
+/* Buttons wrap properly */
 .filter-items {
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  justify-content: flex-start;
 }
 
-/* BUTTONS */
-.filter-items button {
-  border: 1px solid #ddd;
-  background: #fff;
-  padding: 6px 10px;
-  border-radius: 5px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: 0.2s;
+/* 🔥 Tablet view */
+@media (max-width: 1024px) {
+  .filters {
+    width: 200px;
+  }
 }
 
-.filter-items button:hover {
-  border-color: #f84464;
-  color: #f84464;
+/* 🔥 Mobile view */
+@media (max-width: 768px) {
+  .filters {
+    width: 100%;
+  }
+
+  .filter-box {
+    padding: 12px;
+  }
+
+  .filter-items {
+    gap: 6px;
+  }
+
+  .filter-items button {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+}
+
+/* 🔥 Small mobile */
+@media (max-width: 480px) {
+  .filter-header {
+    font-size: 14px;
+  }
+
+  .clear {
+    font-size: 11px;
+  }
+}
+
+/* 🔥 Optional: sticky sidebar (desktop only) */
+@media (min-width: 769px) {
+  .filters {
+    position: sticky;
+    top: 80px;
+  }
 }

@@ -4,7 +4,6 @@ import "./EventDetails.css";
 import shows from "../../data/ShowsData";
 
 export default function EventDetails() {
-  const [showBooking, setShowBooking] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -146,7 +145,7 @@ export default function EventDetails() {
                 <p className="available">Filling Fast</p>
               </div>
 
-              <button className="book-btn" onClick={() => setShowBooking(true)}>
+              <button className="book-btn" onClick={() => {}}>
   Book Now
 </button>
             </div>
@@ -209,79 +208,8 @@ export default function EventDetails() {
         </div>
       )}
 {/* ===== BOOKING POPUP ===== */}
-{showBooking && (
-  <div className="popup-overlay">
-    <div className="booking-popup">
 
-      {/* HEADER */}
-      <div className="booking-header">
-        <span onClick={() => setShowBooking(false)}>←</span>
-        <h2>{show.title}</h2>
-      </div>
 
-      {/* STEPS */}
-      <div className="steps booking-steps">
-        <span className="active">1 Ticket</span>
-        <span>2 Registration</span>
-        <span>3 Review & Pay</span>
-      </div>
-
-      {/* INFO */}
-      <div className="event-info">
-        <p>{show.venue}</p>
-        <p>{show.date} | 6:00 PM</p>
-      </div>
-
-      {/* SELECT */}
-      <h3>Select Tickets</h3>
-      <p className="limit">You can add up to 10 tickets only</p>
-
-      {/* TICKET LIST */}
-      <div className="ticket-box">
-        <div>
-          <h4>SILVER TICKETS</h4>
-          <p>₹999 | <span className="fast">Fast Filling</span></p>
-        </div>
-        <button>Add</button>
-      </div>
-
-      <div className="ticket-box">
-        <div>
-          <h4>GOLD TICKETS</h4>
-          <p>₹1,499</p>
-        </div>
-        <button>Add</button>
-      </div>
-
-      <div className="ticket-box">
-        <div>
-          <h4>PLATINUM TICKETS</h4>
-          <p>₹1,999</p>
-        </div>
-        <button>Add</button>
-      </div>
-
-      <div className="ticket-box">
-        <div>
-          <h4>DIAMOND TICKETS</h4>
-          <p>₹2,499 | <span className="fast">Fast Filling</span></p>
-        </div>
-        <button>Add</button>
-      </div>
-
-      <div className="ticket-box disabled">
-        <div>
-          <h4>BRONZE TICKETS</h4>
-          <p>₹799 | <span className="sold">Sold out</span></p>
-        </div>
-      </div>
-
-      {/* FOOTER */}
-      <button className="login-btn">Login To Book</button>
-
-    </div>
-  </div>
-)}
     </div>
   );
 }

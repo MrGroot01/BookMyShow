@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./ComedyShow.css";
 import shows from "../../data/ShowsData";
 
+
 export default function ComedyShow() {
   
   const navigate = useNavigate();

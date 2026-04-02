@@ -55,3 +55,59 @@
   font-weight: bold;
   margin-top: 5px;
 }
+
+/* 🔥🔥 ADDITIONS START HERE (DO NOT REMOVE ABOVE CODE) */
+
+/* Prevent overflow issues */
+.event-card {
+  box-sizing: border-box;
+}
+
+/* Smooth scaling on small screens */
+.event-card img {
+  display: block;
+}
+
+/* 🔥 Responsive Grid Support (IMPORTANT) */
+.event-card {
+  max-width: 100%;
+}
+
+/* Tablet view */
+@media (max-width: 1024px) {
+  .event-card {
+    width: 180px;
+    height: 320px;
+  }
+
+  .event-image {
+    height: 200px;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .event-card {
+    width: 100%;              /* full width card */
+    height: auto;             /* auto height */
+  }
+
+  .event-image {
+    height: 220px;
+  }
+
+  .event-details h3 {
+    font-size: 15px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .event-image {
+    height: 200px;
+  }
+
+  .event-details {
+    padding: 8px;
+  }
+}
