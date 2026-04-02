@@ -3,11 +3,18 @@ import { useNavigate } from "react-router-dom";
 import "./ComedyShow.css";
 import shows from "../../data/ShowsData";
 
-
 export default function ComedyShow() {
-  
   const navigate = useNavigate();
+
   const [activeCategory, setActiveCategory] = useState("Stand up Comedy");
+
+  // 🔥 NEW STATE
+  const [openSection, setOpenSection] = useState(null);
+
+  // 🔥 TOGGLE FUNCTION
+  const toggleSection = (section) => {
+    setOpenSection(openSection === section ? null : section);
+  };
 
   const filteredShows =
     activeCategory === "All"
@@ -25,6 +32,7 @@ export default function ComedyShow() {
       <div className="filters">
         <h2>Filters</h2>
 
+        {/* DATE */}
         <div className="filter-box">
           <div className="filter-header">
             <span>Date</span>
@@ -42,24 +50,90 @@ export default function ComedyShow() {
           </label>
         </div>
 
-        <div className="filter-item">
-          <span>Language</span>
-          <span className="clear">Clear</span>
+        {/* LANGUAGE */}
+        <div className="filter-box">
+          <div
+            className="filter-header"
+            onClick={() => toggleSection("language")}
+          >
+            <span>Language</span>
+            <span className="clear">Clear</span>
+          </div>
+
+          {openSection === "language" && (
+            <div className="buttons">
+              <button>English</button>
+              <button>Hindi</button>
+              <button>Hinglish</button>
+              <button>Kannada</button>
+              <button>Tamil</button>
+              <button>Telugu</button>
+              <button>Malayalam</button>
+              <button>Bengali</button>
+            </div>
+          )}
         </div>
 
-        <div className="filter-item">
-          <span>Categories</span>
-          <span className="clear">Clear</span>
+        {/* CATEGORIES */}
+        <div className="filter-box">
+          <div
+            className="filter-header"
+            onClick={() => toggleSection("category")}
+          >
+            <span>Categories</span>
+            <span className="clear">Clear</span>
+          </div>
+
+          {openSection === "category" && (
+            <div className="buttons">
+              <button>Stand up Comedy</button>
+              <button>Open Mic Comedy</button>
+              <button>Improv Comedy</button>
+              <button>Surprise Act</button>
+              <button>Roast</button>
+              <button>Sketch</button>
+            </div>
+          )}
         </div>
 
-        <div className="filter-item">
-          <span>More Filters</span>
-          <span className="clear">Clear</span>
+        {/* MORE FILTERS */}
+        <div className="filter-box">
+          <div
+            className="filter-header"
+            onClick={() => toggleSection("more")}
+          >
+            <span>More Filters</span>
+            <span className="clear">Clear</span>
+          </div>
+
+          {openSection === "more" && (
+            <div className="buttons">
+              <button>Outdoor Events</button>
+              <button>Fast Filling</button>
+              <button>Must Attend</button>
+              <button>Online Streaming</button>
+              <button>Unmissable Events</button>
+            </div>
+          )}
         </div>
 
-        <div className="filter-item">
-          <span>Price</span>
-          <span className="clear">Clear</span>
+        {/* PRICE */}
+        <div className="filter-box">
+          <div
+            className="filter-header"
+            onClick={() => toggleSection("price")}
+          >
+            <span>Price</span>
+            <span className="clear">Clear</span>
+          </div>
+
+          {openSection === "price" && (
+            <div className="buttons">
+              <button>Free</button>
+              <button>0 - 500</button>
+              <button>501 - 2000</button>
+            </div>
+          )}
         </div>
 
         <button className="browse-btn">Browse by Venues</button>
