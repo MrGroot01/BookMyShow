@@ -7,11 +7,8 @@ export default function ComedyShow() {
   const navigate = useNavigate();
 
   const [activeCategory, setActiveCategory] = useState("Stand up Comedy");
-
-  // 🔥 NEW STATE
   const [openSection, setOpenSection] = useState(null);
 
-  // 🔥 TOGGLE FUNCTION
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
   };
@@ -53,14 +50,14 @@ export default function ComedyShow() {
         {/* LANGUAGE */}
         <div className="filter-box">
           <div
-  className="filter-header"
-  onClick={() => toggleSection("language")}
->
-  <span className="title">
-    {openSection === "language" ? "⌃" : "⌄"} Language
-  </span>
-  <span className="clear">Clear</span>
-</div>
+            className="filter-header"
+            onClick={() => toggleSection("language")}
+          >
+            <span className="title">
+              {openSection === "language" ? "⌃" : "⌄"} Language
+            </span>
+            <span className="clear">Clear</span>
+          </div>
 
           {openSection === "language" && (
             <div className="buttons">
@@ -79,14 +76,14 @@ export default function ComedyShow() {
         {/* CATEGORIES */}
         <div className="filter-box">
           <div
-  className="filter-header"
-  onClick={() => toggleSection("language")}
->
-  <span className="title">
-    {openSection === "categories" ? "⌃" : "⌄"} Categories
-  </span>
-  <span className="clear">Clear</span>
-</div>
+            className="filter-header"
+            onClick={() => toggleSection("category")}
+          >
+            <span className="title">
+              {openSection === "category" ? "⌃" : "⌄"} Categories
+            </span>
+            <span className="clear">Clear</span>
+          </div>
 
           {openSection === "category" && (
             <div className="buttons">
@@ -103,14 +100,14 @@ export default function ComedyShow() {
         {/* MORE FILTERS */}
         <div className="filter-box">
           <div
-  className="filter-header"
-  onClick={() => toggleSection("language")}
->
-  <span className="title">
-    {openSection === "more filters" ? "⌃" : "⌄"} More Filters
-  </span>
-  <span className="clear">Clear</span>
-</div>
+            className="filter-header"
+            onClick={() => toggleSection("more")}
+          >
+            <span className="title">
+              {openSection === "more" ? "⌃" : "⌄"} More Filters
+            </span>
+            <span className="clear">Clear</span>
+          </div>
 
           {openSection === "more" && (
             <div className="buttons">
@@ -126,14 +123,14 @@ export default function ComedyShow() {
         {/* PRICE */}
         <div className="filter-box">
           <div
-  className="filter-header"
-  onClick={() => toggleSection("language")}
->
-  <span className="title">
-    {openSection === "price" ? "⌃" : "⌄"} Price
-  </span>
-  <span className="clear">Clear</span>
-</div>
+            className="filter-header"
+            onClick={() => toggleSection("price")}
+          >
+            <span className="title">
+              {openSection === "price" ? "⌃" : "⌄"} Price
+            </span>
+            <span className="clear">Clear</span>
+          </div>
 
           {openSection === "price" && (
             <div className="buttons">
@@ -144,6 +141,7 @@ export default function ComedyShow() {
           )}
         </div>
 
+        {/* BUTTON */}
         <button className="browse-btn">Browse by Venues</button>
       </div>
 
@@ -182,7 +180,6 @@ export default function ComedyShow() {
               >
                 <div className="image-box">
 
-                  {/* PROMOTED */}
                   {show.id === 1 && (
                     <div className="promoted">PROMOTED</div>
                   )}
