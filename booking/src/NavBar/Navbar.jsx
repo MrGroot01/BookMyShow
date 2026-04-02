@@ -6,7 +6,7 @@ import {
   FaFutbol,
   FaHiking,
   FaChild,
-  FaCalendarAlt,   // ✅ Events icon
+  FaCalendarAlt,
   FaTicketAlt 
 } from "react-icons/fa";
 
@@ -19,7 +19,6 @@ const Navbar = ({ onLoginClick }) => {
   const [location, setLocation] = useState("Bengaluru");
   const [showLocation, setShowLocation] = useState(false);
 
-  // ✅ ADDED STATES (NEW)
   const [showSearchPage, setShowSearchPage] = useState(false);
   const [searchText, setSearchText] = useState("");
 
@@ -173,13 +172,15 @@ const Navbar = ({ onLoginClick }) => {
               <FaChild size={20} />
               <span className="tooltip">Kids</span>
             </Link>
+
             <Link to="/cupons" className="sub-link">
-            <FaCalendarAlt size={20} />
-            <span className="tooltip">Cupon</span>
+              <FaCalendarAlt size={20} />
+              <span className="tooltip">Cupon</span>
             </Link>
+
             <Link to="/events" className="sub-link">
-            <FaTicketAlt size={20} />
-            <span className="tooltip">Events</span>
+              <FaTicketAlt size={20} />
+              <span className="tooltip">Events</span>
             </Link>
 
           </div>
@@ -194,7 +195,6 @@ const Navbar = ({ onLoginClick }) => {
         />
       )}
 
-      {/* SEARCH PAGE */}
       {showSearchPage && (
         <div
           style={{
@@ -240,7 +240,6 @@ const Navbar = ({ onLoginClick }) => {
               />
             </div>
 
-            {/* CATEGORY BUTTONS */}
             <div
               style={{
                 display: "flex",
@@ -271,7 +270,6 @@ const Navbar = ({ onLoginClick }) => {
               )}
             </div>
 
-            {/* TRENDING */}
             <h4 style={{ marginTop: "20px", color: "#ff4d4d" }}>
               TRENDING SEARCHES
             </h4>

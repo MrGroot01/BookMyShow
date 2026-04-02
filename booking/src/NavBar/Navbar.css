@@ -1,142 +1,103 @@
-/* NAVBAR */
+/* MAIN NAVBAR */
 .navbar {
-  width: 100%;
-  background: #ffffff;
-  border-bottom: 1px solid #ddd;
+  background: #0b0f1a;
+  padding: 10px 0;
+  border-bottom: 1px solid #1f2937;
 }
 
-/* 🔥 CONTAINER FIX (IMPORTANT) */
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-  max-width: 1200px;
+  width: 90%;
   margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* LEFT */
+/* LEFT SECTION */
 .nav-left {
   display: flex;
   align-items: center;
   gap: 20px;
-  flex-wrap: wrap; /* ✅ prevents breaking */
 }
 
+/* LOGO */
 .logo img {
-  height: 40px;
-  cursor: pointer;
+  width: 40px;
 }
 
 /* SEARCH */
 .nav-search input {
-  width: 350px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  width: 400px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
   outline: none;
 }
 
-/* RIGHT */
+/* RIGHT SECTION */
 .nav-right {
   display: flex;
   align-items: center;
   gap: 20px;
-  flex-wrap: wrap; /* ✅ prevents overflow */
 }
 
 .nav-location {
   cursor: pointer;
+  color: #fff;
 }
 
-/* BUTTON */
 .login-btn {
-  background: #f84464;
-  color: white;
+  background: #ff2c55;
   border: none;
-  padding: 6px 14px;
-  border-radius: 5px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: white;
   cursor: pointer;
 }
 
-/* SUB NAV */
+/* SECOND NAVBAR */
 .sub-navbar {
-  background: #fff;
-  border-bottom: 1px solid #eee;
-}
-
-.sub-navbar .container {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 40px;
-  max-width: 1200px;
-  margin: auto;
+  background: #121826;
+  padding: 10px 0;
 }
 
 .sub-left,
 .sub-right {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap; /* ✅ prevents breaking */
+  gap: 25px;
 }
 
+/* ICON LINKS */
 .sub-link {
-  color: #333;
-  transition: 0.2s;
   position: relative;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
 }
 
-.sub-link:hover {
-  color: #f84464;
-  transform: scale(1.2);
-}
-
-/* TOOLTIP */
+/* TOOLTIP (THIS MATCHES YOUR REQUIREMENT) */
 .tooltip {
   position: absolute;
-  top: -30px;
+  top: -22px;
   left: 50%;
   transform: translateX(-50%);
-  background: black;
-  color: white;
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 5px;
+  font-size: 11px;
   opacity: 0;
-  pointer-events: none;
   transition: 0.3s;
+  color: #ff2c55;
   white-space: nowrap;
 }
 
-/* SHOW ON HOVER */
+/* HOVER EFFECT */
 .sub-link:hover .tooltip {
   opacity: 1;
 }
 
-/* 🔥🔥 RESPONSIVE FIX (OPTION 2) */
-@media (max-width: 768px) {
-  .container {
-    padding: 10px 15px;
-  }
-
-  .nav-search input {
-    width: 200px;
-  }
-
-  .sub-navbar .container {
-    padding: 10px 15px;
-  }
-
-  .sub-left,
-  .sub-right {
-    gap: 10px;
-  }
+.sub-link:hover {
+  color: #ff2c55;
 }
 
-/* 🔥🔥 FORCE DESKTOP VIEW SUPPORT (OPTION 1) */
-
-
-/* GLOBAL FIX */
-* {
-  box-sizing: border-box;
+/* SEARCH POPUP FIX */
+input::placeholder {
+  color: #999;
 }
