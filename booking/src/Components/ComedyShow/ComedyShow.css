@@ -304,29 +304,28 @@ body {
   color: #000 !important;
 }
 /* 🔥 SLIDER CONTAINER */
+/* 🔥 SLIDER CONTAINER */
 .slider {
-  position: relative;
   width: 100%;
-  height: 280px;
+  height: 250px;
+  position: relative;
   overflow: hidden;
   border-radius: 12px;
   margin-bottom: 20px;
 }
 
-/* 🔥 EACH SLIDE */
+/* 🔥 FIXED SLIDE (IMPORTANT CHANGE) */
 .slide {
-  position: absolute;
   width: 100%;
-  height: 100%;
+  height: 250px;
   background-size: cover;
   background-position: center;
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  display: none;   /* hide all */
 }
 
-/* 🔥 ACTIVE SLIDE */
+/* 🔥 ONLY SHOW ACTIVE */
 .slide.active {
-  opacity: 1;
+  display: block;
 }
 
 /* 🔥 DARK OVERLAY */
