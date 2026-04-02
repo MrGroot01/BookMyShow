@@ -213,3 +213,30 @@ body {
 .filter-item:hover {
   background: #f9f9f9;
 }
+/* 🔥 SLIDER STYLES (ADDED ONLY) */
+.slider-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.slider-container .swiper {
+  width: 90%;
+  margin: auto;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.slider-container img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* OPTIONAL: FULL WIDTH (if needed) */
+/* Uncomment below if you want edge-to-edge slider */
+/*
+.slider-container .swiper {
+  width: 100%;
+}
+*/

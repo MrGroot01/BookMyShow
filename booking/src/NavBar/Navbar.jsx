@@ -36,40 +36,57 @@ const Navbar = ({ onLoginClick }) => {
       alert("No results found");
     }
   };
+
   const categoryData = {
-  movies: [
-    "Project Hail Mary",
-    "Dhurandhar The Revenge",
-    "Youth",
-    "Race Gurram",
-    "Love Mocktail 3",
-  ],
-  music: [
-    "BTS World Tour",
-    "Arijit Live Concert",
-    "DJ Night",
-  ],
-  comedy: [
-    "Standup Special",
-    "Kapil Live Show",
-    "Comedy Nights",
-  ],
-  sports: [
-    "IPL Match",
-    "Football League",
-    "Cricket Finals",
-  ],
-  adventure: [
-    "Trekking Event",
-    "Sky Diving",
-    "River Rafting",
-  ],
-  kids: [
-    "Magic Show",
-    "Cartoon Fest",
-    "Drawing Competition",
-  ],
-};
+    movies: [
+      "Project Hail Mary",
+      "Dhurandhar The Revenge",
+      "Youth",
+      "Race Gurram",
+      "Love Mocktail 3",
+      "KGF Chapter 3",
+    ],
+    music: [
+      "BTS World Tour",
+      "Arijit Live Concert",
+      "DJ Night",
+      "Anirudh Live",
+      "Sunburn Fest",
+      "HipHop Night",
+    ],
+    comedy: [
+      "Standup Special",
+      "Kapil Live Show",
+      "Comedy Nights",
+      "Laugh Riot",
+      "Open Mic",
+      "Standup India",
+    ],
+    sports: [
+      "IPL Match",
+      "Football League",
+      "Cricket Finals",
+      "Tennis Open",
+      "Kabaddi Pro",
+      "Badminton League",
+    ],
+    adventure: [
+      "Trekking Event",
+      "Sky Diving",
+      "River Rafting",
+      "Bungee Jump",
+      "Camping Night",
+      "Mountain Climbing",
+    ],
+    kids: [
+      "Magic Show",
+      "Cartoon Fest",
+      "Drawing Competition",
+      "Puppet Show",
+      "Story Telling",
+      "Fun Games",
+    ],
+  };
 
   return (
     <>
@@ -90,7 +107,7 @@ const Navbar = ({ onLoginClick }) => {
                 placeholder="Search for Movies, Events, Plays..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                onFocus={() => setShowSearchPage(true)}  // ✅ already correct
+                onFocus={() => setShowSearchPage(true)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     handleSearch();
@@ -167,127 +184,116 @@ const Navbar = ({ onLoginClick }) => {
         />
       )}
 
-      {/* ✅ ADDED SEARCH PAGE (NEW) */}
+      {/* SEARCH PAGE */}
       {showSearchPage && (
-  <div
-    style={{
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      background: "rgba(0,0,0,0.4)",
-      zIndex: 9999,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "flex-start",
-      paddingTop: "80px",
-    }}
-  >
-    {/* CENTER BOX */}
-    <div
-      style={{
-        width: "600px",
-        background: "#fff",
-        borderRadius: "12px",
-        padding: "20px",
-      }}
-    >
-      {/* TOP SEARCH */}
-      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-        <span
-          onClick={() => setShowSearchPage(false)}
-          style={{ cursor: "pointer" }}
-        >
-          ←
-        </span>
-
-        <input
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          placeholder="Search for Movies, Events, Plays..."
+        <div
           style={{
-            flex: 1,
-            padding: "10px",
-            borderRadius: "20px",
-            border: "1px solid #ccc",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "rgba(0,0,0,0.4)",
+            zIndex: 9999,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            paddingTop: "80px",
           }}
-        />
-      </div>
+        >
+          <div
+            style={{
+              width: "600px",
+              background: "#fff",
+              borderRadius: "12px",
+              padding: "20px",
+            }}
+          >
+            <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+              <span
+                onClick={() => setShowSearchPage(false)}
+                style={{ cursor: "pointer" }}
+              >
+                ←
+              </span>
 
-      {/* CATEGORY BUTTONS */}
-      <div
-        style={{
-          display: "flex",
-          gap: "10px",
-          marginTop: "15px",
-          flexWrap: "wrap",
-        }}
-      >
-        {["Movies", "Music", "Comedy", "Sports", "Adventure", "Kids"].map(
-          (cat) => (
-            <button
-              key={cat}
-              onClick={() => setSearchText(cat.toLowerCase())}
+              <input
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+                placeholder="Search for Movies, Events, Plays..."
+                style={{
+                  flex: 1,
+                  padding: "10px",
+                  borderRadius: "20px",
+                  border: "1px solid #ccc",
+                }}
+              />
+            </div>
+
+            {/* CATEGORY BUTTONS */}
+            <div
               style={{
-                padding: "8px 14px",
-                borderRadius: "20px",
-                border: "1px solid #ddd",
-                background:
-                  searchText === cat.toLowerCase() ? "#ff4d4d" : "#fff",
-                color:
-                  searchText === cat.toLowerCase() ? "#fff" : "#333",
-                cursor: "pointer",
+                display: "flex",
+                gap: "10px",
+                marginTop: "15px",
+                flexWrap: "wrap",
               }}
             >
-              {cat}
-            </button>
-          )
-        )}
-      </div>
+              {["Movies", "Music", "Comedy", "Sports", "Adventure", "Kids"].map(
+                (cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setSearchText(cat.toLowerCase())}
+                    style={{
+                      padding: "8px 14px",
+                      borderRadius: "20px",
+                      border: "1px solid #ddd",
+                      background:
+                        searchText === cat.toLowerCase() ? "#ff4d4d" : "#fff",
+                      color:
+                        searchText === cat.toLowerCase() ? "#fff" : "#333",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {cat}
+                  </button>
+                )
+              )}
+            </div>
 
-      {/* TRENDING */}
-      <h4 style={{ marginTop: "20px", color: "#ff4d4d" }}>
-  TRENDING SEARCHES
-</h4>
+            {/* TRENDING */}
+            <h4 style={{ marginTop: "20px", color: "#ff4d4d" }}>
+              TRENDING SEARCHES
+            </h4>
 
-{(
-  categoryData[searchText.toLowerCase()] || [
-    "Project Hail Mary",
-    "Dhurandhar The Revenge",
-    "Youth",
-    "Race Gurram",
-    "Love Mocktail 3",
-    "BTS World Tour",
-  ]
-)
-  .filter((item) =>
-    item.toLowerCase().includes(searchText.toLowerCase())
-  )
-  .map((item, i) => (
-    <div
-      key={i}
-      onClick={() => {
-        setSearch(item);
-        setShowSearchPage(false);
-      }}
-      style={{
-        padding: "12px",
-        marginTop: "10px",
-        borderRadius: "8px",
-        background: "#f5f5f5",
-        display: "flex",
-        justifyContent: "space-between",
-        cursor: "pointer",
-      }}
-    >
-      <span>{item}</span>
-      <span>🎬</span>
-    </div>
-  ))}
-    </div>
-  </div>
-)}
+            {(
+              categoryData[searchText.toLowerCase()] || categoryData["movies"]
+            )
+              .slice(0, 6)
+              .map((item, i) => (
+                <div
+                  key={i}
+                  onClick={() => {
+                    setSearch(item);
+                    setShowSearchPage(false);
+                  }}
+                  style={{
+                    padding: "12px",
+                    marginTop: "10px",
+                    borderRadius: "8px",
+                    background: "#f5f5f5",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    cursor: "pointer",
+                  }}
+                >
+                  <span>{item}</span>
+                  <span>🎬</span>
+                </div>
+              ))}
+          </div>
+        </div>
+      )}
     </>
   );
 };
