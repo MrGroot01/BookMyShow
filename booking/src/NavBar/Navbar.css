@@ -1,8 +1,8 @@
 
 .navbar {
-  background: #454db6;
+  background: #de0643;
   padding: 10px 0;
-  border-bottom: 1px solid #cbcc85;
+  border-bottom: 1px solid #de0643;
 }
 
 .container {
@@ -43,21 +43,21 @@
 
 .nav-location {
   cursor: pointer;
-  color: #fff;
+  color: #1d1c1c;
 }
 
 .login-btn {
-  background: #ff2c55;
+  background: #de0643;
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
-  color: white;
+  color: rgb(21, 12, 12);
   cursor: pointer;
 }
 
 /* SECOND NAVBAR */
 .sub-navbar {
-  background: #8E2DE2;
+  background:#de0643 ;
   padding: 10px 0;
 }
 
@@ -70,7 +70,7 @@
 /* ICON LINKS */
 .sub-link {
   position: relative;
-  color: white;
+  color: rgb(9, 8, 8);
   text-decoration: none;
   font-size: 18px;
 }
@@ -84,7 +84,7 @@
   font-size: 11px;
   opacity: 0;
   transition: 0.3s;
-  color: #ff2c55;
+  color: #f4ecee;
   white-space: nowrap;
 }
 
