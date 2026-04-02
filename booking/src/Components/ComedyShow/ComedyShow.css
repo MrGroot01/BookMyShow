@@ -14,7 +14,7 @@ body {
 .slider-wrapper {
   position: relative;       /* ✅ stacking context for absolute children */
   width: 100%;
-  height: 260px;            /* ✅ HARD fixed height — nothing can exceed this */
+  height: 400px;            /* ✅ HARD fixed height — nothing can exceed this */
   overflow: hidden;         /* ✅ clips any overflow — no bleed onto page */
   margin: 16px 0 0 0;
 }
