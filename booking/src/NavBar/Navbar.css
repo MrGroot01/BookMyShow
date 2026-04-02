@@ -1,103 +1,28 @@
-/* MAIN NAVBAR */
 .navbar {
-  background: rgb(178, 178, 105);
-  padding: 10px 0;
-  border-bottom: 1px solid #cbcc85;
+  background: linear-gradient(90deg, #1f1c2c, #928dab);
 }
 
-.container {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* LEFT SECTION */
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* LOGO */
-.logo img {
-  width: 40px;
-}
-
-/* SEARCH */
-.nav-search input {
-  width: 400px;
-  padding: 10px 15px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-}
-
-/* RIGHT SECTION */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.sub-navbar {
+  background: #f8f9fa;
 }
 
 .nav-location {
-  cursor: pointer;
-  color: #fff;
+  color: #ffffff;
 }
 
 .login-btn {
-  background: #ff2c55;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: #ffffff;
 }
 
-/* SECOND NAVBAR */
-.sub-navbar {
-  background: #121826;
-  padding: 10px 0;
-}
-
-.sub-left,
-.sub-right {
-  display: flex;
-  gap: 25px;
-}
-
-/* ICON LINKS */
 .sub-link {
-  position: relative;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-/* TOOLTIP (THIS MATCHES YOUR REQUIREMENT) */
-.tooltip {
-  position: absolute;
-  top: -22px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 11px;
-  opacity: 0;
-  transition: 0.3s;
-  color: #ff2c55;
-  white-space: nowrap;
-}
-
-/* HOVER EFFECT */
-.sub-link:hover .tooltip {
-  opacity: 1;
+  color: #444;
 }
 
 .sub-link:hover {
-  color: #ff2c55;
+  color: #ff416c;
 }
 
-/* SEARCH POPUP FIX */
-input::placeholder {
-  color: #999;
+.tooltip {
+  color: #ff416c;
 }
