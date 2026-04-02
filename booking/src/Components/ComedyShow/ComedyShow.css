@@ -481,3 +481,14 @@ body {
     transparent
   ) !important;
 }
+/* ============================================
+   ✅ ADJUST ARROW POSITION (MOVE INSIDE)
+   ============================================ */
+
+.arrow.left {
+  left: 30px !important;   /* 🔥 move inside from left */
+}
+
+.arrow.right {
+  right: 30px !important;  /* 🔥 move inside from right */
+}
