@@ -1,76 +1,35 @@
-/* MAIN NAVBAR */
+/* NAVBAR */
 .navbar {
-  background: linear-gradient(90deg, #1f1c2c, #928dab); /* 🔥 premium gradient */
-  padding: 10px 0;
+  background: linear-gradient(90deg, #232526, #414345);
 }
 
-/* SEARCH BAR */
-.nav-search input {
-  width: 400px;
-  padding: 10px 15px;
-  border-radius: 25px;
-  border: none;
-  outline: none;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* LOCATION */
-.nav-location {
-  color: #fff;
-  font-weight: 500;
-}
-
-/* SIGN IN BUTTON */
-.login-btn {
-  background: linear-gradient(135deg, #ff416c, #ff4b2b); /* 🔥 red gradient */
-  border: none;
-  padding: 8px 18px;
-  border-radius: 20px;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.login-btn:hover {
-  transform: scale(1.05);
-}
-
-/* SECOND NAVBAR */
+/* SUB NAVBAR */
 .sub-navbar {
-  background: #ffffff; /* clean white like BookMyShow */
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
+  background: #ffffff;
+}
+
+/* LOCATION TEXT */
+.nav-location {
+  color: #ffffff;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  background-color: #ff4d4d;
+  color: #ffffff;
 }
 
 /* ICON LINKS */
 .sub-link {
-  position: relative;
-  color: #444;
-  text-decoration: none;
-  font-size: 18px;
-  transition: 0.3s;
+  color: #333333;
 }
 
 /* HOVER EFFECT */
 .sub-link:hover {
-  color: #ff416c;
-  transform: translateY(-2px);
+  color: #ff4d4d;
 }
 
 /* TOOLTIP */
 .tooltip {
-  position: absolute;
-  top: -22px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 11px;
-  opacity: 0;
-  transition: 0.3s;
-  color: #ff416c;
-  white-space: nowrap;
-}
-
-.sub-link:hover .tooltip {
-  opacity: 1;
+  color: #ff4d4d;
 }
