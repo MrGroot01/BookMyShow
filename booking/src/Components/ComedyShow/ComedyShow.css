@@ -428,3 +428,56 @@ body {
 .arrow:hover {
   background: #f84464;
 }
+/* ============================================
+   ✅ FULL WIDTH IMAGE FIX
+   ============================================ */
+
+.slide {
+  background-size: cover !important;   /* 🔥 FULL WIDTH FIX */
+  background-position: center;
+}
+
+/* ============================================
+   ✅ FIX ARROW POSITION (PERFECT LEFT & RIGHT)
+   ============================================ */
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+}
+
+/* Push arrows exactly to edges */
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+/* Make arrows more visible */
+.arrow {
+  font-size: 32px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px 16px;
+}
+
+/* Hover effect */
+.arrow:hover {
+  background: #f84464;
+}
+
+/* ============================================
+   ✅ OPTIONAL: DARK GRADIENT (LIKE OTT UI)
+   ============================================ */
+
+.slide-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.3),
+    transparent
+  ) !important;
+}
