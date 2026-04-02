@@ -126,6 +126,8 @@ body {
 /* IMAGE */
 .image-box {
   position: relative;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 .image-box img {
@@ -157,6 +159,7 @@ body {
   font-size: 10px;
   padding: 4px 8px;
   border-radius: 4px;
+  z-index: 1;
 }
 
 /* TEXT */
@@ -185,6 +188,7 @@ body {
   font-weight: 700;
   color: #111;
 }
+
 /* CARD HOVER EFFECT */
 .card {
   transition: transform 0.3s ease;
@@ -213,7 +217,7 @@ body {
 .filter-item:hover {
   background: #f9f9f9;
 }
-/* 🔥 FIX FILTER TEXT VISIBILITY */
+
 /* 🔥 FIX FILTER TEXT VISIBILITY */
 .filters {
   color: #000;
@@ -227,19 +231,14 @@ body {
   cursor: pointer;
 }
 
-/* 🔥 FIX TITLE (MAIN ISSUE FIXED HERE) */
+/* 🔥 FIX TITLE */
 .filter-header .title {
-  font-size: 16px !important;   /* ✅ NORMAL SIZE */
+  font-size: 16px !important;
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 6px;
-  white-space: nowrap;          /* ✅ PREVENT BREAK */
-}
-
-/* 🔥 FIX ARROW SIZE */
-.filter-header .title {
-  font-size: 16px;
+  white-space: nowrap;
 }
 
 /* 🔥 CLEAR BUTTON */
@@ -276,17 +275,16 @@ body {
   font-weight: 600;
 }
 
-/* 🔥 OPTIONAL: HOVER */
 .browse-btn:hover {
-  background: #f84464;
+  background: #f84464 !important;
   color: #fff !important;
 }
+
 /* 🔥 FORCE FILTER TEXT VISIBLE */
 .filter-header .title {
-  color: #000 !important;   /* ✅ FIX INVISIBLE TEXT */
+  color: #000 !important;
 }
 
-/* Fix all filter text */
 .filter-box,
 .filter-header,
 .filter-header span,
@@ -294,88 +292,97 @@ body {
   color: #000 !important;
 }
 
-/* Ensure no fading */
 .filters * {
   opacity: 1 !important;
 }
 
-/* Fix button text */
 .buttons button {
   color: #000 !important;
 }
-/* 🔥 SLIDER CONTAINER */
-/* 🔥 SLIDER CONTAINER */
-/* 🔥 SLIDER CONTAINER */
+
+/* ============================================
+   🔥 SLIDER — FIXED & CLEAN
+   ============================================ */
+
+/* Outer wrapper: full width, strictly clipped */
+.slider-wrapper {
+  width: 100%;
+  padding: 16px 60px 0 60px;
+  box-sizing: border-box;
+  overflow: hidden;         /* nothing bleeds out */
+}
+
+/* Slider box: fixed height, rounded, no overflow */
 .slider {
   width: 100%;
-  height: 250px;
+  height: 260px;            /* single fixed height — no conflict */
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
-  margin-bottom: 20px;
+  border-radius: 14px;
+  margin: 0;                /* wrapper handles spacing */
 }
-.slider {
-  margin-top: 10px;   /* optional spacing */
-}
-/* 🔥 ADD THIS ONLY */
-.slider {
-  margin-left: 60px;
-  margin-right: 60px;
-}
-/* 🔥 SLIDES */
+
+/* Each slide: absolutely stacked, hidden by default */
 .slide {
+  position: absolute;
+  inset: 0;                 /* top:0 right:0 bottom:0 left:0 */
   width: 100%;
-  height: 250px;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  display: none;
-  position: relative;   /* ✅ ADD THIS LINE */
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
 
-/* 🔥 ACTIVE SLIDE ONLY */
+/* Only the active slide is visible */
 .slide.active {
-  display: block;   /* ✅ show only one */
+  opacity: 1;
 }
 
-/* 🔥 OVERLAY (SAFE NOW) */
+/* Overlay: sits on top of background image */
 .overlay {
-  height: 250px;   /* ✅ FIXED HEIGHT */
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  color: #fff;
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 40px;
+  padding-left: 48px;
+  color: #fff;
 }
 
-
-
-/* 🔥 TEXT */
 .overlay h1 {
   font-size: 32px;
   font-weight: 700;
+  margin: 0 0 8px 0;
 }
 
 .overlay p {
   font-size: 16px;
-  margin-top: 10px;
-}
-/* 🔥 FINAL FIX - SLIDER ONLY AT TOP (ADD ONLY) */
-
-/* Match same width as main content */
-.slider {
-  width: calc(100% - 120px);   /* same as 60px + 60px padding */
-  margin: 20px auto 0 auto;    /* center it */
-  display: block;
+  margin: 0;
+  opacity: 0.9;
 }
 
-/* Ensure slider height is fixed */
-.slide {
-  max-height: 250px;
+/* Dot indicators */
+.slider-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
 }
 
-/* Ensure overlay does not expand */
-.overlay {
-  max-height: 250px;
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dot.active-dot {
+  background: #fff;
 }

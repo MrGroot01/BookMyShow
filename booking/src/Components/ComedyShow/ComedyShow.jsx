@@ -54,7 +54,7 @@ export default function ComedyShow() {
 
   return (
     <>
-      {/* 🔥 SLIDER WRAPPER (ADDED ONLY THIS) */}
+      {/* 🔥 SLIDER WRAPPER */}
       <div className="slider-wrapper">
         <div className="slider">
           {slides.map((slide, index) => (
@@ -69,6 +69,17 @@ export default function ComedyShow() {
               </div>
             </div>
           ))}
+
+          {/* Dot indicators */}
+          <div className="slider-dots">
+            {slides.map((_, index) => (
+              <span
+                key={index}
+                className={`dot ${index === currentSlide ? "active-dot" : ""}`}
+                onClick={() => setCurrentSlide(index)}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
