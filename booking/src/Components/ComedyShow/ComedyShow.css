@@ -281,3 +281,25 @@ body {
   background: #f84464;
   color: #fff !important;
 }
+/* 🔥 FORCE FILTER TEXT VISIBLE */
+.filter-header .title {
+  color: #000 !important;   /* ✅ FIX INVISIBLE TEXT */
+}
+
+/* Fix all filter text */
+.filter-box,
+.filter-header,
+.filter-header span,
+.filter-header .title {
+  color: #000 !important;
+}
+
+/* Ensure no fading */
+.filters * {
+  opacity: 1 !important;
+}
+
+/* Fix button text */
+.buttons button {
+  color: #000 !important;
+}
