@@ -61,3 +61,32 @@
     top: 80px;
   }
 }
+/* 🔥 FIX: Make all filter text BLACK */
+.filters,
+.filters * {
+  color: #000 !important;
+}
+
+/* Headings like Date, Language */
+.filter-header {
+  color: #000 !important;
+  font-weight: 500;
+}
+
+/* Buttons like Today, Tomorrow */
+.filter-items button {
+  color: #000 !important;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+/* Active button (selected like Kannada) */
+.filter-items .active {
+  background-color: #ff4d6d;
+  color: #fff !important;
+}
+
+/* Clear button */
+.clear {
+  color: #ff4d6d !important;
+}
