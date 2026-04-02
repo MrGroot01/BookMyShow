@@ -305,6 +305,7 @@ body {
 }
 /* 🔥 SLIDER CONTAINER */
 /* 🔥 SLIDER CONTAINER */
+/* 🔥 SLIDER CONTAINER */
 .slider {
   width: 100%;
   height: 250px;
@@ -313,33 +314,28 @@ body {
   border-radius: 12px;
   margin-bottom: 20px;
 }
-
-/* 🔥 FIXED SLIDE (IMPORTANT CHANGE) */
+.slider {
+  margin-top: 10px;   /* optional spacing */
+}
+/* 🔥 SLIDES */
 .slide {
-  position: absolute;   /* keep this */
-  top: 0;
-  left: 0;
   width: 100%;
   height: 250px;
   background-size: cover;
   background-position: center;
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  display: none;
+  position: relative;   /* ✅ ADD THIS LINE */
 }
 
-/* 🔥 ONLY SHOW ACTIVE */
+/* 🔥 ACTIVE SLIDE ONLY */
 .slide.active {
-  opacity: 1;
-  z-index: 1;
+  display: block;   /* ✅ show only one */
 }
 
-/* 🔥 DARK OVERLAY */
+/* 🔥 OVERLAY (SAFE NOW) */
 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+  height: 250px;   /* ✅ FIXED HEIGHT */
   width: 100%;
-  height: 250px;   /* now safe because parent is fixed */
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
   display: flex;
@@ -347,6 +343,8 @@ body {
   justify-content: center;
   padding-left: 40px;
 }
+
+
 
 /* 🔥 TEXT */
 .overlay h1 {
