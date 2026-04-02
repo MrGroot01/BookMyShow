@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const Kids = () => {
+function Kids() {
   return (
     <div>
-      <h1>kids</h1>
+      <h1>Kids Page</h1>
     </div>
-  )
+  );
 }
 
-export default Kids
+export default Kids;

@@ -6,73 +6,69 @@ import shows from "../../data/ShowsData";
 export default function ComedyShow() {
   
   const navigate = useNavigate();
-const [activeCategory, setActiveCategory] = useState("Stand up Comedy");
+  const [activeCategory, setActiveCategory] = useState("Stand up Comedy");
 
-const filteredShows =
-  activeCategory === "All"
-    ? shows
-    : shows.filter(
-        (show) =>
-          show.category &&
-          show.category.trim() === activeCategory
-      );
+  const filteredShows =
+    activeCategory === "All"
+      ? shows
+      : shows.filter(
+          (show) =>
+            show.category &&
+            show.category.trim() === activeCategory
+        );
+
   return (
     <div className="main-container">
 
       {/* LEFT FILTER */}
       <div className="filters">
-  <h2>Filters</h2>
+        <h2>Filters</h2>
 
-  {/* DATE */}
-  <div className="filter-box">
-    <div className="filter-header">
-      <span>Date</span>
-      <span className="clear">Clear</span>
-    </div>
+        <div className="filter-box">
+          <div className="filter-header">
+            <span>Date</span>
+            <span className="clear">Clear</span>
+          </div>
 
-    <div className="buttons">
-      <button>Today</button>
-      <button>Tomorrow</button>
-      <button>This Weekend</button>
-    </div>
+          <div className="buttons">
+            <button>Today</button>
+            <button>Tomorrow</button>
+            <button>This Weekend</button>
+          </div>
 
-    <label>
-      <input type="checkbox" /> Date Range
-    </label>
-  </div>
+          <label>
+            <input type="checkbox" /> Date Range
+          </label>
+        </div>
 
-  {/* LANGUAGE */}
-  <div className="filter-item">
-    <span>Language</span>
-    <span className="clear">Clear</span>
-  </div>
+        <div className="filter-item">
+          <span>Language</span>
+          <span className="clear">Clear</span>
+        </div>
 
-  {/* CATEGORIES */}
-  <div className="filter-item">
-    <span>Categories</span>
-    <span className="clear">Clear</span>
-  </div>
+        <div className="filter-item">
+          <span>Categories</span>
+          <span className="clear">Clear</span>
+        </div>
 
-  {/* MORE FILTERS */}
-  <div className="filter-item">
-    <span>More Filters</span>
-    <span className="clear">Clear</span>
-  </div>
+        <div className="filter-item">
+          <span>More Filters</span>
+          <span className="clear">Clear</span>
+        </div>
 
-  {/* PRICE */}
-  <div className="filter-item">
-    <span>Price</span>
-    <span className="clear">Clear</span>
-  </div>
+        <div className="filter-item">
+          <span>Price</span>
+          <span className="clear">Clear</span>
+        </div>
 
-  <button className="browse-btn">Browse by Venues</button>
-</div>
+        <button className="browse-btn">Browse by Venues</button>
+      </div>
 
       {/* RIGHT CONTENT */}
-       <div className="content">
+      <div className="content">
         <h2 className="heading">Comedy Shows In Bengaluru</h2>
 
-        {/* ✅ PILLS WITH CLICK */}
+        {/* CATEGORY PILLS */}
         <div className="pills">
           {[
             "Stand up Comedy",
@@ -92,7 +88,7 @@ const filteredShows =
           ))}
         </div>
 
-        {/* ✅ FILTERED CARDS */}
+        {/* CARDS */}
         <div className="grid">
           {filteredShows.length > 0 ? (
             filteredShows.map((show) => (
@@ -120,10 +116,10 @@ const filteredShows =
                 </div>
 
                 <div className="card-content">
-                  <h3>{show.title}</h3>
-                  <p className="venue">{show.venue}</p>
-                  <p className="category">{show.category}</p>
-                  <p className="price">{show.price}</p>
+                  <h3>{show.title || "Comedy Show"}</h3>
+                  <p className="venue">{show.venue || "Bengaluru"}</p>
+                  <p className="category">{show.category || "Stand up Comedy"}</p>
+                  <p className="price">{show.price || "₹199 onwards"}</p>
                 </div>
               </div>
             ))
