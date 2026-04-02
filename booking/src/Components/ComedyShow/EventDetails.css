@@ -430,5 +430,18 @@
     height: 200px;
   }
 }
+/* 🔥 FIX FADED TEXT ISSUE (GLOBAL FOR PAGE) */
+.page-wrapper,
+.event-container,
+.event-left,
+.event-right {
+  opacity: 1 !important;
+  color: #000 !important;
+}
 
+/* Fix all text inside event page */
+.page-wrapper * {
+  color: #000 !important;
+  opacity: 1 !important;
+}
 /* 🔥 FORCE DESKTOP VIEW SUPPORT (OPTION 1) */
