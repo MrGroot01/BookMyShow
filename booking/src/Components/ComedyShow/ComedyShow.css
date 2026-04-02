@@ -316,22 +316,31 @@ body {
 
 /* 🔥 FIXED SLIDE (IMPORTANT CHANGE) */
 .slide {
+  position: absolute;   /* keep this */
+  top: 0;
+  left: 0;
   width: 100%;
   height: 250px;
   background-size: cover;
   background-position: center;
-  display: none;   /* hide all */
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
 }
 
 /* 🔥 ONLY SHOW ACTIVE */
 .slide.active {
-  display: block;
+  opacity: 1;
+  z-index: 1;
 }
 
 /* 🔥 DARK OVERLAY */
 .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;   /* now safe because parent is fixed */
   background: rgba(0, 0, 0, 0.4);
-  height: 100%;
   color: #fff;
   display: flex;
   flex-direction: column;
