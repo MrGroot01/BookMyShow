@@ -455,10 +455,9 @@ const CITIES = [
 
 /* ── Additional standalone places for filter views ── */
 const EXTRA_PLACES = [
-  /* TREKS */
   {
     id: "t_kudremukh", name: "Kudremukh Peak Trek", type: "Trek", rating: 4.8, distance: "90 km from Chikmagalur",
-    desc: "The Kudremukh peak trail winds through the longest stretch of shola-grassland mosaic in the Western Ghats. At 1,894 m, the horse-face shaped summit offers panoramic views over three states. The trail follows the Bhadra river tributaries and is carpeted with wildflowers during post-monsoon season.",
+    desc: "The Kudremukh peak trail winds through the longest stretch of shola-grassland mosaic in the Western Ghats. At 1,894 m, the horse-face shaped summit offers panoramic views over three states.",
     img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80",
     entry: "₹200", bestTime: "Sep–Feb", difficulty: "Hard", duration: "7–8 hrs",
     timings: [{ day: "Mon–Sun", time: "5:30 AM – 4:00 PM" }, { day: "Monsoon", time: "Restricted" }],
@@ -470,7 +469,7 @@ const EXTRA_PLACES = [
   },
   {
     id: "t_ballalarayana", name: "Ballalarayana Durga Trek", type: "Trek", rating: 4.6, distance: "110 km from Mangaluru",
-    desc: "One of Karnataka's least-trodden treks, Ballalarayana Durga leads to a 14th-century hillfort ruin at 1,509 m. The trail passes through pristine evergreen forest in the Bisle Ghat range — a birding paradise with over 250 species recorded. The ruined ramparts at the summit offer stunning views of the Ghats' western slope.",
+    desc: "One of Karnataka's least-trodden treks, Ballalarayana Durga leads to a 14th-century hillfort ruin at 1,509 m. The trail passes through pristine evergreen forest in the Bisle Ghat range.",
     img: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80",
     entry: "Free", bestTime: "Oct–Mar", difficulty: "Moderate", duration: "5–6 hrs",
     timings: [{ day: "Mon–Sun", time: "6:00 AM – 4:00 PM" }],
@@ -482,7 +481,7 @@ const EXTRA_PLACES = [
   },
   {
     id: "t_kumara", name: "Kumara Parvatha Trek", type: "Trek", rating: 4.9, distance: "80 km from Mangaluru",
-    desc: "Kumara Parvatha (1,712 m) is the toughest and most rewarding trek in coastal Karnataka. The 13 km trail from Kukke Subramanya climbs relentlessly through dense forests and emerges on a dramatic rocky ridge. The summit plateau feels impossibly high — on clear days you can see the Arabian Sea glittering 50 km away.",
+    desc: "Kumara Parvatha (1,712 m) is the toughest and most rewarding trek in coastal Karnataka. The 13 km trail from Kukke Subramanya climbs relentlessly through dense forests and emerges on a dramatic rocky ridge.",
     img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
     entry: "₹150", bestTime: "Oct–Mar", difficulty: "Hard", duration: "8–10 hrs",
     timings: [{ day: "Mon–Sun", time: "5:00 AM – 3:00 PM" }, { day: "Monsoon", time: "Closed Jun–Sep" }],
@@ -493,45 +492,8 @@ const EXTRA_PLACES = [
     ],
   },
   {
-    id: "t_pushpagiri", name: "Pushpagiri Wilderness Trek", type: "Trek", rating: 4.7, distance: "95 km from Mysuru",
-    desc: "The Pushpagiri Wildlife Sanctuary near Somwarpet hosts one of the most immersive trek experiences in the Western Ghats. The trail to Pushpagiri peak (1,712 m) passes through tiger and elephant territory, with camp-overnight options available. The forests here are among the last refuges of the Nilgiri marten.",
-    img: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80",
-    entry: "₹250", bestTime: "Nov–Mar", difficulty: "Hard", duration: "Full day",
-    timings: [{ day: "Mon–Sun", time: "6:00 AM – 4:00 PM" }, { day: "Permits required", time: "Book in advance" }],
-    slots: [
-      { time: "6:00 AM", available: 4 }, { time: "7:00 AM", available: 8 },
-      { time: "8:00 AM", available: 2 }, { time: "9:00 AM", available: 0 },
-      { time: "10:00 AM", available: 6 }, { time: "11:00 AM", available: 3 },
-    ],
-  },
-  {
-    id: "t_kopatgiri", name: "Kopatgiri Peak, Sirsi", type: "Trek", rating: 4.5, distance: "70 km from Dharwad",
-    desc: "Kopatgiri near Sirsi is an underrated gem in North Karnataka's section of the Western Ghats. The trail passes areca nut and pepper plantations before entering dense forest, emerging at a rocky summit with 360° views over Uttara Kannada's endless green canopy. The nearby Unchalli Falls can be combined for a full-day adventure.",
-    img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80",
-    entry: "Free", bestTime: "Oct–Feb", difficulty: "Easy", duration: "3–4 hrs",
-    timings: [{ day: "Mon–Sun", time: "6:00 AM – 5:00 PM" }],
-    slots: [
-      { time: "6:00 AM", available: 18 }, { time: "8:00 AM", available: 12 },
-      { time: "10:00 AM", available: 0 }, { time: "12:00 PM", available: 16 },
-      { time: "2:00 PM", available: 8 }, { time: "4:00 PM", available: 5 },
-    ],
-  },
-  {
-    id: "t_deomane", name: "Deomane Falls Trek", type: "Trek", rating: 4.4, distance: "45 km from Shivamogga",
-    desc: "The trail to Deomane (Devimane) Falls near Sagar is a low-key adventure through teak and bamboo forests of Shimoga district. The twin falls plunge 100 feet in a horseshoe formation and feed into a deep emerald pool. The route passes through a tribal hamlet where local homestays offer authentic forest cuisine.",
-    img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
-    entry: "Free", bestTime: "Aug–Jan", difficulty: "Easy", duration: "3–4 hrs",
-    timings: [{ day: "Mon–Sun", time: "7:00 AM – 5:00 PM" }],
-    slots: [
-      { time: "7:00 AM", available: 20 }, { time: "9:00 AM", available: 14 },
-      { time: "11:00 AM", available: 8 }, { time: "1:00 PM", available: 0 },
-      { time: "3:00 PM", available: 10 }, { time: "4:30 PM", available: 6 },
-    ],
-  },
-  /* WILDLIFE */
-  {
     id: "w_bandipur", name: "Bandipur Tiger Reserve", type: "Wildlife", rating: 4.9, distance: "80 km from Mysuru",
-    desc: "Bandipur is one of the finest wildlife reserves in India, and the centrepiece of the Nilgiri Biosphere — the largest protected forest in South Asia. Home to over 100 tigers, 3,000 elephants, leopards, and gaur, it offers bus safaris at dawn through open teak forests. The chances of sighting big cats here are among the best in Karnataka.",
+    desc: "Bandipur is one of the finest wildlife reserves in India, and the centrepiece of the Nilgiri Biosphere — the largest protected forest in South Asia. Home to over 100 tigers, 3,000 elephants, leopards, and gaur.",
     img: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=600&q=80",
     entry: "₹400", bestTime: "Oct–May", difficulty: "Easy", duration: "3–4 hrs",
     timings: [{ day: "Mon–Sun", time: "6:00 AM – 9:00 AM, 3:30–6:00 PM" }, { day: "Tuesday", time: "Closed", closed: true }],
@@ -543,7 +505,7 @@ const EXTRA_PLACES = [
   },
   {
     id: "w_ranganathittu", name: "Ranganathittu Bird Sanctuary", type: "Wildlife", rating: 4.6, distance: "16 km from Mysuru",
-    desc: "Ranganathittu on the Kaveri river is Karnataka's largest bird sanctuary and a spectacular breeding colony for painted storks, open-bill storks, and cormorants. Boat rides glide within metres of nesting birds. In the evening, the islands come alive with the sight and sound of thousands of birds returning to roost — a truly mesmerizing spectacle.",
+    desc: "Ranganathittu on the Kaveri river is Karnataka's largest bird sanctuary and a spectacular breeding colony for painted storks, open-bill storks, and cormorants.",
     img: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=600&q=80",
     entry: "₹250", bestTime: "Jun–Nov", difficulty: "Easy", duration: "2–3 hrs",
     timings: [{ day: "Mon–Sun", time: "8:30 AM – 6:00 PM" }],
@@ -554,57 +516,8 @@ const EXTRA_PLACES = [
     ],
   },
   {
-    id: "w_brt", name: "BRT Tiger Reserve", type: "Wildlife", rating: 4.7, distance: "180 km from Bengaluru",
-    desc: "The Biligiri Rangaswamy Temple (BRT) Wildlife Sanctuary is a unique confluence of the Western and Eastern Ghats. The Soliga tribal community lives in harmony with the forest and serves as expert naturalist guides. BRT hosts tigers, elephants, leopards, and over 250 bird species — and has one of the highest densities of tigers per sq km in India.",
-    img: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=600&q=80",
-    entry: "₹300", bestTime: "Dec–Apr", difficulty: "Easy", duration: "4–5 hrs",
-    timings: [{ day: "Mon–Sun", time: "6:00 AM – 9:30 AM, 3:30–6:00 PM" }, { day: "Friday", time: "Closed", closed: true }],
-    slots: [
-      { time: "6:00 AM", available: 8 }, { time: "7:00 AM", available: 4 },
-      { time: "8:00 AM", available: 0 }, { time: "3:30 PM", available: 12 },
-      { time: "4:00 PM", available: 6 }, { time: "4:30 PM", available: 3 },
-    ],
-  },
-  {
-    id: "w_sharavathi", name: "Sharavathi Crocodile Safari", type: "Wildlife", rating: 4.4, distance: "15 km from Jog Falls",
-    desc: "The Sharavathi Valley Wildlife Sanctuary near Linganmakki reservoir is a little-known gem for reptile and bird enthusiasts. Boat safaris through the reservoir's backwaters pass mugger crocodile basking sites and offer close encounters with river otters. The reservoir's forested shores shelter the highly endangered Lion-tailed macaque in significant numbers.",
-    img: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=600&q=80",
-    entry: "₹150", bestTime: "Oct–Mar", difficulty: "Easy", duration: "2–3 hrs",
-    timings: [{ day: "Mon–Sun", time: "7:00 AM – 5:30 PM" }],
-    slots: [
-      { time: "7:00 AM", available: 16 }, { time: "9:00 AM", available: 10 },
-      { time: "11:00 AM", available: 0 }, { time: "1:00 PM", available: 14 },
-      { time: "3:00 PM", available: 8 }, { time: "5:00 PM", available: 4 },
-    ],
-  },
-  {
-    id: "w_cauvery", name: "Cauvery Wildlife Sanctuary", type: "Wildlife", rating: 4.5, distance: "100 km from Bengaluru",
-    desc: "The Cauvery Wildlife Sanctuary straddles the Karnataka–Tamil Nadu border and is the last refuge of the endangered Mahseer fish. The Galibore fishing camp offers catch-and-release angling, while jeep safaris through the dry deciduous forest spot jackals, sloth bears, and the occasional leopard. Elephant rides in season are a highlight.",
-    img: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=600&q=80",
-    entry: "₹200", bestTime: "Oct–Mar", difficulty: "Easy", duration: "3–4 hrs",
-    timings: [{ day: "Mon–Sun", time: "6:30 AM – 10:00 AM, 3:00–6:00 PM" }],
-    slots: [
-      { time: "6:30 AM", available: 10 }, { time: "7:30 AM", available: 6 },
-      { time: "8:30 AM", available: 0 }, { time: "3:00 PM", available: 14 },
-      { time: "4:00 PM", available: 8 }, { time: "5:00 PM", available: 3 },
-    ],
-  },
-  {
-    id: "w_daroji", name: "Daroji Sloth Bear Sanctuary", type: "Wildlife", rating: 4.5, distance: "15 km from Hampi",
-    desc: "Daroji Sloth Bear Sanctuary near Hampi is the only dedicated sloth bear sanctuary in India. Over 120 sloth bears roam the rocky terrain, and sightings from the specially built watchtower are almost guaranteed at dusk when bears come to feed. The sanctuary also shelters leopards, wolves, and an extraordinary diversity of raptors.",
-    img: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=600&q=80",
-    entry: "₹100", bestTime: "Oct–Mar", difficulty: "Easy", duration: "2–3 hrs",
-    timings: [{ day: "Mon–Sun", time: "6:00 AM – 10:00 AM, 3:00–6:00 PM" }, { day: "Tuesday", time: "Closed", closed: true }],
-    slots: [
-      { time: "6:00 AM", available: 18 }, { time: "7:30 AM", available: 12 },
-      { time: "9:00 AM", available: 0 }, { time: "3:00 PM", available: 20 },
-      { time: "4:00 PM", available: 10 }, { time: "5:00 PM", available: 6 },
-    ],
-  },
-  /* HERITAGE */
-  {
     id: "h_belur", name: "Belur Chennakeshava Temple", type: "Heritage", rating: 4.9, distance: "220 km from Bengaluru",
-    desc: "The Chennakeshava Temple at Belur, built in 1117 CE by the Hoysala king Vishnuvardhana, is considered the finest example of Hoysala architecture. Every inch of the exterior is covered in extraordinary sculptural detail — celestial nymphs, mythological narratives, friezes of elephants, and intricate geometric patterns. It took over 100 years to complete.",
+    desc: "The Chennakeshava Temple at Belur, built in 1117 CE by the Hoysala king Vishnuvardhana, is considered the finest example of Hoysala architecture.",
     img: "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?w=600&q=80",
     entry: "₹600", bestTime: "Oct–Mar", difficulty: "Easy", duration: "2–3 hrs",
     timings: [{ day: "Mon–Sun", time: "7:00 AM – 6:00 PM" }],
@@ -615,69 +528,8 @@ const EXTRA_PLACES = [
     ],
   },
   {
-    id: "h_halebidu", name: "Halebidu Temples", type: "Heritage", rating: 4.8, distance: "225 km from Bengaluru",
-    desc: "The twin temples of Halebidu (Hoysaleshwara and Shanthaleswara), built in 1150 CE, represent the zenith of Hoysala sculptural achievement. The 240-metre continuous frieze encircling the temples depicts over 20,000 individual figures — gods, demons, hunters, dancers, and animals — in astonishing detail that rewards hours of study.",
-    img: "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?w=600&q=80",
-    entry: "₹600", bestTime: "Oct–Mar", difficulty: "Easy", duration: "2–3 hrs",
-    timings: [{ day: "Mon–Sun", time: "6:00 AM – 6:00 PM" }, { day: "Friday", time: "Closed", closed: true }],
-    slots: [
-      { time: "6:00 AM", available: 16 }, { time: "8:00 AM", available: 0 },
-      { time: "10:00 AM", available: 12 }, { time: "12:00 PM", available: 18 },
-      { time: "2:00 PM", available: 8 }, { time: "4:00 PM", available: 5 },
-    ],
-  },
-  {
-    id: "h_gol_gumbaz", name: "Gol Gumbaz, Bijapur", type: "Heritage", rating: 4.8, distance: "530 km from Bengaluru",
-    desc: "Gol Gumbaz contains the tomb of Muhammad Adil Shah (r. 1627–57) and is crowned by one of the world's largest domes — 44 metres in diameter, second only to St Peter's Basilica. The famous Whispering Gallery runs around the interior of the dome: a whisper on one side can be heard clearly on the opposite side 37 metres away.",
-    img: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600&q=80",
-    entry: "₹600", bestTime: "Oct–Mar", difficulty: "Easy", duration: "2 hrs",
-    timings: [{ day: "Mon–Sun", time: "6:00 AM – 6:00 PM" }, { day: "Friday", time: "Closed", closed: true }],
-    slots: [
-      { time: "6:00 AM", available: 8 }, { time: "8:00 AM", available: 18 },
-      { time: "10:00 AM", available: 0 }, { time: "12:00 PM", available: 14 },
-      { time: "2:00 PM", available: 10 }, { time: "4:00 PM", available: 7 },
-    ],
-  },
-  {
-    id: "h_srirangapatna", name: "Srirangapatna Fort", type: "Heritage", rating: 4.6, distance: "15 km from Mysuru",
-    desc: "Srirangapatna — Tipu Sultan's island capital — is one of South India's best-preserved fortified towns. The massive fortifications, Tipu's Summer Palace (Daria Daulat Bagh), the Jama Masjid, and the dungeon where British prisoners were held tell a rich story of 18th-century Mysore. The temple of Ranganathaswamy predates Tipu by 1,500 years.",
-    img: "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?w=600&q=80",
-    entry: "₹300", bestTime: "Oct–Mar", difficulty: "Easy", duration: "3–4 hrs",
-    timings: [{ day: "Mon–Sun", time: "6:00 AM – 6:00 PM" }],
-    slots: [
-      { time: "6:00 AM", available: 20 }, { time: "8:00 AM", available: 12 },
-      { time: "10:00 AM", available: 0 }, { time: "12:00 PM", available: 16 },
-      { time: "2:00 PM", available: 10 }, { time: "4:00 PM", available: 8 },
-    ],
-  },
-  {
-    id: "h_shivanasamudra", name: "Shivanasamudra Heritage Site", type: "Heritage", rating: 4.5, distance: "130 km from Bengaluru",
-    desc: "Shivanasamudra is where the Kaveri splits around an island before plunging in two spectacular falls. The hydroelectric station built here in 1902 was Asia's first AC power station and is a fascinating piece of industrial heritage. The island also contains the Ranganatha Swamy temple complex and gorgeous river-island viewpoints.",
-    img: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600&q=80",
-    entry: "₹50", bestTime: "Jul–Dec", difficulty: "Easy", duration: "2–3 hrs",
-    timings: [{ day: "Mon–Sun", time: "7:00 AM – 6:00 PM" }],
-    slots: [
-      { time: "7:00 AM", available: 15 }, { time: "9:00 AM", available: 10 },
-      { time: "11:00 AM", available: 0 }, { time: "1:00 PM", available: 18 },
-      { time: "3:00 PM", available: 12 }, { time: "5:00 PM", available: 6 },
-    ],
-  },
-  {
-    id: "h_bidar", name: "Bidar Fort & Bahmani Tombs", type: "Heritage", rating: 4.7, distance: "700 km from Bengaluru",
-    desc: "Bidar Fort (15th century) is one of the most impressive medieval fortifications in the Deccan, with triple moats and 37 bastions still largely intact. The necropolis of the Bahmani sultans at Ashtur — twelve magnificent tombs with Persian-influenced domes — is a hauntingly beautiful site little visited by tourists. Bidriware craft workshops can be visited in the old city.",
-    img: "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?w=600&q=80",
-    entry: "₹300", bestTime: "Oct–Mar", difficulty: "Easy", duration: "3–4 hrs",
-    timings: [{ day: "Mon–Sun", time: "6:00 AM – 6:00 PM" }, { day: "Friday", time: "Closed", closed: true }],
-    slots: [
-      { time: "6:00 AM", available: 18 }, { time: "8:00 AM", available: 12 },
-      { time: "10:00 AM", available: 0 }, { time: "12:00 PM", available: 20 },
-      { time: "2:00 PM", available: 10 }, { time: "4:00 PM", available: 7 },
-    ],
-  },
-  /* WATERFALLS */
-  {
     id: "wf_jog", name: "Jog Falls", type: "Waterfalls", rating: 4.9, distance: "380 km from Bengaluru",
-    desc: "Jog Falls is India's second-highest plunge waterfall at 253 metres, where the Sharavathi river hurls itself off a sheer cliff in four distinct cascades — Raja, Rani, Rover, and Rocket. During monsoon, the combined roar is deafening and the spray soaks visitors on the viewing platform 1 km away. The sight is utterly overwhelming.",
+    desc: "Jog Falls is India's second-highest plunge waterfall at 253 metres, where the Sharavathi river hurls itself off a sheer cliff in four distinct cascades — Raja, Rani, Rover, and Rocket.",
     img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80",
     entry: "₹50", bestTime: "Jul–Dec", difficulty: "Easy", duration: "2–3 hrs",
     timings: [{ day: "Mon–Sun", time: "8:00 AM – 6:00 PM" }],
@@ -688,32 +540,8 @@ const EXTRA_PLACES = [
     ],
   },
   {
-    id: "wf_unchalli", name: "Unchalli Falls (Lushington)", type: "Waterfalls", rating: 4.7, distance: "380 km from Bengaluru",
-    desc: "Unchalli Falls near Sirsi in Uttara Kannada is 116 metres of thundering spectacle tucked inside dense rainforest. The trail to the base descends steeply through forest alive with Malabar hornbills and giant squirrels. Named 'Lushington Falls' by British surveyors, the pool at the base is perfect for swimming in the dry season.",
-    img: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80",
-    entry: "₹50", bestTime: "Aug–Nov", difficulty: "Moderate", duration: "3–4 hrs",
-    timings: [{ day: "Mon–Sun", time: "7:00 AM – 5:30 PM" }],
-    slots: [
-      { time: "7:00 AM", available: 12 }, { time: "9:00 AM", available: 0 },
-      { time: "11:00 AM", available: 10 }, { time: "1:00 PM", available: 16 },
-      { time: "3:00 PM", available: 8 }, { time: "5:00 PM", available: 3 },
-    ],
-  },
-  {
-    id: "wf_magod", name: "Magod Falls", type: "Waterfalls", rating: 4.6, distance: "430 km from Bengaluru",
-    desc: "Magod Falls on the Bedthi river in Uttara Kannada drops 200 metres in two stages through pristine evergreen forest. The viewpoint offers a spectacular bird's-eye view of the entire cascade. The road journey through Dandeli forest to reach Magod passes through some of the most untouched wilderness in Karnataka.",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
-    entry: "Free", bestTime: "Aug–Jan", difficulty: "Easy", duration: "1–2 hrs",
-    timings: [{ day: "Mon–Sun", time: "8:00 AM – 5:30 PM" }],
-    slots: [
-      { time: "8:00 AM", available: 20 }, { time: "10:00 AM", available: 14 },
-      { time: "12:00 PM", available: 8 }, { time: "2:00 PM", available: 0 },
-      { time: "4:00 PM", available: 10 }, { time: "5:00 PM", available: 5 },
-    ],
-  },
-  {
     id: "wf_shivanasamudra", name: "Shivanasamudra Falls", type: "Waterfalls", rating: 4.7, distance: "130 km from Bengaluru",
-    desc: "The Kaveri splits around Shivanasamudra island and plunges in two separate falls — Gaganachukki and Bharachukki — each over 90 metres in height. During monsoon, the combined discharge is awe-inspiring. Coracle rides in the river below offer a thrilling close-up view, and the surrounding forest is excellent for bird watching.",
+    desc: "The Kaveri splits around Shivanasamudra island and plunges in two separate falls — Gaganachukki and Bharachukki — each over 90 metres in height.",
     img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
     entry: "₹50", bestTime: "Jul–Nov", difficulty: "Easy", duration: "2–3 hrs",
     timings: [{ day: "Mon–Sun", time: "7:00 AM – 6:00 PM" }],
@@ -723,33 +551,8 @@ const EXTRA_PLACES = [
       { time: "3:00 PM", available: 8 }, { time: "5:00 PM", available: 6 },
     ],
   },
-  {
-    id: "wf_soochipara", name: "Soochipara Falls, Coorg", type: "Waterfalls", rating: 4.5, distance: "70 km from Madikeri",
-    desc: "Soochipara (Needle Falls) near Virajpet drops 170 feet in a narrow needle-like stream through coffee and cardamom country. The 3 km trek to the base passes through an areca nut plantation and a small tribal hamlet. The pool at the base is deep enough for swimming, and the surrounding forest is rich in birdlife and butterflies.",
-    img: "https://images.unsplash.com/photo-1566552881560-0be862a7c445?w=600&q=80",
-    entry: "₹30", bestTime: "Jul–Dec", difficulty: "Easy", duration: "2–3 hrs",
-    timings: [{ day: "Mon–Sun", time: "8:00 AM – 5:30 PM" }],
-    slots: [
-      { time: "8:00 AM", available: 16 }, { time: "10:00 AM", available: 8 },
-      { time: "12:00 PM", available: 0 }, { time: "2:00 PM", available: 14 },
-      { time: "3:30 PM", available: 10 }, { time: "5:00 PM", available: 3 },
-    ],
-  },
-  {
-    id: "wf_koosalli", name: "Koosalli Falls, Agumbe", type: "Waterfalls", rating: 4.6, distance: "380 km from Bengaluru",
-    desc: "Agumbe — 'Cherrapunji of the South' — receives some of India's highest rainfall, and Koosalli Falls embodies that abundance. The 70-metre waterfall is reached after a 3 km trek through the Agumbe rainforest, the last stronghold of the King Cobra in India. The ARRS research station here offers guided night walks to spot these extraordinary reptiles.",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
-    entry: "₹50", bestTime: "Jun–Nov", difficulty: "Moderate", duration: "3–4 hrs",
-    timings: [{ day: "Mon–Sun", time: "7:00 AM – 5:00 PM" }, { day: "Heavy rain days", time: "Closed for safety" }],
-    slots: [
-      { time: "7:00 AM", available: 14 }, { time: "9:00 AM", available: 8 },
-      { time: "11:00 AM", available: 0 }, { time: "1:00 PM", available: 12 },
-      { time: "3:00 PM", available: 6 }, { time: "4:30 PM", available: 3 },
-    ],
-  },
 ];
 
-/* Merge all places for filter views */
 const ALL_PLACES = [...CITIES.flatMap((c) => c.places), ...EXTRA_PLACES];
 
 const PACKAGES = [
@@ -953,7 +756,7 @@ function CityDetail({ city, onBack, onPlaceOpen }) {
         </div>
       </div>
       <div className="ka-detail-body">
-        <div className="ka-section-title">Top Places to Visit</div>
+        <div className="ka-section-title" style={{ marginBottom: 18 }}>Top Places to Visit</div>
         <div className="ka-places-list">
           {city.places.map((place) => <PlaceGridCard key={place.id} place={place} onOpen={onPlaceOpen} />)}
         </div>
@@ -963,7 +766,7 @@ function CityDetail({ city, onBack, onPlaceOpen }) {
 }
 
 /* ════════════════════════════════════════
-   FILTER VIEW — shows ALL places of that type
+   FILTER VIEW
 ════════════════════════════════════════ */
 function FilterView({ type, onBack, onPlaceOpen }) {
   const places = ALL_PLACES.filter((p) => p.type === type);
@@ -993,9 +796,9 @@ function FilterView({ type, onBack, onPlaceOpen }) {
 }
 
 /* ════════════════════════════════════════
-   HOME VIEW
+   HOME VIEW  — FIX: cities grid is now OUTSIDE ka-section-header
 ════════════════════════════════════════ */
-function HomeView({ onCitySelect, onPlaceOpen, onFilterSelect }) {
+function HomeView({ onCitySelect, onPlaceOpen, onFilterSelect, onSeeAllCities, onSeeAllPackages, onSeeAllTopPicks }) {
   const [slide, setSlide] = useState(0);
   const timerRef = useRef(null);
 
@@ -1062,15 +865,16 @@ function HomeView({ onCitySelect, onPlaceOpen, onFilterSelect }) {
         </div>
       </div>
 
-      {/* CITIES */}
+      {/* ── EXPLORE CITIES ── FIX: header and grid are siblings, not nested */}
       <div className="ka-section" style={{ paddingTop: 0 }}>
         <div className="ka-section-header">
           <div>
             <div className="ka-section-title">Explore <span>Cities</span></div>
             <div className="ka-section-sub">{CITIES.length} destinations across Karnataka</div>
           </div>
-          <button className="ka-see-all">See all →</button>
+          <button className="ka-see-all" onClick={onSeeAllCities}>See all →</button>
         </div>
+        {/* City cards grid — correctly placed OUTSIDE the header flex container */}
         <div className="ka-cities-grid">
           {CITIES.map((city) => (
             <div key={city.id} className="ka-city-card" onClick={() => onCitySelect(city)}>
@@ -1119,7 +923,7 @@ function HomeView({ onCitySelect, onPlaceOpen, onFilterSelect }) {
             <div className="ka-section-title">⭐ Top <span>Picks</span></div>
             <div className="ka-section-sub">Highest rated across all cities & categories</div>
           </div>
-          <button className="ka-see-all">View all →</button>
+          <button className="ka-see-all" onClick={onSeeAllTopPicks}>View all →</button>
         </div>
         <div className="ka-hscroll">
           {topPicks.map((place) => {
@@ -1149,7 +953,7 @@ function HomeView({ onCitySelect, onPlaceOpen, onFilterSelect }) {
             <div className="ka-section-title">🎒 Travel <span>Packages</span></div>
             <div className="ka-section-sub">Curated multi-day experiences</div>
           </div>
-          <button className="ka-see-all">All packages →</button>
+          <button className="ka-see-all" onClick={onSeeAllPackages}>All packages →</button>
         </div>
         <div className="ka-packages-scroll">
           {PACKAGES.map((pkg) => (
@@ -1224,22 +1028,238 @@ function HomeView({ onCitySelect, onPlaceOpen, onFilterSelect }) {
 }
 
 /* ════════════════════════════════════════
-   ROOT APP
+   SEARCH VIEW
+════════════════════════════════════════ */
+function SearchView({ onBack, onPlaceOpen, onCitySelect }) {
+  const [query, setQuery] = useState("");
+  const inputRef = useRef(null);
+  useEffect(() => { inputRef.current?.focus(); }, []);
+
+  const q = query.trim().toLowerCase();
+  const matchedPlaces = q.length > 0
+    ? ALL_PLACES.filter(p =>
+        p.name.toLowerCase().includes(q) ||
+        p.type.toLowerCase().includes(q) ||
+        p.desc.toLowerCase().includes(q) ||
+        (p.difficulty && p.difficulty.toLowerCase().includes(q))
+      )
+    : [];
+  const matchedCities = q.length > 0
+    ? CITIES.filter(c => c.name.toLowerCase().includes(q) || c.tagline.toLowerCase().includes(q))
+    : [];
+  const hasResults = matchedPlaces.length > 0 || matchedCities.length > 0;
+
+  return (
+    <div className="ka-search-view">
+      <div className="ka-search-bar-wrap">
+        <button className="ka-search-back-btn" onClick={onBack}>←</button>
+        <div className="ka-search-input-wrap">
+          <span className="ka-search-icon-inner">🔍</span>
+          <input
+            ref={inputRef}
+            className="ka-search-input"
+            type="text"
+            placeholder="Search places, cities, treks…"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          {query && <button className="ka-search-clear" onClick={() => setQuery("")}>✕</button>}
+        </div>
+      </div>
+
+      {q.length === 0 && (
+        <div className="ka-search-empty">
+          <div className="ka-search-empty-icon">🗺️</div>
+          <div className="ka-search-empty-title">Discover Karnataka</div>
+          <div className="ka-search-empty-sub">Search treks, wildlife, heritage, waterfalls or cities</div>
+          <div className="ka-search-suggestions">
+            {["Nandi Hills","Hampi","Jog Falls","Tiger Reserve","Coorg","Heritage","Trek","Wildlife"].map(s => (
+              <button key={s} className="ka-search-chip" onClick={() => setQuery(s)}>{s}</button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {q.length > 0 && !hasResults && (
+        <div className="ka-search-empty">
+          <div className="ka-search-empty-icon">😕</div>
+          <div className="ka-search-empty-title">No results for "{query}"</div>
+          <div className="ka-search-empty-sub">Try a city name, place type, or activity</div>
+        </div>
+      )}
+
+      {hasResults && (
+        <div className="ka-search-results">
+          {matchedCities.length > 0 && (
+            <>
+              <div className="ka-search-section-label">Cities ({matchedCities.length})</div>
+              <div className="ka-cities-grid" style={{ marginBottom: 24 }}>
+                {matchedCities.map(city => (
+                  <div key={city.id} className="ka-city-card" onClick={() => onCitySelect(city)}>
+                    <div className="ka-city-card-img-wrap"><img src={city.hero} alt={city.name} loading="lazy" /></div>
+                    <div className="ka-city-card-body">
+                      <div className="ka-city-name">{city.emoji} {city.name}</div>
+                      <div className="ka-city-sub">{city.tagline}</div>
+                      <div className="ka-city-badge" style={{ background: `${city.color}22`, color: city.color }}>{city.places.length} spots</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+          {matchedPlaces.length > 0 && (
+            <>
+              <div className="ka-search-section-label">Places ({matchedPlaces.length})</div>
+              <div className="ka-places-list" style={{ marginTop: 0 }}>
+                {matchedPlaces.map(place => <PlaceGridCard key={place.id} place={place} onOpen={onPlaceOpen} />)}
+              </div>
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ════════════════════════════════════════
+   ALL CITIES VIEW
+════════════════════════════════════════ */
+function AllCitiesView({ onBack, onCitySelect }) {
+  return (
+    <div>
+      <div className="ka-filter-header">
+        <button className="ka-filter-back" onClick={onBack}>← Back</button>
+        <div className="ka-filter-title">All Destinations</div>
+        <div className="ka-filter-count" style={{ marginBottom: 20 }}>{CITIES.length} cities across Karnataka</div>
+      </div>
+      <div className="ka-detail-body">
+        <div className="ka-cities-grid">
+          {CITIES.map(city => (
+            <div key={city.id} className="ka-city-card" onClick={() => onCitySelect(city)}>
+              <div className="ka-city-card-img-wrap"><img src={city.hero} alt={city.name} loading="lazy" /></div>
+              <div className="ka-city-card-body">
+                <div className="ka-city-name">{city.emoji} {city.name}</div>
+                <div className="ka-city-sub">{city.tagline}</div>
+                <div className="ka-city-badge" style={{ background: `${city.color}22`, color: city.color }}>{city.places.length} spots</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ════════════════════════════════════════
+   ALL PACKAGES VIEW
+════════════════════════════════════════ */
+function AllPackagesView({ onBack }) {
+  return (
+    <div>
+      <div className="ka-filter-header">
+        <button className="ka-filter-back" onClick={onBack}>← Back</button>
+        <div className="ka-filter-title">🎒 Travel Packages</div>
+        <div className="ka-filter-count" style={{ marginBottom: 20 }}>{PACKAGES.length} curated experiences</div>
+      </div>
+      <div className="ka-detail-body">
+        <div className="ka-packages-full-grid">
+          {PACKAGES.map((pkg) => (
+            <div key={pkg.id} className={`ka-package-card${pkg.featured ? " featured" : ""}`} style={{ minWidth: 0 }}>
+              <div className="ka-package-img">
+                <img src={pkg.img} alt={pkg.name} loading="lazy" />
+                {pkg.popular && <div className="ka-package-popular">⭐ Popular</div>}
+              </div>
+              <div className="ka-package-body">
+                <div className="ka-package-name">{pkg.name}</div>
+                <div className="ka-package-desc">{pkg.desc}</div>
+                <div className="ka-package-tags">{pkg.tags.map((t) => <div key={t} className="ka-package-tag">{t}</div>)}</div>
+                <div className="ka-package-footer">
+                  <div className="ka-package-price"><strong>{pkg.price}</strong><br /><span>{pkg.per}</span></div>
+                  <button className="ka-package-btn">Book Now</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ════════════════════════════════════════
+   ALL TOP PICKS VIEW
+════════════════════════════════════════ */
+function AllTopPicksView({ onBack, onPlaceOpen }) {
+  const sorted = [...ALL_PLACES].sort((a, b) => b.rating - a.rating);
+  return (
+    <div>
+      <div className="ka-filter-header">
+        <button className="ka-filter-back" onClick={onBack}>← Back</button>
+        <div className="ka-filter-title">⭐ Top Picks</div>
+        <div className="ka-filter-count" style={{ marginBottom: 20 }}>{sorted.length} places ranked by rating</div>
+      </div>
+      <div className="ka-detail-body">
+        <div className="ka-places-list" style={{ marginTop: 0 }}>
+          {sorted.map(place => <PlaceGridCard key={place.id} place={place} onOpen={onPlaceOpen} />)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ════════════════════════════════════════
+   ROOT APP — FIX: back button now uses a navigation stack
 ════════════════════════════════════════ */
 export default function Adventure() {
-  const [view, setView] = useState("home");
-  const [selectedCity, setSelectedCity] = useState(null);
-  const [filterType, setFilterType] = useState(null);
+  // ── Navigation stack: each entry is { view, city?, type? } ──
+  const [navStack, setNavStack] = useState([{ view: "home" }]);
   const [activeNav, setActiveNav] = useState("home");
   const [modalPlace, setModalPlace] = useState(null);
   const mainRef = useRef(null);
 
-  const scrollTop = () => mainRef.current?.scrollTo({ top: 0 });
-  const goHome = () => { setView("home"); setActiveNav("home"); scrollTop(); };
-  const goCity = (city) => { setSelectedCity(city); setView("city"); setActiveNav(city.id); scrollTop(); };
-  const goFilter = (type) => { setFilterType(type); setView("filter"); scrollTop(); };
+  const currentRoute = navStack[navStack.length - 1];
+  const { view, city: selectedCity, type: filterType } = currentRoute;
+
+  const scrollTop = () => mainRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+
+  // Push a new route onto the stack
+  const push = (route) => {
+    setNavStack((prev) => [...prev, route]);
+    scrollTop();
+  };
+
+  // Pop back — fixed: always goes to previous stack entry
+  const goBack = () => {
+    setNavStack((prev) => {
+      if (prev.length <= 1) return prev;
+      const next = prev.slice(0, -1);
+      const top = next[next.length - 1];
+      setActiveNav(top.view === "home" ? "home" : top.city?.id ?? "home");
+      return next;
+    });
+    scrollTop();
+  };
+
+  const goHome = () => {
+    setNavStack([{ view: "home" }]);
+    setActiveNav("home");
+    scrollTop();
+  };
+
+  const goCity = (city) => {
+    push({ view: "city", city });
+    setActiveNav(city.id);
+  };
+
+  const goFilter = (type) => push({ view: "filter", type });
+  const goSearch = () => push({ view: "search" });
+  const goAllCities = () => push({ view: "allcities" });
+  const goAllPackages = () => push({ view: "allpackages" });
+  const goAllTopPicks = () => push({ view: "alltoppicks" });
   const openPlace = (place) => setModalPlace(place);
   const closePlace = () => setModalPlace(null);
+
+  const showBack = navStack.length > 1;
 
   return (
     <div className="ka-app">
@@ -1248,6 +1268,11 @@ export default function Adventure() {
         <div className="ka-logo">
           <div className="ka-logo-text">🧭 <span>Adventures</span> KA</div>
           <div className="ka-logo-sub">Karnataka Tourism</div>
+        </div>
+        <div className="ka-sidebar-search" onClick={goSearch}>
+          <span className="ka-sidebar-search-icon">🔍</span>
+          <span className="ka-sidebar-search-placeholder">Search places…</span>
+          <span className="ka-sidebar-search-kbd">⌘K</span>
         </div>
         <div className="ka-nav-section">Destinations</div>
         <div className={`ka-nav-item${activeNav === "home" ? " active" : ""}`} onClick={goHome}>
@@ -1269,8 +1294,8 @@ export default function Adventure() {
           );
         })}
         <div className="ka-nav-section">Offers</div>
-        <div className="ka-nav-item"><span className="ka-nav-icon">🎒</span> Packages</div>
-        <div className="ka-nav-item"><span className="ka-nav-icon">🔥</span> Trending</div>
+        <div className="ka-nav-item" onClick={goAllPackages}><span className="ka-nav-icon">🎒</span> Packages</div>
+        <div className="ka-nav-item" onClick={() => goFilter("Trek")}><span className="ka-nav-icon">🔥</span> Trending</div>
         <div className="ka-sidebar-footer">
           <strong>Adventures Karnataka</strong><br />
           © {new Date().getFullYear()} All rights reserved
@@ -1280,25 +1305,40 @@ export default function Adventure() {
       {/* MAIN */}
       <main className="ka-main" ref={mainRef}>
         <div className="ka-topbar">
-          <div className="ka-topbar-logo">🧭 <span>Adventures</span> KA</div>
-          <div className="ka-topbar-menu">☰</div>
+          <div className="ka-topbar-left">
+            {showBack
+              ? <button className="ka-topbar-back-btn" onClick={goBack}>← Back</button>
+              : <div className="ka-topbar-logo">🧭 <span>Adventures</span> KA</div>
+            }
+          </div>
+          <button className="ka-topbar-search-btn" onClick={goSearch}>
+            <span>🔍</span> Search
+          </button>
         </div>
-        {view === "home" && <HomeView onCitySelect={goCity} onPlaceOpen={openPlace} onFilterSelect={goFilter} />}
-        {view === "city" && selectedCity && <CityDetail city={selectedCity} onBack={goHome} onPlaceOpen={openPlace} />}
-        {view === "filter" && filterType && <FilterView type={filterType} onBack={goHome} onPlaceOpen={openPlace} />}
+
+        {view === "home"        && <HomeView onCitySelect={goCity} onPlaceOpen={openPlace} onFilterSelect={goFilter} onSeeAllCities={goAllCities} onSeeAllPackages={goAllPackages} onSeeAllTopPicks={goAllTopPicks} />}
+        {view === "city"        && selectedCity && <CityDetail city={selectedCity} onBack={goBack} onPlaceOpen={openPlace} />}
+        {view === "filter"      && filterType   && <FilterView type={filterType} onBack={goBack} onPlaceOpen={openPlace} />}
+        {view === "search"      && <SearchView onBack={goBack} onPlaceOpen={openPlace} onCitySelect={goCity} />}
+        {view === "allcities"   && <AllCitiesView onBack={goBack} onCitySelect={goCity} />}
+        {view === "allpackages" && <AllPackagesView onBack={goBack} />}
+        {view === "alltoppicks" && <AllTopPicksView onBack={goBack} onPlaceOpen={openPlace} />}
       </main>
 
       {/* BOTTOM NAV */}
       <nav className="ka-bottom-nav">
         <div className="ka-bnav-items">
-          <div className={`ka-bnav-item${activeNav === "home" ? " active" : ""}`} onClick={goHome}>
+          <div className={`ka-bnav-item${view === "home" ? " active" : ""}`} onClick={goHome}>
             <div className="ka-bnav-icon">🏠</div>Home
+          </div>
+          <div className={`ka-bnav-item${view === "search" ? " active" : ""}`} onClick={goSearch}>
+            <div className="ka-bnav-icon">🔍</div>Search
           </div>
           <div className="ka-bnav-item" onClick={() => goFilter("Trek")}>
             <div className="ka-bnav-icon">⛰️</div>Treks
           </div>
           <div className="ka-bnav-item" onClick={() => goFilter("Wildlife")}>
-            <div className="ka-bnav-icon">🦁</div>Wildlife
+            <div className="ka-bnav-icon">🦁</div>Wild
           </div>
           <div className="ka-bnav-item" onClick={() => goFilter("Heritage")}>
             <div className="ka-bnav-icon">🏛️</div>Heritage
