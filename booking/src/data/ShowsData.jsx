@@ -252,7 +252,7 @@ const shows = [
 {
   id: 27,
   title: "Laugh Out Loud Show",
-  image: "https://source.unsplash.com/400x300/?comedian,mic",
+  image: "https://cdn-az.allevents.in/events5/banners/44484634a53ed8d194e20c92fb156ce6f0e548856f51b7297250a12b7c2273ee-rimg-w400-h400-gmir.jpg?v=1710801254",
   date: "Fri, 13 May",
   venue: "Koramangala",
   category: "Stand up Comedy",
@@ -261,7 +261,7 @@ const shows = [
 {
   id: 28,
   title: "Comedy Vibes Night",
-  image: "https://source.unsplash.com/400x300/?comedy,club",
+  image: "https://tse1.mm.bing.net/th/id/OIP.rZolssN2VnWmEOBsr68gLAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
   date: "Sat, 14 May",
   venue: "HSR Layout",
   category: "Stand up Comedy",
@@ -270,7 +270,7 @@ const shows = [
 {
   id: 29,
   title: "Ultimate Standup Experience",
-  image: "https://source.unsplash.com/400x300/?standup,show",
+  image: "https://ucbcomedy.com/wp-content/uploads/2025/05/USS-6_172160-V2.jpg",
   date: "Sun, 15 May",
   venue: "Whitefield",
   category: "Stand up Comedy",
@@ -279,7 +279,7 @@ const shows = [
 {
   id: 30,
   title: "Comedy Nights Special",
-  image: "https://source.unsplash.com/400x300/?funny,stage",
+  image: "https://assets-global.website-files.com/604fc4a3ddba85f9d5e1a640/64012f950845492442248425_CommunityComedyNight_1920x1080_tixx.jpg",
   date: "Mon, 16 May",
   venue: "BTM Layout",
   category: "Stand up Comedy",
@@ -288,7 +288,7 @@ const shows = [
 {
   id: 31,
   title: "Mic Drop Comedy",
-  image: "https://source.unsplash.com/400x300/?microphone,comedy",
+  image: "https://files.seatengine.com/talent/headshots/photos/75655/full/data",
   date: "Tue, 17 May",
   venue: "MG Road",
   category: "Stand up Comedy",
@@ -297,7 +297,7 @@ const shows = [
 {
   id: 32,
   title: "Late Night Comedy Show",
-  image: "https://source.unsplash.com/400x300/?standup,audience",
+  image: "https://tse4.mm.bing.net/th/id/OIP.Ua0WBsOLKRZ7LK0-y2NBJQHaIv?rs=1&pid=ImgDetMain&o=7&rm=3",
   date: "Wed, 18 May",
   venue: "Electronic City",
   category: "Stand up Comedy",
@@ -306,7 +306,7 @@ const shows = [
 {
   id: 33,
   title: "Weekend Comedy Special",
-  image: "https://source.unsplash.com/400x300/?comedy,event",
+  image: "https://nettv4u.com/imagine/18-07-2019/weekend-comedy.jpg",
   date: "Thu, 19 May",
   venue: "Indiranagar",
   category: "Stand up Comedy",
