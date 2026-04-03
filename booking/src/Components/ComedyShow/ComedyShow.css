@@ -492,3 +492,57 @@ body {
 .arrow.right {
   right: 30px !important;  /* 🔥 move inside from right */
 }
+
+/* ===== FIX FOOTER TO MATCH BOOKMYSHOW ===== */
+
+div[style*="background: #2b2b2b"] {
+  padding: 40px 80px !important;
+}
+
+/* TOP BAR */
+div[style*="background: #3a3a3a"] {
+  padding: 25px !important;
+  border-radius: 10px !important;
+}
+
+/* TEXT SPACING */
+div[style*="background: #2b2b2b"] p {
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+/* ICON SECTION */
+div[style*="justifyContent: space-around"] {
+  padding: 35px 0 !important;
+  border-bottom: 1px solid #444;
+}
+
+div[style*="justifyContent: space-around"] div {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* HEADINGS */
+div[style*="background: #2b2b2b"] h4 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-top: 20px;
+}
+
+/* CENTER LOGO */
+div[style*="book"] {
+  margin: 30px 0 !important;
+  font-size: 26px !important;
+}
+
+/* SOCIAL ICONS */
+div[style*="justifyContent: center"] {
+  gap: 20px !important;
+  margin-top: 10px;
+}
+
+/* COPYRIGHT */
+div[style*="textAlign: center"] p {
+  font-size: 12px;
+  margin-top: 15px;
+}
