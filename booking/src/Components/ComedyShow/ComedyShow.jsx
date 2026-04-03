@@ -276,6 +276,99 @@ export default function ComedyShow() {
           </div>
         </div>
       </div>
+      {/* ===== FOOTER START ===== */}
+<div style={{ background: "#2b2b2b", color: "#ccc", padding: "20px 40px", marginTop: "40px" }}>
+
+  <div style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    background: "#3a3a3a",
+    padding: "15px",
+    borderRadius: "6px"
+  }}>
+    <div>
+      <span style={{ color: "#fff", fontWeight: "bold" }}>🎭 List your Show</span>
+      <p style={{ color: "#bbb", marginTop: "5px" }}>
+        Got a show, event, activity or a great experience? Partner with us & get listed on BookMyShow
+      </p>
+    </div>
+
+    <button style={{
+      background: "#ff2c55",
+      border: "none",
+      padding: "10px 20px",
+      borderRadius: "6px",
+      color: "#fff",
+      cursor: "pointer"
+    }}>
+      Contact today!
+    </button>
+  </div>
+
+  <div style={{
+    display: "flex",
+    justifyContent: "space-around",
+    textAlign: "center",
+    padding: "20px 0",
+    borderBottom: "1px solid #444"
+  }}>
+    <div>👤<p>24/7 CUSTOMER CARE</p></div>
+    <div>🎟️<p>RESEND BOOKING CONFIRMATION</p></div>
+    <div>📩<p>SUBSCRIBE TO THE NEWSLETTER</p></div>
+  </div>
+
+  <div style={{ marginTop: "20px" }}>
+    <h4 style={{ color: "#aaa" }}>BOOK YOUR CALENDER</h4>
+    <p style={{ color: "#777" }}>
+      Stand up Comedy happening Today | Stand up Comedy happening Tomorrow | Stand up Comedy happening This Weekend
+    </p>
+
+    <h4 style={{ color: "#aaa", marginTop: "15px" }}>EVENTS</h4>
+    <p style={{ color: "#777" }}>
+      Music Shows | Kids | Workshops | Comedy Shows | Exhibitions | Beer Festival | Meetups | New Year Parties | Conferences | Award shows
+    </p>
+
+    <h4 style={{ color: "#aaa", marginTop: "15px" }}>HELP</h4>
+    <p style={{ color: "#777" }}>
+      About Us | Contact Us | FAQs | Terms and Conditions | Privacy Policy
+    </p>
+  </div>
+
+  <div style={{
+    textAlign: "center",
+    margin: "20px 0",
+    fontSize: "22px",
+    color: "#fff"
+  }}>
+    book<span style={{ color: "red" }}>my</span>show
+  </div>
+
+  <div style={{
+    display: "flex",
+    justifyContent: "center",
+    gap: "15px",
+    fontSize: "18px",
+    color: "#aaa"
+  }}>
+    <span>f</span>
+    <span>x</span>
+    <span>📷</span>
+    <span>▶</span>
+    <span>p</span>
+    <span>in</span>
+  </div>
+
+  <p style={{
+    textAlign: "center",
+    marginTop: "15px",
+    color: "#666"
+  }}>
+    Copyright 2026 © Bigtree Entertainment Pvt. Ltd. All Rights Reserved.
+  </p>
+
+</div>
+{/* ===== FOOTER END ===== */}
     </>
   );
 }
