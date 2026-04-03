@@ -102,3 +102,36 @@
 input::placeholder {
   color: white;
 }
+/* ===== FIX TEXT VISIBILITY ===== */
+
+/* Fix input text */
+input {
+  color: black !important;
+}
+
+/* Fix placeholder (override white) */
+input::placeholder {
+  color: #555 !important;
+}
+
+/* Search popup / modal fix */
+.search-modal,
+.search-modal * {
+  color: black !important;
+}
+
+/* Location popup fix */
+.location-modal,
+.location-modal * {
+  color: black !important;
+}
+
+/* Ensure inputs have white background */
+input {
+  background-color: #fff !important;
+}
+
+/* Optional: trending list text */
+.trending-item {
+  color: black !important;
+}
