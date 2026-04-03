@@ -114,6 +114,7 @@ const Navbar = ({ onLoginClick }) => {
                     handleSearch();
                   }
                 }}
+                style={{ color: "#000", background: "#fff" }}
               />
             </div>
           </div>
@@ -133,12 +134,10 @@ const Navbar = ({ onLoginClick }) => {
         </div>
       </nav>
 
-      {/* SECOND NAVBAR */}
       <div className="sub-navbar">
         <div className="container">
 
           <div className="sub-left">
-
             <Link to="/movies" className="sub-link">
               <FaFilm size={20} />
               <span className="tooltip">Movies</span>
@@ -158,11 +157,9 @@ const Navbar = ({ onLoginClick }) => {
               <FaFutbol size={20} />
               <span className="tooltip">Sports</span>
             </Link>
-
           </div>
 
           <div className="sub-right">
-
             <Link to="/adventure" className="sub-link">
               <FaHiking size={20} />
               <span className="tooltip">Adventure</span>
@@ -182,7 +179,6 @@ const Navbar = ({ onLoginClick }) => {
               <FaTicketAlt size={20} />
               <span className="tooltip">Events</span>
             </Link>
-
           </div>
 
         </div>
@@ -217,12 +213,13 @@ const Navbar = ({ onLoginClick }) => {
               background: "#fff",
               borderRadius: "12px",
               padding: "20px",
+              color: "#000"
             }}
           >
             <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
               <span
                 onClick={() => setShowSearchPage(false)}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer", color: "#000" }}
               >
                 ←
               </span>
@@ -236,6 +233,8 @@ const Navbar = ({ onLoginClick }) => {
                   padding: "10px",
                   borderRadius: "20px",
                   border: "1px solid #ccc",
+                  color: "#000",
+                  background: "#fff"
                 }}
               />
             </div>
@@ -260,7 +259,7 @@ const Navbar = ({ onLoginClick }) => {
                       background:
                         searchText === cat.toLowerCase() ? "#ff4d4d" : "#fff",
                       color:
-                        searchText === cat.toLowerCase() ? "#fff" : "#333",
+                        searchText === cat.toLowerCase() ? "#fff" : "#000",
                       cursor: "pointer",
                     }}
                   >
@@ -274,9 +273,7 @@ const Navbar = ({ onLoginClick }) => {
               TRENDING SEARCHES
             </h4>
 
-            {(
-              categoryData[searchText.toLowerCase()] || categoryData["movies"]
-            )
+            {(categoryData[searchText.toLowerCase()] || categoryData["movies"])
               .slice(0, 6)
               .map((item, i) => (
                 <div
@@ -295,8 +292,8 @@ const Navbar = ({ onLoginClick }) => {
                     cursor: "pointer",
                   }}
                 >
-                  <span>{item}</span>
-                  <span>🎬</span>
+                  <span style={{ color: "#000" }}>{item}</span>
+                  <span style={{ color: "#000" }}>🎬</span>
                 </div>
               ))}
           </div>
