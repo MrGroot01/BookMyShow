@@ -1349,4 +1349,4 @@ export default function Adventure() {
       {modalPlace && <PlaceModal place={modalPlace} onClose={closePlace} />}
     </div>
   );
-}
+}2

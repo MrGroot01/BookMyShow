@@ -1,39 +1,41 @@
-/* NAVBAR */
+
 .navbar {
-  width: 100%;
-  background: #ffffff;
-  border-bottom: 1px solid #ddd;
+  background: #de0643;
+  padding: 10px 0;
+  border-bottom: 1px solid #de0643;
 }
 
 .container {
+  width: 90%;
+  margin: auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
+  justify-content: space-between;
 }
 
-/* LEFT */
+/* LEFT SECTION */
 .nav-left {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
+/* LOGO */
 .logo img {
-  height: 40px;
-  cursor: pointer;
+  width: 40px;
 }
 
 /* SEARCH */
 .nav-search input {
-  width: 350px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  color: black;
+  width: 400px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
   outline: none;
 }
 
-/* RIGHT */
+/* RIGHT SECTION */
 .nav-right {
   display: flex;
   align-items: center;
@@ -42,68 +44,139 @@
 
 .nav-location {
   cursor: pointer;
+  color: white;
 }
 
-/* BUTTON */
 .login-btn {
-  background: #f84464;
-  color: white;
+  background: #de0643;
   border: none;
-  padding: 6px 14px;
-  border-radius: 5px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: white;
   cursor: pointer;
 }
 
-/* SUB NAV */
+/* SECOND NAVBAR */
 .sub-navbar {
-  background: #fff;
-  border-bottom: 1px solid #eee;
-}
-
-.sub-navbar .container {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 40px;
+  background:#de0643 ;
+  padding: 10px 0;
 }
 
 .sub-left,
 .sub-right {
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
-.sub-link {
-  color: #333;
-  transition: 0.2s;
-}
-
-.sub-link:hover {
-  color: #f84464;
-  transform: scale(1.2);
-}
-/* TOOLTIP STYLE */
+/* ICON LINKS */
 .sub-link {
   position: relative;
+  color: rgb(9, 8, 8);
+  text-decoration: none;
+  font-size: 18px;
 }
 
-/* TOOLTIP */
+/* TOOLTIP (THIS MATCHES YOUR REQUIREMENT) */
 .tooltip {
   position: absolute;
-  top: -30px; /* ✅ move above */
+  top: -22px;
   left: 50%;
   transform: translateX(-50%);
-  background: black;
-  color: white;
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 5px;
+  font-size: 11px;
   opacity: 0;
-  pointer-events: none;
   transition: 0.3s;
+  color: white;
   white-space: nowrap;
 }
 
-/* SHOW ON HOVER */
+/* HOVER EFFECT */
 .sub-link:hover .tooltip {
   opacity: 1;
+}
+
+.sub-link:hover {
+  color: #ff2c55;
+}
+
+/* SEARCH POPUP FIX */
+input::placeholder {
+  color: white;
+}
+/* ===== FIX TEXT VISIBILITY ===== */
+
+/* Fix input text */
+input {
+  color: black !important;
+}
+
+/* Fix placeholder (override white) */
+input::placeholder {
+  color: #555 !important;
+}
+
+/* Search popup / modal fix */
+.search-modal,
+.search-modal * {
+  color: black !important;
+}
+
+/* Location popup fix */
+.location-modal,
+.location-modal * {
+  color: black !important;
+}
+
+/* Ensure inputs have white background */
+input {
+  background-color: #fff !important;
+}
+
+/* Optional: trending list text */
+.trending-item {
+  color: black !important;
+}
+/* ===== FORCE TEXT VISIBILITY IN SEARCH POPUP ===== */
+
+/* Fix search input text */
+.search-modal input {
+  color: #000 !important;
+  background: #fff !important;
+}
+
+/* Fix placeholder */
+.search-modal input::placeholder {
+  color: #666 !important;
+}
+
+/* Fix trending heading */
+.search-modal h3,
+.search-modal .trending-title {
+  color: #ff2c55 !important;
+  font-weight: bold;
+}
+
+/* Fix trending items (MAIN ISSUE) */
+.search-modal .trending-item,
+.search-modal .search-item,
+.search-modal li {
+  color: #000 !important;
+  background: #f5f5f5 !important;
+  opacity: 1 !important;
+}
+
+/* Fix faded text inside items */
+.search-modal .trending-item * {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+/* Remove transparency issue */
+.search-modal {
+  opacity: 1 !important;
+}
+
+/* Chips fix */
+.search-modal .chip {
+  color: #000 !important;
+  background: #eee !important;
 }

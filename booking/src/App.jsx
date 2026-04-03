@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
+
 import Navbar from "./NavBar/Navbar";
 import Homepage from "./Components/HomePage/Homepage";
 import Movies from "./Components/Movies/Movies";
@@ -10,9 +11,14 @@ import EventDetails from "./Components/ComedyShow/EventDetails";
 import Sports from "./Components/Sports/Sports";
 import Adventure from "./Components/Adventure/Adventure";
 import Kids from "./Components/Kids/Kids";
+import Cupons from "./Components/Cupons/Cupons";
+import Events from "./Components/Events/Events";
 
 // ✅ Only ONE import for login modal
 import LoginModal from "./NavBar/Login/Login";
+// import AdventureDetails from "./Components/Adventure/AdventureDetails";
+// import Booking from "./Components/Adventure/Booking";
+// import BookingHistory from "./Components/Adventure/BookingHistory";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,6 +40,7 @@ const App = () => {
       <Navbar onLoginClick={() => setOpenLogin(true)} />
 
       <Routes>
+        
         <Route path="/" element={<Homepage />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/concerts" element={<Concerts />} />
@@ -41,7 +48,12 @@ const App = () => {
         <Route path="/event/:id" element={<EventDetails />} /> {/* ✅ important */}
         <Route path="/sports" element={<Sports />} />
         <Route path="/adventure" element={<Adventure />} />
+        {/* <Route path="/details/:id" element={<AdventureDetails />} /> */}
+        {/* <Route path="/booking/:id" element={<Booking />} /> */}
+        {/* <Route path="/bookings" element={<BookingHistory />} /> */}
         <Route path="/kids" element={<Kids />} />
+        <Route path="/Cupons" element={<Cupons />} />
+        <Route path="/Events" element={<Events />} />
       </Routes>
 
       {/* ✅ Login Popup */}

@@ -736,4 +736,5 @@ body::after {
   .mvp-card-title { font-size: 1rem; }
   .mvp-tc { flex: 0 0 136px; }
   .mvp-stats { grid-template-columns: repeat(2,1fr); gap: 8px; }
+  
 }

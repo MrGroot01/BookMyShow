@@ -1,133 +1,374 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ComedyShow.css";
 import shows from "../../data/ShowsData";
 
 export default function ComedyShow() {
-  
   const navigate = useNavigate();
+
   const [activeCategory, setActiveCategory] = useState("Stand up Comedy");
+  const [openSection, setOpenSection] = useState(null);
+
+  const toggleSection = (section) => {
+    setOpenSection(openSection === section ? null : section);
+  };
+
+  const slides = [
+    {
+      image: "https://images.unsplash.com/photo-1527224538127-2104bb71c51b",
+      title: "Standup Night",
+      subtitle: "Laugh Out Loud",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91",
+      title: "Comedy Festival",
+      subtitle: "Best Comedians Live",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1515169067868-5387ec356754",
+      title: "Open Mic Nights",
+      subtitle: "Fresh Talent & Fun",
+    },
+
+    /* ✅ ADDED MORE SLIDES */
+    {
+      image: "https://images.unsplash.com/photo-1497032205916-ac775f0649ae",
+      title: "Live Laugh Show",
+      subtitle: "Ultimate Comedy",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4",
+      title: "Standup Stars",
+      subtitle: "Top Performers",
+    },
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  /* ✅ ADDED MANUAL CONTROLS */
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) =>
+      prev === 0 ? slides.length - 1 : prev - 1
+    );
+  };
 
   const filteredShows =
     activeCategory === "All"
       ? shows
       : shows.filter(
-          (show) =>
-            show.category &&
-            show.category.trim() === activeCategory
+          (show) => show.category && show.category.trim() === activeCategory
         );
 
   return (
-    <div className="main-container">
+    <>
+      <div className="slider-wrapper">
 
-      {/* LEFT FILTER */}
-      <div className="filters">
-        <h2>Filters</h2>
+        {/* ✅ LEFT ARROW */}
+        <div className="arrow left" onClick={prevSlide}>❮</div>
 
-        <div className="filter-box">
-          <div className="filter-header">
-            <span>Date</span>
-            <span className="clear">Clear</span>
+        {/* ✅ RIGHT ARROW */}
+        <div className="arrow right" onClick={nextSlide}>❯</div>
+
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`slide ${index === currentSlide ? "active" : ""}`}
+            style={{ backgroundImage: `url(${slide.image})` }}
+          >
+            <div className="slide-overlay">
+              <h1>{slide.title}</h1>
+              <p>{slide.subtitle}</p>
+
+              {/* ✅ ADDED BOTTOM LEFT CONTENT */}
+              <div className="bottom-content">
+                <div className="rating">
+                  ⭐ 8.7 <span>(75K)</span> • 2h 30m • Kannada
+                </div>
+
+                <div className="tags">
+                  <span>2D</span>
+                  <span>IMAX</span>
+                  <span>4DX</span>
+                </div>
+
+                <button className="book-btn">
+                  🎟 Book Tickets
+                </button>
+              </div>
+            </div>
           </div>
+        ))}
 
-          <div className="buttons">
-            <button>Today</button>
-            <button>Tomorrow</button>
-            <button>This Weekend</button>
-          </div>
-
-          <label>
-            <input type="checkbox" /> Date Range
-          </label>
-        </div>
-
-        <div className="filter-item">
-          <span>Language</span>
-          <span className="clear">Clear</span>
-        </div>
-
-        <div className="filter-item">
-          <span>Categories</span>
-          <span className="clear">Clear</span>
-        </div>
-
-        <div className="filter-item">
-          <span>More Filters</span>
-          <span className="clear">Clear</span>
-        </div>
-
-        <div className="filter-item">
-          <span>Price</span>
-          <span className="clear">Clear</span>
-        </div>
-
-        <button className="browse-btn">Browse by Venues</button>
-      </div>
-
-      {/* RIGHT CONTENT */}
-      <div className="content">
-        <h2 className="heading">Comedy Shows In Bengaluru</h2>
-
-        {/* CATEGORY PILLS */}
-        <div className="pills">
-          {[
-            "Stand up Comedy",
-            "Open Mic Comedy",
-            "Improv Comedy",
-            "Surprise Act",
-            "Roast",
-            "Sketch",
-          ].map((cat) => (
+        <div className="slider-dots">
+          {slides.map((_, index) => (
             <span
-              key={cat}
-              className={activeCategory === cat ? "active" : ""}
-              onClick={() => setActiveCategory(cat)}
-            >
-              {cat}
-            </span>
+              key={index}
+              className={`dot ${index === currentSlide ? "active-dot" : ""}`}
+              onClick={() => setCurrentSlide(index)}
+            />
           ))}
         </div>
+      </div>
 
-        {/* CARDS */}
-        <div className="grid">
-          {filteredShows.length > 0 ? (
-            filteredShows.map((show) => (
-              <div
-                key={show.id}
-                className="card"
-                onClick={() => navigate(`/event/${show.id}`)}
-              >
-                <div className="image-box">
+      {/* EXISTING CODE — UNCHANGED BELOW */}
 
-                  {/* PROMOTED */}
-                  {show.id === 1 && (
-                    <div className="promoted">PROMOTED</div>
-                  )}
+      {/* EXISTING CODE — UNCHANGED */}
+      <div className="main-container">
 
-                  <img
-                    src={show.image}
-                    alt={show.title}
-                    onError={(e) =>
-                      (e.target.src = "https://picsum.photos/400/600")
-                    }
-                  />
+        <div className="filters">
+          <h2>Filters</h2>
 
-                  <div className="date">{show.date}</div>
-                </div>
+          <div className="filter-box">
+            <div className="filter-header">
+              <span>Date</span>
+              <span className="clear">Clear</span>
+            </div>
+            <div className="buttons">
+              <button>Today</button>
+              <button>Tomorrow</button>
+              <button>This Weekend</button>
+            </div>
+            <label>
+              <input type="checkbox" /> Date Range
+            </label>
+          </div>
 
-                <div className="card-content">
-                  <h3>{show.title || "Comedy Show"}</h3>
-                  <p className="venue">{show.venue || "Bengaluru"}</p>
-                  <p className="category">{show.category || "Stand up Comedy"}</p>
-                  <p className="price">{show.price || "₹199 onwards"}</p>
-                </div>
+          <div className="filter-box">
+            <div className="filter-header" onClick={() => toggleSection("language")}>
+              <span className="title">
+                {openSection === "language" ? "⌃" : "⌄"} Language
+              </span>
+              <span className="clear">Clear</span>
+            </div>
+            {openSection === "language" && (
+              <div className="buttons">
+                <button>English</button>
+                <button>Hindi</button>
+                <button>Hinglish</button>
+                <button>Kannada</button>
+                <button>Tamil</button>
+                <button>Telugu</button>
+                <button>Malayalam</button>
+                <button>Bengali</button>
               </div>
-            ))
-          ) : (
-            <h3>No shows found</h3>
-          )}
+            )}
+          </div>
+
+          <div className="filter-box">
+            <div className="filter-header" onClick={() => toggleSection("category")}>
+              <span className="title">
+                {openSection === "category" ? "⌃" : "⌄"} Categories
+              </span>
+              <span className="clear">Clear</span>
+            </div>
+            {openSection === "category" && (
+              <div className="buttons">
+                <button>Stand up Comedy</button>
+                <button>Open Mic Comedy</button>
+                <button>Improv Comedy</button>
+                <button>Surprise Act</button>
+                <button>Roast</button>
+                <button>Sketch</button>
+              </div>
+            )}
+          </div>
+
+          <div className="filter-box">
+            <div className="filter-header" onClick={() => toggleSection("more")}>
+              <span className="title">
+                {openSection === "more" ? "⌃" : "⌄"} More Filters
+              </span>
+              <span className="clear">Clear</span>
+            </div>
+            {openSection === "more" && (
+              <div className="buttons">
+                <button>Outdoor Events</button>
+                <button>Fast Filling</button>
+                <button>Must Attend</button>
+                <button>Online Streaming</button>
+                <button>Unmissable Events</button>
+              </div>
+            )}
+          </div>
+
+          <div className="filter-box">
+            <div className="filter-header" onClick={() => toggleSection("price")}>
+              <span className="title">
+                {openSection === "price" ? "⌃" : "⌄"} Price
+              </span>
+              <span className="clear">Clear</span>
+            </div>
+            {openSection === "price" && (
+              <div className="buttons">
+                <button>Free</button>
+                <button>0 - 500</button>
+                <button>501 - 2000</button>
+              </div>
+            )}
+          </div>
+
+          <button className="browse-btn">Browse by Venues</button>
+        </div>
+
+        <div className="content">
+          <h2 className="heading">Comedy Shows In Bengaluru</h2>
+
+          <div className="pills">
+            {[
+              "Stand up Comedy",
+              "Open Mic Comedy",
+              "Improv Comedy",
+              "Surprise Act",
+              "Roast",
+              "Sketch",
+            ].map((cat) => (
+              <span
+                key={cat}
+                className={activeCategory === cat ? "active" : ""}
+                onClick={() => setActiveCategory(cat)}
+              >
+                {cat}
+              </span>
+            ))}
+          </div>
+
+          <div className="grid">
+            {filteredShows.length > 0 ? (
+              filteredShows.map((show) => (
+                <div
+                  key={show.id}
+                  className="card"
+                  onClick={() => navigate(`/event/${show.id}`)}
+                >
+                  <div className="image-box">
+                    {show.id === 1 && <div className="promoted">PROMOTED</div>}
+                    <img
+                      src={show.image}
+                      alt={show.title}
+                      onError={(e) =>
+                        (e.target.src = "https://picsum.photos/400/600")
+                      }
+                    />
+                    <div className="date">{show.date}</div>
+                  </div>
+                  <div className="card-content">
+                    <h3>{show.title || "Comedy Show"}</h3>
+                    <p className="venue">{show.venue || "Bengaluru"}</p>
+                    <p className="category">{show.category || "Stand up Comedy"}</p>
+                    <p className="price">{show.price || "₹199 onwards"}</p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <h3>No shows found</h3>
+            )}
+          </div>
         </div>
       </div>
+      {/* ===== FOOTER START ===== */}
+<div style={{ background: "#2b2b2b", color: "#ccc", padding: "20px 40px", marginTop: "40px" }}>
+
+  <div style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    background: "#3a3a3a",
+    padding: "15px",
+    borderRadius: "6px"
+  }}>
+    <div>
+      <span style={{ color: "#fff", fontWeight: "bold" }}>🎭 List your Show</span>
+      <p style={{ color: "#bbb", marginTop: "5px" }}>
+        Got a show, event, activity or a great experience? Partner with us & get listed on BookMyShow
+      </p>
     </div>
+
+    <button style={{
+      background: "#ff2c55",
+      border: "none",
+      padding: "10px 20px",
+      borderRadius: "6px",
+      color: "#fff",
+      cursor: "pointer"
+    }}>
+      Contact today!
+    </button>
+  </div>
+
+  <div style={{
+    display: "flex",
+    justifyContent: "space-around",
+    textAlign: "center",
+    padding: "20px 0",
+    borderBottom: "1px solid #444"
+  }}>
+    <div>👤<p>24/7 CUSTOMER CARE</p></div>
+    <div>🎟️<p>RESEND BOOKING CONFIRMATION</p></div>
+    <div>📩<p>SUBSCRIBE TO THE NEWSLETTER</p></div>
+  </div>
+
+  <div style={{ marginTop: "20px" }}>
+    <h4 style={{ color: "#aaa" }}>BOOK YOUR CALENDER</h4>
+    <p style={{ color: "#777" }}>
+      Stand up Comedy happening Today | Stand up Comedy happening Tomorrow | Stand up Comedy happening This Weekend
+    </p>
+
+    <h4 style={{ color: "#aaa", marginTop: "15px" }}>EVENTS</h4>
+    <p style={{ color: "#777" }}>
+      Music Shows | Kids | Workshops | Comedy Shows | Exhibitions | Beer Festival | Meetups | New Year Parties | Conferences | Award shows
+    </p>
+
+    <h4 style={{ color: "#aaa", marginTop: "15px" }}>HELP</h4>
+    <p style={{ color: "#777" }}>
+      About Us | Contact Us | FAQs | Terms and Conditions | Privacy Policy
+    </p>
+  </div>
+
+  <div style={{
+    textAlign: "center",
+    margin: "20px 0",
+    fontSize: "22px",
+    color: "#fff"
+  }}>
+    book<span style={{ color: "red" }}>my</span>show
+  </div>
+
+  <div style={{
+    display: "flex",
+    justifyContent: "center",
+    gap: "15px",
+    fontSize: "18px",
+    color: "#aaa"
+  }}>
+    <span>f</span>
+    <span>x</span>
+    <span>📷</span>
+    <span>▶</span>
+    <span>p</span>
+    <span>in</span>
+  </div>
+
+  <p style={{
+    textAlign: "center",
+    marginTop: "15px",
+    color: "#666"
+  }}>
+    Copyright 2026 © Bigtree Entertainment Pvt. Ltd. All Rights Reserved.
+  </p>
+
+</div>
+{/* ===== FOOTER END ===== */}
+    </>
   );
 }

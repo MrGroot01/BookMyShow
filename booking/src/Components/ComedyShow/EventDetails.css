@@ -54,7 +54,7 @@
 /* ===== TAGS ===== */
 .tags span {
   background: #2c2c54;
-  color: white;
+  color: black;
   padding: 6px 10px;
   border-radius: 6px;
   margin-right: 10px;
@@ -314,3 +314,140 @@
 .arrow.right {
   right: -20px;
 }
+/* 🔥🔥 ADDITIONS START HERE (DO NOT REMOVE YOUR CODE ABOVE) */
+
+/* Prevent overflow issues */
+* {
+  box-sizing: border-box;
+}
+
+/* Center page properly */
+.page-wrapper {
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* 🔥 LAYOUT RESPONSIVE FIX */
+@media (max-width: 1024px) {
+  .event-left {
+    width: 65%;
+  }
+
+  .event-right {
+    width: 35%;
+  }
+}
+
+/* 🔥 MOBILE VIEW (IMPORTANT) */
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding: 15px;
+  }
+
+  .event-container {
+    flex-direction: column;
+  }
+
+  .event-left,
+  .event-right {
+    width: 100%;
+  }
+
+  /* Booking box full width */
+  .booking-box {
+    position: relative;
+    top: 0;
+  }
+
+  /* Header alignment */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Image resize */
+  .main-image {
+    height: 280px;
+  }
+
+  /* Tags wrap */
+  .tags {
+    flex-wrap: wrap;
+  }
+
+  /* Interest section stack */
+  .interest {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* 🔥 SMALL MOBILE */
+@media (max-width: 480px) {
+  .main-image {
+    height: 220px;
+  }
+
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .popup {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .popup.large {
+    width: 95%;
+  }
+}
+
+/* 🔥 POPUP RESPONSIVE FIX */
+@media (max-width: 768px) {
+  .steps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step img {
+    width: 180px;
+    height: 320px;
+  }
+}
+
+/* 🔥 CAROUSEL MOBILE FIX */
+@media (max-width: 768px) {
+  .arrow {
+    display: none;
+  }
+
+  .rec-card {
+    min-width: 140px;
+  }
+
+  .rec-card img {
+    height: 200px;
+  }
+}
+/* 🔥 FIX FADED TEXT ISSUE (GLOBAL FOR PAGE) */
+.page-wrapper,
+.event-container,
+.event-left,
+.event-right {
+  opacity: 1 !important;
+  color: #000 !important;
+}
+
+/* Fix all text inside event page */
+.page-wrapper * {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+/* 🔥 Fix category buttons */
+.tags span,
+.category-btn,
+button {
+  color: #fff !important;
+}
+/* 🔥 FORCE DESKTOP VIEW SUPPORT (OPTION 1) */
