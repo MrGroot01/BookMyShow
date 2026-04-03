@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Location.css";
@@ -8,12 +10,14 @@ const Location = ({ setShowLocation, setLocation }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
+  // ✅ HANDLE CITY CLICK
   const handleCityClick = (cityName) => {
     setLocation(cityName);
     setShowLocation(false);
     navigate("/movies");
   };
 
+  // ✅ CURRENT LOCATION
   const handleCurrentLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (position) => {
@@ -40,81 +44,118 @@ const Location = ({ setShowLocation, setLocation }) => {
     }
   };
 
-  const cities = [ /* SAME */ ];
-  const otherCities = [ /* SAME */ ];
+  // ✅ POPULAR CITIES
+   const cities = [
+    {
+      name: "Bengaluru",
+      img: "https://mir-s3-cdn-cf.behance.net/project_modules/hd/2d2d1c41951119.57bd38bb0b959.png",
+    },
+    {
+      name: "Mumbai",
+      img: "https://as1.ftcdn.net/jpg/02/81/01/82/1000_F_281018227_nFn3vIYTQ14Yg2Yvz55GNM2sh5tzhGrK.jpg",
+    },
+    {
+      name: "Delhi NCR",
+      img: "https://cdn.iconscout.com/icon/free/png-256/free-india-gate-icon-svg-download-png-161357.png",
+    },
+    {
+      name: "Hyderabad",
+      img: "https://cdn-icons-png.flaticon.com/512/2160/2160071.png",
+    },
+    {
+      name: "Chennai",
+      img: "https://as2.ftcdn.net/jpg/06/59/77/15/1000_F_659771515_wTMYftHlWGdQRxTQJiLdfOdPb54vsyIW.jpg",
+    },
+    {
+      name: "Kolkata",
+      img: "https://as1.ftcdn.net/jpg/02/81/01/82/1000_F_281018202_g9sN7xwFfYrds9Rsgp8UwaUNEvcaKOoq.jpg",
+    },
+    {
+      name: "Jaipur",
+      img: "https://mir-s3-cdn-cf.behance.net/project_modules/hd/e8a28741951119.57bd38bb0a76e.png",
+    },
+    {
+      name: "Pune",
+      img: "https://cdn-icons-png.flaticon.com/512/16025/16025176.png",
+    },
+    {
+      name: "Ahemdabad",
+      img: "https://cdn.iconscout.com/icon/free/png-256/free-jhulta-minar-icon-svg-download-png-119680.png",
+    },
+    {
+      name: "Chandigarh",
+      img: "https://static.thenounproject.com/png/996704-200.png",
+    },
+    {
+      name: "Lucknow",
+      img: "https://thumbs.dreamstime.com/b/lucknow-city-bara-imambara-icon-as-eps-file-lucknow-city-bara-imambara-icon-299615227.jpg",
+    },
+     {
+      name: "Rajasthan",
+      img: "https://static.thenounproject.com/png/3925325-200.png",
+    },
+  ];
 
+  // ✅ OTHER CITIES
+  const otherCities = [
+    ["Aalo", "Addanki", "Agar Malwa", "Ahmedgarh", "Akbarpur", "Alakode", "Alibaug"],
+    ["Abohar", "Adilabad", "Agartala", "Ahore", "Akividu", "Alangudi", "Aligarh"],
+    ["Abu Road", "Adimali", "Agiripalli", "Aizawl", "Akluj", "Alangulam", "Alipurduar"],
+    ["Achampet", "Adipur", "Agra", "Ajmer", "Akola", "Alappuzha", "Allagadda"],
+    ["Acharapakkam", "Adoni", "Ahilyanagar", "Akaltara", "Akot", "Alathur", "Almora"]
+  ];
+
+  // ✅ SEARCH FILTER
   const filteredCities = cities.filter((city) =>
     city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     searchTerm.toLowerCase().includes(city.name.toLowerCase())
   );
 
   return (
-    <div
-      className="modal-overlay"
-      onClick={() => setShowLocation(false)}
-      style={{ background: "rgba(0,0,0,0.4)" }}   /* ✅ ADDED */
-    >
+    <div className="modal-overlay" onClick={() => setShowLocation(false)}>
 
-      <div
-        className="modal-container"
-        onClick={(e) => e.stopPropagation()}
-        style={{ background: "#fff", color: "#000" }}  /* ✅ ADDED */
-      >
+      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
 
-        <h2 style={{ color: "#000" }}>Select Location</h2>
+        <h2>Select Location</h2>
 
+        {/* SEARCH */}
         <input
           className="city-search"
           placeholder="Search city, area or locality"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          style={{
-            color: "#000",          /* ✅ ADDED */
-            background: "#fff",     /* ✅ ADDED */
-            border: "1px solid #ccc"
-          }}
         />
 
-        <p
-          className="current-location"
-          onClick={handleCurrentLocation}
-          style={{ color: "#007bff" }}   /* ✅ ADDED */
-        >
+        {/* CURRENT LOCATION */}
+        <p className="current-location" onClick={handleCurrentLocation}>
           📍 Use Current Location
         </p>
 
-        <h3 style={{ color: "#000" }}>Popular Cities</h3>
+        <h3>Popular Cities</h3>
 
+        {/* POPULAR */}
         <div className="city-grid">
           {filteredCities.map((city) => (
             <div
               key={city.name}
               className="city-card"
               onClick={() => handleCityClick(city.name)}
-              style={{ color: "#000" }}   /* ✅ ADDED */
             >
               <img src={city.img} alt={city.name} />
-              <p style={{ color: "#000" }}>{city.name}</p>
+              <p>{city.name}</p>
             </div>
           ))}
         </div>
 
-        {showAllCities && (
-          <h3 className="other-title" style={{ color: "#000" }}>
-            Other Cities
-          </h3>
-        )}
+        {/* OTHER */}
+        {showAllCities && <h3 className="other-title">Other Cities</h3>}
 
         {showAllCities && (
           <div className="other-cities">
             {otherCities.map((group, i) => (
               <div key={i}>
                 {group.map((city) => (
-                  <p
-                    key={city}
-                    onClick={() => handleCityClick(city)}
-                    style={{ color: "#000" }}   /* ✅ ADDED */
-                  >
+                  <p key={city} onClick={() => handleCityClick(city)}>
                     {city}
                   </p>
                 ))}
@@ -123,10 +164,10 @@ const Location = ({ setShowLocation, setLocation }) => {
           </div>
         )}
 
+        {/* TOGGLE */}
         <p
           className="hide-cities"
           onClick={() => setShowAllCities(!showAllCities)}
-          style={{ color: "#000" }}   /* ✅ ADDED */
         >
           {showAllCities ? "Hide all cities" : "Show all cities"}
         </p>

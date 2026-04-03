@@ -88,3 +88,45 @@
   margin-top: 20px;
   cursor: pointer;
 }
+/* ===== FIX TEXT VISIBILITY WITHOUT BREAKING LAYOUT ===== */
+
+/* Fix modal text */
+.modal-container {
+  color: #000 !important;
+  background: #fff !important;
+}
+
+/* Fix headings */
+.modal-container h2,
+.modal-container h3 {
+  color: #000 !important;
+}
+
+/* Fix input */
+.city-search {
+  color: #000 !important;
+  background: #fff !important;
+  border: 1px solid #ccc !important;
+}
+
+/* Fix placeholder */
+.city-search::placeholder {
+  color: #666 !important;
+}
+
+/* Fix current location */
+.current-location {
+  color: #007bff !important;
+}
+
+/* Fix city names */
+.city-card p,
+.other-cities p,
+.hide-cities {
+  color: #000 !important;
+}
+
+/* IMPORTANT: remove fade effect */
+.modal-overlay {
+  opacity: 1 !important;
+}
