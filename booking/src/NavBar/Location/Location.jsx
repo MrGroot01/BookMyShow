@@ -40,8 +40,8 @@ const Location = ({ setShowLocation, setLocation }) => {
     }
   };
 
-  const cities = [ /* same as your code */ ];
-  const otherCities = [ /* same as your code */ ];
+  const cities = [ /* SAME */ ];
+  const otherCities = [ /* SAME */ ];
 
   const filteredCities = cities.filter((city) =>
     city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -49,7 +49,11 @@ const Location = ({ setShowLocation, setLocation }) => {
   );
 
   return (
-    <div className="modal-overlay" onClick={() => setShowLocation(false)}>
+    <div
+      className="modal-overlay"
+      onClick={() => setShowLocation(false)}
+      style={{ background: "rgba(0,0,0,0.4)" }}   /* ✅ ADDED */
+    >
 
       <div
         className="modal-container"
@@ -57,7 +61,7 @@ const Location = ({ setShowLocation, setLocation }) => {
         style={{ background: "#fff", color: "#000" }}  /* ✅ ADDED */
       >
 
-        <h2 style={{ color: "#000" }}>Select Location</h2> {/* ✅ ADDED */}
+        <h2 style={{ color: "#000" }}>Select Location</h2>
 
         <input
           className="city-search"
@@ -65,8 +69,8 @@ const Location = ({ setShowLocation, setLocation }) => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           style={{
-            color: "#000",        /* ✅ ADDED */
-            background: "#fff",   /* ✅ ADDED */
+            color: "#000",          /* ✅ ADDED */
+            background: "#fff",     /* ✅ ADDED */
             border: "1px solid #ccc"
           }}
         />
@@ -74,12 +78,12 @@ const Location = ({ setShowLocation, setLocation }) => {
         <p
           className="current-location"
           onClick={handleCurrentLocation}
-          style={{ color: "#007bff" }}  /* ✅ ADDED */
+          style={{ color: "#007bff" }}   /* ✅ ADDED */
         >
           📍 Use Current Location
         </p>
 
-        <h3 style={{ color: "#000" }}>Popular Cities</h3> {/* ✅ ADDED */}
+        <h3 style={{ color: "#000" }}>Popular Cities</h3>
 
         <div className="city-grid">
           {filteredCities.map((city) => (
@@ -87,10 +91,10 @@ const Location = ({ setShowLocation, setLocation }) => {
               key={city.name}
               className="city-card"
               onClick={() => handleCityClick(city.name)}
-              style={{ color: "#000" }}  /* ✅ ADDED */
+              style={{ color: "#000" }}   /* ✅ ADDED */
             >
               <img src={city.img} alt={city.name} />
-              <p style={{ color: "#000" }}>{city.name}</p> {/* ✅ ADDED */}
+              <p style={{ color: "#000" }}>{city.name}</p>
             </div>
           ))}
         </div>
@@ -109,7 +113,7 @@ const Location = ({ setShowLocation, setLocation }) => {
                   <p
                     key={city}
                     onClick={() => handleCityClick(city)}
-                    style={{ color: "#000" }}  /* ✅ ADDED */
+                    style={{ color: "#000" }}   /* ✅ ADDED */
                   >
                     {city}
                   </p>
@@ -122,7 +126,7 @@ const Location = ({ setShowLocation, setLocation }) => {
         <p
           className="hide-cities"
           onClick={() => setShowAllCities(!showAllCities)}
-          style={{ color: "#000" }}  /* ✅ ADDED */
+          style={{ color: "#000" }}   /* ✅ ADDED */
         >
           {showAllCities ? "Hide all cities" : "Show all cities"}
         </p>
