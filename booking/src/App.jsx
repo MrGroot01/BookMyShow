@@ -56,7 +56,6 @@ const App = () => {
         <Route path="/Events" element={<Events />} />
       </Routes>
 
-      {/* ✅ Login Popup */}
       {openLogin && <LoginModal close={() => setOpenLogin(false)} />}
     </>
   );
