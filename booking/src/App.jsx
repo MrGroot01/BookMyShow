@@ -14,7 +14,7 @@ import Kids from "./Components/Kids/Kids";
 import Cupons from "./Components/Cupons/Cupons";
 import Events from "./Components/Events/Events";
 
-// ✅ Only ONE import for login modal
+
 import LoginModal from "./NavBar/Login/Login";
 // import AdventureDetails from "./Components/Adventure/AdventureDetails";
 // import Booking from "./Components/Adventure/Booking";
